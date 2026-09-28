@@ -42,15 +42,41 @@ export interface VibeMatchUser {
   mutualDetails?: string;
 }
 
-export interface DiscussionPost {
+export type DiscussionTopic =
+  | "general"
+  | "music"
+  | "dress-code"
+  | "timing"
+  | "venue"
+  | "transport"
+  | "tickets"
+  | "crew"
+  | "solo"
+  | "other";
+
+export interface DiscussionReply {
   id: string;
   authorName: string;
   avatar: string;
-  badge?: string;
+  vibeScore: number;
   text: string;
   timestamp: string;
+  likesCount: number;
+}
+
+export interface DiscussionPost {
+  id: string;
+  eventId?: string;
+  authorName: string;
+  avatar: string;
+  badge?: string;
+  vibeScore?: number;
+  text: string;
+  timestamp: string;
+  topic?: DiscussionTopic;
   repliesCount: number;
   likesCount: number;
+  replies?: DiscussionReply[];
 }
 
 export interface EventCrew {
@@ -552,10 +578,44 @@ export const defaultEvent: DetailedEvent = {
       avatar:
         "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=120&auto=format&fit=crop",
       badge: "Regular",
+      vibeScore: 89,
       text: "Anyone heading out from HSR Layout? Looking to carpool or split an Uber around 9:30 PM!",
       timestamp: "2 hours ago",
-      repliesCount: 7,
+      topic: "transport",
+      repliesCount: 3,
       likesCount: 14,
+      replies: [
+        {
+          id: "r1-1",
+          authorName: "Kabir Mehta",
+          avatar:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop",
+          vibeScore: 84,
+          text: "Hey Kunal, I'm at 27th Main HSR. Happy to split a cab around 9:45 PM!",
+          timestamp: "1 hour ago",
+          likesCount: 4,
+        },
+        {
+          id: "r1-2",
+          authorName: "Kunal Verma",
+          avatar:
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=120&auto=format&fit=crop",
+          vibeScore: 89,
+          text: "Awesome, let's link up near the 27th main junction.",
+          timestamp: "45 mins ago",
+          likesCount: 2,
+        },
+        {
+          id: "r1-3",
+          authorName: "Siddharth Roy",
+          avatar:
+            "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=120&auto=format&fit=crop",
+          vibeScore: 85,
+          text: "Room for one more? Heading from Sector 2!",
+          timestamp: "20 mins ago",
+          likesCount: 1,
+        },
+      ],
     },
     {
       id: "d2",
@@ -563,10 +623,34 @@ export const defaultEvent: DetailedEvent = {
       avatar:
         "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=120&auto=format&fit=crop",
       badge: "Crew Host",
+      vibeScore: 88,
       text: "What is everyone wearing tonight? Is it casual sneaker friendly or strict dress shoes?",
-      timestamp: "4 hours ago",
-      repliesCount: 12,
+      timestamp: "3 hours ago",
+      topic: "dress-code",
+      repliesCount: 2,
       likesCount: 19,
+      replies: [
+        {
+          id: "r2-1",
+          authorName: "Aarav Sharma",
+          avatar:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop",
+          vibeScore: 87,
+          text: "XYZ Club is very sneaker friendly for techno nights. Monochrome street / all-black is standard.",
+          timestamp: "2 hours ago",
+          likesCount: 8,
+        },
+        {
+          id: "r2-2",
+          authorName: "Simran Kaur",
+          avatar:
+            "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=120&auto=format&fit=crop",
+          vibeScore: 88,
+          text: "Perfect, comfort first on the dancefloor. Thanks!",
+          timestamp: "1 hour ago",
+          likesCount: 3,
+        },
+      ],
     },
     {
       id: "d3",
@@ -574,10 +658,134 @@ export const defaultEvent: DetailedEvent = {
       avatar:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop",
       badge: "Solo Explorer",
+      vibeScore: 86,
       text: "First time going solo to XYZ Club. How welcoming is the vibe near the front booth?",
-      timestamp: "Yesterday",
-      repliesCount: 15,
-      likesCount: 26,
+      timestamp: "5 hours ago",
+      topic: "solo",
+      repliesCount: 3,
+      likesCount: 28,
+      replies: [
+        {
+          id: "r3-1",
+          authorName: "Meera Sen",
+          avatar:
+            "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=120&auto=format&fit=crop",
+          vibeScore: 88,
+          text: "I go solo frequently. The crowd here is strictly about the music, zero pretentiousness.",
+          timestamp: "4 hours ago",
+          likesCount: 11,
+        },
+        {
+          id: "r3-2",
+          authorName: "Nikhil Reddy",
+          avatar:
+            "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=120&auto=format&fit=crop",
+          vibeScore: 94,
+          text: "You can also join our Saturday Techno Crew if you want familiar faces before walking in!",
+          timestamp: "3 hours ago",
+          likesCount: 9,
+        },
+      ],
+    },
+    {
+      id: "d4",
+      authorName: "Dev Patel",
+      avatar:
+        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=120&auto=format&fit=crop",
+      badge: "DJ / Selector",
+      vibeScore: 95,
+      text: "What time is the headline DJ starting? Planning dinner in Koramangala before heading in.",
+      timestamp: "6 hours ago",
+      topic: "timing",
+      repliesCount: 2,
+      likesCount: 22,
+      replies: [
+        {
+          id: "r4-1",
+          authorName: "Ananya Rao",
+          avatar:
+            "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=120&auto=format&fit=crop",
+          vibeScore: 92,
+          text: "Doors open at 9 PM, opening set till 11 PM, then headliner plays an extended set till 2 AM!",
+          timestamp: "5 hours ago",
+          likesCount: 14,
+        },
+      ],
+    },
+    {
+      id: "d5",
+      authorName: "Priya Krishnan",
+      avatar:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=120&auto=format&fit=crop",
+      badge: "Regular",
+      vibeScore: 91,
+      text: "Are they playing pure warehouse Berlin techno or more melodic vibes later in the night?",
+      timestamp: "8 hours ago",
+      topic: "music",
+      repliesCount: 2,
+      likesCount: 17,
+      replies: [
+        {
+          id: "r5-1",
+          authorName: "Dev Patel",
+          avatar:
+            "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=120&auto=format&fit=crop",
+          vibeScore: 95,
+          text: "First 2 hours are deep hypnotic dub techno, peaking with industrial 138-142 BPM warehouse grooves.",
+          timestamp: "6 hours ago",
+          likesCount: 10,
+        },
+      ],
+    },
+    {
+      id: "d6",
+      authorName: "Tara D'souza",
+      avatar:
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=120&auto=format&fit=crop",
+      badge: "First Timer",
+      vibeScore: 90,
+      text: "Is there a physical ID check at the door or does DigiLocker / soft copy work?",
+      timestamp: "1 day ago",
+      topic: "venue",
+      repliesCount: 2,
+      likesCount: 11,
+      replies: [
+        {
+          id: "r6-1",
+          authorName: "Aarav Sharma",
+          avatar:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop",
+          vibeScore: 87,
+          text: "Physical government ID is strictly required by venue security. Don't risk photos or screenshots.",
+          timestamp: "22 hours ago",
+          likesCount: 7,
+        },
+      ],
+    },
+    {
+      id: "d7",
+      authorName: "Maya Sharma",
+      avatar:
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop",
+      badge: "Member",
+      vibeScore: 82,
+      text: "Is there a cover charge at the door if our group arrives after 11 PM?",
+      timestamp: "1 day ago",
+      topic: "tickets",
+      repliesCount: 1,
+      likesCount: 15,
+      replies: [
+        {
+          id: "r7-1",
+          authorName: "Kunal Verma",
+          avatar:
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=120&auto=format&fit=crop",
+          vibeScore: 89,
+          text: "General tickets purchased on VibeUp grant full entry anytime after 9 PM. Door rate is usually higher.",
+          timestamp: "1 day ago",
+          likesCount: 5,
+        },
+      ],
     },
   ],
   crews: [
