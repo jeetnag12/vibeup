@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #09090B;
+  --surface: #141418;
+  --card: #1A1A21;
+  --border: #2A2A35;
+  --primary: #8B5CF6;
+  --secondary: #EC4899;
+  --text: #FFFFFF;
+  --muted: #A1A1AA;
+  --success: #22C55E;
+  --error: #EF4444;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-space-grotesk), sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
