@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import EventCard, { EventCardProps } from "@/components/EventCard";
 
@@ -80,6 +81,7 @@ const trendingEvents: EventCardProps[] = [
 ];
 
 export default function TrendingSection() {
+  const router = useRouter();
   return (
     <section className="w-full py-[80px] bg-[#09090B]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
@@ -117,7 +119,17 @@ export default function TrendingSection() {
         {/* Event Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[20px]">
           {trendingEvents.map((event) => (
-            <EventCard key={event.title} {...event} />
+            <EventCard
+              key={event.title}
+              {...event}
+              onClick={() => {
+                const slug = event.title
+                  .toLowerCase()
+                  .replace(/[^a-z0-9]+/g, "-")
+                  .replace(/(^-|-$)/g, "");
+                router.push(`/events/${slug}`);
+              }}
+            />
           ))}
         </div>
       </div>

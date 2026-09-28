@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EventCard, { EventCardProps } from "@/components/EventCard";
@@ -317,6 +318,7 @@ const sortOptions = [
 ];
 
 export default function DiscoverPage() {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedArea, setSelectedArea] = useState("All Areas");
@@ -587,6 +589,7 @@ export default function DiscoverPage() {
                 <EventCard
                   key={event.id}
                   {...event}
+                  onClick={() => router.push(`/events/${event.id}`)}
                   onSaveToggle={(saved) => handleSaveToggle(event.id, saved)}
                 />
               ))}
