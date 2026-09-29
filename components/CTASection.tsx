@@ -68,7 +68,7 @@ export default function CTASection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-6">
           {/* Button 1 (primary) */}
           <Link
-            href="/join"
+            href="/signup"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-white font-sans text-[16px] transition-all duration-200 hover:opacity-95 hover:scale-[1.02] shadow-lg shadow-purple-500/25 shrink-0"
             style={{
               background: "linear-gradient(135deg, #8B5CF6, #EC4899)",

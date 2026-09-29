@@ -60,7 +60,7 @@ export default function Navbar() {
 
           {/* Sign In (Desktop) */}
           <Link
-            href="/signin"
+            href="/login"
             className="hidden sm:inline-flex text-[#A1A1AA] hover:text-white text-sm font-medium transition-colors duration-200 px-2 py-1"
           >
             Sign in
@@ -68,8 +68,8 @@ export default function Navbar() {
 
           {/* Join VibeUp Button (Visible on Desktop & Mobile) */}
           <Link
-            href="/join"
-            className="inline-flex items-center justify-center text-white text-sm font-medium rounded-[8px] bg-[#8B5CF6] hover:bg-[#7C3AED] transition-colors duration-200 shadow-sm"
+            href="/signup"
+            className="inline-flex items-center justify-center text-white text-sm font-medium rounded-[8px] bg-[#8B5CF6] hover:bg-[#7C3AED] hover:shadow-[0_0_16px_rgba(139,92,246,0.35)] transition-all duration-200 shadow-sm"
             style={{ padding: "8px 18px" }}
           >
             Join VibeUp
@@ -115,13 +115,20 @@ export default function Navbar() {
               ))}
             </nav>
 
-            <div className="pt-3 border-t border-[#2A2A35] flex items-center justify-between">
+            <div className="pt-3 border-t border-[#2A2A35] flex items-center justify-between gap-3">
               <Link
-                href="/signin"
+                href="/login"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#A1A1AA] hover:text-white text-sm font-medium transition-colors duration-200"
+                className="text-[#A1A1AA] hover:text-white text-sm font-medium transition-colors duration-200 py-1"
               >
                 Sign in
+              </Link>
+              <Link
+                href="/signup"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-white text-sm font-medium rounded-[8px] bg-[#8B5CF6] hover:bg-[#7C3AED] hover:shadow-[0_0_16px_rgba(139,92,246,0.35)] transition-all duration-200 px-4 py-2"
+              >
+                Join VibeUp
               </Link>
             </div>
           </motion.div>

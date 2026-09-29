@@ -181,8 +181,8 @@ export default function EventDiscussionSection({
 
             <div className="flex flex-col gap-2.5">
               <Link
-                href="/signin"
-                className="w-full py-2.5 rounded-[10px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-sans text-sm font-semibold transition-colors"
+                href="/login"
+                className="w-full py-2.5 rounded-[10px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-sans text-sm font-semibold transition-colors text-center"
               >
                 Sign In / Join VibeUp
               </Link>
