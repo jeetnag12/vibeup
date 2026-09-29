@@ -6,10 +6,10 @@ import { Search, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "Discover", href: "#discover" },
-  { label: "Clubs", href: "#clubs" },
+  { label: "Discover", href: "/discover" },
+  { label: "Clubs", href: "/clubs" },
   { label: "Communities", href: "#communities" },
-  { label: "Crews", href: "#crews" },
+  { label: "Crews", href: "/crews/c1" },
 ];
 
 export default function Navbar() {
