@@ -21,7 +21,6 @@ import {
   Compass,
   Zap,
   Flame,
-  Calendar,
   Radio,
 } from "lucide-react";
 
@@ -241,6 +240,23 @@ const trendingEvents: HomeEvent[] = [
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=120&auto=format&fit=crop",
     ],
   },
+  {
+    id: "deep-house-odyssey-vol-4",
+    image:
+      "https://images.unsplash.com/photo-1545128485-c400e7702796?q=80&w=800&auto=format&fit=crop",
+    category: "TECHNO",
+    title: "Midnight Frequency Vol. 4",
+    date: "Sun, 25 Oct",
+    time: "10:00 PM",
+    venue: "The Sound Garden",
+    area: "HSR Layout",
+    price: "₹799",
+    goingCount: 310,
+    avatars: [
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=120&auto=format&fit=crop",
+    ],
+  },
 ];
 
 const DISCOVERY_FILTERS = [
@@ -320,11 +336,57 @@ export default function AuthenticatedHomePage() {
   const homeCommunities = allCommunitiesData.slice(0, 3);
 
   return (
-    <main className="min-h-screen bg-[#09090B] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#7C3AED]/40 selection:text-white relative overflow-x-hidden">
+      {/* Full-page decorative background text system */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 0,
+          overflow: "hidden",
+          pointerEvents: "none",
+        }}
+      >
+        <span
+          style={{
+            position: "absolute",
+            top: "10vh",
+            right: "-5vw",
+            fontFamily: "var(--font-space-grotesk)",
+            fontWeight: 900,
+            fontSize: "clamp(120px, 20vw, 280px)",
+            letterSpacing: "-0.04em",
+            lineHeight: 0.9,
+            color: "rgba(255,255,255,0.018)",
+            userSelect: "none",
+            whiteSpace: "nowrap",
+          }}
+        >
+          VIBEUP
+        </span>
+        <span
+          style={{
+            position: "absolute",
+            top: "45vh",
+            left: "-3vw",
+            fontFamily: "var(--font-space-grotesk)",
+            fontWeight: 900,
+            fontSize: "clamp(80px, 14vw, 200px)",
+            letterSpacing: "-0.04em",
+            lineHeight: 0.9,
+            color: "rgba(255,255,255,0.015)",
+            userSelect: "none",
+            whiteSpace: "nowrap",
+          }}
+        >
+          BANGALORE
+        </span>
+      </div>
+
       {/* 1. NAVBAR */}
       <Navbar />
 
-      <div className="w-full pt-[84px] pb-[80px]">
+      <div className="w-full pt-[84px] pb-[80px] relative z-10">
         {/* Subtle Ambient Radial Glow */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[550px] pointer-events-none z-0"
@@ -335,30 +397,30 @@ export default function AuthenticatedHomePage() {
           aria-hidden="true"
         />
 
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10 space-y-16">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10 space-y-20 md:space-y-[120px]">
           {/* ================================================== */}
           {/* 2 & 3 & 4. GREETING, SEARCH & QUICK FILTERS */}
           {/* ================================================== */}
           <section className="space-y-6 pt-4">
             {/* 2. Personalized Greeting */}
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141418] border border-[#2A2A35] mb-2.5">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111111] border border-[#1A1A1A] mb-2.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse" />
-                <span className="font-mono text-xs text-[#A1A1AA] uppercase tracking-wider">
+                <span className="font-mono text-xs text-[#666666] uppercase tracking-wider">
                   GOOD EVENING, {user.name}
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-5xl font-bold font-sans text-white tracking-tight">
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                 WHAT&apos;S YOUR VIBE TONIGHT?
               </h1>
-              <p className="text-sm sm:text-base text-[#A1A1AA] font-sans mt-2">
+              <p className="text-sm sm:text-base text-[#666666] font-sans mt-2">
                 Discover events, people and places around Bangalore.
               </p>
             </div>
 
             {/* 3. Search Bar */}
             <form onSubmit={handleSearchSubmit} className="relative max-w-2xl">
-              <span className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#71717A]">
+              <span className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#666666]">
                 <Search className="w-5 h-5" />
               </span>
               <input
@@ -366,11 +428,11 @@ export default function AuthenticatedHomePage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="SEARCH EVENTS, CLUBS, PEOPLE..."
-                className="w-full bg-[#141418] border border-[#2A2A35] hover:border-[#8B5CF6]/50 focus:border-[#8B5CF6] rounded-2xl pl-12 pr-28 py-3.5 sm:py-4 text-xs sm:text-sm font-mono text-white placeholder-[#71717A] focus:outline-none transition-all shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
+                className="w-full bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/50 focus:border-[#8B5CF6] rounded-[12px] pl-12 pr-28 py-3.5 sm:py-4 text-xs sm:text-sm font-mono text-white placeholder-[#666666] focus:outline-none transition-all shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
               />
               <button
                 type="submit"
-                className="absolute inset-y-1.5 right-1.5 px-4 sm:px-5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5"
+                className="absolute inset-y-1.5 right-1.5 px-4 sm:px-5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5"
               >
                 <span>EXPLORE</span>
                 <ArrowRight className="w-3.5 h-3.5 hidden sm:inline" />
@@ -388,8 +450,8 @@ export default function AuthenticatedHomePage() {
                     onClick={() => handleFilterClick(filter)}
                     className={`px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all duration-150 whitespace-nowrap shrink-0 ${
                       isActive
-                        ? "bg-[#8B5CF6] text-white font-bold shadow-[0_0_12px_rgba(139,92,246,0.3)]"
-                        : "bg-[#141418] text-[#A1A1AA] hover:text-white hover:bg-[#1A1A21] border border-[#2A2A35]"
+                        ? "bg-[#8B5CF6] text-white font-bold "
+                        : "bg-[#111111] text-[#666666] hover:text-white hover:bg-[#111111] border border-[#1A1A1A]"
                     }`}
                   >
                     {filter}
@@ -411,10 +473,10 @@ export default function AuthenticatedHomePage() {
                     FEATURED TONIGHT
                   </span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   WHAT&apos;S HAPPENING TONIGHT?
                 </h2>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                   The city&apos;s plans start here.
                 </p>
               </div>
@@ -451,10 +513,10 @@ export default function AuthenticatedHomePage() {
                     BECAUSE YOU LIKE TECHNO &amp; HOUSE IN INDIRANAGAR
                   </span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   MADE FOR YOUR VIBE
                 </h2>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                   Based on the things you selected during setup.
                 </p>
               </div>
@@ -480,42 +542,82 @@ export default function AuthenticatedHomePage() {
           </section>
 
           {/* ================================================== */}
-          {/* 7. TRENDING THIS WEEKEND */}
+          {/* 7. TRENDING EVENTS (Sonik Event Card Carousel Layout) */}
           {/* ================================================== */}
-          <section className="space-y-6">
-            <div className="flex items-end justify-between">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <Calendar className="w-4 h-4 text-[#8B5CF6]" />
-                  <span className="font-mono text-xs text-[#8B5CF6] font-bold uppercase tracking-wider">
-                    WEEKEND PICKS
+          <section
+            className="relative z-10 w-screen left-1/2 -translate-x-1/2 bg-[#000000] overflow-hidden"
+            style={{
+              paddingTop: "120px",
+              paddingBottom: "120px",
+            }}
+          >
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+              {/* SECTION HEADER (space-between row) */}
+              <div className="flex items-end justify-between mb-8 sm:mb-12">
+                {/* Left */}
+                <div>
+                  <span
+                    className="font-mono text-[10px] text-[#7C3AED] uppercase block font-medium"
+                    style={{ letterSpacing: "0.12em" }}
+                  >
+                    ↗ TRENDING IN BANGALORE
                   </span>
+                  <h2
+                    className="font-sans text-white leading-tight mt-[6px] tracking-[-0.03em]"
+                    style={{
+                      fontWeight: 800,
+                      fontSize: "clamp(32px, 5vw, 56px)",
+                      letterSpacing: "-0.03em",
+                    }}
+                  >
+                    TRENDING EVENTS
+                  </h2>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
-                  TRENDING THIS WEEKEND
-                </h2>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
-                  Popular plans people are checking out.
-                </p>
+
+                {/* Right (desktop only) */}
+                <Link
+                  href="/discover"
+                  className="hidden md:inline-flex items-center text-[#7C3AED] hover:text-white transition-colors duration-150 font-mono text-[12px] group"
+                >
+                  <span>View all →</span>
+                </Link>
               </div>
 
-              <Link
-                href="/discover"
-                className="text-xs font-mono text-[#8B5CF6] hover:underline inline-flex items-center gap-1 shrink-0"
-              >
-                <span>VIEW ALL</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {trendingEvents.map((event) => (
-                <EventCard
-                  key={event.id}
-                  {...event}
-                  onClick={() => router.push(`/events/${event.id}`)}
-                />
-              ))}
+              {/* CARDS LAYOUT:
+                  Desktop 1440px+: 5 columns
+                  Desktop 1280px: 4 columns
+                  Tablet: 3 columns
+                  Mobile: horizontal scroll (overflow-x auto, snap scroll, each card 260px min-width)
+              */}
+              <div className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-6 pt-4 no-scrollbar md:grid md:grid-cols-3 xl:grid-cols-4 min-[1440px]:grid-cols-5 md:gap-5 md:overflow-visible md:pb-0 md:pt-4">
+                {trendingEvents.map((event, index) => {
+                  const isThirdCard = index === 2;
+                  return (
+                    <div
+                      key={event.id}
+                      className="min-w-[260px] w-[260px] snap-center shrink-0 md:w-auto md:min-w-0 md:shrink"
+                    >
+                      <EventCard
+                        {...event}
+                        onClick={() => router.push(`/events/${event.id}`)}
+                        className={
+                          isThirdCard
+                            ? "md:-translate-y-[12px] md:scale-[1.03] md:z-10 md:!border-[rgba(124,58,237,0.4)]"
+                            : ""
+                        }
+                        style={
+                          isThirdCard
+                            ? {
+                                boxShadow:
+                                  "-4px 0 30px rgba(124,58,237,0.25), 4px 0 30px rgba(236,72,153,0.15)",
+                              }
+                            : undefined
+                        }
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </section>
 
@@ -531,10 +633,10 @@ export default function AuthenticatedHomePage() {
                     SOCIAL CONNECTIONS
                   </span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   WHO&apos;S GOING OUT?
                 </h2>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                   See who&apos;s already planning their night.
                 </p>
               </div>
@@ -564,15 +666,15 @@ export default function AuthenticatedHomePage() {
           {/* ================================================== */}
           {/* 9. FIND YOUR CROWD (Social Architecture Pillar) */}
           {/* ================================================== */}
-          <section className="p-6 sm:p-8 rounded-[24px] bg-[#141418] border border-[#2A2A35] shadow-xl space-y-6 relative overflow-hidden">
+          <section className="p-6 sm:p-8 rounded-[12px] bg-[#111111] border border-[#1A1A1A] shadow-xl space-y-6 relative overflow-hidden">
             <div>
               <span className="font-mono text-xs text-[#8B5CF6] font-bold uppercase tracking-widest block mb-1">
                 SOCIAL NIGHTLIFE
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                 FIND YOUR CROWD
               </h2>
-              <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-1 max-w-xl">
+              <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1 max-w-xl">
                 Your next night out doesn&apos;t have to start with a group chat. Connect with people, communities, and crews directly.
               </p>
             </div>
@@ -581,7 +683,7 @@ export default function AuthenticatedHomePage() {
               {/* Card 1: PEOPLE */}
               <Link
                 href="/people"
-                className="p-6 rounded-2xl bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6] transition-all duration-200 group flex flex-col justify-between"
+                className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] transition-all duration-200 group flex flex-col justify-between"
               >
                 <div>
                   <div className="w-10 h-10 rounded-xl bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center mb-4 text-[#8B5CF6]">
@@ -590,7 +692,7 @@ export default function AuthenticatedHomePage() {
                   <h3 className="font-sans font-bold text-lg text-white group-hover:text-[#8B5CF6] transition-colors mb-1">
                     PEOPLE
                   </h3>
-                  <p className="text-xs text-[#A1A1AA] font-sans leading-relaxed">
+                  <p className="text-xs text-[#666666] font-sans leading-relaxed">
                     Find people with your vibe heading to the same events.
                   </p>
                 </div>
@@ -602,7 +704,7 @@ export default function AuthenticatedHomePage() {
               {/* Card 2: COMMUNITIES */}
               <Link
                 href="/communities"
-                className="p-6 rounded-2xl bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6] transition-all duration-200 group flex flex-col justify-between"
+                className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] transition-all duration-200 group flex flex-col justify-between"
               >
                 <div>
                   <div className="w-10 h-10 rounded-xl bg-[#EC4899]/15 border border-[#EC4899]/30 flex items-center justify-center mb-4 text-[#EC4899]">
@@ -611,7 +713,7 @@ export default function AuthenticatedHomePage() {
                   <h3 className="font-sans font-bold text-lg text-white group-hover:text-[#EC4899] transition-colors mb-1">
                     COMMUNITIES
                   </h3>
-                  <p className="text-xs text-[#A1A1AA] font-sans leading-relaxed">
+                  <p className="text-xs text-[#666666] font-sans leading-relaxed">
                     Join ongoing conversations around the nightlife music you love.
                   </p>
                 </div>
@@ -623,7 +725,7 @@ export default function AuthenticatedHomePage() {
               {/* Card 3: CREWS */}
               <Link
                 href="/crews"
-                className="p-6 rounded-2xl bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6] transition-all duration-200 group flex flex-col justify-between"
+                className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] transition-all duration-200 group flex flex-col justify-between"
               >
                 <div>
                   <div className="w-10 h-10 rounded-xl bg-[#22C55E]/15 border border-[#22C55E]/30 flex items-center justify-center mb-4 text-[#22C55E]">
@@ -632,7 +734,7 @@ export default function AuthenticatedHomePage() {
                   <h3 className="font-sans font-bold text-lg text-white group-hover:text-[#22C55E] transition-colors mb-1">
                     CREWS
                   </h3>
-                  <p className="text-xs text-[#A1A1AA] font-sans leading-relaxed">
+                  <p className="text-xs text-[#666666] font-sans leading-relaxed">
                     Find or build a temporary squad for your next night out.
                   </p>
                 </div>
@@ -652,10 +754,10 @@ export default function AuthenticatedHomePage() {
                 <span className="font-mono text-xs text-[#8B5CF6] font-bold uppercase tracking-wider block mb-1">
                   BANGALORE VENUES
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   POPULAR CLUBS
                 </h2>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                   Places the city is talking about.
                 </p>
               </div>
@@ -690,10 +792,10 @@ export default function AuthenticatedHomePage() {
                 <span className="font-mono text-xs text-[#8B5CF6] font-bold uppercase tracking-wider block mb-1">
                   SHARED PASSIONS
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   ACTIVE COMMUNITIES
                 </h2>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                   Find people who are into the same things.
                 </p>
               </div>
@@ -722,15 +824,15 @@ export default function AuthenticatedHomePage() {
           {/* ================================================== */}
           {/* 12. CREW CTA */}
           {/* ================================================== */}
-          <section className="p-8 sm:p-12 rounded-[24px] bg-gradient-to-r from-[#141418] via-[#1A1A21] to-[#141418] border border-[#2A2A35] shadow-2xl relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+          <section className="p-8 sm:p-12 rounded-[12px] bg-gradient-to-r from-[#111111] via-[#111111] to-[#111111] border border-[#1A1A1A] shadow-2xl relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="max-w-xl">
               <span className="font-mono text-xs text-[#EC4899] font-bold uppercase tracking-widest block mb-1.5">
                 NEVER GO OUT ALONE
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold font-sans text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                 NO CREW YET?
               </h2>
-              <p className="text-sm text-[#A1A1AA] font-sans mt-2 leading-relaxed">
+              <p className="text-sm text-[#666666] font-sans mt-2 leading-relaxed">
                 Find people for your next plan or start your own crew. Connect with verified attendees before doors open.
               </p>
             </div>
@@ -738,13 +840,13 @@ export default function AuthenticatedHomePage() {
             <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full sm:w-auto">
               <Link
                 href="/crews"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.3)] text-center"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.3)] text-center"
               >
                 FIND A CREW
               </Link>
               <Link
                 href="/crews"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] text-white border border-[#2A2A35] font-mono text-xs font-bold uppercase tracking-wider transition-colors text-center"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] text-white border border-[#1A1A1A] font-mono text-xs font-bold uppercase tracking-wider transition-colors text-center"
               >
                 CREATE A CREW
               </Link>
@@ -759,20 +861,20 @@ export default function AuthenticatedHomePage() {
           {/* ================================================== */}
           {/* 14. VIBES FEED TEASER (V2 Feature Preview) */}
           {/* ================================================== */}
-          <section className="p-6 sm:p-8 rounded-[20px] bg-[#141418] border border-[#2A2A35]/80 text-center space-y-3">
+          <section className="p-6 sm:p-8 rounded-[12px] bg-[#111111] border border-[#1A1A1A]/80 text-center space-y-3">
             <div className="w-10 h-10 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center mx-auto text-[#8B5CF6]">
               <Radio className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold font-sans text-white tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                 YOUR NIGHT. YOUR VIBE.
               </h2>
-              <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-1 max-w-md mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1 max-w-md mx-auto leading-relaxed">
                 Soon you&apos;ll be able to share the moments, sounds, and visuals that make your night unforgettable.
               </p>
             </div>
             <div className="pt-2">
-              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#1A1A21] border border-[#2A2A35] font-mono text-[11px] text-[#A1A1AA] font-bold">
+              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#111111] border border-[#1A1A1A] font-mono text-[11px] text-[#666666] font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6] animate-pulse" />
                 <span>COMING SOON</span>
               </span>
@@ -782,7 +884,9 @@ export default function AuthenticatedHomePage() {
       </div>
 
       {/* 15. FOOTER */}
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </main>
   );
 }

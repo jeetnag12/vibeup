@@ -12,7 +12,7 @@ export default function ReviewSummary({
   totalReviews = 126,
 }: ReviewSummaryProps) {
   return (
-    <div className="w-full rounded-[20px] bg-[#141418] border border-[#2A2A35] p-6 sm:p-7 relative overflow-hidden">
+    <div className="w-full rounded-[12px] bg-[#111111] border border-[#1A1A1A] p-6 sm:p-7 relative overflow-hidden">
       {/* Eyebrow & Title */}
       <div className="flex items-center gap-2 mb-2">
         <ShieldCheck className="w-4 h-4 text-[#8B5CF6]" />
@@ -21,20 +21,20 @@ export default function ReviewSummary({
         </span>
       </div>
 
-      <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight mb-1">
+      <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight mb-1">
         EVENT REVIEWS
       </h2>
-      <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mb-6">
+      <p className="text-xs sm:text-sm text-[#666666] font-sans mb-6">
         See what people who experienced this night had to say.
       </p>
 
       {/* Main Score Box */}
-      <div className="flex items-center gap-5 pt-4 border-t border-[#2A2A35]">
-        <div className="w-20 h-20 rounded-2xl bg-[#1A1A21] border border-[#2A2A35] flex flex-col items-center justify-center shrink-0">
+      <div className="flex items-center gap-5 pt-4 border-t border-[#1A1A1A]">
+        <div className="w-20 h-20 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex flex-col items-center justify-center shrink-0">
           <span className="text-3xl font-bold font-sans text-white leading-none">
             {overallRating.toFixed(1)}
           </span>
-          <span className="text-[10px] font-mono text-[#A1A1AA] mt-1">OUT OF 5</span>
+          <span className="text-[10px] font-mono text-[#666666] mt-1">OUT OF 5</span>
         </div>
 
         <div>
@@ -57,7 +57,7 @@ export default function ReviewSummary({
             <span>{totalReviews} VERIFIED REVIEWS</span>
           </div>
 
-          <p className="text-[11px] font-sans text-[#71717A] mt-0.5">
+          <p className="text-[11px] font-sans text-[#666666] mt-0.5">
             100% checked-in ticket holders
           </p>
         </div>

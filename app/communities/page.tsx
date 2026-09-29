@@ -114,7 +114,7 @@ export default function CommunitiesPage() {
   }, [communitiesList, selectedInterest]);
 
   return (
-    <main className="min-h-screen bg-[#09090B] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
       <Navbar />
 
       <div className="w-full pt-[88px] sm:pt-[96px] pb-[80px]">
@@ -141,11 +141,11 @@ export default function CommunitiesPage() {
               <span>NIGHTLIFE COLLECTIVES &amp; SQUADS</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-bold font-sans text-white tracking-tight mb-3">
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight mb-3">
               FIND YOUR COMMUNITY
             </h1>
 
-            <p className="text-sm sm:text-base text-[#A1A1AA] font-sans leading-relaxed">
+            <p className="text-sm sm:text-base text-[#666666] font-sans leading-relaxed">
               Find people who share your music, nightlife and weekend energy. Connect, pre-game, and discover Bangalore together.
             </p>
           </section>
@@ -155,21 +155,21 @@ export default function CommunitiesPage() {
           ================================================== */}
           <section aria-label="Search Communities" className="mb-6 max-w-2xl mx-auto">
             <div className="relative w-full">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#A1A1AA]" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#666666]" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="SEARCH COMMUNITIES"
                 aria-label="Search communities by name, genre, location or tag"
-                className="w-full h-12 pl-11 pr-10 rounded-xl bg-[#141418] border border-[#2A2A35] focus:border-[#8B5CF6] focus:outline-none text-xs font-mono text-white placeholder-[#71717A] transition-all shadow-inner"
+                className="w-full h-12 pl-11 pr-10 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-mono text-white placeholder-[#666666] transition-all shadow-inner"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
                   aria-label="Clear search query"
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#71717A] hover:text-white transition-colors"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#666666] hover:text-white transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -189,8 +189,8 @@ export default function CommunitiesPage() {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all shrink-0 ${
                     selectedCategory === cat
-                      ? "bg-[#8B5CF6] text-white shadow-[0_0_12px_rgba(139,92,246,0.35)]"
-                      : "bg-[#141418] hover:bg-[#1A1A21] border border-[#2A2A35] text-[#A1A1AA] hover:text-white"
+                      ? "bg-[#8B5CF6] text-white "
+                      : "bg-[#111111] hover:bg-[#111111] border border-[#1A1A1A] text-[#666666] hover:text-white"
                   }`}
                 >
                   {cat}
@@ -204,10 +204,10 @@ export default function CommunitiesPage() {
           ================================================== */}
           {isFilteringActive ? (
             <section aria-label="Search Results" className="mb-16">
-              <div className="flex items-center justify-between mb-6 pb-3 border-b border-[#2A2A35]">
+              <div className="flex items-center justify-between mb-6 pb-3 border-b border-[#1A1A1A]">
                 <div className="flex items-center gap-2">
                   <Compass className="w-4 h-4 text-[#8B5CF6]" />
-                  <h2 className="font-mono text-xs font-bold text-white uppercase tracking-wider">
+                  <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-white uppercase tracking-wider">
                     RESULTS ({searchFilteredCommunities.length} FOUND)
                   </h2>
                 </div>
@@ -236,12 +236,12 @@ export default function CommunitiesPage() {
                 </div>
               ) : (
                 /* Empty state */
-                <div className="p-12 rounded-[20px] bg-[#141418] border border-[#2A2A35] text-center max-w-lg mx-auto">
+                <div className="p-12 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center max-w-lg mx-auto">
                   <Users className="w-10 h-10 text-[#8B5CF6] mx-auto mb-3 opacity-60" />
                   <h3 className="text-xl font-bold font-sans text-white mb-2">
                     NO COMMUNITIES FOUND
                   </h3>
-                  <p className="text-xs text-[#A1A1AA] font-sans leading-relaxed mb-6">
+                  <p className="text-xs text-[#666666] font-sans leading-relaxed mb-6">
                     We couldn&apos;t find any communities matching &ldquo;
                     {searchQuery || selectedCategory}&rdquo;. Try another search, or create your own crowd!
                   </p>
@@ -252,7 +252,7 @@ export default function CommunitiesPage() {
                         setSearchQuery("");
                         setSelectedCategory("ALL");
                       }}
-                      className="px-4 py-2.5 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] border border-[#2A2A35] text-xs font-mono text-white transition-colors"
+                      className="px-4 py-2.5 rounded-xl bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-xs font-mono text-white transition-colors"
                     >
                       RESET FILTERS
                     </button>
@@ -283,11 +283,11 @@ export default function CommunitiesPage() {
                     </span>
                     <h2
                       id="featured-communities-heading"
-                      className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight"
+                      className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight"
                     >
                       FEATURED COMMUNITIES
                     </h2>
-                    <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                    <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                       Flagship nightlife groups with curated meetups and active weekly discussions.
                     </p>
                   </div>
@@ -317,11 +317,11 @@ export default function CommunitiesPage() {
                     </span>
                     <h2
                       id="popular-communities-heading"
-                      className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight"
+                      className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight"
                     >
                       POPULAR RIGHT NOW
                     </h2>
-                    <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                    <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                       Fast-growing groups with the most event interest and active members today.
                     </p>
                   </div>
@@ -350,11 +350,11 @@ export default function CommunitiesPage() {
                     </span>
                     <h2
                       id="around-bangalore-heading"
-                      className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight"
+                      className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight"
                     >
                       AROUND BANGALORE
                     </h2>
-                    <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                    <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                       Neighborhood-based crowds across Indiranagar, Koramangala, Whitefield, and CBD.
                     </p>
                   </div>
@@ -383,11 +383,11 @@ export default function CommunitiesPage() {
                     </span>
                     <h2
                       id="by-interest-heading"
-                      className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight"
+                      className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight"
                     >
                       COMMUNITIES BY INTEREST
                     </h2>
-                    <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                    <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                       Explore crews organized strictly by music taste and event culture.
                     </p>
                   </div>
@@ -403,7 +403,7 @@ export default function CommunitiesPage() {
                       className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium transition-all shrink-0 ${
                         selectedInterest === interest
                           ? "bg-[#8B5CF6] text-white shadow-sm"
-                          : "bg-[#141418] hover:bg-[#1A1A21] border border-[#2A2A35] text-[#A1A1AA] hover:text-white"
+                          : "bg-[#111111] hover:bg-[#111111] border border-[#1A1A1A] text-[#666666] hover:text-white"
                       }`}
                     >
                       {interest}
@@ -424,8 +424,8 @@ export default function CommunitiesPage() {
                     ))}
                   </div>
                 ) : (
-                  <div className="p-8 rounded-[16px] bg-[#141418] border border-[#2A2A35] text-center">
-                    <p className="text-xs font-mono text-[#A1A1AA]">
+                  <div className="p-8 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center">
+                    <p className="text-xs font-mono text-[#666666]">
                       No communities currently listed under {selectedInterest}. Be the first to start one!
                     </p>
                   </div>
@@ -439,7 +439,7 @@ export default function CommunitiesPage() {
           ================================================== */}
           <section
             aria-label="Create Community Call to Action"
-            className="mb-12 p-8 sm:p-10 rounded-[20px] bg-gradient-to-r from-[#141418] via-[#1A1A21] to-[#141418] border border-[#2A2A35] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden"
+            className="mb-12 p-8 sm:p-10 rounded-[12px] bg-gradient-to-r from-[#111111] via-[#111111] to-[#111111] border border-[#1A1A1A] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden"
           >
             <div
               className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-[#8B5CF6]/10 to-transparent pointer-events-none"
@@ -453,10 +453,10 @@ export default function CommunitiesPage() {
                   FOUND A NEW MOVEMENT
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                 WANT TO BUILD YOUR OWN CROWD?
               </h2>
-              <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-1.5 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1.5 leading-relaxed">
                 Create a community around the music, places or nights you love. Gather like-minded partygoers, coordinate pre-drinks, and discover Bangalore nightlife together.
               </p>
             </div>
@@ -464,7 +464,7 @@ export default function CommunitiesPage() {
             <button
               type="button"
               onClick={() => setIsModalOpen(true)}
-              className="relative z-10 inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-mono font-bold transition-all shadow-[0_0_24px_rgba(139,92,246,0.35)] shrink-0 active:scale-95"
+              className="relative z-10 inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-mono font-bold transition-all  shrink-0 active:scale-95"
             >
               <Plus className="w-4 h-4" />
               <span>CREATE COMMUNITY</span>
@@ -487,7 +487,7 @@ export default function CommunitiesPage() {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-6 right-6 z-50 bg-[#1A1A21] border border-[#22C55E] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
+          className="fixed bottom-6 right-6 z-50 bg-[#111111] border border-[#22C55E] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
         >
           <Check className="w-4 h-4 text-[#22C55E]" />
           <span>{toastMessage}</span>

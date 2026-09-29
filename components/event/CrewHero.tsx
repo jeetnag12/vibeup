@@ -10,7 +10,7 @@ interface CrewHeroProps {
 
 export default function CrewHero({ eventId, onCreateCrew }: CrewHeroProps) {
   return (
-    <section className="relative w-full mb-10 overflow-hidden rounded-[24px] bg-gradient-to-b from-[#141418] via-[#141418] to-[#0D0D11] border border-[#2A2A35] p-6 sm:p-10 lg:p-12">
+    <section className="relative w-full mb-10 overflow-hidden rounded-[12px] bg-gradient-to-b from-[#111111] via-[#111111] to-[#0D0D11] border border-[#1A1A1A] p-6 sm:p-10 lg:p-12">
       {/* Ambient background glow accents */}
       <div
         className="absolute -top-24 -right-24 w-80 h-80 rounded-full pointer-events-none opacity-40 blur-3xl"
@@ -37,12 +37,12 @@ export default function CrewHero({ eventId, onCreateCrew }: CrewHeroProps) {
         </div>
 
         {/* Heading */}
-        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-bold text-white tracking-tight leading-[1.08] mb-4">
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-extrabold tracking-[-0.03em] text-white tracking-tight leading-[1.08] mb-4">
           GO TOGETHER.
         </h2>
 
         {/* Supporting Text */}
-        <p className="text-base sm:text-lg text-[#A1A1AA] font-sans max-w-2xl leading-relaxed mb-8">
+        <p className="text-base sm:text-lg text-[#666666] font-sans max-w-2xl leading-relaxed mb-8">
           Find people going to the same event, join a crew, or create your own. Never party alone unless you want to.
         </p>
 
@@ -51,7 +51,7 @@ export default function CrewHero({ eventId, onCreateCrew }: CrewHeroProps) {
           <button
             type="button"
             onClick={onCreateCrew}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-sans text-sm font-semibold transition-all duration-200 shadow-[0_0_24px_rgba(139,92,246,0.35)] hover:shadow-[0_0_32px_rgba(139,92,246,0.5)] active:scale-[0.99]"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-sans text-sm font-semibold transition-all duration-200  hover:shadow-[0_0_32px_rgba(139,92,246,0.5)] active:scale-[0.99]"
           >
             <Plus className="w-4 h-4" />
             <span>CREATE A CREW</span>
@@ -60,11 +60,11 @@ export default function CrewHero({ eventId, onCreateCrew }: CrewHeroProps) {
 
           <Link
             href={`/events/${eventId}/going`}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] text-white font-sans text-sm font-medium border border-[#2A2A35] hover:border-[#8B5CF6]/50 transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] text-white font-sans text-sm font-medium border border-[#1A1A1A] hover:border-[#8B5CF6]/50 transition-all duration-200"
           >
             <Users className="w-4 h-4 text-[#EC4899]" />
             <span>FIND PEOPLE</span>
-            <ArrowRight className="w-4 h-4 ml-0.5 text-[#A1A1AA]" />
+            <ArrowRight className="w-4 h-4 ml-0.5 text-[#666666]" />
           </Link>
         </div>
       </div>

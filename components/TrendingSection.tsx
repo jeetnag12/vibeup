@@ -83,7 +83,7 @@ const trendingEvents: EventCardProps[] = [
 export default function TrendingSection() {
   const router = useRouter();
   return (
-    <section className="w-full py-[80px] bg-[#09090B]">
+    <section className="w-full py-[120px] bg-[#000000]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         {/* Section Header Row */}
         <div className="flex items-end justify-between mb-8 sm:mb-10">
@@ -99,8 +99,8 @@ export default function TrendingSection() {
               THIS WEEKEND IN BLR
             </p>
             <h2
-              className="font-sans font-bold text-white text-[32px] tracking-tight leading-tight"
-              style={{ fontWeight: 700 }}
+              className="font-sans font-extrabold tracking-[-0.03em] text-white text-[32px] tracking-tight leading-tight"
+              style={{ fontWeight: 800, letterSpacing: "-0.03em" }}
             >
               Trending Events
             </h2>

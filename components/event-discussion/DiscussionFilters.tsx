@@ -43,21 +43,21 @@ export default function DiscussionFilters({
       {/* Search Bar + Sort Row */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
         {/* Search Input */}
-        <div className="relative flex-1 max-w-lg h-[44px] bg-[#141418] border border-[#2A2A35] rounded-xl flex items-center px-3.5 focus-within:border-[#8B5CF6] transition-colors">
-          <Search className="w-4 h-4 text-[#A1A1AA] mr-2 shrink-0" />
+        <div className="relative flex-1 max-w-lg h-[44px] bg-[#111111] border border-[#1A1A1A] rounded-xl flex items-center px-3.5 focus-within:border-[#8B5CF6] transition-colors">
+          <Search className="w-4 h-4 text-[#666666] mr-2 shrink-0" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search discussion... (e.g. cab, outfits, timing)"
             aria-label="Search discussion"
-            className="w-full bg-transparent text-xs sm:text-sm text-white placeholder:text-[#71717A] focus:outline-none font-sans"
+            className="w-full bg-transparent text-xs sm:text-sm text-white placeholder:text-[#666666] focus:outline-none font-sans"
           />
           {searchQuery && (
             <button
               onClick={() => onSearchChange("")}
               aria-label="Clear search"
-              className="p-1 rounded-md text-[#A1A1AA] hover:text-white transition-colors"
+              className="p-1 rounded-md text-[#666666] hover:text-white transition-colors"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -66,11 +66,11 @@ export default function DiscussionFilters({
 
         {/* Sort Controls */}
         <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
-          <span className="text-[11px] font-mono text-[#A1A1AA] flex items-center gap-1">
+          <span className="text-[11px] font-mono text-[#666666] flex items-center gap-1">
             <ArrowUpDown className="w-3 h-3 text-[#8B5CF6]" />
             <span className="hidden sm:inline">SORT:</span>
           </span>
-          <div className="flex rounded-xl bg-[#141418] border border-[#2A2A35] p-1">
+          <div className="flex rounded-xl bg-[#111111] border border-[#1A1A1A] p-1">
             {(["LATEST", "MOST DISCUSSED", "TRENDING"] as DiscussionSort[]).map(
               (opt) => (
                 <button
@@ -80,7 +80,7 @@ export default function DiscussionFilters({
                   className={`px-3 py-1 rounded-lg text-[10px] sm:text-[11px] font-mono transition-all ${
                     sort === opt
                       ? "bg-[#8B5CF6] text-white font-bold"
-                      : "text-[#A1A1AA] hover:text-white"
+                      : "text-[#666666] hover:text-white"
                   }`}
                 >
                   {opt}
@@ -103,8 +103,8 @@ export default function DiscussionFilters({
                 onClick={() => onTopicChange(t.value)}
                 className={`px-3 py-1.5 rounded-xl text-xs font-mono shrink-0 transition-all duration-150 border whitespace-nowrap ${
                   isActive
-                    ? "bg-[#8B5CF6] border-[#8B5CF6] text-white font-bold shadow-[0_0_12px_rgba(139,92,246,0.3)]"
-                    : "bg-[#141418] border-[#2A2A35] text-[#A1A1AA] hover:text-white hover:border-[#8B5CF6]/40"
+                    ? "bg-[#8B5CF6] border-[#8B5CF6] text-white font-bold "
+                    : "bg-[#111111] border-[#1A1A1A] text-[#666666] hover:text-white hover:border-[#8B5CF6]/40"
                 }`}
               >
                 {t.label}
@@ -113,7 +113,7 @@ export default function DiscussionFilters({
           })}
         </div>
 
-        <span className="hidden lg:inline text-xs font-mono text-[#71717A] shrink-0">
+        <span className="hidden lg:inline text-xs font-mono text-[#666666] shrink-0">
           {filteredCount} {filteredCount === 1 ? "thread" : "threads"}
         </span>
       </div>

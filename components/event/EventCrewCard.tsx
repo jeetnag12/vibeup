@@ -65,10 +65,10 @@ export default function EventCrewCard({
   };
 
   return (
-    <div className="group rounded-[18px] bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6] hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] transition-all duration-200 flex flex-col justify-between overflow-hidden">
+    <div className="group rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] transition-all duration-200 flex flex-col justify-between overflow-hidden">
       <div>
         {/* Card Header Media / Banner */}
-        <div className="relative h-32 w-full overflow-hidden bg-[#141418]">
+        <div className="relative h-32 w-full overflow-hidden bg-[#111111]">
           {crew.image ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -79,7 +79,7 @@ export default function EventCrewCard({
           ) : (
             <div className="w-full h-full bg-gradient-to-br from-[#8B5CF6]/20 to-[#EC4899]/20" />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A21] via-[#1A1A21]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/40 to-transparent" />
 
           {/* Area & Status Badges over image */}
           <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
@@ -117,20 +117,20 @@ export default function EventCrewCard({
           </h4>
 
           {/* Description */}
-          <p className="text-xs text-[#A1A1AA] font-sans line-clamp-2 leading-relaxed mb-3.5 min-h-[34px]">
+          <p className="text-xs text-[#666666] font-sans line-clamp-2 leading-relaxed mb-3.5 min-h-[34px]">
             {crew.description}
           </p>
 
           {/* Subtle matching rationale */}
           {crew.matchReason && (
-            <div className="mb-3.5 px-2.5 py-1 rounded-lg bg-[#141418] border border-[#2A2A35] flex items-center gap-1.5 text-[10px] font-mono text-[#A1A1AA]">
+            <div className="mb-3.5 px-2.5 py-1 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center gap-1.5 text-[10px] font-mono text-[#666666]">
               <span className="text-[#8B5CF6] font-bold">WHY:</span>
               <span className="truncate">{crew.matchReason}</span>
             </div>
           )}
 
           {/* Member Avatars Stack + Spot Counts */}
-          <div className="flex items-center justify-between pt-3 border-t border-[#2A2A35] mb-2">
+          <div className="flex items-center justify-between pt-3 border-t border-[#1A1A1A] mb-2">
             <div className="flex items-center -space-x-2">
               {(crew.members || []).slice(0, 4).map((member, idx) => (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -139,11 +139,11 @@ export default function EventCrewCard({
                   src={member.avatar}
                   alt={member.name}
                   title={member.name}
-                  className="w-7 h-7 rounded-full object-cover border-2 border-[#1A1A21] bg-[#141418]"
+                  className="w-7 h-7 rounded-full object-cover border-2 border-[#111111] bg-[#111111]"
                 />
               ))}
               {(crew.members?.length || crew.memberCount) > 4 && (
-                <div className="w-7 h-7 rounded-full bg-[#141418] border-2 border-[#1A1A21] flex items-center justify-center font-mono text-[9px] text-[#A1A1AA] font-bold">
+                <div className="w-7 h-7 rounded-full bg-[#111111] border-2 border-[#111111] flex items-center justify-center font-mono text-[9px] text-[#666666] font-bold">
                   +{(crew.members?.length || crew.memberCount) - 4}
                 </div>
               )}
@@ -173,10 +173,10 @@ export default function EventCrewCard({
         {/* View Crew Button */}
         <Link
           href={`/crews/${crew.id}`}
-          className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[#141418] hover:bg-[#2A2A35] text-white text-xs font-mono font-medium border border-[#2A2A35] hover:border-[#8B5CF6]/40 transition-all duration-200"
+          className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] text-white text-xs font-mono font-medium border border-[#1A1A1A] hover:border-[#8B5CF6]/40 transition-all duration-200"
         >
           <span>VIEW CREW</span>
-          <ArrowRight className="w-3.5 h-3.5 text-[#A1A1AA]" />
+          <ArrowRight className="w-3.5 h-3.5 text-[#666666]" />
         </Link>
 
         {/* Join / Request / Full Button */}
@@ -215,7 +215,7 @@ export default function EventCrewCard({
           <button
             type="button"
             disabled
-            className="inline-flex items-center justify-center py-2.5 px-3 rounded-xl bg-[#141418] border border-[#2A2A35] text-[#71717A] text-xs font-mono cursor-not-allowed"
+            className="inline-flex items-center justify-center py-2.5 px-3 rounded-[4px] bg-[#111111] border border-[#1A1A1A] text-[#666666] text-xs font-mono cursor-not-allowed"
           >
             CREW FULL
           </button>

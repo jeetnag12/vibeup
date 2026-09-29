@@ -35,7 +35,7 @@ export default function CrewPlanningPreview() {
   ];
 
   return (
-    <section className="w-full mb-16 pt-10 border-t border-[#2A2A35]">
+    <section className="w-full mb-16 pt-10 border-t border-[#1A1A1A]">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 mb-3">
@@ -47,7 +47,7 @@ export default function CrewPlanningPreview() {
         <h3 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
           WHAT CAN YOUR CREW DO?
         </h3>
-        <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-2">
+        <p className="text-xs sm:text-sm text-[#666666] font-sans mt-2">
           VibeUp crews aren&apos;t just chat groups. They&apos;re purpose-built for coordinating real-world nightlife plans.
         </p>
       </div>
@@ -59,11 +59,11 @@ export default function CrewPlanningPreview() {
           return (
             <div
               key={item.title}
-              className="p-6 rounded-[20px] bg-[#141418] border border-[#2A2A35] hover:border-[#8B5CF6]/50 transition-all duration-200 flex flex-col justify-between"
+              className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/50 transition-all duration-200 flex flex-col justify-between"
             >
               <div>
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 border border-[#2A2A35]"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 border border-[#1A1A1A]"
                   style={{ backgroundColor: `${item.color}15` }}
                 >
                   <Icon className="w-6 h-6" style={{ color: item.color }} />
@@ -79,12 +79,12 @@ export default function CrewPlanningPreview() {
                   {item.subtitle}
                 </p>
 
-                <p className="font-sans text-xs text-[#A1A1AA] leading-relaxed">
+                <p className="font-sans text-xs text-[#666666] leading-relaxed">
                   {item.description}
                 </p>
               </div>
 
-              <div className="mt-5 pt-4 border-t border-[#2A2A35]/60 flex items-center gap-1.5 font-mono text-[10px] text-[#8B5CF6]">
+              <div className="mt-5 pt-4 border-t border-[#1A1A1A]/60 flex items-center gap-1.5 font-mono text-[10px] text-[#8B5CF6]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]" />
                 <span>INCLUDED IN CREW</span>
               </div>

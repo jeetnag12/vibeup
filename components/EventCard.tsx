@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Heart, Calendar, MapPin } from "lucide-react";
+import { Heart, Share2, MapPin } from "lucide-react";
 
 export interface EventCardProps {
   image: string;
@@ -17,6 +17,8 @@ export interface EventCardProps {
   saved?: boolean;
   onSaveToggle?: (isSaved: boolean) => void;
   onClick?: () => void;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 export default function EventCard({
@@ -33,8 +35,11 @@ export default function EventCard({
   saved = false,
   onSaveToggle,
   onClick,
+  className,
+  style,
 }: EventCardProps) {
   const [isSaved, setIsSaved] = useState(saved);
+  const [copiedShare, setCopiedShare] = useState(false);
 
   const handleHeartClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -45,44 +50,98 @@ export default function EventCard({
     }
   };
 
+  const handleShareClick = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (typeof navigator !== "undefined" && navigator.share) {
+      try {
+        await navigator.share({
+          title,
+          text: `Check out ${title} at ${venue} on VibeUp!`,
+          url: typeof window !== "undefined" ? window.location.href : "",
+        });
+        return;
+      } catch {
+        // Fallback to clipboard
+      }
+    }
+
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      try {
+        await navigator.clipboard.writeText(
+          typeof window !== "undefined" ? window.location.href : ""
+        );
+        setCopiedShare(true);
+        setTimeout(() => setCopiedShare(false), 2000);
+      } catch {
+        // Ignore clipboard error
+      }
+    }
+  };
+
   const visibleAvatars = (avatars || []).slice(0, 3);
 
   return (
     <div
       onClick={onClick}
-      className="group relative w-full bg-[#1A1A21] rounded-[16px] border border-[#2A2A35] overflow-hidden cursor-pointer transition-all duration-200 hover:border-[#8B5CF6] hover:shadow-[0_0_24px_rgba(139,92,246,0.15)] hover:-translate-y-[2px] flex flex-col"
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          if (onClick) onClick();
+        }
+      }}
+      aria-label={`${title} at ${venue}, ${date}`}
+      className={`group relative w-full aspect-[3/4] rounded-[12px] overflow-hidden cursor-pointer border border-[#1A1A1A] transition-all duration-[250ms] select-none hover:-translate-y-[6px] hover:border-[rgba(124,58,237,0.5)] hover:shadow-[-2px_0_20px_rgba(124,58,237,0.3),2px_0_20px_rgba(236,72,153,0.2)] ${
+        className || ""
+      }`}
+      style={{
+        transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+        ...style,
+      }}
     >
-      {/* Top Section — Image */}
-      <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#141418]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-          loading="lazy"
-        />
+      {/* 1. Full Card Image (Poster Artwork) */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={image}
+        alt={title}
+        className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-300 group-hover:scale-105"
+        loading="lazy"
+      />
 
-        {/* Top Left: Category Pill */}
-        <span
-          className="absolute top-[12px] left-[12px] z-10 text-white font-mono rounded-full flex items-center justify-center font-medium shadow-sm pointer-events-none"
-          style={{
-            backgroundColor: "rgba(139, 92, 246, 0.9)",
-            fontSize: "10px",
-            letterSpacing: "0.06em",
-            padding: "4px 10px",
-          }}
-        >
-          {category}
-        </span>
+      {/* 2. Gradient Overlay */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.95) 100%)",
+        }}
+        aria-hidden="true"
+      />
 
-        {/* Top Right: Save Button */}
+      {/* 3. Top Right — Price Pill */}
+      <div
+        className="absolute top-[12px] right-[12px] z-10 font-mono text-[12px] font-bold text-white border border-white/10 rounded-[4px] pointer-events-none select-none flex items-center justify-center"
+        style={{
+          background: "rgba(0, 0, 0, 0.7)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          padding: "4px 12px",
+        }}
+      >
+        <span>{price}</span>
+      </div>
+
+      {/* 4. Top Left — Save + Share Icons */}
+      <div className="absolute top-[12px] left-[12px] z-10 flex items-center gap-[6px]">
+        {/* Heart / Save Button */}
         <button
           type="button"
           aria-label={isSaved ? "Remove from saved" : "Save event"}
           onClick={handleHeartClick}
-          className="absolute top-[12px] right-[12px] z-10 w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-200 active:scale-90"
+          className="w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-200 active:scale-90"
           style={{
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            background: "rgba(0, 0, 0, 0.6)",
             backdropFilter: "blur(8px)",
             WebkitBackdropFilter: "blur(8px)",
           }}
@@ -95,72 +154,84 @@ export default function EventCard({
             }`}
           />
         </button>
+
+        {/* Share Button */}
+        <button
+          type="button"
+          aria-label={copiedShare ? "Link copied" : "Share event"}
+          onClick={handleShareClick}
+          className="w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-200 active:scale-90 text-white hover:text-[#7C3AED]"
+          style={{
+            background: "rgba(0, 0, 0, 0.6)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+          }}
+          title={copiedShare ? "Link copied!" : "Share event"}
+        >
+          <Share2 className="w-4 h-4" />
+        </button>
       </div>
 
-      {/* Bottom Section — Info */}
-      <div className="p-4 flex flex-col flex-1 justify-between gap-3">
-        <div>
-          {/* Event Title */}
-          <h3
-            className="text-white font-sans text-[16px] line-clamp-1 mb-2 tracking-tight group-hover:text-purple-200 transition-colors"
-            style={{ fontWeight: 600 }}
-            title={title}
-          >
-            {title}
-          </h3>
+      {/* 5. Bottom Content */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 p-4 flex flex-col pointer-events-none">
+        {/* Category Pill */}
+        <span
+          className="inline-block self-start font-mono text-[10px] text-white font-bold uppercase rounded-[3px] mb-2 pointer-events-auto"
+          style={{
+            background: "rgba(124, 58, 237, 0.85)",
+            padding: "3px 10px",
+          }}
+        >
+          {category}
+        </span>
 
-          {/* Metadata Rows */}
-          <div className="flex flex-col gap-1.5">
-            {/* Date + Time Row */}
-            <div className="flex items-center gap-2">
-              <Calendar className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0" />
-              <span className="font-mono text-[12px] text-[#A1A1AA] truncate">
-                {date} · {time}
-              </span>
-            </div>
+        {/* Title */}
+        <h3
+          className="font-sans font-bold text-[16px] text-white line-clamp-1 mb-1 tracking-tight"
+          style={{ fontWeight: 700 }}
+          title={title}
+        >
+          {title}
+        </h3>
 
-            {/* Venue + Area Row */}
-            <div className="flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-[#EC4899] shrink-0" />
-              <span className="font-mono text-[12px] text-[#A1A1AA] truncate">
-                {venue} · {area}
-              </span>
-            </div>
-          </div>
+        {/* Venue + Area Row */}
+        <div className="flex items-center gap-1 text-[11px] font-mono text-[#888888] truncate">
+          <MapPin className="w-3 h-3 text-[#7C3AED] shrink-0" />
+          <span className="truncate">
+            {venue} · {area}
+          </span>
         </div>
 
-        {/* Bottom Row (space-between) */}
-        <div className="flex items-center justify-between pt-3 border-t border-[#2A2A35] mt-1">
-          {/* Left: Stacked avatars + Going count */}
+        {/* Date + Time Row */}
+        <div className="font-mono text-[11px] text-[#666666] mt-0.5">
+          {date} · {time}
+        </div>
+
+        {/* Bottom Row */}
+        <div className="flex items-center justify-between mt-2.5 pt-1">
+          {/* Left: Stacked Avatars + Going count */}
           <div className="flex items-center gap-2">
-            {visibleAvatars.length > 0 ? (
-              <div className="flex items-center -space-x-2">
-                {visibleAvatars.map((avatarUrl, index) => (
+            {visibleAvatars.length > 0 && (
+              <div className="flex items-center -space-x-1.5 overflow-hidden">
+                {visibleAvatars.map((avatar, idx) => (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
-                    key={index}
-                    src={avatarUrl}
-                    alt="Attendee avatar"
-                    className="w-6 h-6 rounded-full object-cover border-2 border-[#1A1A21]"
+                    key={idx}
+                    src={avatar}
+                    alt="Attendee"
+                    className="w-6 h-6 rounded-full object-cover border-2 border-black"
+                    loading="lazy"
                   />
                 ))}
               </div>
-            ) : null}
-
-            <span className="font-mono text-[11px] text-[#A1A1AA]">
+            )}
+            <span className="font-mono text-[11px] text-[#888888]">
               +{goingCount} going
             </span>
           </div>
 
-          {/* Right: Price */}
-          <span
-            className="text-white font-sans text-[16px] tracking-tight shrink-0"
-            style={{ fontWeight: 600 }}
-          >
-            {price.startsWith("From") || price.startsWith("₹")
-              ? price
-              : `From ₹${price}`}
-          </span>
+          {/* Right: empty */}
+          <div />
         </div>
       </div>
     </div>

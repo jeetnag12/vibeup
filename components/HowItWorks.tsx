@@ -35,7 +35,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="w-full py-[80px] bg-[#141418] text-center">
+    <section className="w-full py-[120px] bg-[#000000] text-center">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="flex flex-col items-center mb-12 sm:mb-16">
@@ -50,14 +50,14 @@ export default function HowItWorks() {
           </p>
 
           <h2
-            className="font-sans font-bold text-white text-[32px] sm:text-[36px] tracking-tight leading-tight mb-3"
-            style={{ fontWeight: 700 }}
+            className="font-sans font-extrabold tracking-[-0.03em] text-white text-[32px] sm:text-[36px] tracking-tight leading-tight mb-3"
+            style={{ fontWeight: 800, letterSpacing: "-0.03em" }}
           >
             From discovery to memory
           </h2>
 
           <p
-            className="text-[#A1A1AA] text-[16px] max-w-[500px] mx-auto font-sans leading-relaxed font-normal"
+            className="text-[#666666] text-[16px] max-w-[500px] mx-auto font-sans leading-relaxed font-normal"
             style={{ fontWeight: 400 }}
           >
             Every night out starts with discovery and ends with a story worth sharing.
@@ -73,7 +73,7 @@ export default function HowItWorks() {
             return (
               <div key={step.num} className="relative flex flex-col items-center text-center">
                 {/* Step Card Content */}
-                <div className="w-full h-full flex flex-col items-center p-6 rounded-2xl bg-[#1A1A21]/60 border border-[#2A2A35] hover:border-[#8B5CF6]/50 transition-all duration-200 group">
+                <div className="w-full h-full flex flex-col items-center p-6 rounded-[12px] bg-[#111111]/60 border border-[#1A1A1A] hover:border-[#8B5CF6]/50 transition-all duration-200 group">
                   {/* Large Number */}
                   <span
                     className="font-mono font-bold leading-none mb-3 transition-colors duration-200 group-hover:text-[rgba(139,92,246,0.35)]"
@@ -101,17 +101,17 @@ export default function HowItWorks() {
 
                   {/* Description */}
                   <p
-                    className="font-sans text-[#A1A1AA] text-[14px] leading-relaxed max-w-[240px]"
+                    className="font-sans text-[#666666] text-[14px] leading-relaxed max-w-[240px]"
                     style={{ fontWeight: 400 }}
                   >
                     {step.description}
                   </p>
                 </div>
 
-                {/* Between each step on desktop: Arrow icon (ChevronRight) in #2A2A35 */}
+                {/* Between each step on desktop: Arrow icon (ChevronRight) in #1A1A1A */}
                 {!isLast && (
                   <div
-                    className="hidden lg:flex absolute top-1/2 -right-3 -translate-y-1/2 z-10 text-[#2A2A35] pointer-events-none"
+                    className="hidden lg:flex absolute top-1/2 -right-3 -translate-y-1/2 z-10 text-[#1A1A1A] pointer-events-none"
                     aria-hidden="true"
                   >
                     <ChevronRight className="w-6 h-6 stroke-[2.5]" />

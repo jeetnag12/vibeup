@@ -45,7 +45,7 @@ export default function DiscussionNavTabs({ eventId }: DiscussionNavTabsProps) {
   ];
 
   return (
-    <div className="w-full mb-8 border-b border-[#2A2A35]">
+    <div className="w-full mb-8 border-b border-[#1A1A1A]">
       <div className="flex items-center gap-2 overflow-x-auto pb-3 scrollbar-none">
         {tabs.map((tab) => {
           const Icon = tab.icon;
@@ -53,15 +53,15 @@ export default function DiscussionNavTabs({ eventId }: DiscussionNavTabsProps) {
             <Link
               key={tab.label}
               href={tab.href}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl font-mono text-xs font-semibold tracking-wider transition-all duration-150 shrink-0 border ${
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-[4px] font-mono text-xs font-semibold tracking-wider transition-all duration-150 shrink-0 border ${
                 tab.isActive
                   ? "bg-[#8B5CF6]/15 border-[#8B5CF6] text-white shadow-[0_0_16px_rgba(139,92,246,0.25)]"
-                  : "bg-[#141418] border-[#2A2A35] text-[#A1A1AA] hover:text-white hover:border-[#8B5CF6]/40"
+                  : "bg-[#111111] border-[#1A1A1A] text-[#666666] hover:text-white hover:border-[#8B5CF6]/40"
               }`}
             >
               <Icon
                 className={`w-3.5 h-3.5 ${
-                  tab.isActive ? "text-[#8B5CF6]" : "text-[#71717A]"
+                  tab.isActive ? "text-[#8B5CF6]" : "text-[#666666]"
                 }`}
               />
               <span>{tab.label}</span>

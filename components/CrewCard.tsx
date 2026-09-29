@@ -37,13 +37,13 @@ export default function CrewCard({
   return (
     <article
       aria-label={`${crew.name} card`}
-      className={`group relative bg-[#1A1A21] rounded-[16px] border border-[#2A2A35] hover:border-[#8B5CF6] hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] transition-all duration-200 flex flex-col justify-between overflow-hidden h-full ${
+      className={`group relative bg-[#111111] rounded-[12px] border border-[#1A1A1A] hover:border-[#8B5CF6] hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] transition-all duration-200 flex flex-col justify-between overflow-hidden h-full ${
         variant === "compact" ? "p-3 sm:p-4" : "p-4 sm:p-5"
       }`}
     >
       <div>
         {/* Cover Image & Badges */}
-        <div className="relative w-full h-40 sm:h-44 rounded-xl overflow-hidden bg-[#09090B] mb-3.5">
+        <div className="relative w-full h-40 sm:h-44 rounded-xl overflow-hidden bg-[#000000] mb-3.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={crew.coverImage}
@@ -51,7 +51,7 @@ export default function CrewCard({
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A21] via-transparent to-black/40 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-black/40 pointer-events-none" />
 
           {/* Top Badges */}
           <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between gap-2 pointer-events-none">
@@ -89,13 +89,13 @@ export default function CrewCard({
           >
             {crew.name}
           </Link>
-          <p className="text-xs text-[#A1A1AA] font-sans line-clamp-2 leading-relaxed mt-1">
+          <p className="text-xs text-[#666666] font-sans line-clamp-2 leading-relaxed mt-1">
             {crew.description}
           </p>
         </div>
 
         {/* Event Connection Banner */}
-        <div className="p-2.5 rounded-xl bg-[#141418] border border-[#2A2A35]/80 space-y-1 mb-3 text-xs">
+        <div className="p-2.5 rounded-xl bg-[#111111] border border-[#1A1A1A]/80 space-y-1 mb-3 text-xs">
           <div className="flex items-center gap-1.5 truncate">
             <Calendar className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0" />
             <Link
@@ -105,7 +105,7 @@ export default function CrewCard({
               {crew.eventName}
             </Link>
           </div>
-          <div className="flex items-center justify-between text-[11px] font-mono text-[#A1A1AA]">
+          <div className="flex items-center justify-between text-[11px] font-mono text-[#666666]">
             <span className="truncate">{crew.venue}</span>
             <span className="shrink-0 text-white font-medium">
               {crew.date} · {crew.time}
@@ -117,7 +117,7 @@ export default function CrewCard({
         {crew.communityContext && (
           <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#D4D4D8] mb-3 truncate">
             <Sparkles className="w-3 h-3 text-[#EC4899] shrink-0" />
-            <span className="text-[#A1A1AA] shrink-0">FROM:</span>
+            <span className="text-[#666666] shrink-0">FROM:</span>
             <Link
               href={`/communities/${crew.communityContext.id}`}
               className="text-[#EC4899] hover:underline truncate"
@@ -141,7 +141,7 @@ export default function CrewCard({
       </div>
 
       {/* Footer: Member avatars, capacity, and Join button */}
-      <div className="pt-3 border-t border-[#2A2A35] flex items-center justify-between gap-3">
+      <div className="pt-3 border-t border-[#1A1A1A] flex items-center justify-between gap-3">
         {/* Member Avatars & Size count */}
         <div className="flex items-center gap-2 truncate">
           <div className="flex -space-x-2 overflow-hidden shrink-0">
@@ -151,7 +151,7 @@ export default function CrewCard({
                 key={m.id}
                 src={m.avatar}
                 alt={m.name}
-                className="w-7 h-7 rounded-full object-cover border-2 border-[#1A1A21]"
+                className="w-7 h-7 rounded-full object-cover border-2 border-[#111111]"
               />
             ))}
           </div>
@@ -170,12 +170,12 @@ export default function CrewCard({
           type="button"
           disabled={isFull}
           onClick={handleJoinClick}
-          className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold transition-all shrink-0 flex items-center gap-1.5 ${
+          className={`px-3.5 py-1.5 rounded-[4px] text-xs font-mono font-bold transition-all shrink-0 flex items-center gap-1.5 ${
             isJoined
               ? "bg-[#22C55E]/15 border border-[#22C55E]/40 text-[#22C55E] hover:bg-[#22C55E]/25"
               : isFull
-              ? "bg-[#2A2A35] text-[#71717A] cursor-not-allowed border border-transparent"
-              : "bg-[#8B5CF6] hover:bg-[#7C3AED] text-white shadow-[0_0_12px_rgba(139,92,246,0.3)]"
+              ? "bg-[#1A1A1A] text-[#666666] cursor-not-allowed border border-transparent"
+              : "bg-[#8B5CF6] hover:bg-[#7C3AED] text-white "
           }`}
         >
           {isJoined ? (

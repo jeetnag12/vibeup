@@ -134,7 +134,7 @@ export default function ClubsPage() {
     selectedVibeId !== null;
 
   return (
-    <main className="min-h-screen bg-[#09090B] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
       {/* 1. Navbar */}
       <Navbar />
 
@@ -159,11 +159,11 @@ export default function ClubsPage() {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-bold text-white tracking-tight leading-[1.08] mb-4">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-extrabold tracking-[-0.03em] text-white tracking-tight leading-[1.08] mb-4">
               DISCOVER YOUR NIGHT.
             </h1>
 
-            <p className="text-base sm:text-lg text-[#A1A1AA] font-sans leading-relaxed">
+            <p className="text-base sm:text-lg text-[#666666] font-sans leading-relaxed">
               Find the clubs, venues and spaces that match your vibe. Explore the places behind Bangalore&apos;s best music nights.
             </p>
           </section>
@@ -194,10 +194,10 @@ export default function ClubsPage() {
                       POPULAR DESTINATIONS
                     </span>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                     TRENDING RIGHT NOW
                   </h2>
-                  <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                  <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                     Where Bangalore is heading this week.
                   </p>
                 </div>
@@ -226,10 +226,10 @@ export default function ClubsPage() {
                     CURATED ATMOSPHERES
                   </span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   WHAT&apos;S YOUR VIBE?
                 </h2>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                   Pick a soundscape or energy level to jump directly to matching spaces.
                 </p>
               </div>
@@ -254,26 +254,26 @@ export default function ClubsPage() {
                 <span className="font-mono text-xs text-[#8B5CF6] uppercase tracking-wider block mb-1">
                   ALL VENUES
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   EXPLORE ALL CLUBS
                 </h2>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                   Find the places that match your kind of night.
                 </p>
               </div>
 
-              <div className="font-mono text-xs text-[#A1A1AA]">
+              <div className="font-mono text-xs text-[#666666]">
                 SHOWING <strong className="text-white">{filteredAndSortedClubs.length}</strong> VENUES
               </div>
             </div>
 
             {hasError ? (
-              <div className="my-12 p-10 rounded-[20px] bg-[#141418] border border-[#EF4444]/40 text-center max-w-md mx-auto">
+              <div className="my-12 p-10 rounded-[12px] bg-[#111111] border border-[#EF4444]/40 text-center max-w-md mx-auto">
                 <AlertTriangle className="w-10 h-10 text-[#EF4444] mx-auto mb-3" />
                 <h3 className="text-xl font-bold font-sans text-white mb-2">
                   COULDN&apos;T LOAD CLUBS
                 </h3>
-                <p className="text-xs text-[#A1A1AA] mb-6">
+                <p className="text-xs text-[#666666] mb-6">
                   Something went wrong while loading venues.
                 </p>
                 <button
@@ -304,20 +304,20 @@ export default function ClubsPage() {
               </div>
             ) : (
               /* 14. Empty State */
-              <div className="p-10 sm:p-14 rounded-[20px] bg-[#141418] border border-[#2A2A35] text-center max-w-md mx-auto">
-                <div className="w-14 h-14 mx-auto rounded-2xl bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center text-[#8B5CF6] mb-4">
+              <div className="p-10 sm:p-14 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center max-w-md mx-auto">
+                <div className="w-14 h-14 mx-auto rounded-[12px] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center text-[#8B5CF6] mb-4">
                   <SearchX className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl font-bold font-sans text-white mb-1.5">
                   NO CLUBS FOUND
                 </h3>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mb-6">
+                <p className="text-xs sm:text-sm text-[#666666] font-sans mb-6">
                   Try another area, genre, or search keyword to discover more nightlife venues.
                 </p>
                 <button
                   type="button"
                   onClick={handleClearFilters}
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-mono font-bold transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-mono font-bold transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
                 >
                   <RotateCcw className="w-4 h-4" />
                   <span>CLEAR FILTERS</span>
@@ -327,16 +327,16 @@ export default function ClubsPage() {
           </section>
 
           {/* 8. New & Rising Section */}
-          <section className="mb-16 pt-10 border-t border-[#2A2A35]">
+          <section className="mb-16 pt-10 border-t border-[#1A1A1A]">
             <div className="flex items-center justify-between gap-3 mb-6">
               <div>
                 <span className="font-mono text-xs text-[#22C55E] uppercase tracking-wider block mb-1">
                   NEW ADDITIONS
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   NEW &amp; RISING
                 </h2>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                   Recently discovered spaces worth keeping an eye on.
                 </p>
               </div>
@@ -355,7 +355,7 @@ export default function ClubsPage() {
           </section>
 
           {/* 9. Clubs With Events This Week */}
-          <section className="mb-12 pt-10 border-t border-[#2A2A35]">
+          <section className="mb-12 pt-10 border-t border-[#1A1A1A]">
             <div className="flex items-center justify-between gap-3 mb-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">
@@ -364,10 +364,10 @@ export default function ClubsPage() {
                     LIVE CALENDAR
                   </span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   HAPPENING THIS WEEK
                 </h2>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                   Clubs with events coming up. Book before guestlists close.
                 </p>
               </div>

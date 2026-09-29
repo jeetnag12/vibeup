@@ -23,7 +23,7 @@ function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
 
 export default function CTASection() {
   return (
-    <section className="relative w-full py-[120px] bg-[#09090B] overflow-hidden text-center">
+    <section className="relative w-full py-[120px] bg-[#000000] overflow-hidden text-center">
       {/* Centered radial gradient background effect */}
       <div
         className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center"
@@ -48,8 +48,8 @@ export default function CTASection() {
 
         {/* Heading */}
         <h2
-          className="font-sans font-bold text-white text-[38px] sm:text-[56px] tracking-tight leading-[1.08] mb-4 max-w-2xl"
-          style={{ fontWeight: 700 }}
+          className="font-sans font-extrabold tracking-[-0.03em] text-white text-[38px] sm:text-[56px] tracking-tight leading-[1.08] mb-4 max-w-2xl"
+          style={{ fontWeight: 800, letterSpacing: "-0.03em" }}
         >
           Bangalore&apos;s nightlife
           <br />
@@ -58,7 +58,7 @@ export default function CTASection() {
 
         {/* Subheading */}
         <p
-          className="text-[#A1A1AA] text-[18px] max-w-md mx-auto font-sans leading-relaxed mb-10 font-normal"
+          className="text-[#666666] text-[18px] max-w-md mx-auto font-sans leading-relaxed mb-10 font-normal"
           style={{ fontWeight: 400 }}
         >
           Be the first in when VibeUp drops.
@@ -69,11 +69,11 @@ export default function CTASection() {
           {/* Button 1 (primary) */}
           <Link
             href="/signup"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-white font-sans text-[16px] transition-all duration-200 hover:opacity-95 hover:scale-[1.02] shadow-lg shadow-purple-500/25 shrink-0"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-white font-sans text-[16px] transition-all duration-200 hover:opacity-95 hover:scale-[1.02]  shrink-0"
             style={{
               background: "linear-gradient(135deg, #8B5CF6, #EC4899)",
               padding: "16px 32px",
-              borderRadius: "10px",
+              borderRadius: "4px",
               fontWeight: 600,
             }}
           >
@@ -86,10 +86,10 @@ export default function CTASection() {
             href="https://instagram.com/vibeup.bangalore"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-white bg-transparent font-sans text-[16px] border border-[#2A2A35] hover:border-[#8B5CF6] transition-all duration-200 shrink-0"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-white bg-transparent font-sans text-[16px] border border-[#1A1A1A] hover:border-[#8B5CF6] transition-all duration-200 shrink-0"
             style={{
               padding: "16px 32px",
-              borderRadius: "10px",
+              borderRadius: "4px",
               fontWeight: 600,
             }}
           >
@@ -100,7 +100,7 @@ export default function CTASection() {
 
         {/* Small text below */}
         <p
-          className="text-[#A1A1AA] font-sans font-normal"
+          className="text-[#666666] font-sans font-normal"
           style={{
             fontSize: "13px",
           }}

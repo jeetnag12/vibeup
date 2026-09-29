@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { MapPin, Calendar, Users, Star } from "lucide-react";
+import { MapPin, Calendar, Users, Star, Bookmark } from "lucide-react";
 import { Club } from "@/lib/clubs-data";
 
 interface ClubCardProps {
@@ -9,6 +9,8 @@ interface ClubCardProps {
   isFollowing: boolean;
   onToggleFollow: (clubId: string) => void;
   showUpcomingBadge?: boolean;
+  saved?: boolean;
+  onSaveToggle?: (clubId: string, isSaved: boolean) => void;
 }
 
 export default function ClubCard({
@@ -16,6 +18,8 @@ export default function ClubCard({
   isFollowing,
   onToggleFollow,
   showUpcomingBadge = true,
+  saved,
+  onSaveToggle,
 }: ClubCardProps) {
   const handleFollowClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -23,14 +27,22 @@ export default function ClubCard({
     onToggleFollow(club.id);
   };
 
+  const handleSaveClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (onSaveToggle) {
+      onSaveToggle(club.id, !saved);
+    }
+  };
+
   return (
     <article
       aria-label={club.name}
-      className="group relative w-full bg-[#1A1A21] rounded-[18px] border border-[#2A2A35] overflow-hidden transition-all duration-200 hover:border-[#8B5CF6] hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(139,92,246,0.2)] flex flex-col justify-between"
+      className="group relative w-full bg-[#111111] rounded-[12px] border border-[#1A1A1A] overflow-hidden transition-all duration-200 hover:border-[#8B5CF6] hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(139,92,246,0.2)] flex flex-col justify-between"
     >
       <Link href={`/clubs/${club.id}`} className="block flex-1">
         {/* Top: Club Photo */}
-        <div className="relative w-full h-[180px] overflow-hidden bg-[#09090B]">
+        <div className="relative w-full h-[180px] overflow-hidden bg-[#000000]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={club.image}
@@ -39,10 +51,14 @@ export default function ClubCard({
             loading="lazy"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A21] via-transparent to-black/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-black/30 pointer-events-none" />
 
           {/* Badges on image */}
-          <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
+          <div
+            className={`absolute top-3 left-3 flex items-center justify-between gap-2 pointer-events-none ${
+              onSaveToggle ? "right-12" : "right-3"
+            }`}
+          >
             {club.openTonight ? (
               <span className="font-mono text-[10px] font-bold text-white bg-[#22C55E]/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-sm">
                 OPEN TONIGHT
@@ -64,6 +80,24 @@ export default function ClubCard({
               </span>
             )}
           </div>
+
+          {/* Top Right: Bookmark Button */}
+          {onSaveToggle && (
+            <button
+              type="button"
+              aria-label={saved ? `Remove ${club.name} from saved` : `Save ${club.name}`}
+              onClick={handleSaveClick}
+              className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-200 active:scale-90 bg-black/60 backdrop-blur-md border border-white/10 hover:border-[#8B5CF6]"
+            >
+              <Bookmark
+                className={`w-4 h-4 transition-colors duration-200 ${
+                  saved
+                    ? "fill-[#8B5CF6] text-[#8B5CF6]"
+                    : "text-white hover:text-[#8B5CF6]"
+                }`}
+              />
+            </button>
+          )}
 
           {/* Upcoming Event Count Pill */}
           {showUpcomingBadge && club.upcomingEventsCount > 0 && (
@@ -88,7 +122,7 @@ export default function ClubCard({
                 {club.name}
               </h3>
 
-              <div className="flex items-center gap-1 text-[11px] font-mono text-[#A1A1AA] mt-0.5">
+              <div className="flex items-center gap-1 text-[11px] font-mono text-[#666666] mt-0.5">
                 <MapPin className="w-3 h-3 text-[#EC4899] shrink-0" />
                 <span className="truncate">{club.location || club.area}</span>
               </div>
@@ -108,7 +142,7 @@ export default function ClubCard({
 
             {/* Social Signal */}
             {club.socialSignal && (
-              <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#A1A1AA] mb-3 bg-[#141418] border border-[#2A2A35] px-2.5 py-1 rounded-lg">
+              <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#666666] mb-3 bg-[#111111] border border-[#1A1A1A] px-2.5 py-1 rounded-lg">
                 <Users className="w-3 h-3 text-[#22C55E] shrink-0" />
                 <span className="truncate">{club.socialSignal}</span>
               </div>
@@ -117,7 +151,7 @@ export default function ClubCard({
 
           <div>
             {/* Followers Stats */}
-            <div className="flex items-center justify-between pt-2.5 border-t border-[#2A2A35] text-xs font-mono text-[#A1A1AA] mb-3">
+            <div className="flex items-center justify-between pt-2.5 border-t border-[#1A1A1A] text-xs font-mono text-[#666666] mb-3">
               <span>{club.followersDisplay} FOLLOWERS</span>
               <span className="text-[#8B5CF6] group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-0.5">
                 VIEW →
@@ -133,10 +167,10 @@ export default function ClubCard({
           type="button"
           onClick={handleFollowClick}
           aria-label={isFollowing ? `Unfollow ${club.name}` : `Follow ${club.name}`}
-          className={`w-full h-9 rounded-xl border text-xs font-mono font-medium transition-all duration-200 flex items-center justify-center gap-1.5 ${
+          className={`w-full h-9 rounded-[4px] border text-xs font-mono font-medium transition-all duration-200 flex items-center justify-center gap-1.5 ${
             isFollowing
-              ? "border-[#8B5CF6] bg-[#8B5CF6]/20 text-white shadow-[0_0_12px_rgba(139,92,246,0.3)]"
-              : "border-[#2A2A35] bg-[#141418] text-[#A1A1AA] hover:border-[#8B5CF6] hover:text-white"
+              ? "border-[#8B5CF6] bg-[#8B5CF6]/20 text-white "
+              : "border-[#1A1A1A] bg-[#111111] text-[#666666] hover:border-[#8B5CF6] hover:text-white"
           }`}
         >
           {isFollowing ? (

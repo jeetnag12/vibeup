@@ -106,7 +106,7 @@ export default function CrewDetailPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#09090B] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
       <Navbar />
 
       <div className="w-full pt-[96px] pb-[80px]">
@@ -128,18 +128,18 @@ export default function CrewDetailPage() {
             aria-label="Breadcrumb"
             className="flex items-center justify-between gap-4 mb-6 text-xs font-mono"
           >
-            <div className="flex items-center gap-2 text-[#A1A1AA] overflow-x-auto whitespace-nowrap scrollbar-none py-1">
+            <div className="flex items-center gap-2 text-[#666666] overflow-x-auto whitespace-nowrap scrollbar-none py-1">
               <Link
                 href="/discover"
                 className="hover:text-white transition-colors"
               >
                 DISCOVER
               </Link>
-              <span className="text-[#2A2A35]">/</span>
+              <span className="text-[#1A1A1A]">/</span>
               <Link href="/crews" className="hover:text-white transition-colors">
                 CREWS
               </Link>
-              <span className="text-[#2A2A35]">/</span>
+              <span className="text-[#1A1A1A]">/</span>
               <span className="text-white font-bold tracking-wide truncate max-w-[200px] sm:max-w-none">
                 {initialCrew.name}
               </span>
@@ -149,7 +149,7 @@ export default function CrewDetailPage() {
               <button
                 type="button"
                 onClick={handleShare}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#141418] hover:bg-[#1A1A21] border border-[#2A2A35] text-xs font-mono text-[#A1A1AA] hover:text-white transition-all shadow-sm"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[4px] bg-[#111111] hover:bg-[#111111] border border-[#1A1A1A] text-xs font-mono text-[#666666] hover:text-white transition-all shadow-sm"
               >
                 {copiedLink ? (
                   <>
@@ -167,7 +167,7 @@ export default function CrewDetailPage() {
               <button
                 type="button"
                 onClick={() => setIsReportOpen(true)}
-                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-[#141418] hover:bg-[#1A1A21] border border-[#2A2A35] text-[11px] font-mono text-[#71717A] hover:text-[#EF4444] transition-colors"
+                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-[#111111] hover:bg-[#111111] border border-[#1A1A1A] text-[11px] font-mono text-[#666666] hover:text-[#EF4444] transition-colors"
                 title="Report Crew"
               >
                 <Flag className="w-3 h-3" />
@@ -179,7 +179,7 @@ export default function CrewDetailPage() {
           {/* ================================================== */}
           {/* 2. CREW HERO */}
           {/* ================================================== */}
-          <section className="rounded-[24px] bg-[#141418] border border-[#2A2A35] p-6 sm:p-8 mb-8 relative overflow-hidden shadow-2xl">
+          <section className="rounded-[12px] bg-[#111111] border border-[#1A1A1A] p-6 sm:p-8 mb-8 relative overflow-hidden shadow-2xl">
             {/* Background Cover Overlay */}
             <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -188,7 +188,7 @@ export default function CrewDetailPage() {
                 alt={initialCrew.name}
                 className="w-full h-full object-cover filter blur-sm scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#141418] via-[#141418]/90 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#111111] via-[#111111]/90 to-transparent" />
             </div>
 
             <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
@@ -201,14 +201,14 @@ export default function CrewDetailPage() {
                   {initialCrew.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="font-mono text-xs text-[#A1A1AA] bg-[#1A1A21] border border-[#2A2A35] px-2.5 py-1 rounded-full"
+                      className="font-mono text-xs text-[#666666] bg-[#111111] border border-[#1A1A1A] px-2.5 py-1 rounded-full"
                     >
                       #{tag}
                     </span>
                   ))}
                 </div>
 
-                <h1 className="text-3xl sm:text-5xl font-bold font-sans text-white tracking-tight mb-3">
+                <h1 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight mb-3">
                   {initialCrew.name}
                 </h1>
 
@@ -216,12 +216,12 @@ export default function CrewDetailPage() {
                   {initialCrew.description}
                 </p>
 
-                <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[#A1A1AA]">
-                  <span className="inline-flex items-center gap-1.5 bg-[#1A1A21] px-3 py-1 rounded-lg border border-[#2A2A35]">
+                <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[#666666]">
+                  <span className="inline-flex items-center gap-1.5 bg-[#111111] px-3 py-1 rounded-lg border border-[#1A1A1A]">
                     <MapPin className="w-3.5 h-3.5 text-[#EC4899]" />
                     <span>MEETUP: <strong>{initialCrew.area}</strong></span>
                   </span>
-                  <span className="inline-flex items-center gap-1.5 bg-[#1A1A21] px-3 py-1 rounded-lg border border-[#2A2A35]">
+                  <span className="inline-flex items-center gap-1.5 bg-[#111111] px-3 py-1 rounded-lg border border-[#1A1A1A]">
                     <Flame className="w-3.5 h-3.5 text-[#8B5CF6]" />
                     <span>ENERGY: <strong>{initialCrew.energy}</strong></span>
                   </span>
@@ -229,7 +229,7 @@ export default function CrewDetailPage() {
               </div>
 
               {/* Cover Preview Thumbnail */}
-              <div className="hidden md:block w-36 h-36 rounded-2xl overflow-hidden border-2 border-[#2A2A35] shrink-0 shadow-lg relative group">
+              <div className="hidden md:block w-36 h-36 rounded-[12px] overflow-hidden border-2 border-[#1A1A1A] shrink-0 shadow-lg relative group">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={initialCrew.coverImage}
@@ -251,13 +251,13 @@ export default function CrewDetailPage() {
               {/* ================================================== */}
               {/* 6 & 7. CREW MEMBERS ("THE CREW") */}
               {/* ================================================== */}
-              <section className="p-6 rounded-[20px] bg-[#141418] border border-[#2A2A35] shadow-sm">
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-[#2A2A35]">
+              <section className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-[#1A1A1A]">
                   <div>
-                    <h2 className="text-xl font-bold font-sans text-white tracking-wide">
+                    <h2 className="text-xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-wide">
                       THE CREW
                     </h2>
-                    <p className="text-xs text-[#A1A1AA] font-sans mt-0.5">
+                    <p className="text-xs text-[#666666] font-sans mt-0.5">
                       Verified members committed to attending together
                     </p>
                   </div>
@@ -277,14 +277,14 @@ export default function CrewDetailPage() {
                   {initialCrew.members.map((member) => (
                     <div
                       key={member.id}
-                      className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6]/40 transition-all flex items-center justify-between gap-3 group"
+                      className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/40 transition-all flex items-center justify-between gap-3 group"
                     >
                       <div className="flex items-center gap-3 min-w-0">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={member.avatar}
                           alt={member.name}
-                          className="w-11 h-11 rounded-full object-cover border border-[#2A2A35] shrink-0"
+                          className="w-11 h-11 rounded-full object-cover border border-[#1A1A1A] shrink-0"
                         />
                         <div className="min-w-0">
                           <div className="flex items-center gap-1.5">
@@ -300,7 +300,7 @@ export default function CrewDetailPage() {
                               </span>
                             )}
                           </div>
-                          <span className="font-mono text-xs text-[#71717A] block">
+                          <span className="font-mono text-xs text-[#666666] block">
                             {member.username}
                           </span>
                           <span className="inline-flex items-center gap-1 text-[11px] font-mono text-[#22C55E] mt-0.5">
@@ -312,7 +312,7 @@ export default function CrewDetailPage() {
 
                       <Link
                         href={`/people/${member.id}`}
-                        className="px-2.5 py-1 rounded-lg bg-[#141418] border border-[#2A2A35] text-[10px] font-mono text-[#A1A1AA] hover:text-white hover:border-[#8B5CF6] transition-colors shrink-0"
+                        className="px-2.5 py-1 rounded-[4px] bg-[#111111] border border-[#1A1A1A] text-[10px] font-mono text-[#666666] hover:text-white hover:border-[#8B5CF6] transition-colors shrink-0"
                       >
                         VIEW
                       </Link>
@@ -353,10 +353,10 @@ export default function CrewDetailPage() {
               {/* ================================================== */}
               {/* 8. CREW VIBE */}
               {/* ================================================== */}
-              <section className="p-6 rounded-[20px] bg-[#141418] border border-[#2A2A35] shadow-sm">
+              <section className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] shadow-sm">
                 <div className="flex items-center gap-2 mb-4">
                   <Sparkles className="w-5 h-5 text-[#8B5CF6]" />
-                  <h2 className="text-xl font-bold font-sans text-white tracking-wide">
+                  <h2 className="text-xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-wide">
                     CREW VIBE
                   </h2>
                 </div>
@@ -366,7 +366,7 @@ export default function CrewDetailPage() {
                   {initialCrew.vibeTags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] text-xs font-mono text-[#D4D4D8]"
+                      className="px-3 py-1.5 rounded-xl bg-[#111111] border border-[#1A1A1A] text-xs font-mono text-[#D4D4D8]"
                     >
                       {tag}
                     </span>
@@ -375,8 +375,8 @@ export default function CrewDetailPage() {
 
                 {/* Descriptive Attributes Grid */}
                 <div className="grid grid-cols-3 gap-3">
-                  <div className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] text-center">
-                    <span className="text-[10px] font-mono text-[#71717A] uppercase block mb-1">
+                  <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] text-center">
+                    <span className="text-[10px] font-mono text-[#666666] uppercase block mb-1">
                       MUSIC
                     </span>
                     <span className="text-xs sm:text-sm font-bold font-sans text-white">
@@ -384,7 +384,7 @@ export default function CrewDetailPage() {
                     </span>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] text-center">
+                  <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] text-center">
                     <span className="text-[10px] font-mono text-[#8B5CF6] uppercase block mb-1">
                       ENERGY
                     </span>
@@ -393,7 +393,7 @@ export default function CrewDetailPage() {
                     </span>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] text-center">
+                  <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] text-center">
                     <span className="text-[10px] font-mono text-[#EC4899] uppercase block mb-1">
                       STYLE
                     </span>
@@ -407,11 +407,11 @@ export default function CrewDetailPage() {
               {/* ================================================== */}
               {/* 10. CREW DISCUSSION / CHAT */}
               {/* ================================================== */}
-              <section className="p-6 rounded-[20px] bg-[#141418] border border-[#2A2A35] shadow-sm flex flex-col h-[520px]">
-                <div className="flex items-center justify-between pb-4 border-b border-[#2A2A35] mb-4">
+              <section className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] shadow-sm flex flex-col h-[520px]">
+                <div className="flex items-center justify-between pb-4 border-b border-[#1A1A1A] mb-4">
                   <div className="flex items-center gap-2">
                     <Radio className="w-4 h-4 text-[#8B5CF6]" />
-                    <h2 className="text-lg font-bold font-sans text-white tracking-wide">
+                    <h2 className="text-lg font-extrabold tracking-[-0.03em] font-sans text-white tracking-wide">
                       CREW CHAT
                     </h2>
                   </div>
@@ -421,11 +421,11 @@ export default function CrewDetailPage() {
                 </div>
 
                 {/* Messages Feed */}
-                <div className="flex-1 overflow-y-auto space-y-3 pr-1 scrollbar-thin scrollbar-thumb-[#2A2A35]">
+                <div className="flex-1 overflow-y-auto space-y-3 pr-1 scrollbar-thin scrollbar-thumb-[#1A1A1A]">
                   {messages.map((msg) => (
                     <div
                       key={msg.id}
-                      className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35]"
+                      className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]"
                     >
                       <div className="flex items-center justify-between gap-2 mb-1.5">
                         <div className="flex items-center gap-2">
@@ -433,16 +433,16 @@ export default function CrewDetailPage() {
                           <img
                             src={msg.avatar}
                             alt={msg.sender}
-                            className="w-6 h-6 rounded-full object-cover border border-[#2A2A35]"
+                            className="w-6 h-6 rounded-full object-cover border border-[#1A1A1A]"
                           />
                           <span className="font-sans font-bold text-xs text-white">
                             {msg.sender}
                           </span>
-                          <span className="font-mono text-[10px] text-[#71717A]">
+                          <span className="font-mono text-[10px] text-[#666666]">
                             {msg.username}
                           </span>
                         </div>
-                        <span className="font-mono text-[10px] text-[#71717A]">
+                        <span className="font-mono text-[10px] text-[#666666]">
                           {msg.time}
                         </span>
                       </div>
@@ -456,7 +456,7 @@ export default function CrewDetailPage() {
                 {/* Chat Composer */}
                 <form
                   onSubmit={handleSendMessage}
-                  className="pt-4 border-t border-[#2A2A35] mt-4 flex items-center gap-2"
+                  className="pt-4 border-t border-[#1A1A1A] mt-4 flex items-center gap-2"
                 >
                   <input
                     type="text"
@@ -468,12 +468,12 @@ export default function CrewDetailPage() {
                     value={newMsg}
                     disabled={!isJoined}
                     onChange={(e) => setNewMsg(e.target.value)}
-                    className="flex-1 bg-[#1A1A21] border border-[#2A2A35] rounded-xl px-4 py-2.5 text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-[#8B5CF6] disabled:opacity-50 disabled:cursor-not-allowed font-sans"
+                    className="flex-1 bg-[#111111] border border-[#1A1A1A] rounded-xl px-4 py-2.5 text-xs text-white placeholder-[#666666] focus:outline-none focus:border-[#8B5CF6] disabled:opacity-50 disabled:cursor-not-allowed font-sans"
                   />
                   <button
                     type="submit"
                     disabled={!isJoined || !newMsg.trim()}
-                    className="p-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] disabled:bg-[#2A2A35] text-white disabled:text-[#71717A] transition-colors"
+                    className="p-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] disabled:bg-[#1A1A1A] text-white disabled:text-[#666666] transition-colors"
                     title="Send message"
                   >
                     <Send className="w-4 h-4" />
@@ -489,7 +489,7 @@ export default function CrewDetailPage() {
               {/* ================================================== */}
               {/* 3. EVENT CONNECTION */}
               {/* ================================================== */}
-              <section className="p-6 rounded-[20px] bg-[#141418] border border-[#2A2A35] shadow-sm relative overflow-hidden">
+              <section className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] shadow-sm relative overflow-hidden">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="font-mono text-[10px] tracking-widest text-[#EC4899] font-bold uppercase bg-[#EC4899]/15 border border-[#EC4899]/30 px-2 py-0.5 rounded">
                     GOING TO
@@ -497,7 +497,7 @@ export default function CrewDetailPage() {
                 </div>
 
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-20 h-20 rounded-xl overflow-hidden border border-[#2A2A35] shrink-0">
+                  <div className="w-20 h-20 rounded-xl overflow-hidden border border-[#1A1A1A] shrink-0">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={initialCrew.event.image}
@@ -514,7 +514,7 @@ export default function CrewDetailPage() {
                       {initialCrew.event.name}
                     </Link>
 
-                    <div className="text-xs font-mono text-[#A1A1AA] space-y-0.5">
+                    <div className="text-xs font-mono text-[#666666] space-y-0.5">
                       <div className="flex items-center gap-1.5">
                         <MapPin className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0" />
                         <span className="truncate">{initialCrew.event.venue} · {initialCrew.event.area}</span>
@@ -529,7 +529,7 @@ export default function CrewDetailPage() {
 
                 <Link
                   href={`/events/${initialCrew.event.id}`}
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] border border-[#2A2A35] text-xs font-mono text-white transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-xs font-mono text-white transition-colors"
                 >
                   <span>VIEW EVENT</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#8B5CF6]" />
@@ -539,9 +539,9 @@ export default function CrewDetailPage() {
               {/* ================================================== */}
               {/* 4 & 5. CREW STATUS & JOIN CREW ACTION */}
               {/* ================================================== */}
-              <section className="p-6 rounded-[20px] bg-[#141418] border border-[#2A2A35] shadow-sm">
+              <section className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] shadow-sm">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono text-[#71717A] uppercase tracking-wider">
+                  <span className="text-xs font-mono text-[#666666] uppercase tracking-wider">
                     CREW STATUS
                   </span>
                   <span
@@ -559,7 +559,7 @@ export default function CrewDetailPage() {
                 <div className="flex items-baseline justify-between mb-2">
                   <div className="text-2xl sm:text-3xl font-bold font-sans text-white">
                     {currentMembersCount} / {initialCrew.maxMembers}{" "}
-                    <span className="text-sm font-mono text-[#A1A1AA] font-normal">
+                    <span className="text-sm font-mono text-[#666666] font-normal">
                       MEMBERS
                     </span>
                   </div>
@@ -569,7 +569,7 @@ export default function CrewDetailPage() {
                 </div>
 
                 {/* Visual Progress Bar */}
-                <div className="w-full h-2.5 rounded-full bg-[#1A1A21] border border-[#2A2A35] overflow-hidden mb-6">
+                <div className="w-full h-2.5 rounded-full bg-[#111111] border border-[#1A1A1A] overflow-hidden mb-6">
                   <div
                     className={`h-full rounded-full transition-all duration-500 ${
                       isNowFull
@@ -593,7 +593,7 @@ export default function CrewDetailPage() {
                       <button
                         type="button"
                         onClick={() => setIsJoined(false)}
-                        className="w-full py-3 rounded-xl bg-[#1A1A21] hover:bg-[#EF4444]/15 hover:border-[#EF4444] hover:text-[#EF4444] text-[#A1A1AA] border border-[#2A2A35] font-mono text-xs font-bold transition-all"
+                        className="w-full py-3 rounded-xl bg-[#111111] hover:bg-[#EF4444]/15 hover:border-[#EF4444] hover:text-[#EF4444] text-[#666666] border border-[#1A1A1A] font-mono text-xs font-bold transition-all"
                       >
                         LEAVE CREW
                       </button>
@@ -602,7 +602,7 @@ export default function CrewDetailPage() {
                     <button
                       type="button"
                       disabled
-                      className="w-full py-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] text-[#71717A] font-mono text-xs font-bold cursor-not-allowed uppercase"
+                      className="w-full py-3.5 rounded-[4px] bg-[#111111] border border-[#1A1A1A] text-[#666666] font-mono text-xs font-bold cursor-not-allowed uppercase"
                     >
                       CREW FULL
                     </button>
@@ -621,21 +621,21 @@ export default function CrewDetailPage() {
               {/* ================================================== */}
               {/* 9. PLAN / MEETING DETAILS */}
               {/* ================================================== */}
-              <section className="p-6 rounded-[20px] bg-[#141418] border border-[#2A2A35] shadow-sm">
+              <section className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4 text-[#8B5CF6]" />
-                    <h2 className="text-lg font-bold font-sans text-white tracking-wide">
+                    <h2 className="text-lg font-extrabold tracking-[-0.03em] font-sans text-white tracking-wide">
                       THE PLAN
                     </h2>
                   </div>
-                  <span className="text-[10px] font-mono text-[#A1A1AA] uppercase">
+                  <span className="text-[10px] font-mono text-[#666666] uppercase">
                     PUBLIC COORDINATION
                   </span>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mb-4">
-                  <div className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35]">
+                  <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]">
                     <span className="text-[10px] font-mono text-[#8B5CF6] uppercase block mb-1">
                       MEETUP TIME
                     </span>
@@ -644,7 +644,7 @@ export default function CrewDetailPage() {
                     </span>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35]">
+                  <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]">
                     <span className="text-[10px] font-mono text-[#EC4899] uppercase block mb-1">
                       ARRIVAL
                     </span>
@@ -653,18 +653,18 @@ export default function CrewDetailPage() {
                     </span>
                   </div>
 
-                  <div className="col-span-2 p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35]">
+                  <div className="col-span-2 p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]">
                     <span className="text-[10px] font-mono text-[#22C55E] uppercase block mb-1">
                       MEETING POINT
                     </span>
                     <span className="text-sm font-bold font-sans text-white block mb-0.5">
                       {initialCrew.meetup.location}
                     </span>
-                    <span className="text-xs font-mono text-[#A1A1AA]">
+                    <span className="text-xs font-mono text-[#666666]">
                       Destination: {initialCrew.meetup.venue}
                     </span>
                     {initialCrew.meetup.notes && (
-                      <p className="text-xs text-[#71717A] font-sans mt-2 pt-2 border-t border-[#2A2A35]/60">
+                      <p className="text-xs text-[#666666] font-sans mt-2 pt-2 border-t border-[#1A1A1A]/60">
                         {initialCrew.meetup.notes}
                       </p>
                     )}
@@ -678,19 +678,19 @@ export default function CrewDetailPage() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] border border-[#2A2A35] text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-xs font-mono text-[#666666] hover:text-white transition-colors"
                 >
                   <MapPin className="w-3.5 h-3.5 text-[#EC4899]" />
                   <span>VIEW ON MAP</span>
-                  <ExternalLink className="w-3 h-3 text-[#71717A]" />
+                  <ExternalLink className="w-3 h-3 text-[#666666]" />
                 </a>
               </section>
 
               {/* ================================================== */}
               {/* 10. CREATOR PROFILE */}
               {/* ================================================== */}
-              <section className="p-6 rounded-[20px] bg-[#141418] border border-[#2A2A35] shadow-sm">
-                <span className="text-[10px] font-mono text-[#71717A] uppercase tracking-wider block mb-3">
+              <section className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] shadow-sm">
+                <span className="text-[10px] font-mono text-[#666666] uppercase tracking-wider block mb-3">
                   CREATED BY
                 </span>
 
@@ -700,7 +700,7 @@ export default function CrewDetailPage() {
                     <img
                       src={initialCrew.creator.avatar}
                       alt={initialCrew.creator.name}
-                      className="w-12 h-12 rounded-full object-cover border border-[#2A2A35]"
+                      className="w-12 h-12 rounded-full object-cover border border-[#1A1A1A]"
                     />
                     <div>
                       <div className="flex items-center gap-1.5">
@@ -711,7 +711,7 @@ export default function CrewDetailPage() {
                           CREW ORGANIZER
                         </span>
                       </div>
-                      <span className="font-mono text-xs text-[#A1A1AA] block">
+                      <span className="font-mono text-xs text-[#666666] block">
                         {initialCrew.creator.username}
                       </span>
                     </div>
@@ -719,7 +719,7 @@ export default function CrewDetailPage() {
 
                   <Link
                     href={`/people/${initialCrew.creator.id}`}
-                    className="px-3 py-1.5 rounded-lg bg-[#1A1A21] hover:bg-[#2A2A35] border border-[#2A2A35] text-xs font-mono text-white transition-colors"
+                    className="px-3 py-1.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-xs font-mono text-white transition-colors"
                   >
                     VIEW PROFILE
                   </Link>
@@ -731,15 +731,15 @@ export default function CrewDetailPage() {
           {/* ================================================== */}
           {/* 11. CREW ACTIVITY */}
           {/* ================================================== */}
-          <section className="p-6 rounded-[20px] bg-[#141418] border border-[#2A2A35] mb-12 shadow-sm">
+          <section className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] mb-12 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
               <Users className="w-4 h-4 text-[#8B5CF6]" />
-              <h2 className="text-lg font-bold font-sans text-white tracking-wide">
+              <h2 className="text-lg font-extrabold tracking-[-0.03em] font-sans text-white tracking-wide">
                 CREW ACTIVITY
               </h2>
             </div>
 
-            <div className="divide-y divide-[#2A2A35]/60">
+            <div className="divide-y divide-[#1A1A1A]/60">
               {initialCrew.activity.map((act) => (
                 <div
                   key={act.id}
@@ -751,7 +751,7 @@ export default function CrewDetailPage() {
                       {act.text}
                     </span>
                   </div>
-                  <span className="font-mono text-[11px] text-[#71717A] shrink-0">
+                  <span className="font-mono text-[11px] text-[#666666] shrink-0">
                     {act.time}
                   </span>
                 </div>
@@ -763,7 +763,7 @@ export default function CrewDetailPage() {
           {/* 13. COMMUNITY CONNECTION (Optional Ecosystem Link) */}
           {/* ================================================== */}
           {initialCrew.community && (
-            <section className="p-6 rounded-[20px] bg-gradient-to-r from-[#141418] to-[#1A1A21] border border-[#2A2A35] mb-12 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <section className="p-6 rounded-[12px] bg-gradient-to-r from-[#111111] to-[#111111] border border-[#1A1A1A] mb-12 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <span className="text-[10px] font-mono text-[#8B5CF6] font-bold uppercase tracking-widest block mb-1">
                   FROM THE COMMUNITY
@@ -771,14 +771,14 @@ export default function CrewDetailPage() {
                 <h3 className="text-lg font-bold font-sans text-white">
                   {initialCrew.community.name}
                 </h3>
-                <p className="text-xs text-[#A1A1AA] font-sans mt-0.5">
+                <p className="text-xs text-[#666666] font-sans mt-0.5">
                   This crew emerged from the shared nightlife interest group.
                 </p>
               </div>
 
               <Link
                 href={`/communities/${initialCrew.community.id}`}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#141418] hover:bg-[#2A2A35] border border-[#2A2A35] text-xs font-mono text-white transition-colors shrink-0"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-xs font-mono text-white transition-colors shrink-0"
               >
                 <span>EXPLORE COMMUNITY</span>
                 <ChevronRight className="w-4 h-4 text-[#8B5CF6]" />
@@ -792,10 +792,10 @@ export default function CrewDetailPage() {
           <section className="mb-12">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold font-sans text-white tracking-wide">
+                <h2 className="text-2xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-wide">
                   OTHER CREWS FOR THIS EVENT
                 </h2>
-                <p className="text-xs text-[#A1A1AA] font-sans mt-0.5">
+                <p className="text-xs text-[#666666] font-sans mt-0.5">
                   Explore other groups heading to {initialCrew.event.name}
                 </p>
               </div>
@@ -817,7 +817,7 @@ export default function CrewDetailPage() {
                 return (
                   <div
                     key={rel.id}
-                    className="p-5 rounded-[20px] bg-[#141418] border border-[#2A2A35] hover:border-[#8B5CF6]/50 transition-all flex flex-col justify-between group shadow-sm"
+                    className="p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/50 transition-all flex flex-col justify-between group shadow-sm"
                   >
                     <div>
                       {/* Cover snippet */}
@@ -837,7 +837,7 @@ export default function CrewDetailPage() {
                         <span className="text-[11px] font-mono text-[#8B5CF6] font-semibold">
                           {rel.vibe}
                         </span>
-                        <span className="text-[11px] font-mono text-[#A1A1AA]">
+                        <span className="text-[11px] font-mono text-[#666666]">
                           {rel.memberCount} / {rel.maxMembers}
                         </span>
                       </div>
@@ -846,14 +846,14 @@ export default function CrewDetailPage() {
                         {rel.name}
                       </h3>
 
-                      <p className="text-xs font-mono text-[#71717A] mb-4">
+                      <p className="text-xs font-mono text-[#666666] mb-4">
                         {isRelFull ? "CREW FULL" : `${relOpen} SPOTS AVAILABLE`}
                       </p>
                     </div>
 
                     <Link
                       href={`/crews/${rel.id}`}
-                      className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#1A1A21] hover:bg-[#8B5CF6] hover:text-white border border-[#2A2A35] hover:border-transparent text-xs font-mono text-white transition-colors"
+                      className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 rounded-[4px] bg-[#111111] hover:bg-[#8B5CF6] hover:text-white border border-[#1A1A1A] hover:border-transparent text-xs font-mono text-white transition-colors"
                     >
                       <span>VIEW CREW</span>
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -875,11 +875,11 @@ export default function CrewDetailPage() {
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
         >
-          <div className="w-full max-w-md bg-[#141418] border border-[#2A2A35] rounded-[24px] p-6 relative shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+          <div className="w-full max-w-md bg-[#111111] border border-[#1A1A1A] rounded-[12px] p-6 relative shadow-2xl animate-in fade-in zoom-in-95 duration-200">
             <button
               type="button"
               onClick={() => setIsReportOpen(false)}
-              className="absolute top-5 right-5 text-[#A1A1AA] hover:text-white transition-colors"
+              className="absolute top-5 right-5 text-[#666666] hover:text-white transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -890,7 +890,7 @@ export default function CrewDetailPage() {
                 REPORT CREW
               </h3>
             </div>
-            <p className="text-xs text-[#A1A1AA] font-sans mb-5 leading-relaxed">
+            <p className="text-xs text-[#666666] font-sans mb-5 leading-relaxed">
               Help keep VibeUp safe and nightlife-focused. Select an issue to submit for moderation.
             </p>
 
@@ -900,14 +900,14 @@ export default function CrewDetailPage() {
                 <h4 className="font-bold text-white font-sans text-sm">
                   REPORT SUBMITTED
                 </h4>
-                <p className="text-xs text-[#A1A1AA] font-mono">
+                <p className="text-xs text-[#666666] font-mono">
                   Thank you. Our moderation team will review this crew shortly.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleReportSubmit} className="space-y-4">
                 <div className="space-y-2">
-                  <label className="text-xs font-mono text-[#A1A1AA] block">
+                  <label className="text-xs font-mono text-[#666666] block">
                     REASON FOR REPORT
                   </label>
                   <div className="space-y-1.5">
@@ -923,7 +923,7 @@ export default function CrewDetailPage() {
                         className={`flex items-center gap-2.5 p-2.5 rounded-xl border text-xs font-mono cursor-pointer transition-colors ${
                           reportReason === reason
                             ? "bg-[#8B5CF6]/15 border-[#8B5CF6] text-white"
-                            : "bg-[#1A1A21] border-[#2A2A35] text-[#A1A1AA] hover:text-white"
+                            : "bg-[#111111] border-[#1A1A1A] text-[#666666] hover:text-white"
                         }`}
                       >
                         <input
@@ -940,17 +940,17 @@ export default function CrewDetailPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#2A2A35]">
+                <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#1A1A1A]">
                   <button
                     type="button"
                     onClick={() => setIsReportOpen(false)}
-                    className="px-4 py-2 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors"
+                    className="px-4 py-2 rounded-xl bg-[#111111] hover:bg-[#1A1A1A] text-xs font-mono text-[#666666] hover:text-white transition-colors"
                   >
                     CANCEL
                   </button>
                   <button
                     type="submit"
-                    className="px-5 py-2 rounded-xl bg-[#EF4444] hover:bg-[#DC2626] text-xs font-mono font-bold text-white transition-colors"
+                    className="px-5 py-2 rounded-[4px] bg-[#EF4444] hover:bg-[#DC2626] text-xs font-mono font-bold text-white transition-colors"
                   >
                     SUBMIT REPORT
                   </button>

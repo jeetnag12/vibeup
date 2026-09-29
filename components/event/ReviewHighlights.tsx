@@ -27,7 +27,7 @@ export default function ReviewHighlights({
         {highlights.map((quote, idx) => (
           <div
             key={idx}
-            className="p-4 rounded-[14px] bg-[#141418] border border-[#2A2A35] hover:border-[#8B5CF6]/40 transition-colors flex items-start gap-3"
+            className="p-4 rounded-[14px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/40 transition-colors flex items-start gap-3"
           >
             <MessageSquareQuote className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
             <p className="font-sans text-xs sm:text-sm text-[#D4D4D8] leading-relaxed">

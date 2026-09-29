@@ -16,7 +16,7 @@ export default function LookingForCrew({
   eventId,
 }: LookingForCrewProps) {
   return (
-    <section className="w-full mb-14 pt-10 border-t border-[#2A2A35]">
+    <section className="w-full mb-14 pt-10 border-t border-[#1A1A1A]">
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
         <div>
@@ -29,7 +29,7 @@ export default function LookingForCrew({
           <h3 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
             PEOPLE LOOKING FOR A CREW
           </h3>
-          <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-1 max-w-xl">
+          <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1 max-w-xl">
             Going solo? Find people who are looking for a group too. Invite them into your crew or team up together.
           </p>
         </div>
@@ -48,7 +48,7 @@ export default function LookingForCrew({
         {attendees.map((person) => (
           <div
             key={person.id}
-            className="p-5 rounded-[18px] bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6] hover:shadow-[0_0_20px_rgba(139,92,246,0.15)] transition-all duration-200 flex flex-col justify-between group"
+            className="p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] hover:shadow-[0_0_20px_rgba(139,92,246,0.15)] transition-all duration-200 flex flex-col justify-between group"
           >
             <div>
               {/* Header: Avatar + Vibe Score */}
@@ -58,18 +58,18 @@ export default function LookingForCrew({
                   <img
                     src={person.avatar}
                     alt={person.name}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-[#2A2A35] group-hover:border-[#8B5CF6]/50 transition-colors"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-[#1A1A1A] group-hover:border-[#8B5CF6]/50 transition-colors"
                   />
                   <span
                     title="Looking for a crew"
-                    className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-[#EC4899] border-2 border-[#1A1A21] flex items-center justify-center text-[9px] font-bold text-white shadow-sm"
+                    className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-[#EC4899] border-2 border-[#111111] flex items-center justify-center text-[9px] font-bold text-white shadow-sm"
                   >
                     C
                   </span>
                 </div>
 
                 <div className="text-right">
-                  <span className="font-mono text-[10px] text-[#A1A1AA] uppercase tracking-wider block">
+                  <span className="font-mono text-[10px] text-[#666666] uppercase tracking-wider block">
                     VIBE SCORE
                   </span>
                   <span className="font-mono text-base font-bold text-[#8B5CF6]">
@@ -86,14 +86,14 @@ export default function LookingForCrew({
                 >
                   {person.name}
                 </Link>
-                <div className="flex items-center gap-1 text-[11px] font-mono text-[#A1A1AA] mt-0.5">
+                <div className="flex items-center gap-1 text-[11px] font-mono text-[#666666] mt-0.5">
                   <MapPin className="w-3 h-3 text-[#EC4899] shrink-0" />
                   <span className="truncate">{person.area}</span>
                 </div>
               </div>
 
               {/* Bio */}
-              <p className="text-xs text-[#A1A1AA] font-sans line-clamp-2 leading-relaxed mb-3 min-h-[32px]">
+              <p className="text-xs text-[#666666] font-sans line-clamp-2 leading-relaxed mb-3 min-h-[32px]">
                 {person.bio}
               </p>
 
@@ -102,7 +102,7 @@ export default function LookingForCrew({
                 {person.interests.slice(0, 3).map((tag) => (
                   <span
                     key={tag}
-                    className="font-mono text-[10px] px-2 py-0.5 rounded-md bg-[#141418] text-[#A1A1AA] border border-[#2A2A35] group-hover:border-[#8B5CF6]/30 group-hover:text-white transition-colors"
+                    className="font-mono text-[10px] px-2 py-0.5 rounded-md bg-[#111111] text-[#666666] border border-[#1A1A1A] group-hover:border-[#8B5CF6]/30 group-hover:text-white transition-colors"
                   >
                     {tag}
                   </span>
@@ -128,7 +128,7 @@ export default function LookingForCrew({
             <button
               type="button"
               onClick={() => onInviteAttendee(person)}
-              className="w-full py-2.5 rounded-xl bg-[#141418] hover:bg-[#8B5CF6] text-white text-xs font-mono font-medium border border-[#2A2A35] hover:border-[#8B5CF6] transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm group-hover:border-[#8B5CF6]/50"
+              className="w-full py-2.5 rounded-xl bg-[#111111] hover:bg-[#8B5CF6] text-white text-xs font-mono font-medium border border-[#1A1A1A] hover:border-[#8B5CF6] transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm group-hover:border-[#8B5CF6]/50"
             >
               <Send className="w-3.5 h-3.5 text-[#8B5CF6] group-hover:text-white transition-colors" />
               <span>INVITE TO CREW</span>

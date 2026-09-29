@@ -103,7 +103,7 @@ export default function PopularClubs() {
   };
 
   return (
-    <section className="w-full py-[80px] bg-[#141418]">
+    <section className="w-full py-[120px] bg-[#000000]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="flex items-end justify-between mb-8 sm:mb-10">
@@ -118,8 +118,8 @@ export default function PopularClubs() {
               BANGALORE&apos;S BEST
             </p>
             <h2
-              className="font-sans font-bold text-white text-[32px] tracking-tight leading-tight"
-              style={{ fontWeight: 700 }}
+              className="font-sans font-extrabold tracking-[-0.03em] text-white text-[32px] tracking-tight leading-tight"
+              style={{ fontWeight: 800, letterSpacing: "-0.03em" }}
             >
               Popular Clubs
             </h2>
@@ -132,7 +132,7 @@ export default function PopularClubs() {
                 type="button"
                 aria-label="Scroll left"
                 onClick={() => scroll("left")}
-                className="w-8 h-8 rounded-full border border-[#2A2A35] bg-[#1A1A21] flex items-center justify-center text-[#A1A1AA] hover:text-white hover:border-[#8B5CF6] transition-colors"
+                className="w-8 h-8 rounded-full border border-[#1A1A1A] bg-[#111111] flex items-center justify-center text-[#666666] hover:text-white hover:border-[#8B5CF6] transition-colors"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
@@ -140,7 +140,7 @@ export default function PopularClubs() {
                 type="button"
                 aria-label="Scroll right"
                 onClick={() => scroll("right")}
-                className="w-8 h-8 rounded-full border border-[#2A2A35] bg-[#1A1A21] flex items-center justify-center text-[#A1A1AA] hover:text-white hover:border-[#8B5CF6] transition-colors"
+                className="w-8 h-8 rounded-full border border-[#1A1A1A] bg-[#111111] flex items-center justify-center text-[#666666] hover:text-white hover:border-[#8B5CF6] transition-colors"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -170,10 +170,10 @@ export default function PopularClubs() {
             return (
               <div
                 key={club.id}
-                className="w-[260px] shrink-0 snap-start bg-[#1A1A21] border border-[#2A2A35] rounded-[16px] overflow-hidden transition-all duration-200 hover:border-[#8B5CF6] hover:-translate-y-[2px] hover:shadow-[0_0_24px_rgba(139,92,246,0.15)] flex flex-col justify-between group"
+                className="w-[260px] shrink-0 snap-start bg-[#111111] border border-[#1A1A1A] rounded-[12px] overflow-hidden transition-all duration-200 hover:border-[#8B5CF6] hover:-translate-y-[2px] hover:shadow-[0_0_24px_rgba(139,92,246,0.15)] flex flex-col justify-between group"
               >
                 {/* Top: Club Photo */}
-                <div className="relative w-full h-[160px] overflow-hidden bg-[#09090B]">
+                <div className="relative w-full h-[160px] overflow-hidden bg-[#000000]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={club.image}
@@ -210,7 +210,7 @@ export default function PopularClubs() {
                     </h3>
 
                     {/* Area with MapPin */}
-                    <div className="flex items-center gap-1.5 text-[#A1A1AA] mb-3">
+                    <div className="flex items-center gap-1.5 text-[#666666] mb-3">
                       <MapPin className="w-3.5 h-3.5 text-[#EC4899] shrink-0" />
                       <span className="font-mono text-[12px]">{club.area}</span>
                     </div>
@@ -234,11 +234,11 @@ export default function PopularClubs() {
 
                   <div>
                     {/* Stats Row (space-between) */}
-                    <div className="flex items-center justify-between pt-2 border-t border-[#2A2A35]">
+                    <div className="flex items-center justify-between pt-2 border-t border-[#1A1A1A]">
                       <span className="font-mono text-[12px] text-white">
                         ⭐ {club.rating.toFixed(1)}
                       </span>
-                      <span className="font-mono text-[12px] text-[#A1A1AA]">
+                      <span className="font-mono text-[12px] text-[#666666]">
                         {club.followers} followers
                       </span>
                     </div>
@@ -250,7 +250,7 @@ export default function PopularClubs() {
                       className={`w-full h-[36px] mt-3 rounded-[8px] border transition-all duration-200 font-sans text-[14px] flex items-center justify-center ${
                         isFollowing
                           ? "border-[#8B5CF6] bg-[#8B5CF6]/20 text-white"
-                          : "border-[#2A2A35] bg-transparent text-[#A1A1AA] hover:border-[#8B5CF6] hover:text-white"
+                          : "border-[#1A1A1A] bg-transparent text-[#666666] hover:border-[#8B5CF6] hover:text-white"
                       }`}
                       style={{ fontWeight: 500 }}
                     >

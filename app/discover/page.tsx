@@ -401,7 +401,7 @@ export default function DiscoverPage() {
     sortBy !== "popular";
 
   return (
-    <main className="min-h-screen bg-[#09090B] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
       {/* 1. Navbar */}
       <Navbar />
 
@@ -420,7 +420,7 @@ export default function DiscoverPage() {
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 relative z-10">
           {/* Header */}
           <div className="mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141418] border border-[#2A2A35] text-xs font-mono text-[#8B5CF6] mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111111] border border-[#1A1A1A] text-xs font-mono text-[#8B5CF6] mb-4">
               <Sparkles className="w-3.5 h-3.5" />
               <span className="tracking-[0.12em] uppercase">
                 EXPLORE BANGALORE
@@ -428,8 +428,8 @@ export default function DiscoverPage() {
             </div>
 
             <h1
-              className="text-3xl sm:text-5xl font-bold tracking-tight font-sans text-white leading-tight"
-              style={{ fontWeight: 700 }}
+              className="text-3xl sm:text-5xl font-extrabold tracking-[-0.03em] tracking-tight font-sans text-white leading-tight"
+              style={{ fontWeight: 800, letterSpacing: "-0.03em" }}
             >
               Discover Events &amp;{" "}
               <span
@@ -444,7 +444,7 @@ export default function DiscoverPage() {
               </span>
             </h1>
 
-            <p className="mt-3 text-[#A1A1AA] text-base sm:text-lg max-w-2xl font-sans font-normal leading-relaxed">
+            <p className="mt-3 text-[#666666] text-base sm:text-lg max-w-2xl font-sans font-normal leading-relaxed">
               Find upcoming parties, gigs, concerts, and social meetups happening
               across the city. Connect with your crowd before heading out.
             </p>
@@ -452,21 +452,21 @@ export default function DiscoverPage() {
 
           {/* Search Bar & Primary Input */}
           <div className="w-full mb-6">
-            <div className="relative w-full h-[54px] bg-[#141418] border border-[#2A2A35] focus-within:border-[#8B5CF6] focus-within:ring-4 focus-within:ring-[#8B5CF6]/15 rounded-[12px] flex items-center px-4 transition-all duration-200">
-              <Search className="w-5 h-5 text-[#A1A1AA] shrink-0 mr-3" />
+            <div className="relative w-full h-[54px] bg-[#111111] border border-[#1A1A1A] focus-within:border-[#8B5CF6] focus-within:ring-4 focus-within:ring-[#8B5CF6]/15 rounded-[12px] flex items-center px-4 transition-all duration-200">
+              <Search className="w-5 h-5 text-[#666666] shrink-0 mr-3" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by event, artist, venue (e.g. Berghain, Indiranagar, Toit)..."
-                className="w-full h-full bg-transparent text-white text-sm sm:text-base placeholder:text-[#71717A] focus:outline-none font-sans"
+                className="w-full h-full bg-transparent text-white text-sm sm:text-base placeholder:text-[#666666] focus:outline-none font-sans"
               />
               {searchQuery && (
                 <button
                   type="button"
                   aria-label="Clear search"
                   onClick={() => setSearchQuery("")}
-                  className="p-1 rounded-full text-[#A1A1AA] hover:text-white hover:bg-white/10 transition-colors"
+                  className="p-1 rounded-full text-[#666666] hover:text-white hover:bg-white/10 transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -486,7 +486,7 @@ export default function DiscoverPage() {
                   className={`font-mono text-xs px-4 py-2 rounded-full whitespace-nowrap border transition-all duration-200 shrink-0 ${
                     isActive
                       ? "border-[#8B5CF6] bg-[#8B5CF6] text-white shadow-[0_0_16px_rgba(139,92,246,0.35)]"
-                      : "border-[#2A2A35] bg-[#141418] text-[#A1A1AA] hover:border-[#8B5CF6] hover:text-white"
+                      : "border-[#1A1A1A] bg-[#111111] text-[#666666] hover:border-[#8B5CF6] hover:text-white"
                   }`}
                 >
                   {pill}
@@ -496,10 +496,10 @@ export default function DiscoverPage() {
           </div>
 
           {/* Advanced Filters Row: Area, Date, Sort */}
-          <div className="p-4 rounded-xl bg-[#141418] border border-[#2A2A35] flex flex-wrap items-center justify-between gap-4 mb-8">
+          <div className="p-4 rounded-xl bg-[#111111] border border-[#1A1A1A] flex flex-wrap items-center justify-between gap-4 mb-8">
             <div className="flex flex-wrap items-center gap-3">
               {/* Area Filter */}
-              <div className="flex items-center gap-2 bg-[#1A1A21] border border-[#2A2A35] rounded-lg px-3 py-1.5 text-xs text-[#A1A1AA]">
+              <div className="flex items-center gap-2 bg-[#111111] border border-[#1A1A1A] rounded-lg px-3 py-1.5 text-xs text-[#666666]">
                 <MapPin className="w-3.5 h-3.5 text-[#EC4899] shrink-0" />
                 <label htmlFor="area-select" className="sr-only">
                   Area
@@ -511,7 +511,7 @@ export default function DiscoverPage() {
                   className="bg-transparent text-white focus:outline-none cursor-pointer pr-2 font-mono text-xs"
                 >
                   {areaOptions.map((area) => (
-                    <option key={area} value={area} className="bg-[#1A1A21]">
+                    <option key={area} value={area} className="bg-[#111111]">
                       {area}
                     </option>
                   ))}
@@ -519,7 +519,7 @@ export default function DiscoverPage() {
               </div>
 
               {/* Date Filter */}
-              <div className="flex items-center gap-2 bg-[#1A1A21] border border-[#2A2A35] rounded-lg px-3 py-1.5 text-xs text-[#A1A1AA]">
+              <div className="flex items-center gap-2 bg-[#111111] border border-[#1A1A1A] rounded-lg px-3 py-1.5 text-xs text-[#666666]">
                 <Calendar className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0" />
                 <label htmlFor="date-select" className="sr-only">
                   Date
@@ -531,7 +531,7 @@ export default function DiscoverPage() {
                   className="bg-transparent text-white focus:outline-none cursor-pointer pr-2 font-mono text-xs"
                 >
                   {dateOptions.map((d) => (
-                    <option key={d.value} value={d.value} className="bg-[#1A1A21]">
+                    <option key={d.value} value={d.value} className="bg-[#111111]">
                       {d.label}
                     </option>
                   ))}
@@ -539,8 +539,8 @@ export default function DiscoverPage() {
               </div>
 
               {/* Sort By Filter */}
-              <div className="flex items-center gap-2 bg-[#1A1A21] border border-[#2A2A35] rounded-lg px-3 py-1.5 text-xs text-[#A1A1AA]">
-                <SlidersHorizontal className="w-3.5 h-3.5 text-[#A1A1AA] shrink-0" />
+              <div className="flex items-center gap-2 bg-[#111111] border border-[#1A1A1A] rounded-lg px-3 py-1.5 text-xs text-[#666666]">
+                <SlidersHorizontal className="w-3.5 h-3.5 text-[#666666] shrink-0" />
                 <label htmlFor="sort-select" className="sr-only">
                   Sort By
                 </label>
@@ -551,7 +551,7 @@ export default function DiscoverPage() {
                   className="bg-transparent text-white focus:outline-none cursor-pointer pr-2 font-mono text-xs"
                 >
                   {sortOptions.map((s) => (
-                    <option key={s.value} value={s.value} className="bg-[#1A1A21]">
+                    <option key={s.value} value={s.value} className="bg-[#111111]">
                       {s.label}
                     </option>
                   ))}
@@ -561,7 +561,7 @@ export default function DiscoverPage() {
 
             {/* Results Count & Reset Button */}
             <div className="flex items-center gap-3 ml-auto">
-              <span className="font-mono text-xs text-[#A1A1AA]">
+              <span className="font-mono text-xs text-[#666666]">
                 Showing{" "}
                 <span className="text-white font-medium">
                   {filteredEvents.length}
@@ -596,21 +596,21 @@ export default function DiscoverPage() {
             </div>
           ) : (
             /* Empty State */
-            <div className="w-full py-16 px-4 rounded-2xl bg-[#141418] border border-[#2A2A35] flex flex-col items-center justify-center text-center">
-              <div className="w-14 h-14 rounded-2xl bg-[#1A1A21] border border-[#2A2A35] flex items-center justify-center text-[#8B5CF6] mb-4 shadow-lg">
+            <div className="w-full py-16 px-4 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex flex-col items-center justify-center text-center">
+              <div className="w-14 h-14 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex items-center justify-center text-[#8B5CF6] mb-4 shadow-lg">
                 <Search className="w-6 h-6" />
               </div>
               <h3 className="font-sans font-semibold text-lg text-white mb-1">
                 No matching events found
               </h3>
-              <p className="font-sans text-sm text-[#A1A1AA] max-w-sm mb-6">
+              <p className="font-sans text-sm text-[#666666] max-w-sm mb-6">
                 We couldn&apos;t find any events matching your search or filter
                 criteria. Try adjusting your selections or clear your filters.
               </p>
               <button
                 type="button"
                 onClick={resetFilters}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-sans text-sm font-medium transition-colors duration-200"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-sans text-sm font-medium transition-colors duration-200"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset all filters</span>

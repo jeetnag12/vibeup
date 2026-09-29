@@ -132,7 +132,7 @@ export default function ChooseAreasPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#09090B] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
       {/* Ambient Radial Glow */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[750px] h-[500px] pointer-events-none z-0"
@@ -146,11 +146,11 @@ export default function ChooseAreasPage() {
       {/* ================================================== */}
       {/* ONBOARDING MINIMAL TOP HEADER */}
       {/* ================================================== */}
-      <header className="w-full h-[64px] border-b border-[#2A2A35]/60 bg-[rgba(9,9,11,0.8)] backdrop-blur-md relative z-20">
+      <header className="w-full h-[64px] border-b border-[#1A1A1A]/60 bg-[rgba(9,9,11,0.8)] backdrop-blur-md relative z-20">
         <div className="max-w-[900px] h-full mx-auto px-4 sm:px-6 flex items-center justify-between">
           <Link
             href="/choose-genres"
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/5"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#666666] hover:text-white transition-colors p-1.5 rounded-[4px] hover:bg-white/5"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>BACK</span>
@@ -186,13 +186,13 @@ export default function ChooseAreasPage() {
         >
           {/* Progress Bar (80%) */}
           <div className="mb-8">
-            <div className="flex items-center justify-between text-[11px] font-mono text-[#71717A] mb-2 uppercase">
+            <div className="flex items-center justify-between text-[11px] font-mono text-[#666666] mb-2 uppercase">
               <span className="text-[#22C55E]">✓ 1. PROFILE</span>
               <span className="text-[#22C55E]">✓ 2. INTERESTS</span>
               <span className="text-[#22C55E]">✓ 3. GENRES</span>
               <span className="text-[#8B5CF6] font-bold">4. AREAS</span>
             </div>
-            <div className="w-full h-1.5 rounded-full bg-[#1A1A21] border border-[#2A2A35] overflow-hidden flex">
+            <div className="w-full h-1.5 rounded-full bg-[#111111] border border-[#1A1A1A] overflow-hidden flex">
               <div className="w-4/5 h-full bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] rounded-full transition-all duration-300" />
               <div className="w-1/5 h-full bg-transparent" />
             </div>
@@ -200,24 +200,24 @@ export default function ChooseAreasPage() {
 
           {/* Headline & Narrative */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl sm:text-4xl font-bold font-sans text-white tracking-tight">
+            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
               WHERE DO YOU VIBE?
             </h1>
-            <p className="text-sm text-[#A1A1AA] font-sans mt-2 max-w-md mx-auto leading-relaxed">
+            <p className="text-sm text-[#666666] font-sans mt-2 max-w-md mx-auto leading-relaxed">
               Choose the areas you usually go out in. We&apos;ll use this to show you what&apos;s happening around you.
             </p>
-            <p className="text-[11px] font-mono text-[#71717A] mt-1.5">
+            <p className="text-[11px] font-mono text-[#666666] mt-1.5">
               Choose broad neighborhoods or areas · No exact location required.
             </p>
           </div>
 
           {/* Main Card */}
-          <div className="rounded-[24px] bg-[#141418] border border-[#2A2A35] p-5 sm:p-8 shadow-2xl space-y-6">
+          <div className="rounded-[12px] bg-[#111111] border border-[#1A1A1A] p-5 sm:p-8 shadow-2xl space-y-6">
             {/* Top Bar: Search & Status Counter */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pb-4 border-b border-[#2A2A35]/60">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pb-4 border-b border-[#1A1A1A]/60">
               {/* Search Box */}
               <div className="relative flex-1 max-w-md">
-                <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#71717A]">
+                <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#666666]">
                   <Search className="w-4 h-4" />
                 </span>
                 <input
@@ -225,13 +225,13 @@ export default function ChooseAreasPage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search Bangalore areas... (e.g. indira, kor, white)"
-                  className="w-full bg-[#1A1A21] border border-[#2A2A35] focus:border-[#8B5CF6] rounded-xl pl-9 pr-9 py-2.5 text-xs font-mono text-white placeholder-[#71717A] focus:outline-none transition-colors"
+                  className="w-full bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] rounded-xl pl-9 pr-9 py-2.5 text-xs font-mono text-white placeholder-[#666666] focus:outline-none transition-colors"
                 />
                 {searchQuery && (
                   <button
                     type="button"
                     onClick={() => setSearchQuery("")}
-                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-[#71717A] hover:text-white"
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-[#666666] hover:text-white"
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
@@ -241,14 +241,14 @@ export default function ChooseAreasPage() {
               {/* Live Count & Min Status */}
               <div className="flex items-center justify-between sm:justify-end gap-3">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs text-[#A1A1AA]">
+                  <span className="font-mono text-xs text-[#666666]">
                     SELECTED:
                   </span>
                   <span
                     className={`font-mono text-xs font-bold px-2 py-0.5 rounded-md ${
                       isMinMet
                         ? "bg-[#22C55E]/15 text-[#22C55E] border border-[#22C55E]/30"
-                        : "bg-[#1A1A21] text-white border border-[#2A2A35]"
+                        : "bg-[#111111] text-white border border-[#1A1A1A]"
                     }`}
                   >
                     {selectedAreas.length} / 5
@@ -281,8 +281,8 @@ export default function ChooseAreasPage() {
                     onClick={() => setSelectedRegion(region)}
                     className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-150 whitespace-nowrap shrink-0 ${
                       isActive
-                        ? "bg-[#8B5CF6] text-white font-bold shadow-[0_0_12px_rgba(139,92,246,0.3)]"
-                        : "bg-[#1A1A21] text-[#A1A1AA] hover:text-white hover:bg-[#2A2A35] border border-[#2A2A35]"
+                        ? "bg-[#8B5CF6] text-white font-bold "
+                        : "bg-[#111111] text-[#666666] hover:text-white hover:bg-[#1A1A1A] border border-[#1A1A1A]"
                     }`}
                   >
                     {region}
@@ -318,10 +318,10 @@ export default function ChooseAreasPage() {
                       type="button"
                       onClick={() => toggleArea(item.id)}
                       aria-pressed={isSelected}
-                      className={`group relative p-3 sm:p-3.5 rounded-2xl border text-left transition-all duration-200 flex items-start justify-between gap-2.5 focus:outline-none focus:ring-2 focus:ring-[#8B5CF6] ${
+                      className={`group relative p-3 sm:p-3.5 rounded-[12px] border text-left transition-all duration-200 flex items-start justify-between gap-2.5 focus:outline-none focus:ring-2 focus:ring-[#8B5CF6] ${
                         isSelected
                           ? "bg-[#8B5CF6]/15 border-[#8B5CF6] shadow-[0_0_16px_rgba(139,92,246,0.25)] scale-[1.02]"
-                          : "bg-[#1A1A21] border-[#2A2A35] hover:border-[#8B5CF6]/40 hover:bg-[#1A1A21]/80"
+                          : "bg-[#111111] border-[#1A1A1A] hover:border-[#8B5CF6]/40 hover:bg-[#111111]/80"
                       }`}
                     >
                       <div className="min-w-0">
@@ -330,7 +330,7 @@ export default function ChooseAreasPage() {
                             className={`w-3.5 h-3.5 shrink-0 transition-colors ${
                               isSelected
                                 ? "text-[#8B5CF6]"
-                                : "text-[#71717A] group-hover:text-[#8B5CF6]"
+                                : "text-[#666666] group-hover:text-[#8B5CF6]"
                             }`}
                           />
                           <span
@@ -343,7 +343,7 @@ export default function ChooseAreasPage() {
                             {item.name}
                           </span>
                         </div>
-                        <span className="font-mono text-[10px] text-[#71717A] block truncate">
+                        <span className="font-mono text-[10px] text-[#666666] block truncate">
                           {item.subLabel}
                         </span>
                       </div>
@@ -353,7 +353,7 @@ export default function ChooseAreasPage() {
                         className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 mt-0.5 transition-all ${
                           isSelected
                             ? "bg-[#8B5CF6] border-[#8B5CF6] text-white"
-                            : "border-[#2A2A35] bg-transparent opacity-0 group-hover:opacity-60"
+                            : "border-[#1A1A1A] bg-transparent opacity-0 group-hover:opacity-60"
                         }`}
                       >
                         {isSelected && <Check className="w-2.5 h-2.5 stroke-[3]" />}
@@ -364,11 +364,11 @@ export default function ChooseAreasPage() {
               </div>
             ) : (
               <div className="py-12 text-center space-y-2">
-                <Compass className="w-8 h-8 text-[#71717A] mx-auto" />
+                <Compass className="w-8 h-8 text-[#666666] mx-auto" />
                 <h3 className="font-sans font-bold text-sm text-white">
                   NO AREAS FOUND
                 </h3>
-                <p className="font-mono text-xs text-[#A1A1AA]">
+                <p className="font-mono text-xs text-[#666666]">
                   Try another area or clear your search.
                 </p>
                 <button
@@ -385,10 +385,10 @@ export default function ChooseAreasPage() {
             )}
 
             {/* Bottom Continue Section */}
-            <div className="pt-4 border-t border-[#2A2A35]/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="pt-4 border-t border-[#1A1A1A]/60 flex flex-col sm:flex-row items-center justify-between gap-4">
               <Link
                 href="/choose-genres"
-                className="w-full sm:w-auto px-5 py-3 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] border border-[#2A2A35] text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors text-center"
+                className="w-full sm:w-auto px-5 py-3 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-xs font-mono text-[#666666] hover:text-white transition-colors text-center"
               >
                 ← BACK TO GENRES
               </Link>
@@ -397,7 +397,7 @@ export default function ChooseAreasPage() {
                 type="button"
                 onClick={handleContinue}
                 disabled={!isMinMet}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] disabled:bg-[#1A1A21] disabled:text-[#71717A] disabled:border disabled:border-[#2A2A35] disabled:cursor-not-allowed text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.3)] active:scale-[0.99] text-center"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] disabled:bg-[#111111] disabled:text-[#666666] disabled:border disabled:border-[#1A1A1A] disabled:cursor-not-allowed text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.3)] active:scale-[0.99] text-center"
               >
                 CONTINUE
               </button>
@@ -407,7 +407,7 @@ export default function ChooseAreasPage() {
       </div>
 
       {/* Subtle Bottom Accent */}
-      <footer className="w-full py-4 text-center border-t border-[#2A2A35]/40 text-[11px] font-mono text-[#71717A]">
+      <footer className="w-full py-4 text-center border-t border-[#1A1A1A]/40 text-[11px] font-mono text-[#666666]">
         VIBEUP · ONBOARDING STEP 4 OF 5
       </footer>
     </main>

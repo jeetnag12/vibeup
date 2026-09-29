@@ -19,10 +19,10 @@ export default function VibeCategoryCard({
       type="button"
       onClick={() => onSelect(vibe)}
       aria-pressed={isSelected}
-      className={`group relative w-full h-[180px] sm:h-[200px] rounded-[18px] overflow-hidden border text-left transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#8B5CF6] ${
+      className={`group relative w-full h-[180px] sm:h-[200px] rounded-[12px] overflow-hidden border text-left transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#8B5CF6] ${
         isSelected
-          ? "border-[#8B5CF6] ring-2 ring-[#8B5CF6]/50 shadow-[0_0_24px_rgba(139,92,246,0.35)]"
-          : "border-[#2A2A35] hover:border-[#8B5CF6]/60 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)]"
+          ? "border-[#8B5CF6] ring-2 ring-[#8B5CF6]/50 "
+          : "border-[#1A1A1A] hover:border-[#8B5CF6]/60 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)]"
       }`}
     >
       {/* Background Image with Overlay */}
@@ -32,7 +32,7 @@ export default function VibeCategoryCard({
         alt={vibe.title}
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#09090B] via-[#09090B]/60 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/60 to-black/20" />
 
       {/* Top Badge */}
       <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">

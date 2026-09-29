@@ -22,9 +22,9 @@ export default function ReviewBreakdown({
   ];
 
   return (
-    <div className="w-full rounded-[20px] bg-[#141418] border border-[#2A2A35] p-6 sm:p-7">
+    <div className="w-full rounded-[12px] bg-[#111111] border border-[#1A1A1A] p-6 sm:p-7">
       <div className="flex items-center justify-between mb-5">
-        <h3 className="font-mono text-xs font-semibold text-[#A1A1AA] uppercase tracking-wider">
+        <h3 className="font-mono text-xs font-semibold text-[#666666] uppercase tracking-wider">
           DIMENSION BREAKDOWN
         </h3>
         <span className="font-mono text-[11px] text-[#8B5CF6]">
@@ -54,7 +54,7 @@ export default function ReviewBreakdown({
                 aria-valuemin={0}
                 aria-valuemax={5}
                 aria-label={`${item.label} score ${item.score} out of 5`}
-                className="w-full h-2 rounded-full bg-[#1A1A21] border border-[#2A2A35] overflow-hidden"
+                className="w-full h-2 rounded-full bg-[#111111] border border-[#1A1A1A] overflow-hidden"
               >
                 <div
                   className="h-full rounded-full transition-all duration-500 ease-out"

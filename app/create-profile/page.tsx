@@ -118,7 +118,7 @@ export default function CreateProfilePage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#09090B] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
       {/* Subtle Ambient Radial Glow */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] pointer-events-none z-0"
@@ -132,11 +132,11 @@ export default function CreateProfilePage() {
       {/* ================================================== */}
       {/* ONBOARDING MINIMAL TOP HEADER */}
       {/* ================================================== */}
-      <header className="w-full h-[64px] border-b border-[#2A2A35]/60 bg-[rgba(9,9,11,0.8)] backdrop-blur-md relative z-20">
+      <header className="w-full h-[64px] border-b border-[#1A1A1A]/60 bg-[rgba(9,9,11,0.8)] backdrop-blur-md relative z-20">
         <div className="max-w-[720px] h-full mx-auto px-4 sm:px-6 flex items-center justify-between">
           <Link
             href="/otp"
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/5"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#666666] hover:text-white transition-colors p-1.5 rounded-[4px] hover:bg-white/5"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>BACK</span>
@@ -172,13 +172,13 @@ export default function CreateProfilePage() {
         >
           {/* Subtle Progress Bar */}
           <div className="mb-8">
-            <div className="flex items-center justify-between text-[11px] font-mono text-[#71717A] mb-2 uppercase">
+            <div className="flex items-center justify-between text-[11px] font-mono text-[#666666] mb-2 uppercase">
               <span className="text-[#8B5CF6] font-bold">1. PROFILE IDENTITY</span>
               <span>2. INTERESTS</span>
               <span>3. GENRES</span>
               <span>4. AREAS</span>
             </div>
-            <div className="w-full h-1.5 rounded-full bg-[#1A1A21] border border-[#2A2A35] overflow-hidden flex">
+            <div className="w-full h-1.5 rounded-full bg-[#111111] border border-[#1A1A1A] overflow-hidden flex">
               <div className="w-1/5 h-full bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] rounded-full transition-all duration-300" />
               <div className="w-4/5 h-full bg-transparent" />
             </div>
@@ -186,16 +186,16 @@ export default function CreateProfilePage() {
 
           {/* Page Headline */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl sm:text-4xl font-bold font-sans text-white tracking-tight">
+            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
               LET&apos;S BUILD YOUR VIBE
             </h1>
-            <p className="text-sm text-[#A1A1AA] font-sans mt-2 max-w-md mx-auto leading-relaxed">
+            <p className="text-sm text-[#666666] font-sans mt-2 max-w-md mx-auto leading-relaxed">
               Tell us a little about yourself. You can always change this later.
             </p>
           </div>
 
           {/* Main Card */}
-          <div className="rounded-[24px] bg-[#141418] border border-[#2A2A35] p-6 sm:p-8 shadow-2xl space-y-6">
+          <div className="rounded-[12px] bg-[#111111] border border-[#1A1A1A] p-6 sm:p-8 shadow-2xl space-y-6">
             <form onSubmit={handleContinue} noValidate className="space-y-6">
               {/* ================================================== */}
               {/* 4. PROFILE PHOTO SECTION */}
@@ -212,7 +212,7 @@ export default function CreateProfilePage() {
 
                 <div
                   onClick={() => fileInputRef.current?.click()}
-                  className="relative group cursor-pointer w-28 h-28 rounded-full bg-[#1A1A21] border-2 border-[#2A2A35] hover:border-[#8B5CF6] transition-all duration-200 flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+                  className="relative group cursor-pointer w-28 h-28 rounded-full bg-[#111111] border-2 border-[#1A1A1A] hover:border-[#8B5CF6] transition-all duration-200 flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.5)]"
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
@@ -236,9 +236,9 @@ export default function CreateProfilePage() {
                       </div>
                     </>
                   ) : (
-                    <div className="flex flex-col items-center justify-center text-[#71717A] group-hover:text-white transition-colors">
+                    <div className="flex flex-col items-center justify-center text-[#666666] group-hover:text-white transition-colors">
                       <Camera className="w-7 h-7 mb-1 text-[#8B5CF6]" />
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#A1A1AA] group-hover:text-white">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#666666] group-hover:text-white">
                         + ADD PHOTO
                       </span>
                     </div>
@@ -249,7 +249,7 @@ export default function CreateProfilePage() {
                     <button
                       type="button"
                       onClick={handleRemovePhoto}
-                      className="absolute top-1 right-1 w-6 h-6 rounded-full bg-black/70 border border-[#2A2A35] text-white hover:text-[#EF4444] flex items-center justify-center transition-colors"
+                      className="absolute top-1 right-1 w-6 h-6 rounded-full bg-black/70 border border-[#1A1A1A] text-white hover:text-[#EF4444] flex items-center justify-center transition-colors"
                       title="Remove photo"
                     >
                       <X className="w-3.5 h-3.5" />
@@ -267,7 +267,7 @@ export default function CreateProfilePage() {
                       Change photo
                     </button>
                   ) : (
-                    <span className="text-[#71717A]">
+                    <span className="text-[#666666]">
                       Photo is optional · You can skip for now
                     </span>
                   )}
@@ -280,19 +280,19 @@ export default function CreateProfilePage() {
               <div>
                 <label
                   htmlFor="display-name-input"
-                  className="block text-xs font-mono text-[#A1A1AA] uppercase tracking-wider mb-1.5 font-medium"
+                  className="block text-xs font-mono text-[#666666] uppercase tracking-wider mb-1.5 font-medium"
                 >
                   DISPLAY NAME <span className="text-[#8B5CF6]">*</span>
                 </label>
 
                 <div
-                  className={`flex items-center rounded-xl bg-[#1A1A21] border transition-colors ${
+                  className={`flex items-center rounded-xl bg-[#111111] border transition-colors ${
                     hasInteractedName && !isDisplayNameValid
                       ? "border-[#EF4444] focus-within:border-[#EF4444]"
-                      : "border-[#2A2A35] focus-within:border-[#8B5CF6]"
+                      : "border-[#1A1A1A] focus-within:border-[#8B5CF6]"
                   }`}
                 >
-                  <span className="pl-3.5 text-[#71717A]">
+                  <span className="pl-3.5 text-[#666666]">
                     <User className="w-4 h-4" />
                   </span>
                   <input
@@ -307,7 +307,7 @@ export default function CreateProfilePage() {
                     }}
                     onBlur={() => setHasInteractedName(true)}
                     placeholder="e.g. Jeet"
-                    className="w-full bg-transparent px-3 py-3 text-sm font-sans text-white placeholder-[#71717A] focus:outline-none"
+                    className="w-full bg-transparent px-3 py-3 text-sm font-sans text-white placeholder-[#666666] focus:outline-none"
                   />
                 </div>
 
@@ -318,11 +318,11 @@ export default function CreateProfilePage() {
                       Display name is required (min 2 chars)
                     </span>
                   ) : (
-                    <span className="text-[#71717A]">
+                    <span className="text-[#666666]">
                       This is how people will see you on VibeUp.
                     </span>
                   )}
-                  <span className="text-[#71717A]">{displayName.length} / 40</span>
+                  <span className="text-[#666666]">{displayName.length} / 40</span>
                 </div>
               </div>
 
@@ -332,18 +332,18 @@ export default function CreateProfilePage() {
               <div>
                 <label
                   htmlFor="username-input"
-                  className="block text-xs font-mono text-[#A1A1AA] uppercase tracking-wider mb-1.5 font-medium"
+                  className="block text-xs font-mono text-[#666666] uppercase tracking-wider mb-1.5 font-medium"
                 >
                   USERNAME <span className="text-[#8B5CF6]">*</span>
                 </label>
 
                 <div
-                  className={`flex items-center rounded-xl bg-[#1A1A21] border transition-colors ${
+                  className={`flex items-center rounded-xl bg-[#111111] border transition-colors ${
                     hasInteractedUsername && !isUsernameValid
                       ? "border-[#EF4444] focus-within:border-[#EF4444]"
                       : isUsernameValid
                       ? "border-[#22C55E]/60 focus-within:border-[#22C55E]"
-                      : "border-[#2A2A35] focus-within:border-[#8B5CF6]"
+                      : "border-[#1A1A1A] focus-within:border-[#8B5CF6]"
                   }`}
                 >
                   <span className="pl-3.5 font-mono text-sm font-bold text-[#8B5CF6]">
@@ -361,7 +361,7 @@ export default function CreateProfilePage() {
                     }}
                     onBlur={() => setHasInteractedUsername(true)}
                     placeholder="yourusername"
-                    className="w-full bg-transparent px-2.5 py-3 text-sm font-mono text-white placeholder-[#71717A] focus:outline-none"
+                    className="w-full bg-transparent px-2.5 py-3 text-sm font-mono text-white placeholder-[#666666] focus:outline-none"
                   />
                 </div>
 
@@ -393,7 +393,7 @@ export default function CreateProfilePage() {
                       USERNAME AVAILABLE
                     </span>
                   ) : (
-                    <span className="text-[#71717A]">
+                    <span className="text-[#666666]">
                       Your unique VibeUp username (letters, numbers, _ and .).
                     </span>
                   )}
@@ -407,16 +407,16 @@ export default function CreateProfilePage() {
                 <div className="flex items-center justify-between mb-1.5">
                   <label
                     htmlFor="bio-input"
-                    className="block text-xs font-mono text-[#A1A1AA] uppercase tracking-wider font-medium"
+                    className="block text-xs font-mono text-[#666666] uppercase tracking-wider font-medium"
                   >
-                    BIO <span className="text-[#71717A] font-normal lowercase">(optional)</span>
+                    BIO <span className="text-[#666666] font-normal lowercase">(optional)</span>
                   </label>
-                  <span className="text-[11px] font-mono text-[#71717A]">
+                  <span className="text-[11px] font-mono text-[#666666]">
                     {bio.length} / 150
                   </span>
                 </div>
 
-                <div className="rounded-xl bg-[#1A1A21] border border-[#2A2A35] focus-within:border-[#8B5CF6] transition-colors p-3">
+                <div className="rounded-xl bg-[#111111] border border-[#1A1A1A] focus-within:border-[#8B5CF6] transition-colors p-3">
                   <textarea
                     id="bio-input"
                     rows={3}
@@ -424,10 +424,10 @@ export default function CreateProfilePage() {
                     value={bio}
                     onChange={(e) => setBio(e.target.value)}
                     placeholder="Tell people what you're into..."
-                    className="w-full bg-transparent text-sm font-sans text-white placeholder-[#71717A] focus:outline-none resize-none leading-relaxed"
+                    className="w-full bg-transparent text-sm font-sans text-white placeholder-[#666666] focus:outline-none resize-none leading-relaxed"
                   />
                 </div>
-                <p className="text-[11px] font-mono text-[#71717A] mt-1.5">
+                <p className="text-[11px] font-mono text-[#666666] mt-1.5">
                   e.g. Techno nights • Bangalore • Always looking for a good crowd
                 </p>
               </div>
@@ -435,14 +435,14 @@ export default function CreateProfilePage() {
               {/* ================================================== */}
               {/* 8. LIVE PROFILE PREVIEW */}
               {/* ================================================== */}
-              <div className="pt-2 border-t border-[#2A2A35]/60">
+              <div className="pt-2 border-t border-[#1A1A1A]/60">
                 <span className="text-[10px] font-mono text-[#8B5CF6] uppercase font-bold tracking-widest block mb-2.5">
                   PROFILE PREVIEW
                 </span>
 
-                <div className="p-4 rounded-2xl bg-[#1A1A21] border border-[#2A2A35] flex items-start gap-4">
+                <div className="p-4 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex items-start gap-4">
                   {/* Avatar Preview */}
-                  <div className="w-14 h-14 rounded-full bg-[#141418] border border-[#2A2A35] shrink-0 overflow-hidden flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-full bg-[#111111] border border-[#1A1A1A] shrink-0 overflow-hidden flex items-center justify-center">
                     {photoUrl ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
@@ -468,11 +468,11 @@ export default function CreateProfilePage() {
                       </span>
                     </div>
 
-                    <span className="font-mono text-xs text-[#71717A] block mt-0.5">
+                    <span className="font-mono text-xs text-[#666666] block mt-0.5">
                       @{cleanUsername || "yourusername"}
                     </span>
 
-                    <p className="text-xs text-[#A1A1AA] font-sans mt-1.5 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-[#666666] font-sans mt-1.5 line-clamp-2 leading-relaxed">
                       {bio.trim() ||
                         "Techno nights • Bangalore • Always looking for a good crowd"}
                     </p>
@@ -487,13 +487,13 @@ export default function CreateProfilePage() {
                 <button
                   type="submit"
                   disabled={!canContinue}
-                  className="w-full py-3.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] disabled:bg-[#1A1A21] disabled:text-[#71717A] disabled:border disabled:border-[#2A2A35] disabled:cursor-not-allowed text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.3)] active:scale-[0.99]"
+                  className="w-full py-3.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] disabled:bg-[#111111] disabled:text-[#666666] disabled:border disabled:border-[#1A1A1A] disabled:cursor-not-allowed text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.3)] active:scale-[0.99]"
                 >
                   CONTINUE
                 </button>
 
                 {!canContinue && (
-                  <p className="text-center text-[11px] font-mono text-[#71717A] mt-2">
+                  <p className="text-center text-[11px] font-mono text-[#666666] mt-2">
                     Enter a valid Display Name and Username to continue
                   </p>
                 )}
@@ -504,7 +504,7 @@ export default function CreateProfilePage() {
       </div>
 
       {/* Subtle Bottom Accent */}
-      <footer className="w-full py-4 text-center border-t border-[#2A2A35]/40 text-[11px] font-mono text-[#71717A]">
+      <footer className="w-full py-4 text-center border-t border-[#1A1A1A]/40 text-[11px] font-mono text-[#666666]">
         VIBEUP · ONBOARDING STEP 1 OF 5
       </footer>
     </main>

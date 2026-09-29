@@ -1,153 +1,106 @@
 "use client";
 
-import { useState } from "react";
-import { Search, ChevronDown } from "lucide-react";
-
-const quickFilters = [
-  "This Weekend",
-  "Techno",
-  "Bollywood",
-  "Live Music",
-  "Comedy",
-  "Rooftops",
-];
+import Link from "next/link";
 
 export default function Hero() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isFocused, setIsFocused] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-  };
-
   return (
-    <section className="relative w-full h-screen min-h-[640px] pt-[64px] bg-[#09090B] flex flex-col items-center justify-center overflow-hidden">
-      {/* Background blobs */}
+    <section className="relative w-full h-screen min-h-[640px] bg-[#000000] overflow-hidden flex items-center">
+      {/* ================================================== */}
+      {/* BACKGROUND LAYER: Giant Decorative Text */}
+      {/* ================================================== */}
       <div
-        className="absolute top-0 left-0 w-[600px] h-[600px] pointer-events-none z-0 -translate-x-1/4 -translate-y-1/4"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, rgba(139,92,246,0.15) 0%, transparent 70%)",
-        }}
         aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-0 right-0 w-[500px] h-[500px] pointer-events-none z-0 translate-x-1/4 translate-y-1/4"
+        className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none flex flex-col justify-center items-end leading-[0.82] text-right font-sans pr-2 sm:pr-4 md:pr-8"
         style={{
-          background:
-            "radial-gradient(ellipse at center, rgba(236,72,153,0.08) 0%, transparent 70%)",
+          fontWeight: 900,
+          fontSize: "clamp(100px, 18vw, 260px)",
+          color: "rgba(255, 255, 255, 0.02)",
+          letterSpacing: "-0.04em",
         }}
-        aria-hidden="true"
-      />
+      >
+        <span>FIND</span>
+        <span>YOUR</span>
+        <span>CROWD</span>
+      </div>
 
-      {/* Content centered vertically and horizontally */}
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-4 sm:px-6 flex flex-col items-center text-center my-auto">
-        {/* Top label */}
-        <p
-          className="font-mono text-[#A1A1AA] uppercase mb-4 sm:mb-6"
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.15em",
-          }}
-        >
-          BANGALORE · NIGHTLIFE · EXPERIENCES
-        </p>
-
-        {/* Main headline */}
-        <h1
-          className="font-bold tracking-tight text-center leading-[1.08] mb-4 sm:mb-5 font-sans"
-          style={{ fontWeight: 700 }}
-        >
-          <span className="block sm:inline text-white text-[48px] md:text-[72px]">
-            FIND YOUR{" "}
-          </span>
-          <span
-            className="text-[48px] md:text-[72px] bg-clip-text text-transparent"
-            style={{
-              backgroundImage: "linear-gradient(to right, #8B5CF6, #EC4899)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            CROWD.
-          </span>
-        </h1>
-
-        {/* Subheading */}
-        <p
-          className="text-[#A1A1AA] text-[18px] max-w-[480px] mx-auto font-sans leading-relaxed mb-8 sm:mb-10 font-normal"
-          style={{ fontWeight: 400 }}
-        >
-          Discover events. Meet people. Build your crew. Experience Bangalore differently.
-        </p>
-
-        {/* Search bar */}
-        <form
-          onSubmit={handleSearch}
-          className={`w-full max-w-[560px] h-[56px] bg-[#141418] rounded-[12px] border flex items-center transition-all duration-200 ${
-            isFocused
-              ? "border-[#8B5CF6] shadow-[0_0_0_3px_rgba(139,92,246,0.15)]"
-              : "border-[#2A2A35]"
-          }`}
-        >
-          <div className="pl-4 pr-2 text-[#A1A1AA] flex items-center justify-center shrink-0">
-            <Search className="w-5 h-5" />
+      {/* ================================================== */}
+      {/* CONTENT LAYER: Left Column Content */}
+      {/* ================================================== */}
+      <div className="relative z-10 w-full h-full flex flex-col justify-center px-6 lg:px-0 lg:pl-[8vw]">
+        <div className="w-full max-w-[560px] lg:max-w-[620px] flex flex-col items-start text-left">
+          {/* 1. Section label row */}
+          <div className="flex items-center gap-2 mb-4">
+            <span
+              className="w-2 h-2 rounded-full bg-[#7C3AED] shrink-0"
+              aria-hidden="true"
+            />
+            <span
+              className="font-mono text-[11px] text-[#7C3AED] uppercase font-medium"
+              style={{ letterSpacing: "0.15em" }}
+            >
+              BANGALORE NIGHTLIFE
+            </span>
           </div>
 
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-            placeholder="Search events, clubs, people..."
-            className="w-full h-full bg-transparent text-white text-sm sm:text-base placeholder:text-[#71717A] px-2 focus:outline-none font-sans"
-          />
-
-          <button
-            type="submit"
-            className="h-full px-5 sm:px-7 rounded-r-[12px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-sm font-medium transition-colors duration-200 shrink-0 flex items-center justify-center"
+          {/* 2. Headline */}
+          <h1
+            className="font-sans font-black text-left leading-[0.95] my-0 tracking-[-0.03em]"
+            style={{
+              fontWeight: 900,
+              fontSize: "clamp(56px, 8vw, 96px)",
+              letterSpacing: "-0.03em",
+            }}
           >
-            Search
-          </button>
-        </form>
+            <span className="block text-white">FIND YOUR</span>
+            <span className="block text-[#7C3AED]">CROWD.</span>
+          </h1>
 
-        {/* Quick filter pills */}
-        <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-center gap-2 max-w-[620px]">
-          {quickFilters.map((filter) => {
-            const isSelected = selectedFilter === filter;
-            return (
-              <button
-                key={filter}
-                type="button"
-                onClick={() =>
-                  setSelectedFilter(isSelected ? null : filter)
-                }
-                className={`font-mono text-[12px] rounded-full border transition-all duration-200 ${
-                  isSelected
-                    ? "border-[#8B5CF6] text-white bg-[#8B5CF6]/15"
-                    : "border-[#2A2A35] bg-transparent text-[#A1A1AA] hover:border-[#8B5CF6] hover:text-white"
-                }`}
-                style={{
-                  padding: "6px 16px",
-                }}
-              >
-                {filter}
-              </button>
-            );
-          })}
+          {/* 3. Sub text */}
+          <p
+            className="font-sans text-[18px] text-[#666666] max-w-[400px] leading-relaxed mt-5 mb-0"
+            style={{ fontWeight: 400 }}
+          >
+            Discover events. Meet people. Build your crew.
+          </p>
+
+          {/* 4. Two buttons */}
+          <div className="flex flex-row flex-wrap items-center gap-3 mt-12">
+            <Link
+              href="/discover"
+              className="inline-flex items-center justify-center bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-sans text-[15px] transition-colors duration-200"
+              style={{
+                padding: "14px 32px",
+                borderRadius: "4px",
+                fontWeight: 600,
+              }}
+            >
+              Discover events
+            </Link>
+
+            <a
+              href="#how-it-works"
+              className="inline-flex items-center justify-center bg-transparent border border-[#1A1A1A] hover:border-[#7C3AED] text-[#666666] hover:text-white font-sans text-[15px] transition-colors duration-200"
+              style={{
+                padding: "14px 32px",
+                borderRadius: "4px",
+                fontWeight: 600,
+              }}
+            >
+              How it works →
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Scroll down arrow at bottom center */}
-      <a
-        href="#discover"
-        aria-label="Scroll down"
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-[#A1A1AA] hover:text-white transition-colors duration-200 p-2"
+      {/* ================================================== */}
+      {/* 5. Bottom Scroll Indicator */}
+      {/* ================================================== */}
+      <div
+        className="absolute bottom-10 left-6 lg:left-[8vw] z-10 pointer-events-none select-none font-mono text-[10px] text-[#444444]"
+        style={{ letterSpacing: "0.15em" }}
       >
-        <ChevronDown className="w-6 h-6 animate-bounce" />
-      </a>
+        ↓ SCROLL
+      </div>
     </section>
   );
 }

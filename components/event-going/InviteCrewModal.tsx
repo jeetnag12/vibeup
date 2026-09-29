@@ -97,14 +97,14 @@ export default function InviteCrewModal({
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-150"
     >
       <div
-        className="relative w-full max-w-md rounded-[20px] bg-[#141418] border border-[#2A2A35] p-6 shadow-2xl flex flex-col"
+        className="relative w-full max-w-md rounded-[12px] bg-[#111111] border border-[#1A1A1A] p-6 shadow-2xl flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-5 right-5 p-1.5 rounded-lg text-[#A1A1AA] hover:text-white hover:bg-[#2A2A35] transition-colors"
+          className="absolute top-5 right-5 p-1.5 rounded-[4px] text-[#666666] hover:text-white hover:bg-[#1A1A1A] transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
@@ -121,13 +121,13 @@ export default function InviteCrewModal({
           >
             INVITE TO CREW
           </h3>
-          <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-1">
+          <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1">
             Choose a crew to invite this person to.
           </p>
         </div>
 
         {/* Target Attendee Preview */}
-        <div className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] flex items-center gap-3 mb-5">
+        <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] flex items-center gap-3 mb-5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={attendee.avatar}
@@ -143,7 +143,7 @@ export default function InviteCrewModal({
                 Score {attendee.vibeScore}
               </span>
             </div>
-            <p className="text-xs text-[#A1A1AA] font-sans truncate">
+            <p className="text-xs text-[#666666] font-sans truncate">
               {attendee.musicTaste} · {attendee.area}
             </p>
           </div>
@@ -151,11 +151,11 @@ export default function InviteCrewModal({
 
         {/* Crew Picker */}
         <div className="flex flex-col gap-2.5 mb-6">
-          <label className="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider">
+          <label className="text-xs font-mono text-[#666666] uppercase tracking-wider">
             Select Your Crew
           </label>
           {availableCrews.length === 0 ? (
-            <div className="p-4 rounded-xl bg-[#1A1A21] border border-[#2A2A35] text-center text-xs text-[#A1A1AA]">
+            <div className="p-4 rounded-xl bg-[#111111] border border-[#1A1A1A] text-center text-xs text-[#666666]">
               No crews yet.
             </div>
           ) : (
@@ -168,8 +168,8 @@ export default function InviteCrewModal({
                   onClick={() => setSelectedCrewId(crew.id)}
                   className={`p-3.5 rounded-xl border text-left flex items-center justify-between gap-3 transition-all ${
                     isSelected
-                      ? "bg-[#8B5CF6]/10 border-[#8B5CF6] text-white shadow-[0_0_12px_rgba(139,92,246,0.15)]"
-                      : "bg-[#1A1A21] border-[#2A2A35] text-[#A1A1AA] hover:border-[#8B5CF6]/40 hover:text-white"
+                      ? "bg-[#8B5CF6]/10 border-[#8B5CF6] text-white "
+                      : "bg-[#111111] border-[#1A1A1A] text-[#666666] hover:border-[#8B5CF6]/40 hover:text-white"
                   }`}
                 >
                   <div className="min-w-0">
@@ -213,11 +213,11 @@ export default function InviteCrewModal({
         )}
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-3 justify-end pt-2 border-t border-[#2A2A35]">
+        <div className="flex items-center gap-3 justify-end pt-2 border-t border-[#1A1A1A]">
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2.5 rounded-xl border border-[#2A2A35] hover:bg-[#2A2A35]/50 text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors"
+            className="px-4 py-2.5 rounded-[4px] border border-[#1A1A1A] hover:bg-[#1A1A1A]/50 text-xs font-mono text-[#666666] hover:text-white transition-colors"
           >
             CANCEL
           </button>
@@ -225,7 +225,7 @@ export default function InviteCrewModal({
             type="button"
             disabled={!selectedCrewId || isSubmitting || inviteSent}
             onClick={handleSendInvite}
-            className="px-5 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] disabled:opacity-50 text-xs font-mono font-bold text-white transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)] hover:scale-[1.02] active:scale-[0.98]"
+            className="px-5 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] disabled:opacity-50 text-xs font-mono font-bold text-white transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)] hover:scale-[1.02] active:scale-[0.98]"
           >
             {isSubmitting ? "SENDING..." : inviteSent ? "INVITED" : "INVITE"}
           </button>

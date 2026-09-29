@@ -52,7 +52,7 @@ export default function PeopleCard({
   return (
     <article
       aria-label={`${person.name} profile card`}
-      className={`group relative bg-[#1A1A21] rounded-[16px] border border-[#2A2A35] hover:border-[#8B5CF6] hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] transition-all duration-200 flex flex-col justify-between h-full ${
+      className={`group relative bg-[#111111] rounded-[12px] border border-[#1A1A1A] hover:border-[#8B5CF6] hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] transition-all duration-200 flex flex-col justify-between h-full ${
         variant === "compact" ? "p-3 sm:p-4" : "p-4 sm:p-5"
       }`}
     >
@@ -68,12 +68,12 @@ export default function PeopleCard({
             <img
               src={person.avatar}
               alt={person.name}
-              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-[#2A2A35] group-hover:border-[#8B5CF6]/60 transition-colors"
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-[#1A1A1A] group-hover:border-[#8B5CF6]/60 transition-colors"
             />
             {/* Status dot */}
             <span
               title={person.activeStatus}
-              className={`absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full border-2 border-[#1A1A21] ${
+              className={`absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full border-2 border-[#111111] ${
                 isGoingOutTonight
                   ? "bg-[#EC4899] ring-2 ring-[#EC4899]/30"
                   : isOnline
@@ -90,7 +90,7 @@ export default function PeopleCard({
               <span>{person.vibeMatch}% VIBE MATCH</span>
             </span>
 
-            <span className="font-mono text-[10px] text-[#A1A1AA] mt-1 flex items-center gap-1">
+            <span className="font-mono text-[10px] text-[#666666] mt-1 flex items-center gap-1">
               <MapPin className="w-2.5 h-2.5 text-[#EC4899]" />
               <span>{person.area}</span>
             </span>
@@ -105,13 +105,13 @@ export default function PeopleCard({
           >
             {person.name}
           </Link>
-          <span className="font-mono text-xs text-[#A1A1AA] block truncate">
+          <span className="font-mono text-xs text-[#666666] block truncate">
             {person.username}
           </span>
         </div>
 
         {/* Bio snippet */}
-        <p className="text-xs text-[#A1A1AA] font-sans line-clamp-2 leading-relaxed mb-3">
+        <p className="text-xs text-[#666666] font-sans line-clamp-2 leading-relaxed mb-3">
           {person.bio}
         </p>
 
@@ -128,12 +128,12 @@ export default function PeopleCard({
         </div>
 
         {/* Connections / Social Graph Context Signals */}
-        <div className="space-y-1.5 pt-2 border-t border-[#2A2A35]/60 mb-4 text-[11px] font-mono">
+        <div className="space-y-1.5 pt-2 border-t border-[#1A1A1A]/60 mb-4 text-[11px] font-mono">
           {/* Mutual Event Context */}
           {displayContext && (
             <div className="flex items-center gap-1.5 text-[#D4D4D8] truncate">
               <Calendar className="w-3 h-3 text-[#8B5CF6] shrink-0" />
-              <span className="text-[#A1A1AA] shrink-0">GOING TO:</span>
+              <span className="text-[#666666] shrink-0">GOING TO:</span>
               <Link
                 href={`/events/${displayContext.id}`}
                 className="text-white hover:text-[#8B5CF6] transition-colors truncate underline-offset-2 hover:underline"
@@ -147,7 +147,7 @@ export default function PeopleCard({
           {displayCommunity && (
             <div className="flex items-center gap-1.5 text-[#D4D4D8] truncate">
               <Users className="w-3 h-3 text-[#EC4899] shrink-0" />
-              <span className="text-[#A1A1AA] shrink-0">COMMUNITY:</span>
+              <span className="text-[#666666] shrink-0">COMMUNITY:</span>
               <Link
                 href={`/communities/${displayCommunity.id}`}
                 className="text-white hover:text-[#EC4899] transition-colors truncate underline-offset-2 hover:underline"
@@ -161,7 +161,7 @@ export default function PeopleCard({
           {displayClub && (
             <div className="flex items-center gap-1.5 text-[#D4D4D8] truncate">
               <Compass className="w-3 h-3 text-[#22C55E] shrink-0" />
-              <span className="text-[#A1A1AA] shrink-0">REGULAR AT:</span>
+              <span className="text-[#666666] shrink-0">REGULAR AT:</span>
               <Link
                 href={`/clubs/${displayClub.id}`}
                 className="text-white hover:text-[#22C55E] transition-colors truncate underline-offset-2 hover:underline"
@@ -174,10 +174,10 @@ export default function PeopleCard({
       </div>
 
       {/* Bottom Footer: Follow Button & Profile Link */}
-      <div className="pt-2 border-t border-[#2A2A35] flex items-center justify-between gap-3">
+      <div className="pt-2 border-t border-[#1A1A1A] flex items-center justify-between gap-3">
         <Link
           href={`/people/${person.id}`}
-          className="text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors"
+          className="text-xs font-mono text-[#666666] hover:text-white transition-colors"
         >
           VIEW PROFILE →
         </Link>
@@ -186,10 +186,10 @@ export default function PeopleCard({
           type="button"
           onClick={handleFollowClick}
           aria-label={isFollowing ? `Unfollow ${person.name}` : `Follow ${person.name}`}
-          className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold transition-all flex items-center gap-1.5 ${
+          className={`px-3.5 py-1.5 rounded-[4px] text-xs font-mono font-bold transition-all flex items-center gap-1.5 ${
             isFollowing
               ? "bg-[#22C55E]/15 border border-[#22C55E]/40 text-[#22C55E] hover:bg-[#22C55E]/25"
-              : "bg-[#8B5CF6] hover:bg-[#7C3AED] text-white shadow-[0_0_12px_rgba(139,92,246,0.3)]"
+              : "bg-[#8B5CF6] hover:bg-[#7C3AED] text-white "
           }`}
         >
           {isFollowing ? (

@@ -44,7 +44,7 @@ export default function SocialStatsRow({ event }: SocialStatsRowProps) {
         return (
           <div
             key={stat.label}
-            className="p-5 sm:p-6 rounded-[16px] bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6]/50 transition-all duration-200 flex items-center justify-between gap-4"
+            className="p-5 sm:p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/50 transition-all duration-200 flex items-center justify-between gap-4"
           >
             <div>
               <div
@@ -56,7 +56,7 @@ export default function SocialStatsRow({ event }: SocialStatsRowProps) {
               <div className="font-mono text-xs font-semibold text-white tracking-wider mb-0.5">
                 {stat.label}
               </div>
-              <div className="text-xs text-[#A1A1AA] font-sans">
+              <div className="text-xs text-[#666666] font-sans">
                 {stat.subtext}
               </div>
             </div>

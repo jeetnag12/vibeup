@@ -46,20 +46,20 @@ export default function JoinConfirmModal({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="w-full max-w-md bg-[#141418] border border-[#2A2A35] rounded-[24px] p-6 sm:p-7 shadow-2xl relative">
+      <div className="w-full max-w-md bg-[#111111] border border-[#1A1A1A] rounded-[12px] p-6 sm:p-7 shadow-2xl relative">
         {/* Close Button */}
         <button
           type="button"
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-5 right-5 p-2 rounded-xl text-[#A1A1AA] hover:text-white hover:bg-white/5 transition-colors focus:outline-none focus:ring-2 focus:ring-[#8B5CF6]"
+          className="absolute top-5 right-5 p-2 rounded-[4px] text-[#666666] hover:text-white hover:bg-white/5 transition-colors focus:outline-none focus:ring-2 focus:ring-[#8B5CF6]"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Modal Content */}
         <div className="text-center pt-2">
-          <div className="w-14 h-14 mx-auto rounded-2xl bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center text-[#8B5CF6] mb-4">
+          <div className="w-14 h-14 mx-auto rounded-[12px] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center text-[#8B5CF6] mb-4">
             <Users className="w-7 h-7" />
           </div>
 
@@ -67,14 +67,14 @@ export default function JoinConfirmModal({
             {isCurrentlyJoined ? "LEAVE CREW?" : "JOIN CREW?"}
           </h3>
 
-          <p className="text-sm text-[#A1A1AA] font-sans max-w-xs mx-auto mb-6">
+          <p className="text-sm text-[#666666] font-sans max-w-xs mx-auto mb-6">
             {isCurrentlyJoined
               ? `You are currently in ${crew.name}. Do you want to leave this crew?`
               : `You'll join the crew for ${eventTitle}.`}
           </p>
 
           {/* Crew Snapshot Card */}
-          <div className="p-4 rounded-xl bg-[#1A1A21] border border-[#2A2A35] text-left mb-6">
+          <div className="p-4 rounded-xl bg-[#111111] border border-[#1A1A1A] text-left mb-6">
             <div className="flex items-center justify-between gap-2 mb-1.5">
               <span className="font-sans font-bold text-white text-sm">
                 {crew.name}
@@ -83,10 +83,10 @@ export default function JoinConfirmModal({
                 {crew.area}
               </span>
             </div>
-            <p className="text-xs text-[#A1A1AA] font-sans line-clamp-2">
+            <p className="text-xs text-[#666666] font-sans line-clamp-2">
               {crew.description}
             </p>
-            <div className="mt-3 pt-2.5 border-t border-[#2A2A35] flex items-center justify-between text-[11px] font-mono text-[#A1A1AA]">
+            <div className="mt-3 pt-2.5 border-t border-[#1A1A1A] flex items-center justify-between text-[11px] font-mono text-[#666666]">
               <span>Host: {crew.creatorName}</span>
               <span className="text-[#8B5CF6] font-bold">
                 {crew.openSpots} spots open
@@ -99,7 +99,7 @@ export default function JoinConfirmModal({
             <button
               type="button"
               onClick={onClose}
-              className="py-2.5 px-4 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] text-[#A1A1AA] hover:text-white font-mono text-xs font-semibold border border-[#2A2A35] transition-colors"
+              className="py-2.5 px-4 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] text-[#666666] hover:text-white font-mono text-xs font-semibold border border-[#1A1A1A] transition-colors"
             >
               CANCEL
             </button>

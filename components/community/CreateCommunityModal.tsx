@@ -99,7 +99,7 @@ export default function CreateCommunityModal({
       onClick={onClose}
     >
       <div
-        className="relative max-w-lg w-full bg-[#141418] border border-[#2A2A35] rounded-2xl p-6 sm:p-8 shadow-2xl my-8"
+        className="relative max-w-lg w-full bg-[#111111] border border-[#1A1A1A] rounded-[12px] p-6 sm:p-8 shadow-2xl my-8"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -117,13 +117,13 @@ export default function CreateCommunityModal({
             type="button"
             onClick={onClose}
             aria-label="Close dialog"
-            className="w-8 h-8 rounded-full bg-[#1A1A21] hover:bg-[#2A2A35] text-white flex items-center justify-center transition-colors"
+            className="w-8 h-8 rounded-full bg-[#111111] hover:bg-[#1A1A1A] text-white flex items-center justify-center transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        <p className="text-xs text-[#A1A1AA] font-sans mb-5 leading-relaxed">
+        <p className="text-xs text-[#666666] font-sans mb-5 leading-relaxed">
           Build a crowd around your favorite music genres, neighborhood spots, or weekend event plans.
         </p>
 
@@ -132,7 +132,7 @@ export default function CreateCommunityModal({
           <div>
             <label
               htmlFor="comm-name"
-              className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1.5"
+              className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
             >
               COMMUNITY NAME
             </label>
@@ -143,7 +143,7 @@ export default function CreateCommunityModal({
               placeholder="e.g. INDIRANAGAR HOUSE COLLECTIVE"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full h-10 px-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white placeholder-[#71717A]"
+              className="w-full h-10 px-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white placeholder-[#666666]"
             />
           </div>
 
@@ -151,7 +151,7 @@ export default function CreateCommunityModal({
           <div>
             <label
               htmlFor="comm-desc"
-              className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1.5"
+              className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
             >
               DESCRIPTION
             </label>
@@ -162,7 +162,7 @@ export default function CreateCommunityModal({
               placeholder="What is this community about? What kind of energy and music can members expect?"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white placeholder-[#71717A] resize-none"
+              className="w-full p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white placeholder-[#666666] resize-none"
             />
           </div>
 
@@ -171,7 +171,7 @@ export default function CreateCommunityModal({
             <div>
               <label
                 htmlFor="comm-cat"
-                className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1.5"
+                className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
               >
                 CATEGORY
               </label>
@@ -181,7 +181,7 @@ export default function CreateCommunityModal({
                 onChange={(e) =>
                   setCategory(e.target.value as Community["category"])
                 }
-                className="w-full h-10 px-3 rounded-xl bg-[#1A1A21] border border-[#2A2A35] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white"
+                className="w-full h-10 px-3 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white"
               >
                 {communityCategories
                   .filter((c) => c !== "ALL")
@@ -196,7 +196,7 @@ export default function CreateCommunityModal({
             <div>
               <label
                 htmlFor="comm-loc"
-                className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1.5"
+                className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
               >
                 LOCATION / AREA
               </label>
@@ -206,7 +206,7 @@ export default function CreateCommunityModal({
                 placeholder="e.g. Indiranagar, Bangalore"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                className="w-full h-10 px-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white"
+                className="w-full h-10 px-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white"
               >
               </input>
             </div>
@@ -216,7 +216,7 @@ export default function CreateCommunityModal({
           <div>
             <label
               htmlFor="comm-genres"
-              className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1.5"
+              className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
             >
               GENRES (COMMA-SEPARATED)
             </label>
@@ -226,13 +226,13 @@ export default function CreateCommunityModal({
               placeholder="e.g. Techno, Deep House, Acid"
               value={genresText}
               onChange={(e) => setGenresText(e.target.value)}
-              className="w-full h-10 px-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white"
+              className="w-full h-10 px-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white"
             />
           </div>
 
           {/* Cover Image Preset Picker */}
           <div>
-            <span className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1.5">
+            <span className="block text-xs font-mono text-[#666666] uppercase mb-1.5">
               COVER IMAGE PRESET
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -243,7 +243,7 @@ export default function CreateCommunityModal({
                   className={`cursor-pointer rounded-xl overflow-hidden border-2 relative h-16 transition-all ${
                     selectedCover === preset.url
                       ? "border-[#8B5CF6] ring-2 ring-[#8B5CF6]/40"
-                      : "border-[#2A2A35] opacity-70 hover:opacity-100"
+                      : "border-[#1A1A1A] opacity-70 hover:opacity-100"
                   }`}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -267,13 +267,13 @@ export default function CreateCommunityModal({
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors"
+              className="px-4 py-2.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] text-xs font-mono text-[#666666] hover:text-white transition-colors"
             >
               CANCEL
             </button>
             <button
               type="submit"
-              className="px-6 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-xs font-mono font-bold text-white transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
+              className="px-6 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-xs font-mono font-bold text-white transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
             >
               CREATE COMMUNITY
             </button>

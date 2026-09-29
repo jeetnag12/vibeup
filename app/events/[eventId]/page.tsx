@@ -41,7 +41,7 @@ export default function EventDetailsPage({ params }: EventPageProps) {
   };
 
   return (
-    <main className="min-h-screen bg-[#09090B] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
       {/* 1. Navbar */}
       <Navbar />
 

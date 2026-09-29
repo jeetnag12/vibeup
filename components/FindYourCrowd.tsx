@@ -44,7 +44,7 @@ const features = [
 
 export default function FindYourCrowd() {
   return (
-    <section className="w-full py-[80px] bg-[#09090B] relative overflow-hidden">
+    <section className="w-full py-[120px] bg-[#000000] relative overflow-hidden">
       {/* Background ambient glow */}
       <div
         className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[400px] pointer-events-none z-0"
@@ -72,8 +72,8 @@ export default function FindYourCrowd() {
 
             {/* Heading */}
             <h2
-              className="font-sans font-bold text-white text-[36px] sm:text-[48px] tracking-tight leading-[1.12] mb-6"
-              style={{ fontWeight: 700 }}
+              className="font-sans font-extrabold tracking-[-0.03em] text-white text-[36px] sm:text-[48px] tracking-tight leading-[1.12] mb-6"
+              style={{ fontWeight: 800, letterSpacing: "-0.03em" }}
             >
               Find people
               <br />
@@ -84,7 +84,7 @@ export default function FindYourCrowd() {
 
             {/* Description */}
             <p
-              className="text-[#A1A1AA] text-[18px] max-w-[420px] font-sans leading-relaxed mb-8 font-normal"
+              className="text-[#666666] text-[18px] max-w-[420px] font-sans leading-relaxed mb-8 font-normal"
               style={{ fontWeight: 400 }}
             >
               VibeUp matches you with people based on your music taste, the events you attend, and the clubs you vibe with. Not another dating app. Your nightlife crew.
@@ -107,11 +107,11 @@ export default function FindYourCrowd() {
             {/* CTA Button */}
             <Link
               href="/discover"
-              className="inline-flex items-center gap-2 text-white font-medium transition-all duration-200 shadow-lg shadow-purple-500/20 hover:shadow-[0_0_24px_rgba(139,92,246,0.35)]"
+              className="inline-flex items-center gap-2 text-white font-medium transition-all duration-200  hover:shadow-[0_0_24px_rgba(139,92,246,0.35)]"
               style={{
                 backgroundColor: "#8B5CF6",
                 padding: "14px 28px",
-                borderRadius: "10px",
+                borderRadius: "4px",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = "#7C3AED";
@@ -131,7 +131,7 @@ export default function FindYourCrowd() {
               {previewUsers.map((user) => (
                 <div
                   key={user.name}
-                  className={`w-full sm:w-[300px] bg-[#1A1A21] border border-[#2A2A35] rounded-[12px] p-4 shadow-xl transition-transform duration-300 hover:scale-[1.02] ${user.offsetClass}`}
+                  className={`w-full sm:w-[300px] bg-[#111111] border border-[#1A1A1A] rounded-[12px] p-4 shadow-xl transition-transform duration-300 hover:scale-[1.02] ${user.offsetClass}`}
                   style={{
                     boxShadow: "0 10px 30px -10px rgba(0,0,0,0.5)",
                   }}
@@ -156,7 +156,7 @@ export default function FindYourCrowd() {
                       >
                         {user.name}
                       </h4>
-                      <p className="font-mono text-[12px] text-[#A1A1AA] truncate mt-0.5">
+                      <p className="font-mono text-[12px] text-[#666666] truncate mt-0.5">
                         {user.genres}
                       </p>
                     </div>
@@ -172,7 +172,7 @@ export default function FindYourCrowd() {
                   </div>
 
                   {/* Below card: Mutual events */}
-                  <div className="mt-3 pt-2.5 border-t border-[#2A2A35]/60 flex items-center justify-between">
+                  <div className="mt-3 pt-2.5 border-t border-[#1A1A1A]/60 flex items-center justify-between">
                     <span className="font-mono text-[11px] text-[#8B5CF6]">
                       {user.mutual}
                     </span>

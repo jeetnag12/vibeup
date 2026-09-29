@@ -8,19 +8,19 @@ export default function RelatedEventsSection() {
   const router = useRouter();
 
   return (
-    <section className="w-full my-12 pt-8 border-t border-[#2A2A35]">
+    <section className="w-full my-12 pt-8 border-t border-[#1A1A1A]">
       {/* Header */}
       <div className="mb-6 sm:mb-8">
         <span className="font-mono text-[11px] text-[#8B5CF6] uppercase tracking-wider block mb-1">
           RECOMMENDED EXPERIENCES
         </span>
         <h2
-          className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight"
-          style={{ fontWeight: 700 }}
+          className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight"
+          style={{ fontWeight: 800, letterSpacing: "-0.03em" }}
         >
           YOU MIGHT ALSO LIKE
         </h2>
-        <p className="text-sm sm:text-base text-[#A1A1AA] font-sans mt-1">
+        <p className="text-sm sm:text-base text-[#666666] font-sans mt-1">
           Similar vibrations, soundscapes, and crowds this coming weekend.
         </p>
       </div>

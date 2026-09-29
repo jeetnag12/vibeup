@@ -26,7 +26,7 @@ export default function ReviewCard({
   return (
     <article
       aria-label={`Review by ${review.author.name}`}
-      className="p-5 sm:p-6 rounded-[16px] bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6]/50 transition-all duration-200 flex flex-col justify-between relative group"
+      className="p-5 sm:p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/50 transition-all duration-200 flex flex-col justify-between relative group"
     >
       <div>
         {/* Top Header: Author + Rating + Verified Badge */}
@@ -36,7 +36,7 @@ export default function ReviewCard({
             <img
               src={review.author.avatar}
               alt={review.author.name}
-              className="w-11 h-11 rounded-full object-cover border-2 border-[#2A2A35] shrink-0"
+              className="w-11 h-11 rounded-full object-cover border-2 border-[#1A1A1A] shrink-0"
             />
             <div className="min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
@@ -52,7 +52,7 @@ export default function ReviewCard({
                 )}
               </div>
 
-              <div className="flex items-center gap-2 font-mono text-xs text-[#A1A1AA] mt-0.5">
+              <div className="flex items-center gap-2 font-mono text-xs text-[#666666] mt-0.5">
                 <span>{review.createdAt}</span>
                 {review.recommend !== undefined && (
                   <>
@@ -67,7 +67,7 @@ export default function ReviewCard({
           </div>
 
           {/* Rating Display */}
-          <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#141418] border border-[#2A2A35] shrink-0">
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#111111] border border-[#1A1A1A] shrink-0">
             <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
             <span className="font-mono text-xs sm:text-sm font-bold text-white">
               {review.overallRating.toFixed(1)}
@@ -81,17 +81,17 @@ export default function ReviewCard({
         </p>
 
         {/* Dimension Scores: MUSIC, CROWD, VENUE */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 pt-3 border-t border-[#2A2A35]/80 font-mono text-[11px]">
-          <div className="px-2.5 py-1 rounded-lg bg-[#141418] border border-[#2A2A35] flex items-center gap-1.5">
-            <span className="text-[#A1A1AA]">MUSIC</span>
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 pt-3 border-t border-[#1A1A1A]/80 font-mono text-[11px]">
+          <div className="px-2.5 py-1 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center gap-1.5">
+            <span className="text-[#666666]">MUSIC</span>
             <span className="text-white font-bold">{review.musicRating.toFixed(1)}</span>
           </div>
-          <div className="px-2.5 py-1 rounded-lg bg-[#141418] border border-[#2A2A35] flex items-center gap-1.5">
-            <span className="text-[#A1A1AA]">CROWD</span>
+          <div className="px-2.5 py-1 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center gap-1.5">
+            <span className="text-[#666666]">CROWD</span>
             <span className="text-white font-bold">{review.crowdRating.toFixed(1)}</span>
           </div>
-          <div className="px-2.5 py-1 rounded-lg bg-[#141418] border border-[#2A2A35] flex items-center gap-1.5">
-            <span className="text-[#A1A1AA]">VENUE</span>
+          <div className="px-2.5 py-1 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center gap-1.5">
+            <span className="text-[#666666]">VENUE</span>
             <span className="text-white font-bold">{review.venueRating.toFixed(1)}</span>
           </div>
           {review.tags && review.tags.length > 0 && (
@@ -110,7 +110,7 @@ export default function ReviewCard({
       </div>
 
       {/* Card Footer: Helpful Count + Action Buttons */}
-      <div className="flex items-center justify-between gap-3 pt-3 border-t border-[#2A2A35] text-xs font-mono text-[#A1A1AA]">
+      <div className="flex items-center justify-between gap-3 pt-3 border-t border-[#1A1A1A] text-xs font-mono text-[#666666]">
         <span>
           {displayHelpfulCount} {displayHelpfulCount === 1 ? "PERSON" : "PEOPLE"} FOUND THIS HELPFUL
         </span>
@@ -123,7 +123,7 @@ export default function ReviewCard({
             className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all duration-150 ${
               isHelpful
                 ? "bg-[#8B5CF6]/20 border border-[#8B5CF6] text-white"
-                : "bg-[#141418] border border-[#2A2A35] text-[#A1A1AA] hover:text-white hover:border-[#8B5CF6]/40"
+                : "bg-[#111111] border border-[#1A1A1A] text-[#666666] hover:text-white hover:border-[#8B5CF6]/40"
             }`}
           >
             <ThumbsUp className={`w-3.5 h-3.5 ${isHelpful ? "text-[#8B5CF6] fill-[#8B5CF6]" : ""}`} />
@@ -135,7 +135,7 @@ export default function ReviewCard({
             type="button"
             onClick={() => onShare(review)}
             aria-label="Share review"
-            className="p-1.5 rounded-lg bg-[#141418] border border-[#2A2A35] text-[#A1A1AA] hover:text-white hover:border-[#8B5CF6]/40 transition-colors"
+            className="p-1.5 rounded-lg bg-[#111111] border border-[#1A1A1A] text-[#666666] hover:text-white hover:border-[#8B5CF6]/40 transition-colors"
           >
             <Share2 className="w-3.5 h-3.5" />
           </button>
@@ -146,13 +146,13 @@ export default function ReviewCard({
               type="button"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="More review options"
-              className="p-1.5 rounded-lg bg-[#141418] border border-[#2A2A35] text-[#A1A1AA] hover:text-white hover:border-[#8B5CF6]/40 transition-colors"
+              className="p-1.5 rounded-lg bg-[#111111] border border-[#1A1A1A] text-[#666666] hover:text-white hover:border-[#8B5CF6]/40 transition-colors"
             >
               <MoreHorizontal className="w-3.5 h-3.5" />
             </button>
 
             {menuOpen && (
-              <div className="absolute right-0 bottom-full mb-2 w-36 bg-[#141418] border border-[#2A2A35] rounded-xl shadow-xl p-1 z-20 animate-in fade-in duration-100">
+              <div className="absolute right-0 bottom-full mb-2 w-36 bg-[#111111] border border-[#1A1A1A] rounded-xl shadow-xl p-1 z-20 animate-in fade-in duration-100">
                 <button
                   type="button"
                   onClick={() => {

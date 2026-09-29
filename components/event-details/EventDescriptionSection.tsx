@@ -24,8 +24,8 @@ export default function EventDescriptionSection({
         THE EXPERIENCE
       </span>
       <h2
-        className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight mb-4"
-        style={{ fontWeight: 700 }}
+        className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight mb-4"
+        style={{ fontWeight: 800, letterSpacing: "-0.03em" }}
       >
         ABOUT THIS EVENT
       </h2>

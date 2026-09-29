@@ -43,7 +43,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-[#09090B] border-t border-[#2A2A35] pt-[48px] pb-[32px]">
+    <footer className="w-full bg-[#000000] border-t border-[#1A1A1A] pt-[48px] pb-[32px]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         {/* 4 columns desktop, 2 columns mobile */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
@@ -63,7 +63,7 @@ export default function Footer() {
               </Link>
             </div>
 
-            <p className="text-[#A1A1AA] italic text-sm font-sans">
+            <p className="text-[#666666] italic text-sm font-sans">
               Find Your Crowd.
             </p>
 
@@ -71,13 +71,13 @@ export default function Footer() {
               href="https://instagram.com/vibeup.bangalore"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center gap-2 text-[#A1A1AA] hover:text-white transition-colors duration-200 group"
+              className="mt-2 inline-flex items-center gap-2 text-[#666666] hover:text-white transition-colors duration-200 group"
               aria-label="Instagram @vibeup.bangalore"
             >
-              <div className="w-8 h-8 rounded-lg bg-[#141418] border border-[#2A2A35] flex items-center justify-center group-hover:border-[#8B5CF6] group-hover:text-[#EC4899] transition-colors">
+              <div className="w-8 h-8 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center group-hover:border-[#8B5CF6] group-hover:text-[#EC4899] transition-colors">
                 <InstagramIcon className="w-4 h-4" />
               </div>
-              <span className="font-mono text-xs text-[#A1A1AA] group-hover:text-white transition-colors">
+              <span className="font-mono text-xs text-[#666666] group-hover:text-white transition-colors">
                 @vibeup.bangalore
               </span>
             </a>
@@ -93,7 +93,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-[#A1A1AA] hover:text-white text-sm font-sans transition-colors duration-200"
+                    className="text-[#666666] hover:text-white text-sm font-sans transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -112,7 +112,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-[#A1A1AA] hover:text-white text-sm font-sans transition-colors duration-200"
+                    className="text-[#666666] hover:text-white text-sm font-sans transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -131,7 +131,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-[#A1A1AA] hover:text-white text-sm font-sans transition-colors duration-200"
+                    className="text-[#666666] hover:text-white text-sm font-sans transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -142,11 +142,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom row */}
-        <div className="border-t border-[#2A2A35] pt-[24px] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <p className="font-mono text-[12px] text-[#A1A1AA]">
+        <div className="border-t border-[#1A1A1A] pt-[24px] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <p className="font-mono text-[12px] text-[#666666]">
             © 2026 VibeUp. All rights reserved.
           </p>
-          <p className="font-mono text-[12px] text-[#A1A1AA]">
+          <p className="font-mono text-[12px] text-[#666666]">
             Made for Bangalore 🔥
           </p>
         </div>

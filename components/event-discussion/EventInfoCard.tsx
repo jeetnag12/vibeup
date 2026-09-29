@@ -42,8 +42,8 @@ export default function EventInfoCard({ event }: EventInfoCardProps) {
   ];
 
   return (
-    <div className="p-5 rounded-[16px] bg-[#141418] border border-[#2A2A35] flex flex-col gap-4">
-      <div className="flex items-center justify-between pb-3 border-b border-[#2A2A35]">
+    <div className="p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex flex-col gap-4">
+      <div className="flex items-center justify-between pb-3 border-b border-[#1A1A1A]">
         <div className="flex items-center gap-2">
           <Sparkles className="w-3.5 h-3.5 text-[#8B5CF6]" />
           <span className="font-mono text-xs text-white font-bold tracking-wider uppercase">
@@ -60,11 +60,11 @@ export default function EventInfoCard({ event }: EventInfoCardProps) {
           const Icon = item.icon;
           return (
             <div key={item.label} className="flex items-start gap-3">
-              <div className="w-7 h-7 rounded-lg bg-[#1A1A21] border border-[#2A2A35] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-7 h-7 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center shrink-0 mt-0.5">
                 <Icon className={`w-3.5 h-3.5 ${item.color}`} />
               </div>
               <div className="min-w-0">
-                <span className="font-mono text-[10px] text-[#A1A1AA] block uppercase tracking-wider">
+                <span className="font-mono text-[10px] text-[#666666] block uppercase tracking-wider">
                   {item.label}
                 </span>
                 <span className="font-sans text-xs font-semibold text-white truncate block">

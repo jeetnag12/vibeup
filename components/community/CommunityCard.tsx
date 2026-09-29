@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Users, MapPin, Check, Plus } from "lucide-react";
+import { Users, MapPin, Check, Plus, Bookmark } from "lucide-react";
 import { Community } from "@/lib/communities-data";
 
 interface CommunityCardProps {
@@ -9,6 +9,8 @@ interface CommunityCardProps {
   isJoined: boolean;
   onToggleJoin: (communityId: string) => void;
   variant?: "standard" | "featured";
+  saved?: boolean;
+  onSaveToggle?: (communityId: string, isSaved: boolean) => void;
 }
 
 export default function CommunityCard({
@@ -16,11 +18,21 @@ export default function CommunityCard({
   isJoined,
   onToggleJoin,
   variant = "standard",
+  saved,
+  onSaveToggle,
 }: CommunityCardProps) {
   const handleJoinClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     onToggleJoin(community.id);
+  };
+
+  const handleSaveClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (onSaveToggle) {
+      onSaveToggle(community.id, !saved);
+    }
   };
 
   const isFeatured = variant === "featured";
@@ -31,14 +43,14 @@ export default function CommunityCard({
   return (
     <article
       aria-label={community.name}
-      className={`group relative bg-[#1A1A21] rounded-[16px] border border-[#2A2A35] overflow-hidden transition-all duration-200 hover:border-[#8B5CF6] hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] flex flex-col justify-between ${
-        isFeatured ? "shadow-[0_4px_30px_rgba(0,0,0,0.4)]" : ""
+      className={`group relative bg-[#111111] rounded-[12px] border border-[#1A1A1A] overflow-hidden transition-all duration-200 hover:border-[#8B5CF6] hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] flex flex-col justify-between ${
+        isFeatured ? "" : ""
       }`}
     >
       <Link href={`/communities/${community.id}`} className="block flex-1">
         {/* Cover Image */}
         <div
-          className={`relative w-full overflow-hidden bg-[#09090B] ${
+          className={`relative w-full overflow-hidden bg-[#000000] ${
             isFeatured ? "h-[190px] sm:h-[220px]" : "h-[160px] sm:h-[180px]"
           }`}
         >
@@ -50,10 +62,14 @@ export default function CommunityCard({
             loading="lazy"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A21] via-transparent to-black/35 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-black/35 pointer-events-none" />
 
           {/* Top Badges */}
-          <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
+          <div
+            className={`absolute top-3 left-3 flex items-center justify-between gap-2 pointer-events-none ${
+              onSaveToggle ? "right-12" : "right-3"
+            }`}
+          >
             <span className="font-mono text-[10px] font-bold text-white bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 uppercase tracking-wider">
               {community.category}
             </span>
@@ -64,6 +80,26 @@ export default function CommunityCard({
               </span>
             )}
           </div>
+
+          {/* Top Right: Bookmark Button */}
+          {onSaveToggle && (
+            <button
+              type="button"
+              aria-label={
+                saved ? `Remove ${community.name} from saved` : `Save ${community.name}`
+              }
+              onClick={handleSaveClick}
+              className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-200 active:scale-90 bg-black/60 backdrop-blur-md border border-white/10 hover:border-[#8B5CF6]"
+            >
+              <Bookmark
+                className={`w-4 h-4 transition-colors duration-200 ${
+                  saved
+                    ? "fill-[#8B5CF6] text-[#8B5CF6]"
+                    : "text-white hover:text-[#8B5CF6]"
+                }`}
+              />
+            </button>
+          )}
 
           {/* Location badge on bottom left of image */}
           <div className="absolute bottom-2.5 left-3 pointer-events-none">
@@ -86,7 +122,7 @@ export default function CommunityCard({
             </h3>
 
             {/* Description */}
-            <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans line-clamp-2 leading-relaxed mb-3.5">
+            <p className="text-xs sm:text-sm text-[#666666] font-sans line-clamp-2 leading-relaxed mb-3.5">
               {community.description}
             </p>
 
@@ -104,7 +140,7 @@ export default function CommunityCard({
           </div>
 
           {/* Footer of body: Avatars + Member count */}
-          <div className="pt-3 border-t border-[#2A2A35] flex items-center justify-between gap-3 text-xs font-mono">
+          <div className="pt-3 border-t border-[#1A1A1A] flex items-center justify-between gap-3 text-xs font-mono">
             {/* Avatar Stack */}
             <div className="flex items-center gap-2">
               <div className="flex items-center -space-x-2 overflow-hidden">
@@ -114,7 +150,7 @@ export default function CommunityCard({
                     key={m.id}
                     src={m.avatar}
                     alt={m.name}
-                    className="w-6 h-6 rounded-full object-cover border-2 border-[#1A1A21]"
+                    className="w-6 h-6 rounded-full object-cover border-2 border-[#111111]"
                   />
                 ))}
               </div>
@@ -139,10 +175,10 @@ export default function CommunityCard({
           aria-label={
             isJoined ? `Leave ${community.name}` : `Join ${community.name}`
           }
-          className={`w-full h-9 rounded-xl border text-xs font-mono font-medium transition-all duration-200 flex items-center justify-center gap-1.5 ${
+          className={`w-full h-9 rounded-[4px] border text-xs font-mono font-medium transition-all duration-200 flex items-center justify-center gap-1.5 ${
             isJoined
-              ? "border-[#22C55E] bg-[#22C55E]/15 text-[#22C55E] shadow-[0_0_12px_rgba(34,197,94,0.25)]"
-              : "border-[#2A2A35] bg-[#141418] text-[#A1A1AA] hover:border-[#8B5CF6] hover:text-white"
+              ? "border-[#22C55E] bg-[#22C55E]/15 text-[#22C55E] "
+              : "border-[#1A1A1A] bg-[#111111] text-[#666666] hover:border-[#8B5CF6] hover:text-white"
           }`}
         >
           {isJoined ? (

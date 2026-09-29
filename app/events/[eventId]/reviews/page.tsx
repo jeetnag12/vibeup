@@ -190,7 +190,7 @@ export default function EventReviewsPage({ params }: ReviewsPageProps) {
   }, [reviews, searchQuery, activeFilter, activeSort, helpfulMap]);
 
   return (
-    <main className="min-h-screen bg-[#09090B] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
       {/* 1. Navbar */}
       <Navbar />
 
@@ -209,7 +209,7 @@ export default function EventReviewsPage({ params }: ReviewsPageProps) {
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 relative z-10">
           {/* Notification Toast */}
           {notification && (
-            <div className="mb-6 p-4 rounded-2xl bg-[#141418] border border-[#8B5CF6]/50 shadow-[0_0_24px_rgba(139,92,246,0.25)] flex items-center justify-between gap-3 animate-in fade-in slide-in-from-top-3 duration-200">
+            <div className="mb-6 p-4 rounded-[12px] bg-[#111111] border border-[#8B5CF6]/50  flex items-center justify-between gap-3 animate-in fade-in slide-in-from-top-3 duration-200">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-xl bg-[#22C55E]/15 border border-[#22C55E]/30 flex items-center justify-center text-[#22C55E] shrink-0">
                   <CheckCircle2 className="w-4 h-4" />
@@ -218,7 +218,7 @@ export default function EventReviewsPage({ params }: ReviewsPageProps) {
                   <h4 className="font-mono text-xs font-bold text-white uppercase tracking-wider">
                     {notification.title}
                   </h4>
-                  <p className="text-xs text-[#A1A1AA] font-sans">
+                  <p className="text-xs text-[#666666] font-sans">
                     {notification.message}
                   </p>
                 </div>
@@ -228,7 +228,7 @@ export default function EventReviewsPage({ params }: ReviewsPageProps) {
                 type="button"
                 onClick={() => setNotification(null)}
                 aria-label="Dismiss notification"
-                className="p-1.5 text-xs font-mono text-[#A1A1AA] hover:text-white"
+                className="p-1.5 text-xs font-mono text-[#666666] hover:text-white"
               >
                 ✕
               </button>
@@ -243,18 +243,18 @@ export default function EventReviewsPage({ params }: ReviewsPageProps) {
 
           {/* Error State */}
           {hasError ? (
-            <div className="my-16 p-10 rounded-[20px] bg-[#141418] border border-[#EF4444]/40 text-center max-w-md mx-auto">
+            <div className="my-16 p-10 rounded-[12px] bg-[#111111] border border-[#EF4444]/40 text-center max-w-md mx-auto">
               <AlertTriangle className="w-10 h-10 text-[#EF4444] mx-auto mb-3" />
               <h3 className="text-xl font-bold font-sans text-white mb-2">
                 COULDN&apos;T LOAD REVIEWS
               </h3>
-              <p className="text-xs text-[#A1A1AA] mb-6">
+              <p className="text-xs text-[#666666] mb-6">
                 Something went wrong while loading the reviews. Please try again.
               </p>
               <button
                 type="button"
                 onClick={handleRetry}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-mono font-bold transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-mono font-bold transition-all"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>TRY AGAIN</span>
@@ -308,14 +308,14 @@ export default function EventReviewsPage({ params }: ReviewsPageProps) {
                     ))
                   ) : (
                     /* 18. Empty State */
-                    <div className="p-10 rounded-[20px] bg-[#141418] border border-[#2A2A35] text-center">
-                      <div className="w-14 h-14 mx-auto rounded-2xl bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center text-[#8B5CF6] mb-3">
+                    <div className="p-10 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center">
+                      <div className="w-14 h-14 mx-auto rounded-[12px] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center text-[#8B5CF6] mb-3">
                         <SearchX className="w-7 h-7" />
                       </div>
                       <h4 className="text-xl font-bold font-sans text-white mb-1.5">
                         NO REVIEWS YET
                       </h4>
-                      <p className="text-xs text-[#A1A1AA] font-sans max-w-sm mx-auto mb-6">
+                      <p className="text-xs text-[#666666] font-sans max-w-sm mx-auto mb-6">
                         {searchQuery || activeFilter !== "ALL"
                           ? "No reviews match your search or filter keywords. Try resetting your filters."
                           : "No one has shared their experience yet. Be the first verified attendee to review!"}
@@ -334,7 +334,7 @@ export default function EventReviewsPage({ params }: ReviewsPageProps) {
                         ) : (
                           <Link
                             href={`/events/${event.id}`}
-                            className="px-5 py-2.5 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] text-white text-xs font-mono font-medium border border-[#2A2A35] transition-colors"
+                            className="px-5 py-2.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] text-white text-xs font-mono font-medium border border-[#1A1A1A] transition-colors"
                           >
                             VIEW EVENT
                           </Link>
@@ -347,7 +347,7 @@ export default function EventReviewsPage({ params }: ReviewsPageProps) {
                               setSearchQuery("");
                               setActiveFilter("ALL");
                             }}
-                            className="px-5 py-2.5 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] text-white text-xs font-mono font-medium border border-[#2A2A35] transition-colors"
+                            className="px-5 py-2.5 rounded-xl bg-[#111111] hover:bg-[#1A1A1A] text-white text-xs font-mono font-medium border border-[#1A1A1A] transition-colors"
                           >
                             RESET FILTERS
                           </button>

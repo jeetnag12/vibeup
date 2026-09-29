@@ -87,7 +87,7 @@ export default function WriteReviewModal({
     setScore: (v: number) => void
   ) => {
     return (
-      <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-[#1A1A21] border border-[#2A2A35]">
+      <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-[#111111] border border-[#1A1A1A]">
         <span className="font-mono text-xs font-semibold text-white tracking-wider uppercase">
           {label}
         </span>
@@ -131,14 +131,14 @@ export default function WriteReviewModal({
     >
       <div
         ref={modalRef}
-        className="w-full max-w-lg bg-[#141418] border border-[#2A2A35] rounded-[24px] p-6 sm:p-8 shadow-2xl relative my-8"
+        className="w-full max-w-lg bg-[#111111] border border-[#1A1A1A] rounded-[12px] p-6 sm:p-8 shadow-2xl relative my-8"
       >
         {/* Close Button */}
         <button
           type="button"
           onClick={onClose}
           aria-label="Close review modal"
-          className="absolute top-5 right-5 p-2 rounded-xl text-[#A1A1AA] hover:text-white hover:bg-white/5 transition-colors focus:outline-none focus:ring-2 focus:ring-[#8B5CF6]"
+          className="absolute top-5 right-5 p-2 rounded-[4px] text-[#666666] hover:text-white hover:bg-white/5 transition-colors focus:outline-none focus:ring-2 focus:ring-[#8B5CF6]"
         >
           <X className="w-5 h-5" />
         </button>
@@ -152,7 +152,7 @@ export default function WriteReviewModal({
             <h3 className="text-2xl font-bold font-sans text-white">
               REVIEW SUBMITTED ✓
             </h3>
-            <p className="text-sm text-[#A1A1AA] font-sans max-w-xs mx-auto">
+            <p className="text-sm text-[#666666] font-sans max-w-xs mx-auto">
               Thanks for helping the next crowd know what to expect.
             </p>
           </div>
@@ -168,7 +168,7 @@ export default function WriteReviewModal({
               <h3 id="write-review-title" className="text-2xl font-bold font-sans text-white tracking-tight">
                 WRITE YOUR REVIEW
               </h3>
-              <p className="text-xs text-[#A1A1AA] font-sans mt-0.5">
+              <p className="text-xs text-[#666666] font-sans mt-0.5">
                 Rating your experience for <strong className="text-white">{eventTitle}</strong>
               </p>
             </div>
@@ -193,7 +193,7 @@ export default function WriteReviewModal({
               <div>
                 <label
                   htmlFor="review-experience-text"
-                  className="block text-xs font-mono font-semibold text-[#A1A1AA] uppercase tracking-wider mb-1.5"
+                  className="block text-xs font-mono font-semibold text-[#666666] uppercase tracking-wider mb-1.5"
                 >
                   YOUR EXPERIENCE
                 </label>
@@ -207,13 +207,13 @@ export default function WriteReviewModal({
                     setExperienceText(e.target.value);
                     if (errorMsg) setErrorMsg("");
                   }}
-                  className="w-full bg-[#1A1A21] border border-[#2A2A35] rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-[#8B5CF6] focus:ring-1 focus:ring-[#8B5CF6] font-sans resize-none transition-all"
+                  className="w-full bg-[#111111] border border-[#1A1A1A] rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#666666] focus:outline-none focus:border-[#8B5CF6] focus:ring-1 focus:ring-[#8B5CF6] font-sans resize-none transition-all"
                 />
               </div>
 
               {/* Recommendation toggle */}
               <div>
-                <span className="block text-xs font-mono font-semibold text-[#A1A1AA] uppercase tracking-wider mb-2">
+                <span className="block text-xs font-mono font-semibold text-[#666666] uppercase tracking-wider mb-2">
                   WOULD YOU RECOMMEND THIS EVENT?
                 </span>
                 <div className="grid grid-cols-2 gap-3">
@@ -223,7 +223,7 @@ export default function WriteReviewModal({
                     className={`py-2 px-4 rounded-xl text-xs font-mono font-semibold border transition-all ${
                       recommend === true
                         ? "bg-[#22C55E]/15 border-[#22C55E] text-[#22C55E]"
-                        : "bg-[#1A1A21] border-[#2A2A35] text-[#A1A1AA] hover:text-white"
+                        : "bg-[#111111] border-[#1A1A1A] text-[#666666] hover:text-white"
                     }`}
                   >
                     YES, RECOMMENDED
@@ -234,7 +234,7 @@ export default function WriteReviewModal({
                     className={`py-2 px-4 rounded-xl text-xs font-mono font-semibold border transition-all ${
                       recommend === false
                         ? "bg-[#EF4444]/15 border-[#EF4444] text-[#EF4444]"
-                        : "bg-[#1A1A21] border-[#2A2A35] text-[#A1A1AA] hover:text-white"
+                        : "bg-[#111111] border-[#1A1A1A] text-[#666666] hover:text-white"
                     }`}
                   >
                     MIXED / NOT REALLY
@@ -243,17 +243,17 @@ export default function WriteReviewModal({
               </div>
 
               {/* Modal Actions */}
-              <div className="pt-3 border-t border-[#2A2A35] flex flex-col-reverse sm:flex-row items-center justify-end gap-3">
+              <div className="pt-3 border-t border-[#1A1A1A] flex flex-col-reverse sm:flex-row items-center justify-end gap-3">
                 <button
                   type="button"
                   onClick={onClose}
-                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] text-[#A1A1AA] hover:text-white font-mono text-xs font-medium border border-[#2A2A35] transition-colors"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] text-[#666666] hover:text-white font-mono text-xs font-medium border border-[#1A1A1A] transition-colors"
                 >
                   CANCEL
                 </button>
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold transition-all shadow-[0_0_20px_rgba(139,92,246,0.35)]"
+                  className="w-full sm:w-auto px-6 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold transition-all shadow-[0_0_20px_rgba(139,92,246,0.35)]"
                 >
                   SUBMIT REVIEW
                 </button>

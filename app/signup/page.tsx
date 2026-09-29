@@ -167,7 +167,7 @@ export default function SignupPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#09090B] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
       {/* Ambient Radial Glow */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[750px] h-[500px] pointer-events-none z-0"
@@ -181,12 +181,12 @@ export default function SignupPage() {
       {/* ================================================== */}
       {/* MINIMAL AUTHENTICATION HEADER */}
       {/* ================================================== */}
-      <header className="w-full h-[64px] border-b border-[#2A2A35]/60 bg-[rgba(9,9,11,0.8)] backdrop-blur-md relative z-20">
+      <header className="w-full h-[64px] border-b border-[#1A1A1A]/60 bg-[rgba(9,9,11,0.8)] backdrop-blur-md relative z-20">
         <div className="max-w-[1240px] h-full mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* VibeUp Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-[#8B5CF6] rounded-lg p-1"
+            className="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-[#8B5CF6] rounded-[4px] p-1"
           >
             <span
               className="w-2 h-2 rounded-full bg-[#8B5CF6] shrink-0 shadow-[0_0_10px_#8B5CF6]"
@@ -200,7 +200,7 @@ export default function SignupPage() {
           {/* Back to Home Link */}
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/5"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#666666] hover:text-white transition-colors p-1.5 rounded-[4px] hover:bg-white/5"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>BACK TO HOME</span>
@@ -223,9 +223,9 @@ export default function SignupPage() {
             className="hidden lg:flex lg:col-span-6 flex-col justify-center pr-6 space-y-6"
           >
             {/* Brand Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141418] border border-[#2A2A35] w-fit">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111111] border border-[#1A1A1A] w-fit">
               <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6] animate-pulse" />
-              <span className="font-mono text-xs text-[#A1A1AA] uppercase tracking-wider">
+              <span className="font-mono text-xs text-[#666666] uppercase tracking-wider">
                 JOIN THE NIGHTLIFE NETWORK
               </span>
             </div>
@@ -235,19 +235,19 @@ export default function SignupPage() {
               <span className="font-mono text-xs text-[#8B5CF6] font-bold tracking-widest uppercase block mb-1">
                 VIBEUP
               </span>
-              <h1 className="text-4xl xl:text-5xl font-bold font-sans text-white tracking-tight leading-tight">
+              <h1 className="text-4xl xl:text-5xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight leading-tight">
                 JOIN YOUR CROWD.
               </h1>
             </div>
 
             {/* Supporting Text */}
-            <p className="text-base text-[#A1A1AA] font-sans leading-relaxed max-w-md">
+            <p className="text-base text-[#666666] font-sans leading-relaxed max-w-md">
               Create your VibeUp profile and start discovering your people.
             </p>
 
             {/* Platform Identity Features */}
             <div className="space-y-3 pt-2">
-              <div className="p-3.5 rounded-xl bg-[#141418] border border-[#2A2A35]/80 flex items-center gap-3">
+              <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]/80 flex items-center gap-3">
                 <span className="w-8 h-8 rounded-lg bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center shrink-0">
                   <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
                 </span>
@@ -255,13 +255,13 @@ export default function SignupPage() {
                   <span className="font-sans font-bold text-xs text-white block">
                     Your Nightlife Taste Identity
                   </span>
-                  <span className="font-mono text-[11px] text-[#71717A]">
+                  <span className="font-mono text-[11px] text-[#666666]">
                     Music genres, clubs and real vibe matches across Bangalore
                   </span>
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-[#141418] border border-[#2A2A35]/80 flex items-center gap-3">
+              <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]/80 flex items-center gap-3">
                 <span className="w-8 h-8 rounded-lg bg-[#EC4899]/15 border border-[#EC4899]/30 flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-4 h-4 text-[#EC4899]" />
                 </span>
@@ -269,7 +269,7 @@ export default function SignupPage() {
                   <span className="font-sans font-bold text-xs text-white block">
                     18+ Verified Community
                   </span>
-                  <span className="font-mono text-[11px] text-[#71717A]">
+                  <span className="font-mono text-[11px] text-[#666666]">
                     Safe, curated social spaces for real nightlife attendees
                   </span>
                 </div>
@@ -286,7 +286,7 @@ export default function SignupPage() {
             transition={{ duration: 0.35 }}
             className="lg:col-span-6 w-full max-w-[480px] mx-auto"
           >
-            <div className="rounded-[24px] bg-[#141418] border border-[#2A2A35] p-6 sm:p-8 shadow-2xl relative">
+            <div className="rounded-[12px] bg-[#111111] border border-[#1A1A1A] p-6 sm:p-8 shadow-2xl relative">
               {/* Mobile-Only Compact Brand Badge */}
               <div className="lg:hidden flex items-center gap-2 mb-4">
                 <span className="w-2 h-2 rounded-full bg-[#8B5CF6] shrink-0" />
@@ -297,10 +297,10 @@ export default function SignupPage() {
 
               {/* Header */}
               <div className="mb-6">
-                <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   CREATE YOUR ACCOUNT
                 </h2>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-1.5 leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1.5 leading-relaxed">
                   It only takes a minute to get started.
                 </p>
               </div>
@@ -311,19 +311,19 @@ export default function SignupPage() {
                 <div>
                   <label
                     htmlFor="full-name-input"
-                    className="block text-xs font-mono text-[#A1A1AA] uppercase tracking-wider mb-1.5 font-medium"
+                    className="block text-xs font-mono text-[#666666] uppercase tracking-wider mb-1.5 font-medium"
                   >
                     FULL NAME
                   </label>
 
                   <div
-                    className={`flex items-center rounded-xl bg-[#1A1A21] border transition-colors ${
+                    className={`flex items-center rounded-xl bg-[#111111] border transition-colors ${
                       errors.fullName
                         ? "border-[#EF4444] focus-within:border-[#EF4444]"
-                        : "border-[#2A2A35] focus-within:border-[#8B5CF6]"
+                        : "border-[#1A1A1A] focus-within:border-[#8B5CF6]"
                     }`}
                   >
-                    <span className="pl-3 text-[#71717A]">
+                    <span className="pl-3 text-[#666666]">
                       <User className="w-4 h-4" />
                     </span>
                     <input
@@ -341,7 +341,7 @@ export default function SignupPage() {
                       disabled={isLoading}
                       aria-invalid={Boolean(errors.fullName)}
                       aria-describedby={errors.fullName ? "full-name-error" : undefined}
-                      className="w-full bg-transparent px-3 py-3 text-sm font-sans text-white placeholder-[#71717A] focus:outline-none disabled:opacity-50"
+                      className="w-full bg-transparent px-3 py-3 text-sm font-sans text-white placeholder-[#666666] focus:outline-none disabled:opacity-50"
                     />
                   </div>
 
@@ -361,19 +361,19 @@ export default function SignupPage() {
                 <div>
                   <label
                     htmlFor="username-input"
-                    className="block text-xs font-mono text-[#A1A1AA] uppercase tracking-wider mb-1.5 font-medium"
+                    className="block text-xs font-mono text-[#666666] uppercase tracking-wider mb-1.5 font-medium"
                   >
                     USERNAME
                   </label>
 
                   <div
-                    className={`flex items-center rounded-xl bg-[#1A1A21] border transition-colors ${
+                    className={`flex items-center rounded-xl bg-[#111111] border transition-colors ${
                       errors.username
                         ? "border-[#EF4444] focus-within:border-[#EF4444]"
-                        : "border-[#2A2A35] focus-within:border-[#8B5CF6]"
+                        : "border-[#1A1A1A] focus-within:border-[#8B5CF6]"
                     }`}
                   >
-                    <span className="pl-3 text-[#71717A]">
+                    <span className="pl-3 text-[#666666]">
                       <AtSign className="w-4 h-4" />
                     </span>
                     <input
@@ -386,7 +386,7 @@ export default function SignupPage() {
                       disabled={isLoading}
                       aria-invalid={Boolean(errors.username)}
                       aria-describedby={errors.username ? "username-error" : undefined}
-                      className="w-full bg-transparent px-3 py-3 text-sm font-mono text-white placeholder-[#71717A] focus:outline-none disabled:opacity-50"
+                      className="w-full bg-transparent px-3 py-3 text-sm font-mono text-white placeholder-[#666666] focus:outline-none disabled:opacity-50"
                     />
                   </div>
 
@@ -406,20 +406,20 @@ export default function SignupPage() {
                 <div>
                   <label
                     htmlFor="signup-phone-input"
-                    className="block text-xs font-mono text-[#A1A1AA] uppercase tracking-wider mb-1.5 font-medium"
+                    className="block text-xs font-mono text-[#666666] uppercase tracking-wider mb-1.5 font-medium"
                   >
                     MOBILE NUMBER
                   </label>
 
                   <div
-                    className={`flex items-center rounded-xl bg-[#1A1A21] border transition-colors ${
+                    className={`flex items-center rounded-xl bg-[#111111] border transition-colors ${
                       errors.phone
                         ? "border-[#EF4444] focus-within:border-[#EF4444]"
-                        : "border-[#2A2A35] focus-within:border-[#8B5CF6]"
+                        : "border-[#1A1A1A] focus-within:border-[#8B5CF6]"
                     }`}
                   >
                     {/* Country Code Pill */}
-                    <div className="flex items-center gap-1.5 px-3 py-3 border-r border-[#2A2A35] text-xs font-mono text-white select-none shrink-0">
+                    <div className="flex items-center gap-1.5 px-3 py-3 border-r border-[#1A1A1A] text-xs font-mono text-white select-none shrink-0">
                       <span className="text-base leading-none" role="img" aria-label="India flag">
                         🇮🇳
                       </span>
@@ -436,7 +436,7 @@ export default function SignupPage() {
                       disabled={isLoading}
                       aria-invalid={Boolean(errors.phone)}
                       aria-describedby={errors.phone ? "signup-phone-error" : undefined}
-                      className="w-full bg-transparent px-3.5 py-3 text-sm font-mono text-white placeholder-[#71717A] focus:outline-none disabled:opacity-50 tracking-wider"
+                      className="w-full bg-transparent px-3.5 py-3 text-sm font-mono text-white placeholder-[#666666] focus:outline-none disabled:opacity-50 tracking-wider"
                     />
                   </div>
 
@@ -457,7 +457,7 @@ export default function SignupPage() {
                   <div className="flex items-center justify-between mb-1.5">
                     <label
                       htmlFor="dob-input"
-                      className="block text-xs font-mono text-[#A1A1AA] uppercase tracking-wider font-medium"
+                      className="block text-xs font-mono text-[#666666] uppercase tracking-wider font-medium"
                     >
                       DATE OF BIRTH
                     </label>
@@ -467,13 +467,13 @@ export default function SignupPage() {
                   </div>
 
                   <div
-                    className={`flex items-center rounded-xl bg-[#1A1A21] border transition-colors ${
+                    className={`flex items-center rounded-xl bg-[#111111] border transition-colors ${
                       errors.dob
                         ? "border-[#EF4444] focus-within:border-[#EF4444]"
-                        : "border-[#2A2A35] focus-within:border-[#8B5CF6]"
+                        : "border-[#1A1A1A] focus-within:border-[#8B5CF6]"
                     }`}
                   >
-                    <span className="pl-3 text-[#71717A]">
+                    <span className="pl-3 text-[#666666]">
                       <CalendarIcon className="w-4 h-4" />
                     </span>
                     <input
@@ -510,7 +510,7 @@ export default function SignupPage() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full py-3.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.3)] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 active:scale-[0.99] mt-2"
+                  className="w-full py-3.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.3)] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 active:scale-[0.99] mt-2"
                 >
                   {isLoading ? (
                     <>
@@ -526,10 +526,10 @@ export default function SignupPage() {
               {/* Divider */}
               <div className="relative my-5 text-center">
                 <div className="absolute inset-0 flex items-center" aria-hidden="true">
-                  <div className="w-full border-t border-[#2A2A35]" />
+                  <div className="w-full border-t border-[#1A1A1A]" />
                 </div>
                 <div className="relative flex justify-center">
-                  <span className="bg-[#141418] px-3 font-mono text-[11px] text-[#71717A] uppercase tracking-wider">
+                  <span className="bg-[#111111] px-3 font-mono text-[11px] text-[#666666] uppercase tracking-wider">
                     OR
                   </span>
                 </div>
@@ -540,7 +540,7 @@ export default function SignupPage() {
                 type="button"
                 onClick={handleGoogleClick}
                 disabled={isLoading}
-                className="w-full py-3 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] border border-[#2A2A35] text-xs font-mono text-white font-medium transition-colors flex items-center justify-center gap-2.5 disabled:opacity-60"
+                className="w-full py-3 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-xs font-mono text-white font-medium transition-colors flex items-center justify-center gap-2.5 disabled:opacity-60"
               >
                 {/* Google Icon SVG */}
                 <svg
@@ -586,8 +586,8 @@ export default function SignupPage() {
               </AnimatePresence>
 
               {/* Existing Account Link */}
-              <div className="mt-5 pt-4 border-t border-[#2A2A35]/60 text-center">
-                <span className="font-mono text-xs text-[#A1A1AA]">
+              <div className="mt-5 pt-4 border-t border-[#1A1A1A]/60 text-center">
+                <span className="font-mono text-xs text-[#666666]">
                   ALREADY HAVE AN ACCOUNT?{" "}
                 </span>
                 <Link
@@ -599,18 +599,18 @@ export default function SignupPage() {
               </div>
 
               {/* Terms of Service & Privacy Policy */}
-              <p className="mt-4 text-[11px] font-sans text-[#71717A] text-center leading-relaxed">
+              <p className="mt-4 text-[11px] font-sans text-[#666666] text-center leading-relaxed">
                 By creating an account, you agree to VibeUp&apos;s{" "}
                 <Link
                   href="/terms"
-                  className="text-[#A1A1AA] hover:text-white underline transition-colors"
+                  className="text-[#666666] hover:text-white underline transition-colors"
                 >
                   Terms of Service
                 </Link>{" "}
                 and{" "}
                 <Link
                   href="/privacy"
-                  className="text-[#A1A1AA] hover:text-white underline transition-colors"
+                  className="text-[#666666] hover:text-white underline transition-colors"
                 >
                   Privacy Policy
                 </Link>
@@ -622,7 +622,7 @@ export default function SignupPage() {
       </div>
 
       {/* Subtle Bottom Accent */}
-      <footer className="w-full py-4 text-center border-t border-[#2A2A35]/40 text-[11px] font-mono text-[#71717A]">
+      <footer className="w-full py-4 text-center border-t border-[#1A1A1A]/40 text-[11px] font-mono text-[#666666]">
         VIBEUP · BANGALORE NIGHTLIFE PLATFORM
       </footer>
     </main>

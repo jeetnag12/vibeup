@@ -45,26 +45,26 @@ export default function EventRulesSection({ event }: EventRulesSectionProps) {
         HOUSE POLICY
       </span>
       <h2
-        className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight mb-6"
-        style={{ fontWeight: 700 }}
+        className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight mb-6"
+        style={{ fontWeight: 800, letterSpacing: "-0.03em" }}
       >
         EVENT DETAILS &amp; RULES
       </h2>
 
-      <div className="p-6 rounded-[16px] bg-[#1A1A21] border border-[#2A2A35]">
+      <div className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {rules.map((rule) => {
             const Icon = rule.icon;
             return (
               <div key={rule.title} className="flex items-start gap-3.5">
-                <div className="w-9 h-9 rounded-xl bg-[#141418] border border-[#2A2A35] flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-[#111111] border border-[#1A1A1A] flex items-center justify-center shrink-0">
                   <Icon className={`w-4 h-4 ${rule.color}`} />
                 </div>
                 <div>
                   <h4 className="font-mono text-xs font-bold text-white tracking-wider mb-1">
                     {rule.title}
                   </h4>
-                  <p className="font-sans text-xs sm:text-sm text-[#A1A1AA] leading-relaxed">
+                  <p className="font-sans text-xs sm:text-sm text-[#666666] leading-relaxed">
                     {rule.desc}
                   </p>
                 </div>

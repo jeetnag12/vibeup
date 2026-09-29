@@ -32,12 +32,12 @@ export default function WhosGoingSection({ event }: WhosGoingSectionProps) {
             COMMUNITY DIRECTORY
           </span>
           <h2
-            className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight"
-            style={{ fontWeight: 700 }}
+            className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight"
+            style={{ fontWeight: 800, letterSpacing: "-0.03em" }}
           >
             WHO&apos;S GOING
           </h2>
-          <p className="text-sm sm:text-base text-[#A1A1AA] font-sans mt-1">
+          <p className="text-sm sm:text-base text-[#666666] font-sans mt-1">
             Find people you know. Meet people with your vibe.
           </p>
         </div>
@@ -60,7 +60,7 @@ export default function WhosGoingSection({ event }: WhosGoingSectionProps) {
           return (
             <div
               key={person.id}
-              className="p-4 rounded-[16px] bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6]/50 transition-all duration-200 flex flex-col justify-between group"
+              className="p-4 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/50 transition-all duration-200 flex flex-col justify-between group"
             >
               <div>
                 {/* Top: Avatar, Name & Vibe Score */}
@@ -70,13 +70,13 @@ export default function WhosGoingSection({ event }: WhosGoingSectionProps) {
                     <img
                       src={person.avatar}
                       alt={person.name}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-[#2A2A35] shrink-0"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-[#1A1A1A] shrink-0"
                     />
                     <div>
                       <h4 className="font-sans font-semibold text-white text-base leading-tight">
                         {person.name}
                       </h4>
-                      <p className="font-mono text-[11px] text-[#A1A1AA] truncate mt-0.5">
+                      <p className="font-mono text-[11px] text-[#666666] truncate mt-0.5">
                         {person.musicTaste}
                       </p>
                     </div>
@@ -92,7 +92,7 @@ export default function WhosGoingSection({ event }: WhosGoingSectionProps) {
                 </div>
 
                 {/* Short Bio */}
-                <p className="text-xs text-[#A1A1AA] font-sans line-clamp-2 mb-3">
+                <p className="text-xs text-[#666666] font-sans line-clamp-2 mb-3">
                   {person.bio}
                 </p>
 
@@ -101,7 +101,7 @@ export default function WhosGoingSection({ event }: WhosGoingSectionProps) {
                   {person.interests.map((tag) => (
                     <span
                       key={tag}
-                      className="font-mono text-[10px] text-[#71717A] bg-[#141418] border border-[#2A2A35] px-2 py-0.5 rounded-full"
+                      className="font-mono text-[10px] text-[#666666] bg-[#111111] border border-[#1A1A1A] px-2 py-0.5 rounded-full"
                     >
                       {tag}
                     </span>
@@ -110,14 +110,14 @@ export default function WhosGoingSection({ event }: WhosGoingSectionProps) {
               </div>
 
               {/* Action Buttons: FOLLOW & INVITE TO CREW */}
-              <div className="grid grid-cols-2 gap-2 pt-3 border-t border-[#2A2A35]">
+              <div className="grid grid-cols-2 gap-2 pt-3 border-t border-[#1A1A1A]">
                 <button
                   type="button"
                   onClick={() => toggleFollow(person.id)}
                   className={`w-full py-1.5 rounded-[8px] border font-sans text-xs font-medium transition-all duration-200 flex items-center justify-center gap-1 ${
                     isFollowing
                       ? "border-[#8B5CF6] bg-[#8B5CF6]/20 text-white"
-                      : "border-[#2A2A35] text-[#A1A1AA] hover:border-[#8B5CF6] hover:text-white"
+                      : "border-[#1A1A1A] text-[#666666] hover:border-[#8B5CF6] hover:text-white"
                   }`}
                 >
                   {isFollowing ? (
@@ -139,7 +139,7 @@ export default function WhosGoingSection({ event }: WhosGoingSectionProps) {
                   className={`w-full py-1.5 rounded-[8px] border font-sans text-xs font-medium transition-all duration-200 flex items-center justify-center gap-1 ${
                     isInvited
                       ? "border-[#22C55E] bg-[#22C55E]/15 text-[#22C55E]"
-                      : "border-[#2A2A35] text-[#A1A1AA] hover:border-[#EC4899] hover:text-white"
+                      : "border-[#1A1A1A] text-[#666666] hover:border-[#EC4899] hover:text-white"
                   }`}
                 >
                   {isInvited ? (

@@ -183,7 +183,7 @@ export default function ClubDetailPage() {
   const photos = club.photos || [];
 
   return (
-    <main className="min-h-screen bg-[#09090B] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
       <Navbar />
 
       <div className="w-full pt-[88px] sm:pt-[96px] pb-[80px]">
@@ -206,23 +206,23 @@ export default function ClubDetailPage() {
               <li>
                 <Link
                   href="/discover"
-                  className="text-[#A1A1AA] hover:text-white transition-colors"
+                  className="text-[#666666] hover:text-white transition-colors"
                 >
                   DISCOVER
                 </Link>
               </li>
-              <li className="text-[#71717A]" aria-hidden="true">
+              <li className="text-[#666666]" aria-hidden="true">
                 /
               </li>
               <li>
                 <Link
                   href="/clubs"
-                  className="text-[#A1A1AA] hover:text-white transition-colors"
+                  className="text-[#666666] hover:text-white transition-colors"
                 >
                   CLUBS
                 </Link>
               </li>
-              <li className="text-[#71717A]" aria-hidden="true">
+              <li className="text-[#666666]" aria-hidden="true">
                 /
               </li>
               <li className="text-white font-bold truncate max-w-[200px] sm:max-w-none">
@@ -236,11 +236,11 @@ export default function ClubDetailPage() {
           ================================================== */}
           <section
             aria-label={`${club.name} Venue Overview`}
-            className="rounded-[20px] bg-[#141418] border border-[#2A2A35] overflow-hidden mb-10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+            className="rounded-[12px] bg-[#111111] border border-[#1A1A1A] overflow-hidden mb-10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
               {/* Left Column (Desktop 5 cols): Large Hero Image */}
-              <div className="lg:col-span-5 relative w-full h-[280px] sm:h-[360px] lg:h-full min-h-[300px] bg-[#09090B] overflow-hidden group">
+              <div className="lg:col-span-5 relative w-full h-[280px] sm:h-[360px] lg:h-full min-h-[300px] bg-[#000000] overflow-hidden group">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={club.image}
@@ -248,7 +248,7 @@ export default function ClubDetailPage() {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#141418] via-transparent to-black/40 lg:bg-gradient-to-r lg:from-transparent lg:to-[#141418]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-black/40 lg:bg-gradient-to-r lg:from-transparent lg:to-[#111111]" />
 
                 {/* Overlaid Badges */}
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 pointer-events-none">
@@ -276,12 +276,12 @@ export default function ClubDetailPage() {
                   </div>
 
                   {/* Club Name */}
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-sans text-white tracking-tight mb-3">
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight mb-3">
                     {club.name}
                   </h1>
 
                   {/* Rating + Followers + Location Line */}
-                  <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4 text-xs font-mono text-[#A1A1AA]">
+                  <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4 text-xs font-mono text-[#666666]">
                     <div className="inline-flex items-center gap-1.5 text-amber-400 bg-amber-400/10 border border-amber-400/25 px-2.5 py-1 rounded-full font-bold">
                       <div className="flex items-center">
                         {[...Array(5)].map((_, i) => (
@@ -302,7 +302,7 @@ export default function ClubDetailPage() {
                       {(club.followers + followersDelta).toLocaleString()} FOLLOWERS
                     </span>
 
-                    <span className="text-[#71717A]">·</span>
+                    <span className="text-[#666666]">·</span>
 
                     <span className="inline-flex items-center gap-1 text-[#D4D4D8]">
                       <MapPin className="w-3.5 h-3.5 text-[#EC4899] shrink-0" />
@@ -317,7 +317,7 @@ export default function ClubDetailPage() {
 
                   {/* Genres Chips */}
                   <div className="flex flex-wrap items-center gap-2 mb-6">
-                    <span className="font-mono text-[11px] text-[#71717A] uppercase mr-1">
+                    <span className="font-mono text-[11px] text-[#666666] uppercase mr-1">
                       SOUND:
                     </span>
                     {club.genres.map((genre) => (
@@ -334,13 +334,13 @@ export default function ClubDetailPage() {
                 {/* ==================================================
                     8. ACTION BUTTONS
                 ================================================== */}
-                <div className="pt-4 border-t border-[#2A2A35] flex flex-wrap items-center gap-3">
+                <div className="pt-4 border-t border-[#1A1A1A] flex flex-wrap items-center gap-3">
                   {/* Primary: FOLLOW button */}
                   <button
                     type="button"
                     onClick={handleToggleFollow}
                     aria-label={isFollowing ? `Unfollow ${club.name}` : `Follow ${club.name}`}
-                    className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-mono text-xs font-bold transition-all duration-200 ${
+                    className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[4px] font-mono text-xs font-bold transition-all duration-200 ${
                       isFollowing
                         ? "bg-[#8B5CF6]/20 border border-[#8B5CF6] text-white shadow-[0_0_16px_rgba(139,92,246,0.3)]"
                         : "bg-[#8B5CF6] hover:bg-[#7C3AED] text-white shadow-[0_0_20px_rgba(139,92,246,0.35)] active:scale-95"
@@ -364,7 +364,7 @@ export default function ClubDetailPage() {
                     type="button"
                     onClick={handleShare}
                     aria-label="Share venue link"
-                    className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] border border-[#2A2A35] hover:border-[#8B5CF6]/40 text-xs font-mono text-[#D4D4D8] hover:text-white transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] hover:border-[#8B5CF6]/40 text-xs font-mono text-[#D4D4D8] hover:text-white transition-all"
                   >
                     <Share2 className="w-4 h-4 text-[#8B5CF6]" />
                     <span>{copiedLink ? "COPIED LINK ✓" : "SHARE"}</span>
@@ -375,15 +375,15 @@ export default function ClubDetailPage() {
                     type="button"
                     onClick={handleToggleSave}
                     aria-label={isSaved ? "Saved to favorites" : "Save to favorites"}
-                    className={`inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border text-xs font-mono transition-all ${
+                    className={`inline-flex items-center justify-center gap-2 px-4 py-3 rounded-[4px] border text-xs font-mono transition-all ${
                       isSaved
                         ? "bg-[#EC4899]/15 border-[#EC4899] text-[#EC4899]"
-                        : "bg-[#1A1A21] hover:bg-[#2A2A35] border-[#2A2A35] text-[#A1A1AA] hover:text-white"
+                        : "bg-[#111111] hover:bg-[#1A1A1A] border-[#1A1A1A] text-[#666666] hover:text-white"
                     }`}
                   >
                     <Heart
                       className={`w-4 h-4 ${
-                        isSaved ? "fill-[#EC4899] text-[#EC4899]" : "text-[#A1A1AA]"
+                        isSaved ? "fill-[#EC4899] text-[#EC4899]" : "text-[#666666]"
                       }`}
                     />
                     <span>{isSaved ? "SAVED" : "SAVE"}</span>
@@ -398,7 +398,7 @@ export default function ClubDetailPage() {
           ================================================== */}
           <section
             aria-label="Club Community & Social Interest"
-            className="mb-12 p-4 sm:p-5 rounded-[16px] bg-[#141418] border border-[#2A2A35] flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+            className="mb-12 p-4 sm:p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex flex-col sm:flex-row sm:items-center justify-between gap-4"
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center text-[#8B5CF6] shrink-0">
@@ -408,7 +408,7 @@ export default function ClubDetailPage() {
                 <h4 className="font-mono text-xs font-bold text-white uppercase tracking-wider">
                   {(club.followers + followersDelta).toLocaleString()} PEOPLE FOLLOW THIS CLUB
                 </h4>
-                <p className="text-xs text-[#A1A1AA] font-sans">
+                <p className="text-xs text-[#666666] font-sans">
                   People you may know follow this club and attend weekend events here.
                 </p>
               </div>
@@ -424,7 +424,7 @@ export default function ClubDetailPage() {
                     src={follower.avatar}
                     alt={follower.name}
                     title={follower.name}
-                    className="w-8 h-8 rounded-full object-cover border-2 border-[#141418]"
+                    className="w-8 h-8 rounded-full object-cover border-2 border-[#111111]"
                   />
                 ))}
               </div>
@@ -445,11 +445,11 @@ export default function ClubDetailPage() {
                 </span>
                 <h2
                   id="upcoming-events-heading"
-                  className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight"
+                  className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight"
                 >
                   UPCOMING EVENTS
                 </h2>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                   What&apos;s happening here. Book tickets or join guestlists early.
                 </p>
               </div>
@@ -458,7 +458,7 @@ export default function ClubDetailPage() {
               <div
                 role="tablist"
                 aria-label="Event timeframe filter"
-                className="inline-flex items-center p-1 rounded-xl bg-[#141418] border border-[#2A2A35] shrink-0"
+                className="inline-flex items-center p-1 rounded-xl bg-[#111111] border border-[#1A1A1A] shrink-0"
               >
                 {(["ALL", "THIS WEEK", "THIS MONTH"] as const).map((filter) => (
                   <button
@@ -469,7 +469,7 @@ export default function ClubDetailPage() {
                     className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium transition-colors ${
                       eventFilter === filter
                         ? "bg-[#8B5CF6] text-white shadow-sm"
-                        : "text-[#A1A1AA] hover:text-white"
+                        : "text-[#666666] hover:text-white"
                     }`}
                   >
                     {filter}
@@ -499,12 +499,12 @@ export default function ClubDetailPage() {
                 ))}
               </div>
             ) : (
-              <div className="p-10 rounded-[20px] bg-[#141418] border border-[#2A2A35] text-center">
+              <div className="p-10 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center">
                 <Calendar className="w-8 h-8 text-[#8B5CF6] mx-auto mb-2 opacity-60" />
                 <h4 className="font-sans font-bold text-white text-base mb-1">
                   NO EVENTS IN THIS TIMEFRAME
                 </h4>
-                <p className="text-xs text-[#A1A1AA] font-sans max-w-sm mx-auto mb-4">
+                <p className="text-xs text-[#666666] font-sans max-w-sm mx-auto mb-4">
                   Check back soon or switch filter to explore events this month.
                 </p>
                 <button
@@ -525,7 +525,7 @@ export default function ClubDetailPage() {
             {/* Left Column (Cols 7): About the Club */}
             <section
               aria-labelledby="about-club-heading"
-              className="lg:col-span-7 p-6 sm:p-8 rounded-[20px] bg-[#141418] border border-[#2A2A35]"
+              className="lg:col-span-7 p-6 sm:p-8 rounded-[12px] bg-[#111111] border border-[#1A1A1A]"
             >
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
@@ -535,7 +535,7 @@ export default function ClubDetailPage() {
               </div>
               <h2
                 id="about-club-heading"
-                className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight mb-4"
+                className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight mb-4"
               >
                 ABOUT THE CLUB
               </h2>
@@ -562,8 +562,8 @@ export default function ClubDetailPage() {
               </button>
 
               {/* Venue Quick Details */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 pt-6 border-t border-[#2A2A35]">
-                <div className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 pt-6 border-t border-[#1A1A1A]">
+                <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]">
                   <span className="font-mono text-[10px] text-[#EC4899] uppercase block mb-1">
                     OPERATING HOURS
                   </span>
@@ -573,7 +573,7 @@ export default function ClubDetailPage() {
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35]">
+                <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]">
                   <span className="font-mono text-[10px] text-[#22C55E] uppercase block mb-1">
                     DOOR &amp; ENTRY
                   </span>
@@ -590,7 +590,7 @@ export default function ClubDetailPage() {
             {/* Right Column (Cols 5): Vibe / Genres */}
             <section
               aria-labelledby="vibe-genres-heading"
-              className="lg:col-span-5 p-6 sm:p-8 rounded-[20px] bg-[#141418] border border-[#2A2A35]"
+              className="lg:col-span-5 p-6 sm:p-8 rounded-[12px] bg-[#111111] border border-[#1A1A1A]"
             >
               <div className="flex items-center gap-2 mb-3">
                 <Compass className="w-4 h-4 text-[#EC4899]" />
@@ -600,11 +600,11 @@ export default function ClubDetailPage() {
               </div>
               <h2
                 id="vibe-genres-heading"
-                className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight mb-2"
+                className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight mb-2"
               >
                 THE VIBE
               </h2>
-              <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mb-5">
+              <p className="text-xs sm:text-sm text-[#666666] font-sans mb-5">
                 Curated descriptors from regulars and resident DJs describing the dancefloor.
               </p>
 
@@ -619,7 +619,7 @@ export default function ClubDetailPage() {
                 ]).map((tag) => (
                   <span
                     key={tag}
-                    className="px-3.5 py-2 rounded-xl bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6]/50 transition-colors text-xs font-mono font-medium text-white flex items-center gap-1.5"
+                    className="px-3.5 py-2 rounded-xl bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/50 transition-colors text-xs font-mono font-medium text-white flex items-center gap-1.5"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#EC4899]" />
                     <span>#{tag.toUpperCase()}</span>
@@ -628,8 +628,8 @@ export default function ClubDetailPage() {
               </div>
 
               {/* Music Genres Badges */}
-              <div className="mt-6 pt-6 border-t border-[#2A2A35]">
-                <span className="font-mono text-[10px] text-[#A1A1AA] uppercase tracking-wider block mb-2.5">
+              <div className="mt-6 pt-6 border-t border-[#1A1A1A]">
+                <span className="font-mono text-[10px] text-[#666666] uppercase tracking-wider block mb-2.5">
                   CORE MUSIC GENRES:
                 </span>
                 <div className="flex flex-wrap gap-2">
@@ -652,7 +652,7 @@ export default function ClubDetailPage() {
           {club.community && (
             <section
               aria-labelledby="club-community-heading"
-              className="mb-16 p-6 sm:p-8 rounded-[20px] bg-gradient-to-r from-[#141418] via-[#1A1A21] to-[#141418] border border-[#2A2A35] relative overflow-hidden"
+              className="mb-16 p-6 sm:p-8 rounded-[12px] bg-gradient-to-r from-[#111111] via-[#111111] to-[#111111] border border-[#1A1A1A] relative overflow-hidden"
             >
               <div
                 className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-[#8B5CF6]/10 to-transparent pointer-events-none"
@@ -665,7 +665,7 @@ export default function ClubDetailPage() {
                   <img
                     src={club.community.image}
                     alt={club.community.name}
-                    className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl object-cover border-2 border-[#8B5CF6]/50 shrink-0 shadow-lg"
+                    className="w-14 h-14 sm:w-16 sm:h-16 rounded-[12px] object-cover border-2 border-[#8B5CF6]/50 shrink-0 shadow-lg"
                   />
                   <div>
                     <div className="flex items-center gap-2 mb-1">
@@ -679,7 +679,7 @@ export default function ClubDetailPage() {
                     >
                       {club.community.name}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5 max-w-xl">
+                    <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5 max-w-xl">
                       {club.community.description}
                     </p>
                     <span className="font-mono text-xs text-[#22C55E] mt-1.5 inline-block">
@@ -692,7 +692,7 @@ export default function ClubDetailPage() {
                   <button
                     type="button"
                     onClick={handleToggleCommunity}
-                    className={`w-full sm:w-auto px-6 py-3 rounded-xl font-mono text-xs font-bold transition-all shadow-md ${
+                    className={`w-full sm:w-auto px-6 py-3 rounded-[4px] font-mono text-xs font-bold transition-all shadow-md ${
                       isCommunityJoined
                         ? "bg-[#22C55E]/20 border border-[#22C55E] text-[#22C55E]"
                         : "bg-[#8B5CF6] hover:bg-[#7C3AED] text-white shadow-[0_0_16px_rgba(139,92,246,0.3)]"
@@ -703,7 +703,7 @@ export default function ClubDetailPage() {
 
                   <Link
                     href={`/crews/c1`}
-                    className="px-4 py-3 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] border border-[#2A2A35] text-xs font-mono text-white transition-colors"
+                    className="px-4 py-3 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-xs font-mono text-white transition-colors"
                   >
                     VIEW CREWS
                   </Link>
@@ -723,15 +723,15 @@ export default function ClubDetailPage() {
                 </span>
                 <h2
                   id="club-photos-heading"
-                  className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight"
+                  className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight"
                 >
                   CLUB PHOTOS
                 </h2>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                   Glimpses of the sound system, lighting design, and weekend atmosphere.
                 </p>
               </div>
-              <span className="font-mono text-xs text-[#A1A1AA]">
+              <span className="font-mono text-xs text-[#666666]">
                 {photos.length} PHOTOGRAPHS
               </span>
             </div>
@@ -742,7 +742,7 @@ export default function ClubDetailPage() {
                 <div
                   key={photo.id}
                   onClick={() => setSelectedPhotoIndex(index)}
-                  className="group relative h-[180px] sm:h-[220px] rounded-[16px] overflow-hidden bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6] cursor-pointer transition-all duration-200"
+                  className="group relative h-[180px] sm:h-[220px] rounded-[12px] overflow-hidden bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] cursor-pointer transition-all duration-200"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -772,7 +772,7 @@ export default function ClubDetailPage() {
                 </span>
                 <h2
                   id="club-reviews-heading"
-                  className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight"
+                  className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight"
                 >
                   REVIEWS
                 </h2>
@@ -785,7 +785,7 @@ export default function ClubDetailPage() {
                   <span className="font-mono text-sm font-bold text-white">
                     {club.rating ? club.rating.toFixed(1) : "4.7"} / 5.0
                   </span>
-                  <span className="font-mono text-xs text-[#A1A1AA]">
+                  <span className="font-mono text-xs text-[#666666]">
                     · ({reviewsList.length} verified reviews)
                   </span>
                 </div>
@@ -806,7 +806,7 @@ export default function ClubDetailPage() {
               {reviewsList.map((rev) => (
                 <div
                   key={rev.id}
-                  className="p-5 rounded-[16px] bg-[#141418] border border-[#2A2A35] flex flex-col justify-between"
+                  className="p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-3">
@@ -815,13 +815,13 @@ export default function ClubDetailPage() {
                         <img
                           src={rev.avatar}
                           alt={rev.authorName}
-                          className="w-10 h-10 rounded-full object-cover border border-[#2A2A35]"
+                          className="w-10 h-10 rounded-full object-cover border border-[#1A1A1A]"
                         />
                         <div>
                           <h4 className="font-sans font-bold text-sm text-white">
                             {rev.authorName}
                           </h4>
-                          <span className="font-mono text-[11px] text-[#A1A1AA]">
+                          <span className="font-mono text-[11px] text-[#666666]">
                             {rev.date}
                           </span>
                         </div>
@@ -839,7 +839,7 @@ export default function ClubDetailPage() {
                   </div>
 
                   {rev.tag && (
-                    <div className="mt-3 pt-3 border-t border-[#2A2A35] flex items-center justify-between">
+                    <div className="mt-3 pt-3 border-t border-[#1A1A1A] flex items-center justify-between">
                       <span className="font-mono text-[10px] text-[#22C55E] inline-flex items-center gap-1">
                         <ShieldCheck className="w-3.5 h-3.5" />
                         {rev.tag}
@@ -853,7 +853,7 @@ export default function ClubDetailPage() {
             <div className="flex justify-center">
               <Link
                 href={`/clubs/${club.id}/reviews`}
-                className="px-6 py-2.5 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] border border-[#2A2A35] hover:border-[#8B5CF6]/50 text-xs font-mono text-[#D4D4D8] hover:text-white transition-colors inline-flex items-center gap-1.5"
+                className="px-6 py-2.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] hover:border-[#8B5CF6]/50 text-xs font-mono text-[#D4D4D8] hover:text-white transition-colors inline-flex items-center gap-1.5"
               >
                 <span>SEE ALL REVIEWS →</span>
               </Link>
@@ -871,11 +871,11 @@ export default function ClubDetailPage() {
                 </span>
                 <h2
                   id="related-clubs-heading"
-                  className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight"
+                  className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight"
                 >
                   YOU MAY ALSO LIKE
                 </h2>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
                   Other venues matching this soundscape and crowd profile.
                 </p>
               </div>
@@ -927,19 +927,19 @@ export default function ClubDetailPage() {
           onClick={() => setSelectedPhotoIndex(null)}
         >
           <div
-            className="relative max-w-4xl w-full bg-[#141418] border border-[#2A2A35] rounded-2xl overflow-hidden shadow-2xl"
+            className="relative max-w-4xl w-full bg-[#111111] border border-[#1A1A1A] rounded-[12px] overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Lightbox Header */}
-            <div className="p-4 flex items-center justify-between border-b border-[#2A2A35]">
-              <span className="font-mono text-xs text-[#A1A1AA]">
+            <div className="p-4 flex items-center justify-between border-b border-[#1A1A1A]">
+              <span className="font-mono text-xs text-[#666666]">
                 PHOTO {selectedPhotoIndex + 1} OF {photos.length}
               </span>
               <button
                 type="button"
                 onClick={() => setSelectedPhotoIndex(null)}
                 aria-label="Close Lightbox"
-                className="w-8 h-8 rounded-full bg-[#1A1A21] hover:bg-[#2A2A35] text-white flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-full bg-[#111111] hover:bg-[#1A1A1A] text-white flex items-center justify-center transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -979,7 +979,7 @@ export default function ClubDetailPage() {
             </div>
 
             {/* Lightbox Caption */}
-            <div className="p-4 bg-[#141418] border-t border-[#2A2A35]">
+            <div className="p-4 bg-[#111111] border-t border-[#1A1A1A]">
               <p className="font-sans text-sm text-white font-medium">
                 {photos[selectedPhotoIndex].caption}
               </p>
@@ -1000,7 +1000,7 @@ export default function ClubDetailPage() {
           onClick={() => setShowWriteReviewModal(false)}
         >
           <div
-            className="relative max-w-lg w-full bg-[#141418] border border-[#2A2A35] rounded-2xl p-6 sm:p-8 shadow-2xl"
+            className="relative max-w-lg w-full bg-[#111111] border border-[#1A1A1A] rounded-[12px] p-6 sm:p-8 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-4">
@@ -1017,20 +1017,20 @@ export default function ClubDetailPage() {
                 type="button"
                 onClick={() => setShowWriteReviewModal(false)}
                 aria-label="Close review dialog"
-                className="w-8 h-8 rounded-full bg-[#1A1A21] hover:bg-[#2A2A35] text-white flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-full bg-[#111111] hover:bg-[#1A1A1A] text-white flex items-center justify-center transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <p className="text-xs text-[#A1A1AA] font-sans mb-5">
+            <p className="text-xs text-[#666666] font-sans mb-5">
               Share your experience regarding sound quality, crowd energy, entry policy, and overall vibe.
             </p>
 
             <form onSubmit={handleSubmitReview} className="space-y-4">
               {/* Star Rating Select */}
               <div>
-                <label className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1.5">
+                <label className="block text-xs font-mono text-[#666666] uppercase mb-1.5">
                   RATING
                 </label>
                 <div className="flex items-center gap-2">
@@ -1059,7 +1059,7 @@ export default function ClubDetailPage() {
               <div>
                 <label
                   htmlFor="review-author-input"
-                  className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1.5"
+                  className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
                 >
                   YOUR NAME / ALIAS
                 </label>
@@ -1069,7 +1069,7 @@ export default function ClubDetailPage() {
                   placeholder="e.g. Maya S."
                   value={newAuthor}
                   onChange={(e) => setNewAuthor(e.target.value)}
-                  className="w-full h-10 px-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white placeholder-[#71717A]"
+                  className="w-full h-10 px-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white placeholder-[#666666]"
                 />
               </div>
 
@@ -1077,7 +1077,7 @@ export default function ClubDetailPage() {
               <div>
                 <label
                   htmlFor="review-comment-input"
-                  className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1.5"
+                  className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
                 >
                   YOUR REVIEW
                 </label>
@@ -1088,7 +1088,7 @@ export default function ClubDetailPage() {
                   placeholder="How was the sound? How did the dance floor feel?"
                   value={newComment}
                   onChange={(e) => setNewComment(e.target.value)}
-                  className="w-full p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white placeholder-[#71717A] resize-none"
+                  className="w-full p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white placeholder-[#666666] resize-none"
                 />
               </div>
 
@@ -1096,13 +1096,13 @@ export default function ClubDetailPage() {
                 <button
                   type="button"
                   onClick={() => setShowWriteReviewModal(false)}
-                  className="px-4 py-2.5 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors"
+                  className="px-4 py-2.5 rounded-xl bg-[#111111] hover:bg-[#1A1A1A] text-xs font-mono text-[#666666] hover:text-white transition-colors"
                 >
                   CANCEL
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-xs font-mono font-bold text-white transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
+                  className="px-5 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-xs font-mono font-bold text-white transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
                 >
                   SUBMIT REVIEW
                 </button>
@@ -1117,7 +1117,7 @@ export default function ClubDetailPage() {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-6 right-6 z-50 bg-[#1A1A21] border border-[#22C55E] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
+          className="fixed bottom-6 right-6 z-50 bg-[#111111] border border-[#22C55E] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
         >
           <Check className="w-4 h-4 text-[#22C55E]" />
           <span>Review submitted! Added to community feedback.</span>

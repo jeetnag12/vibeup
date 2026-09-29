@@ -245,7 +245,7 @@ export default function ClubReviewsPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#09090B] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
       <Navbar />
 
       <div className="w-full pt-[88px] sm:pt-[96px] pb-[80px]">
@@ -268,34 +268,34 @@ export default function ClubReviewsPage() {
               <li>
                 <Link
                   href="/discover"
-                  className="text-[#A1A1AA] hover:text-white transition-colors"
+                  className="text-[#666666] hover:text-white transition-colors"
                 >
                   DISCOVER
                 </Link>
               </li>
-              <li className="text-[#71717A]" aria-hidden="true">
+              <li className="text-[#666666]" aria-hidden="true">
                 /
               </li>
               <li>
                 <Link
                   href="/clubs"
-                  className="text-[#A1A1AA] hover:text-white transition-colors"
+                  className="text-[#666666] hover:text-white transition-colors"
                 >
                   CLUBS
                 </Link>
               </li>
-              <li className="text-[#71717A]" aria-hidden="true">
+              <li className="text-[#666666]" aria-hidden="true">
                 /
               </li>
               <li>
                 <Link
                   href={`/clubs/${club.id}`}
-                  className="text-[#A1A1AA] hover:text-white transition-colors truncate max-w-[140px] sm:max-w-none"
+                  className="text-[#666666] hover:text-white transition-colors truncate max-w-[140px] sm:max-w-none"
                 >
                   {club.name}
                 </Link>
               </li>
-              <li className="text-[#71717A]" aria-hidden="true">
+              <li className="text-[#666666]" aria-hidden="true">
                 /
               </li>
               <li className="text-white font-bold">REVIEWS</li>
@@ -305,13 +305,13 @@ export default function ClubReviewsPage() {
           {/* ==================================================
               2. COMPACT CLUB HEADER
           ================================================== */}
-          <header className="p-4 sm:p-5 rounded-[20px] bg-[#141418] border border-[#2A2A35] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10 shadow-lg">
+          <header className="p-4 sm:p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10 shadow-lg">
             <div className="flex items-center gap-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={club.image}
                 alt={club.name}
-                className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl object-cover border border-[#2A2A35] shrink-0"
+                className="w-16 h-16 sm:w-18 sm:h-18 rounded-[12px] object-cover border border-[#1A1A1A] shrink-0"
               />
               <div>
                 <div className="flex items-center gap-2 mb-1">
@@ -319,10 +319,10 @@ export default function ClubReviewsPage() {
                     {club.area.toUpperCase()} · BANGALORE
                   </span>
                 </div>
-                <h1 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+                <h1 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   {club.name}
                 </h1>
-                <div className="flex items-center gap-1.5 text-xs font-mono text-[#A1A1AA] mt-0.5">
+                <div className="flex items-center gap-1.5 text-xs font-mono text-[#666666] mt-0.5">
                   <MapPin className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0" />
                   <span>{club.location || club.address || `${club.area}, Bangalore`}</span>
                 </div>
@@ -331,7 +331,7 @@ export default function ClubReviewsPage() {
 
             <Link
               href={`/clubs/${club.id}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] border border-[#2A2A35] hover:border-[#8B5CF6]/50 text-xs font-mono text-white transition-all self-stretch sm:self-auto justify-center"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] hover:border-[#8B5CF6]/50 text-xs font-mono text-white transition-all self-stretch sm:self-auto justify-center"
             >
               <ArrowLeft className="w-3.5 h-3.5 text-[#8B5CF6]" />
               <span>BACK TO CLUB</span>
@@ -343,7 +343,7 @@ export default function ClubReviewsPage() {
           ================================================== */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
             {/* Left Box (Cols 5): Rating Overview & Horizontal Breakdown */}
-            <div className="lg:col-span-5 p-6 sm:p-7 rounded-[20px] bg-[#141418] border border-[#2A2A35] space-y-6">
+            <div className="lg:col-span-5 p-6 sm:p-7 rounded-[12px] bg-[#111111] border border-[#1A1A1A] space-y-6">
               {/* Rating Overview */}
               <div>
                 <span className="font-mono text-xs font-semibold text-[#8B5CF6] uppercase tracking-wider block mb-1">
@@ -364,14 +364,14 @@ export default function ClubReviewsPage() {
                     </div>
                   </div>
                 </div>
-                <p className="text-xs text-[#A1A1AA] font-sans mt-2">
+                <p className="text-xs text-[#666666] font-sans mt-2">
                   Based on reviews from VibeUp users
                 </p>
               </div>
 
               {/* Horizontal Star Breakdown */}
-              <div className="pt-5 border-t border-[#2A2A35] space-y-2.5">
-                <span className="font-mono text-[10px] text-[#A1A1AA] uppercase tracking-wider block mb-3">
+              <div className="pt-5 border-t border-[#1A1A1A] space-y-2.5">
+                <span className="font-mono text-[10px] text-[#666666] uppercase tracking-wider block mb-3">
                   RATING BREAKDOWN
                 </span>
                 {initialPayload.starsBreakdown.map((row) => (
@@ -386,7 +386,7 @@ export default function ClubReviewsPage() {
                     className={`w-full flex items-center gap-3 text-xs font-mono group transition-colors p-1 rounded-md ${
                       starFilter === String(row.star)
                         ? "bg-[#8B5CF6]/15 text-white"
-                        : "hover:bg-white/5 text-[#A1A1AA] hover:text-white"
+                        : "hover:bg-white/5 text-[#666666] hover:text-white"
                     }`}
                   >
                     <span className="w-14 text-left font-semibold shrink-0">
@@ -400,7 +400,7 @@ export default function ClubReviewsPage() {
                       aria-valuemin={0}
                       aria-valuemax={100}
                       aria-label={`${row.star} stars represent ${row.percentage}% of reviews`}
-                      className="flex-1 h-2 rounded-full bg-[#1A1A21] border border-[#2A2A35] overflow-hidden"
+                      className="flex-1 h-2 rounded-full bg-[#111111] border border-[#1A1A1A] overflow-hidden"
                     >
                       <div
                         className="h-full rounded-full bg-[#8B5CF6] transition-all duration-500 ease-out"
@@ -419,12 +419,12 @@ export default function ClubReviewsPage() {
             {/* Right Box (Cols 7): Experience Categories & Highlights */}
             <div className="lg:col-span-7 space-y-6">
               {/* 5. Experience Categories */}
-              <div className="p-6 sm:p-7 rounded-[20px] bg-[#141418] border border-[#2A2A35]">
+              <div className="p-6 sm:p-7 rounded-[12px] bg-[#111111] border border-[#1A1A1A]">
                 <div className="flex items-center justify-between mb-4">
                   <span className="font-mono text-xs font-semibold text-[#EC4899] uppercase tracking-wider">
                     EXPERIENCE DIMENSIONS
                   </span>
-                  <span className="font-mono text-[11px] text-[#A1A1AA]">
+                  <span className="font-mono text-[11px] text-[#666666]">
                     Scale of 5.0
                   </span>
                 </div>
@@ -435,9 +435,9 @@ export default function ClubReviewsPage() {
                     return (
                       <div
                         key={item.label}
-                        className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] flex flex-col justify-between"
+                        className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] flex flex-col justify-between"
                       >
-                        <div className="flex items-center justify-between text-xs font-mono text-[#A1A1AA] mb-2">
+                        <div className="flex items-center justify-between text-xs font-mono text-[#666666] mb-2">
                           <span className="font-semibold text-white tracking-wider">
                             {item.label}
                           </span>
@@ -450,7 +450,7 @@ export default function ClubReviewsPage() {
                           <span className="font-sans font-bold text-xl text-white">
                             {item.score.toFixed(1)}
                           </span>
-                          <span className="font-mono text-[10px] text-[#A1A1AA]">
+                          <span className="font-mono text-[10px] text-[#666666]">
                             / 5.0
                           </span>
                         </div>
@@ -461,14 +461,14 @@ export default function ClubReviewsPage() {
               </div>
 
               {/* 6. Review Highlights */}
-              <div className="p-6 sm:p-7 rounded-[20px] bg-[#141418] border border-[#2A2A35]">
+              <div className="p-6 sm:p-7 rounded-[12px] bg-[#111111] border border-[#1A1A1A]">
                 <div className="flex items-center gap-2 mb-3">
                   <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
                   <span className="font-mono text-xs font-semibold text-[#8B5CF6] uppercase tracking-wider">
                     WHAT PEOPLE ARE SAYING
                   </span>
                 </div>
-                <p className="text-xs text-[#A1A1AA] font-sans mb-4">
+                <p className="text-xs text-[#666666] font-sans mb-4">
                   Click on key vibe tags to filter reviews mentioning these experiences:
                 </p>
 
@@ -482,8 +482,8 @@ export default function ClubReviewsPage() {
                         onClick={() => handleHighlightClick(tag)}
                         className={`px-3 py-1.5 rounded-xl text-xs font-mono font-medium transition-all ${
                           isSelected
-                            ? "bg-[#8B5CF6] text-white shadow-[0_0_12px_rgba(139,92,246,0.35)]"
-                            : "bg-[#1A1A21] hover:bg-[#2A2A35] border border-[#2A2A35] text-[#D4D4D8] hover:text-white"
+                            ? "bg-[#8B5CF6] text-white "
+                            : "bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-[#D4D4D8] hover:text-white"
                         }`}
                       >
                         #{tag}
@@ -511,7 +511,7 @@ export default function ClubReviewsPage() {
           ================================================== */}
           <section
             aria-label="Write a Review CTA"
-            className="mb-12 p-6 sm:p-8 rounded-[20px] bg-gradient-to-r from-[#141418] via-[#1A1A21] to-[#141418] border border-[#2A2A35] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 relative overflow-hidden"
+            className="mb-12 p-6 sm:p-8 rounded-[12px] bg-gradient-to-r from-[#111111] via-[#111111] to-[#111111] border border-[#1A1A1A] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 relative overflow-hidden"
           >
             <div
               className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-[#8B5CF6]/10 to-transparent pointer-events-none"
@@ -521,10 +521,10 @@ export default function ClubReviewsPage() {
               <span className="font-mono text-xs font-bold text-[#EC4899] uppercase tracking-wider block mb-1">
                 BEEN HERE?
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                 SHARE YOUR VIBE.
               </h2>
-              <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-1">
+              <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1">
                 Help other Bangalore nightlife explorers understand the sound system, crowd, and overall energy at {club.name}.
               </p>
             </div>
@@ -543,10 +543,10 @@ export default function ClubReviewsPage() {
               7. REVIEW FILTERS & SORT
           ================================================== */}
           <section aria-label="Review filtering controls" className="mb-6">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 rounded-xl bg-[#141418] border border-[#2A2A35]">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 rounded-xl bg-[#111111] border border-[#1A1A1A]">
               {/* Star Filters Row */}
               <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
-                <span className="text-[11px] font-mono text-[#71717A] uppercase mr-1 flex items-center gap-1 shrink-0">
+                <span className="text-[11px] font-mono text-[#666666] uppercase mr-1 flex items-center gap-1 shrink-0">
                   <Filter className="w-3 h-3" />
                   RATING:
                 </span>
@@ -558,7 +558,7 @@ export default function ClubReviewsPage() {
                     className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-colors shrink-0 ${
                       starFilter === star
                         ? "bg-[#8B5CF6] text-white shadow-sm"
-                        : "bg-[#1A1A21] hover:bg-[#2A2A35] text-[#A1A1AA] hover:text-white border border-[#2A2A35]"
+                        : "bg-[#111111] hover:bg-[#1A1A1A] text-[#666666] hover:text-white border border-[#1A1A1A]"
                     }`}
                   >
                     {star === "ALL" ? "ALL RATINGS" : `${star} STAR`}
@@ -568,18 +568,18 @@ export default function ClubReviewsPage() {
 
               {/* Sort Dropdown / Toggle */}
               <div className="flex items-center gap-2 self-end md:self-auto shrink-0">
-                <span className="text-[11px] font-mono text-[#71717A] uppercase flex items-center gap-1">
+                <span className="text-[11px] font-mono text-[#666666] uppercase flex items-center gap-1">
                   <ArrowUpDown className="w-3 h-3" />
                   SORT:
                 </span>
-                <div className="inline-flex rounded-lg bg-[#1A1A21] border border-[#2A2A35] p-0.5">
+                <div className="inline-flex rounded-lg bg-[#111111] border border-[#1A1A1A] p-0.5">
                   <button
                     type="button"
                     onClick={() => setSortBy("RECENT")}
                     className={`px-3 py-1 rounded-md text-xs font-mono transition-colors ${
                       sortBy === "RECENT"
                         ? "bg-[#8B5CF6] text-white"
-                        : "text-[#A1A1AA] hover:text-white"
+                        : "text-[#666666] hover:text-white"
                     }`}
                   >
                     MOST RECENT
@@ -590,7 +590,7 @@ export default function ClubReviewsPage() {
                     className={`px-3 py-1 rounded-md text-xs font-mono transition-colors ${
                       sortBy === "HELPFUL"
                         ? "bg-[#8B5CF6] text-white"
-                        : "text-[#A1A1AA] hover:text-white"
+                        : "text-[#666666] hover:text-white"
                     }`}
                   >
                     MOST HELPFUL
@@ -604,7 +604,7 @@ export default function ClubReviewsPage() {
               7. REVIEWS LIST & 20. EMPTY STATE
           ================================================== */}
           <section aria-label="Club reviews feed" className="mb-16">
-            <div className="flex items-center justify-between mb-4 text-xs font-mono text-[#A1A1AA]">
+            <div className="flex items-center justify-between mb-4 text-xs font-mono text-[#666666]">
               <span>SHOWING {visibleReviews.length} REVIEWS</span>
               {starFilter !== "ALL" && (
                 <button
@@ -628,7 +628,7 @@ export default function ClubReviewsPage() {
                     <article
                       key={rev.id}
                       aria-label={`Review by ${rev.userName}`}
-                      className="p-5 sm:p-6 rounded-[16px] bg-[#141418] border border-[#2A2A35] hover:border-[#8B5CF6]/40 transition-colors"
+                      className="p-5 sm:p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/40 transition-colors"
                     >
                       {/* Top Header: Avatar, Name, Rating, Date */}
                       <div className="flex items-start justify-between gap-4 mb-3">
@@ -637,7 +637,7 @@ export default function ClubReviewsPage() {
                           <img
                             src={rev.avatar}
                             alt={rev.userName}
-                            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover border border-[#2A2A35]"
+                            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover border border-[#1A1A1A]"
                           />
                           <div>
                             <div className="flex items-center gap-2">
@@ -650,7 +650,7 @@ export default function ClubReviewsPage() {
                                 </span>
                               )}
                             </div>
-                            <span className="font-mono text-[11px] text-[#71717A]">
+                            <span className="font-mono text-[11px] text-[#666666]">
                               {rev.date}
                             </span>
                           </div>
@@ -670,10 +670,10 @@ export default function ClubReviewsPage() {
                       </p>
 
                       {/* Event Context & Helpful Action Bar */}
-                      <div className="pt-3 border-t border-[#2A2A35] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
+                      <div className="pt-3 border-t border-[#1A1A1A] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
                         {/* 13. Event Context */}
                         {rev.eventName ? (
-                          <div className="flex items-center gap-1.5 text-[#A1A1AA]">
+                          <div className="flex items-center gap-1.5 text-[#666666]">
                             <Ticket className="w-3.5 h-3.5 text-[#8B5CF6]" />
                             <span>ATTENDED:</span>
                             {rev.eventId ? (
@@ -690,7 +690,7 @@ export default function ClubReviewsPage() {
                             )}
                           </div>
                         ) : (
-                          <span className="text-[#71717A]">
+                          <span className="text-[#666666]">
                             General Club Experience
                           </span>
                         )}
@@ -703,7 +703,7 @@ export default function ClubReviewsPage() {
                           className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border transition-all self-start sm:self-auto ${
                             isHelpful
                               ? "bg-[#8B5CF6]/20 border-[#8B5CF6] text-white shadow-sm"
-                              : "bg-[#1A1A21] hover:bg-[#2A2A35] border-[#2A2A35] text-[#A1A1AA] hover:text-white"
+                              : "bg-[#111111] hover:bg-[#1A1A1A] border-[#1A1A1A] text-[#666666] hover:text-white"
                           }`}
                         >
                           <ThumbsUp
@@ -720,12 +720,12 @@ export default function ClubReviewsPage() {
               </div>
             ) : (
               /* Empty State */
-              <div className="p-10 rounded-[20px] bg-[#141418] border border-[#2A2A35] text-center">
+              <div className="p-10 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center">
                 <Calendar className="w-8 h-8 text-[#8B5CF6] mx-auto mb-2 opacity-60" />
                 <h4 className="font-sans font-bold text-white text-base mb-1">
                   NO REVIEWS FOUND
                 </h4>
-                <p className="text-xs text-[#A1A1AA] font-sans max-w-sm mx-auto mb-4">
+                <p className="text-xs text-[#666666] font-sans max-w-sm mx-auto mb-4">
                   No reviews match the selected filter. Try selecting &ldquo;ALL RATINGS&rdquo; or be the first to share your experience!
                 </p>
                 <div className="flex items-center justify-center gap-3">
@@ -735,7 +735,7 @@ export default function ClubReviewsPage() {
                       setStarFilter("ALL");
                       setActiveHighlight(null);
                     }}
-                    className="px-4 py-2 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] border border-[#2A2A35] text-white text-xs font-mono font-medium"
+                    className="px-4 py-2 rounded-xl bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-white text-xs font-mono font-medium"
                   >
                     RESET FILTERS
                   </button>
@@ -756,7 +756,7 @@ export default function ClubReviewsPage() {
           ================================================== */}
           <section
             aria-label="Related Club Information"
-            className="p-6 sm:p-7 rounded-[20px] bg-[#141418] border border-[#2A2A35] flex flex-col md:flex-row md:items-center justify-between gap-6"
+            className="p-6 sm:p-7 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex flex-col md:flex-row md:items-center justify-between gap-6"
           >
             <div>
               <span className="font-mono text-xs text-[#8B5CF6] uppercase tracking-wider block mb-1">
@@ -765,7 +765,7 @@ export default function ClubReviewsPage() {
               <h3 className="text-xl sm:text-2xl font-bold font-sans text-white tracking-tight">
                 EXPLORE {club.name}
               </h3>
-              <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-0.5 max-w-xl">
+              <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5 max-w-xl">
                 Check upcoming lineups, VIP bottle service, photo galleries, and connected night crews.
               </p>
             </div>
@@ -773,7 +773,7 @@ export default function ClubReviewsPage() {
             <div className="flex items-center gap-3 shrink-0">
               <Link
                 href={`/clubs/${club.id}`}
-                className="px-5 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-mono font-bold transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
+                className="px-5 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-mono font-bold transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
               >
                 VIEW FULL CLUB DETAILS →
               </Link>
@@ -794,7 +794,7 @@ export default function ClubReviewsPage() {
           onClick={() => setShowModal(false)}
         >
           <div
-            className="relative max-w-xl w-full bg-[#141418] border border-[#2A2A35] rounded-2xl p-6 sm:p-8 shadow-2xl my-8"
+            className="relative max-w-xl w-full bg-[#111111] border border-[#1A1A1A] rounded-[12px] p-6 sm:p-8 shadow-2xl my-8"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-4">
@@ -813,7 +813,7 @@ export default function ClubReviewsPage() {
                 type="button"
                 onClick={() => setShowModal(false)}
                 aria-label="Close dialog"
-                className="w-8 h-8 rounded-full bg-[#1A1A21] hover:bg-[#2A2A35] text-white flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-full bg-[#111111] hover:bg-[#1A1A1A] text-white flex items-center justify-center transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -821,8 +821,8 @@ export default function ClubReviewsPage() {
 
             <form onSubmit={handleSubmitReview} className="space-y-5">
               {/* Overall Rating */}
-              <div className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35]">
-                <label className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1.5">
+              <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]">
+                <label className="block text-xs font-mono text-[#666666] uppercase mb-1.5">
                   OVERALL RATING
                 </label>
                 <div className="flex items-center gap-3">
@@ -840,7 +840,7 @@ export default function ClubReviewsPage() {
 
               {/* Dimension Ratings Grid */}
               <div className="space-y-2">
-                <span className="block text-xs font-mono text-[#A1A1AA] uppercase">
+                <span className="block text-xs font-mono text-[#666666] uppercase">
                   EXPERIENCE CATEGORIES (OPTIONAL)
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -855,7 +855,7 @@ export default function ClubReviewsPage() {
                   ).map((dim) => (
                     <div
                       key={dim.key}
-                      className="p-2.5 rounded-lg bg-[#1A1A21] border border-[#2A2A35] flex items-center justify-between"
+                      className="p-2.5 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-between"
                     >
                       <span className="font-mono text-xs text-white">
                         {dim.label}
@@ -880,7 +880,7 @@ export default function ClubReviewsPage() {
               <div>
                 <label
                   htmlFor="club-review-author"
-                  className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1.5"
+                  className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
                 >
                   YOUR NAME / ALIAS
                 </label>
@@ -890,7 +890,7 @@ export default function ClubReviewsPage() {
                   placeholder="e.g. Arjun V."
                   value={authorName}
                   onChange={(e) => setAuthorName(e.target.value)}
-                  className="w-full h-10 px-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white placeholder-[#71717A]"
+                  className="w-full h-10 px-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white placeholder-[#666666]"
                 />
               </div>
 
@@ -898,7 +898,7 @@ export default function ClubReviewsPage() {
               <div>
                 <label
                   htmlFor="club-review-event-select"
-                  className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1.5"
+                  className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
                 >
                   EVENT ATTENDED (OPTIONAL)
                 </label>
@@ -906,7 +906,7 @@ export default function ClubReviewsPage() {
                   id="club-review-event-select"
                   value={selectedEventId}
                   onChange={(e) => setSelectedEventId(e.target.value)}
-                  className="w-full h-10 px-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white"
+                  className="w-full h-10 px-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white"
                 >
                   <option value="">General club visit / Resident night</option>
                   {(club.upcomingEvents || []).map((ev) => (
@@ -921,7 +921,7 @@ export default function ClubReviewsPage() {
               <div>
                 <label
                   htmlFor="club-review-text"
-                  className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1.5"
+                  className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
                 >
                   YOUR REVIEW
                 </label>
@@ -932,7 +932,7 @@ export default function ClubReviewsPage() {
                   placeholder="Tell other partygoers what you loved: the sound system, crowd, drinks, door staff, or atmosphere..."
                   value={reviewText}
                   onChange={(e) => setReviewText(e.target.value)}
-                  className="w-full p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white placeholder-[#71717A] resize-none"
+                  className="w-full p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white placeholder-[#666666] resize-none"
                 />
               </div>
 
@@ -941,13 +941,13 @@ export default function ClubReviewsPage() {
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="px-4 py-2.5 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors"
+                  className="px-4 py-2.5 rounded-xl bg-[#111111] hover:bg-[#1A1A1A] text-xs font-mono text-[#666666] hover:text-white transition-colors"
                 >
                   CANCEL
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-xs font-mono font-bold text-white transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
+                  className="px-6 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-xs font-mono font-bold text-white transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
                 >
                   SUBMIT REVIEW
                 </button>
@@ -962,7 +962,7 @@ export default function ClubReviewsPage() {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-6 right-6 z-50 bg-[#1A1A21] border border-[#22C55E] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
+          className="fixed bottom-6 right-6 z-50 bg-[#111111] border border-[#22C55E] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
         >
           <Check className="w-4 h-4 text-[#22C55E]" />
           <span>{toastMessage}</span>

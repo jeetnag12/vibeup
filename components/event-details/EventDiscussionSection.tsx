@@ -42,12 +42,12 @@ export default function EventDiscussionSection({
             COMMUNITY CHAT
           </span>
           <h2
-            className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight"
-            style={{ fontWeight: 700 }}
+            className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight"
+            style={{ fontWeight: 800, letterSpacing: "-0.03em" }}
           >
             EVENT DISCUSSION
           </h2>
-          <p className="text-sm sm:text-base text-[#A1A1AA] font-sans mt-1">
+          <p className="text-sm sm:text-base text-[#666666] font-sans mt-1">
             Talk before the night starts. Plan rides, check outfits &amp; find crew members.
           </p>
         </div>
@@ -70,7 +70,7 @@ export default function EventDiscussionSection({
           return (
             <div
               key={post.id}
-              className="p-5 rounded-[16px] bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6]/40 transition-colors"
+              className="p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/40 transition-colors"
             >
               <div className="flex items-start justify-between gap-3 mb-2.5">
                 <div className="flex items-center gap-3">
@@ -78,7 +78,7 @@ export default function EventDiscussionSection({
                   <img
                     src={post.avatar}
                     alt={post.authorName}
-                    className="w-10 h-10 rounded-full object-cover border border-[#2A2A35]"
+                    className="w-10 h-10 rounded-full object-cover border border-[#1A1A1A]"
                   />
                   <div>
                     <div className="flex items-center gap-2">
@@ -91,7 +91,7 @@ export default function EventDiscussionSection({
                         </span>
                       )}
                     </div>
-                    <span className="font-mono text-[11px] text-[#71717A]">
+                    <span className="font-mono text-[11px] text-[#666666]">
                       {post.timestamp}
                     </span>
                   </div>
@@ -104,7 +104,7 @@ export default function EventDiscussionSection({
               </p>
 
               {/* Interactions bar */}
-              <div className="flex items-center gap-6 pt-3 border-t border-[#2A2A35]/60 text-xs font-mono text-[#A1A1AA]">
+              <div className="flex items-center gap-6 pt-3 border-t border-[#1A1A1A]/60 text-xs font-mono text-[#666666]">
                 <button
                   type="button"
                   onClick={() => toggleLike(post)}
@@ -134,19 +134,19 @@ export default function EventDiscussionSection({
       {/* Start a discussion box */}
       <form
         onSubmit={handlePostSubmit}
-        className="p-4 rounded-[16px] bg-[#141418] border border-[#2A2A35] flex items-center gap-3"
+        className="p-4 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex items-center gap-3"
       >
         <input
           type="text"
           value={inputVal}
           onChange={(e) => setInputVal(e.target.value)}
           placeholder="Ask a question or start a topic (e.g. splitting an Uber from HSR?)..."
-          className="flex-1 bg-transparent text-sm text-white placeholder:text-[#71717A] focus:outline-none font-sans px-2"
+          className="flex-1 bg-transparent text-sm text-white placeholder:text-[#666666] focus:outline-none font-sans px-2"
         />
 
         <button
           type="submit"
-          className="px-5 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-semibold font-sans flex items-center gap-1.5 transition-colors shrink-0"
+          className="px-5 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-semibold font-sans flex items-center gap-1.5 transition-colors shrink-0"
         >
           <span>POST</span>
           <Send className="w-3.5 h-3.5" />
@@ -166,7 +166,7 @@ export default function EventDiscussionSection({
       {/* Auth Prompt Modal */}
       {showAuthModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in">
-          <div className="w-full max-w-sm bg-[#1A1A21] border border-[#2A2A35] rounded-[16px] p-6 shadow-2xl relative text-center">
+          <div className="w-full max-w-sm bg-[#111111] border border-[#1A1A1A] rounded-[12px] p-6 shadow-2xl relative text-center">
             <div className="w-12 h-12 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center text-[#8B5CF6] mx-auto mb-4">
               <AlertCircle className="w-6 h-6" />
             </div>
@@ -174,7 +174,7 @@ export default function EventDiscussionSection({
             <h3 className="font-sans font-bold text-lg text-white mb-2">
               Sign in to join discussion
             </h3>
-            <p className="text-xs text-[#A1A1AA] font-sans leading-relaxed mb-6">
+            <p className="text-xs text-[#666666] font-sans leading-relaxed mb-6">
               Only verified nightlife members can participate in event discussions
               to maintain our friendly, spam-free vibe.
             </p>
@@ -189,7 +189,7 @@ export default function EventDiscussionSection({
               <button
                 type="button"
                 onClick={() => setShowAuthModal(false)}
-                className="w-full py-2.5 rounded-[10px] border border-[#2A2A35] text-[#A1A1AA] hover:text-white font-sans text-sm transition-colors"
+                className="w-full py-2.5 rounded-[10px] border border-[#1A1A1A] text-[#666666] hover:text-white font-sans text-sm transition-colors"
               >
                 Cancel
               </button>

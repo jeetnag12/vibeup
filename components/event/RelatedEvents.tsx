@@ -9,7 +9,7 @@ export default function RelatedEvents() {
   const router = useRouter();
 
   return (
-    <section className="w-full mt-14 pt-10 border-t border-[#2A2A35]">
+    <section className="w-full mt-14 pt-10 border-t border-[#1A1A1A]">
       {/* Header */}
       <div className="mb-6 sm:mb-8">
         <div className="flex items-center gap-2 mb-1.5">
@@ -21,7 +21,7 @@ export default function RelatedEvents() {
         <h3 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
           MORE NIGHTS YOU MIGHT LIKE
         </h3>
-        <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-1">
+        <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1">
           Explore upcoming techno, house, and electronic experiences across Bangalore.
         </p>
       </div>

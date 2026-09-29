@@ -43,8 +43,8 @@ export default function PopularQuestionsCard({
   onSelectQuestion,
 }: PopularQuestionsCardProps) {
   return (
-    <div className="p-5 rounded-[16px] bg-[#141418] border border-[#2A2A35] flex flex-col gap-3">
-      <div className="flex items-center gap-2 pb-2 border-b border-[#2A2A35]">
+    <div className="p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex flex-col gap-3">
+      <div className="flex items-center gap-2 pb-2 border-b border-[#1A1A1A]">
         <HelpCircle className="w-3.5 h-3.5 text-[#8B5CF6]" />
         <span className="font-mono text-xs text-white font-bold tracking-wider uppercase">
           POPULAR QUESTIONS
@@ -57,9 +57,9 @@ export default function PopularQuestionsCard({
             key={q.question}
             type="button"
             onClick={() => onSelectQuestion(q.query, q.topic)}
-            className="text-left p-2.5 rounded-xl bg-[#1A1A21] hover:bg-[#8B5CF6]/10 border border-[#2A2A35] hover:border-[#8B5CF6]/40 transition-colors flex items-center justify-between gap-2 group"
+            className="text-left p-2.5 rounded-xl bg-[#111111] hover:bg-[#8B5CF6]/10 border border-[#1A1A1A] hover:border-[#8B5CF6]/40 transition-colors flex items-center justify-between gap-2 group"
           >
-            <span className="text-xs text-[#A1A1AA] group-hover:text-white font-sans transition-colors">
+            <span className="text-xs text-[#666666] group-hover:text-white font-sans transition-colors">
               &ldquo;{q.question}&rdquo;
             </span>
             <ChevronRight className="w-3.5 h-3.5 text-[#52525B] group-hover:text-[#8B5CF6] shrink-0 transition-transform group-hover:translate-x-0.5" />

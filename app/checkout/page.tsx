@@ -41,7 +41,7 @@ function CheckoutContent() {
     <div className="max-w-[1000px] mx-auto px-4 sm:px-6">
       <Link
         href={`/events/${event.id}`}
-        className="inline-flex items-center gap-2 text-sm font-mono text-[#A1A1AA] hover:text-white transition-colors mb-6"
+        className="inline-flex items-center gap-2 text-sm font-mono text-[#666666] hover:text-white transition-colors mb-6"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>BACK TO EVENT</span>
@@ -55,59 +55,59 @@ function CheckoutContent() {
               <span className="font-mono text-xs text-[#8B5CF6] uppercase tracking-wider block mb-1">
                 FAST CHECKOUT
               </span>
-              <h1 className="text-3xl font-bold font-sans text-white">
+              <h1 className="text-3xl font-extrabold tracking-[-0.03em] font-sans text-white">
                 Complete Your Order
               </h1>
-              <p className="text-xs text-[#A1A1AA] font-sans mt-1">
+              <p className="text-xs text-[#666666] font-sans mt-1">
                 Zero platform fees for early VibeUp members.
               </p>
             </div>
 
             <form onSubmit={handlePay} className="space-y-6">
               {/* Attendee Details */}
-              <div className="p-5 rounded-[16px] bg-[#1A1A21] border border-[#2A2A35]">
+              <div className="p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A]">
                 <h3 className="font-sans font-semibold text-sm text-white mb-4">
                   1. Contact Information
                 </h3>
                 <div className="space-y-3">
                   <div>
-                    <label className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1">
+                    <label className="block text-xs font-mono text-[#666666] uppercase mb-1">
                       Full Name
                     </label>
                     <input
                       type="text"
                       required
                       defaultValue="Aarav Sharma"
-                      className="w-full bg-[#141418] border border-[#2A2A35] rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#8B5CF6] font-sans"
+                      className="w-full bg-[#111111] border border-[#1A1A1A] rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#8B5CF6] font-sans"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1">
+                    <label className="block text-xs font-mono text-[#666666] uppercase mb-1">
                       Email Address (for QR Pass)
                     </label>
                     <input
                       type="email"
                       required
                       defaultValue="aarav@vibeup.xyz"
-                      className="w-full bg-[#141418] border border-[#2A2A35] rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#8B5CF6] font-sans"
+                      className="w-full bg-[#111111] border border-[#1A1A1A] rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#8B5CF6] font-sans"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-mono text-[#A1A1AA] uppercase mb-1">
+                    <label className="block text-xs font-mono text-[#666666] uppercase mb-1">
                       Phone Number
                     </label>
                     <input
                       type="tel"
                       required
                       defaultValue="+91 98765 43210"
-                      className="w-full bg-[#141418] border border-[#2A2A35] rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#8B5CF6] font-sans"
+                      className="w-full bg-[#111111] border border-[#1A1A1A] rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#8B5CF6] font-sans"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Payment Method */}
-              <div className="p-5 rounded-[16px] bg-[#1A1A21] border border-[#2A2A35]">
+              <div className="p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A]">
                 <h3 className="font-sans font-semibold text-sm text-white mb-4">
                   2. Select Payment Method
                 </h3>
@@ -118,7 +118,7 @@ function CheckoutContent() {
                     className={`p-3.5 rounded-xl border flex items-center justify-center gap-2 font-mono text-xs font-semibold transition-all ${
                       paymentMethod === "upi"
                         ? "border-[#8B5CF6] bg-[#8B5CF6]/15 text-white"
-                        : "border-[#2A2A35] text-[#A1A1AA]"
+                        : "border-[#1A1A1A] text-[#666666]"
                     }`}
                   >
                     <QrCode className="w-4 h-4 text-[#8B5CF6]" />
@@ -131,7 +131,7 @@ function CheckoutContent() {
                     className={`p-3.5 rounded-xl border flex items-center justify-center gap-2 font-mono text-xs font-semibold transition-all ${
                       paymentMethod === "card"
                         ? "border-[#8B5CF6] bg-[#8B5CF6]/15 text-white"
-                        : "border-[#2A2A35] text-[#A1A1AA]"
+                        : "border-[#1A1A1A] text-[#666666]"
                     }`}
                   >
                     <CreditCard className="w-4 h-4 text-[#EC4899]" />
@@ -139,14 +139,14 @@ function CheckoutContent() {
                   </button>
                 </div>
 
-                <p className="text-xs text-[#71717A] font-sans text-center">
+                <p className="text-xs text-[#666666] font-sans text-center">
                   Encrypted with 256-bit bank grade security
                 </p>
               </div>
 
               <button
                 type="submit"
-                className="w-full py-4 rounded-[12px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-sans text-base font-semibold flex items-center justify-center gap-2 shadow-lg shadow-purple-500/25 transition-all"
+                className="w-full py-4 rounded-[12px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-sans text-base font-semibold flex items-center justify-center gap-2  transition-all"
               >
                 <span>PAY ₹{total} &amp; GET PASS</span>
                 <Zap className="w-4 h-4" />
@@ -155,18 +155,18 @@ function CheckoutContent() {
           </div>
 
           {/* Right Summary: Order Details */}
-          <div className="lg:col-span-5 bg-[#1A1A21] border border-[#2A2A35] rounded-[16px] p-6 shadow-xl sticky top-[96px]">
-            <h3 className="font-sans font-bold text-lg text-white mb-4 pb-3 border-b border-[#2A2A35]">
+          <div className="lg:col-span-5 bg-[#111111] border border-[#1A1A1A] rounded-[12px] p-6 shadow-xl sticky top-[96px]">
+            <h3 className="font-sans font-bold text-lg text-white mb-4 pb-3 border-b border-[#1A1A1A]">
               Order Summary
             </h3>
 
             {/* Event thumbnail */}
-            <div className="flex gap-3.5 mb-5 pb-5 border-b border-[#2A2A35]">
+            <div className="flex gap-3.5 mb-5 pb-5 border-b border-[#1A1A1A]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={event.image}
                 alt={event.title}
-                className="w-16 h-16 rounded-xl object-cover shrink-0 border border-[#2A2A35]"
+                className="w-16 h-16 rounded-xl object-cover shrink-0 border border-[#1A1A1A]"
               />
               <div>
                 <h4 className="font-sans font-bold text-white text-sm line-clamp-1">
@@ -175,14 +175,14 @@ function CheckoutContent() {
                 <p className="font-mono text-xs text-[#8B5CF6] mt-0.5">
                   {event.venue} · {event.area}
                 </p>
-                <p className="font-mono text-[11px] text-[#A1A1AA] mt-0.5">
+                <p className="font-mono text-[11px] text-[#666666] mt-0.5">
                   {event.dateDisplay}
                 </p>
               </div>
             </div>
 
             {/* Tier & Quantity */}
-            <div className="space-y-3 text-xs font-mono text-[#A1A1AA] pb-4 border-b border-[#2A2A35]">
+            <div className="space-y-3 text-xs font-mono text-[#666666] pb-4 border-b border-[#1A1A1A]">
               <div className="flex justify-between items-center text-sm text-white">
                 <span className="font-sans font-semibold">{tier.name}</span>
                 <span className="font-bold">₹{tier.price}</span>
@@ -190,11 +190,11 @@ function CheckoutContent() {
 
               <div className="flex justify-between items-center pt-2">
                 <span>Quantity</span>
-                <div className="flex items-center gap-2 text-white bg-[#141418] border border-[#2A2A35] px-2 py-1 rounded-lg">
+                <div className="flex items-center gap-2 text-white bg-[#111111] border border-[#1A1A1A] px-2 py-1 rounded-lg">
                   <button
                     type="button"
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-1 text-[#A1A1AA] hover:text-white"
+                    className="px-1 text-[#666666] hover:text-white"
                   >
                     -
                   </button>
@@ -202,7 +202,7 @@ function CheckoutContent() {
                   <button
                     type="button"
                     onClick={() => setQuantity(Math.min(6, quantity + 1))}
-                    className="px-1 text-[#A1A1AA] hover:text-white"
+                    className="px-1 text-[#666666] hover:text-white"
                   >
                     +
                   </button>
@@ -225,7 +225,7 @@ function CheckoutContent() {
               </span>
             </div>
 
-            <div className="flex items-center gap-2 text-[11px] font-mono text-[#71717A]">
+            <div className="flex items-center gap-2 text-[11px] font-mono text-[#666666]">
               <ShieldCheck className="w-3.5 h-3.5 text-[#22C55E]" />
               <span>Official ticketing partner of {event.venue}</span>
             </div>
@@ -233,35 +233,35 @@ function CheckoutContent() {
         </div>
       ) : (
         /* Order Confirmed Screen */
-        <div className="max-w-md mx-auto p-8 rounded-2xl bg-[#1A1A21] border border-[#2A2A35] text-center shadow-2xl animate-in zoom-in-95">
+        <div className="max-w-md mx-auto p-8 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center shadow-2xl animate-in zoom-in-95">
           <div className="w-16 h-16 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/40 flex items-center justify-center text-[#22C55E] mx-auto mb-4">
             <CheckCircle2 className="w-8 h-8" />
           </div>
 
-          <h2 className="text-2xl font-bold font-sans text-white mb-2">
+          <h2 className="text-2xl font-extrabold tracking-[-0.03em] font-sans text-white mb-2">
             You&apos;re Going!
           </h2>
-          <p className="text-xs text-[#A1A1AA] font-sans mb-6">
+          <p className="text-xs text-[#666666] font-sans mb-6">
             Your QR Pass has been sent to your email. You can also view it anytime
             in your VibeUp profile.
           </p>
 
-          <div className="p-4 rounded-xl bg-[#141418] border border-[#2A2A35] text-left mb-6 font-mono text-xs space-y-1.5">
+          <div className="p-4 rounded-xl bg-[#111111] border border-[#1A1A1A] text-left mb-6 font-mono text-xs space-y-1.5">
             <p className="text-white font-bold">{event.title}</p>
             <p className="text-[#8B5CF6]">{tier.name} · {quantity} pass(es)</p>
-            <p className="text-[#A1A1AA]">{event.dateDisplay} · {event.venue}</p>
+            <p className="text-[#666666]">{event.dateDisplay} · {event.venue}</p>
           </div>
 
           <div className="flex flex-col gap-2.5">
             <Link
               href={`/events/${event.id}`}
-              className="w-full py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-sm font-semibold font-sans transition-colors"
+              className="w-full py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-sm font-semibold font-sans transition-colors"
             >
               Back to Event Hub
             </Link>
             <Link
               href="/discover"
-              className="w-full py-2.5 rounded-xl border border-[#2A2A35] text-[#A1A1AA] hover:text-white text-sm font-sans transition-colors"
+              className="w-full py-2.5 rounded-[4px] border border-[#1A1A1A] text-[#666666] hover:text-white text-sm font-sans transition-colors"
             >
               Discover More Events
             </Link>
@@ -274,12 +274,12 @@ function CheckoutContent() {
 
 export default function CheckoutPage() {
   return (
-    <main className="min-h-screen bg-[#09090B] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
       <Navbar />
       <div className="w-full pt-[96px] pb-[80px]">
         <Suspense
           fallback={
-            <div className="max-w-[1000px] mx-auto px-4 py-16 text-center text-sm font-mono text-[#A1A1AA]">
+            <div className="max-w-[1000px] mx-auto px-4 py-16 text-center text-sm font-mono text-[#666666]">
               Loading checkout...
             </div>
           }

@@ -19,12 +19,12 @@ export default function FeaturedVibeMatches({
 }: FeaturedVibeMatchesProps) {
   if (!vibeMatches || vibeMatches.length === 0) {
     return (
-      <div className="w-full mb-12 p-8 rounded-[16px] bg-[#141418] border border-[#2A2A35] text-center">
+      <div className="w-full mb-12 p-8 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center">
         <Sparkles className="w-6 h-6 text-[#8B5CF6] mx-auto mb-2 opacity-60" />
         <h3 className="font-mono text-sm text-white font-bold tracking-wider mb-1">
           YOUR CROWD IS STILL GROWING
         </h3>
-        <p className="text-xs text-[#A1A1AA] font-sans">
+        <p className="text-xs text-[#666666] font-sans">
           More people will appear here as the event gets closer.
         </p>
       </div>
@@ -43,12 +43,12 @@ export default function FeaturedVibeMatches({
             </span>
           </div>
           <h2
-            className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight"
-            style={{ fontWeight: 700 }}
+            className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight"
+            style={{ fontWeight: 800, letterSpacing: "-0.03em" }}
           >
             PEOPLE YOU MAY VIBE WITH
           </h2>
-          <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mt-1">
+          <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1">
             People going to this event who share your interests, music taste or communities.
           </p>
         </div>
@@ -78,7 +78,7 @@ export default function FeaturedVibeMatches({
           return (
             <div
               key={person.id}
-              className="p-5 sm:p-6 rounded-[16px] bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6] hover:shadow-[0_0_24px_rgba(139,92,246,0.14)] transition-all duration-200 flex flex-col justify-between group"
+              className="p-5 sm:p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] hover:shadow-[0_0_24px_rgba(139,92,246,0.14)] transition-all duration-200 flex flex-col justify-between group"
             >
               <div>
                 {/* Top Row: Vibe Match Pill + Vibe Score */}
@@ -88,7 +88,7 @@ export default function FeaturedVibeMatches({
                     <span>{person.matchPercentage}% VIBE MATCH</span>
                   </div>
 
-                  <div className="font-mono text-xs text-[#A1A1AA]">
+                  <div className="font-mono text-xs text-[#666666]">
                     Score <span className="text-white font-bold">{person.vibeScore}</span>
                   </div>
                 </div>
@@ -99,7 +99,7 @@ export default function FeaturedVibeMatches({
                   <img
                     src={person.avatar}
                     alt={person.name}
-                    className="w-14 h-14 rounded-full object-cover border-2 border-[#2A2A35] group-hover:border-[#8B5CF6]/60 transition-colors shrink-0"
+                    className="w-14 h-14 rounded-full object-cover border-2 border-[#1A1A1A] group-hover:border-[#8B5CF6]/60 transition-colors shrink-0"
                   />
                   <div className="min-w-0">
                     <Link
@@ -108,7 +108,7 @@ export default function FeaturedVibeMatches({
                     >
                       {person.name.toUpperCase()}
                     </Link>
-                    <div className="flex items-center gap-1 text-xs font-mono text-[#A1A1AA] mt-0.5 truncate">
+                    <div className="flex items-center gap-1 text-xs font-mono text-[#666666] mt-0.5 truncate">
                       <MapPin className="w-3 h-3 text-[#EC4899] shrink-0" />
                       <span>{person.area || "BANGALORE"}</span>
                     </div>
@@ -121,7 +121,7 @@ export default function FeaturedVibeMatches({
                 </div>
 
                 {/* Mutual Connection Badge */}
-                <div className="p-2.5 rounded-xl bg-[#141418] border border-[#2A2A35]/80 text-xs font-sans text-[#A1A1AA] flex items-center gap-2 mb-4">
+                <div className="p-2.5 rounded-xl bg-[#111111] border border-[#1A1A1A]/80 text-xs font-sans text-[#666666] flex items-center gap-2 mb-4">
                   <Users className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0" />
                   <span className="truncate">
                     {person.mutualDetails || `${person.mutualCount || 3} MUTUAL CONNECTIONS`}
@@ -130,7 +130,7 @@ export default function FeaturedVibeMatches({
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col gap-2 pt-3 border-t border-[#2A2A35]/60">
+              <div className="flex flex-col gap-2 pt-3 border-t border-[#1A1A1A]/60">
                 <div className="grid grid-cols-2 gap-2">
                   {/* Follow Button */}
                   <button
@@ -139,7 +139,7 @@ export default function FeaturedVibeMatches({
                     className={`h-[38px] px-3 rounded-xl text-xs font-mono font-medium transition-all duration-150 flex items-center justify-center gap-1.5 ${
                       isFollowing
                         ? "bg-[#22C55E]/15 border border-[#22C55E]/40 text-[#22C55E]"
-                        : "bg-[#141418] border border-[#2A2A35] text-white hover:border-[#8B5CF6] hover:bg-[#8B5CF6]/10"
+                        : "bg-[#111111] border border-[#1A1A1A] text-white hover:border-[#8B5CF6] hover:bg-[#8B5CF6]/10"
                     }`}
                   >
                     {isFollowing ? (
@@ -158,7 +158,7 @@ export default function FeaturedVibeMatches({
                   {/* View Profile Button */}
                   <Link
                     href={`/people/${person.id}`}
-                    className="h-[38px] px-3 rounded-xl border border-[#2A2A35] hover:border-[#8B5CF6] bg-[#141418] text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors flex items-center justify-center"
+                    className="h-[38px] px-3 rounded-[4px] border border-[#1A1A1A] hover:border-[#8B5CF6] bg-[#111111] text-xs font-mono text-[#666666] hover:text-white transition-colors flex items-center justify-center"
                   >
                     VIEW PROFILE
                   </Link>
