@@ -6,6 +6,53 @@ export interface NextEventSummary {
   startingPrice: string;
 }
 
+export interface ClubFollower {
+  id: string;
+  name: string;
+  avatar: string;
+  vibeScore?: number;
+}
+
+export interface ClubPhoto {
+  id: string;
+  url: string;
+  caption: string;
+}
+
+export interface ClubReview {
+  id: string;
+  authorName: string;
+  avatar: string;
+  rating: number;
+  date: string;
+  comment: string;
+  tag?: string;
+}
+
+export interface ClubCommunity {
+  id: string;
+  name: string;
+  description: string;
+  memberCount: number;
+  memberCountDisplay: string;
+  image: string;
+}
+
+export interface ClubEventItem {
+  id: string;
+  title: string;
+  date: string;
+  time: string;
+  venue: string;
+  area: string;
+  price: string;
+  goingCount: number;
+  category: string;
+  image: string;
+  avatars: string[];
+  timeframe: "this-week" | "this-month";
+}
+
 export interface Club {
   id: string;
   name: string;
@@ -23,10 +70,17 @@ export interface Club {
   socialSignal?: string;
   openTonight?: boolean;
   description?: string;
+  about?: string;
+  clubType?: string;
   address?: string;
   hours?: string;
   entryRule?: string;
   nextEvent?: NextEventSummary;
+  upcomingEvents?: ClubEventItem[];
+  followersList?: ClubFollower[];
+  photos?: ClubPhoto[];
+  reviews?: ClubReview[];
+  community?: ClubCommunity;
 }
 
 export interface VibeCategory {
@@ -453,4 +507,285 @@ export const genreFilterOptions = [
 
 export function getClubById(clubId: string): Club | undefined {
   return allClubsData.find((c) => c.id === clubId);
+}
+
+const defaultClubPhotos: ClubPhoto[] = [
+  {
+    id: "p1",
+    url: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1200&auto=format&fit=crop",
+    caption: "Main floor visual lasers and custom booth architecture",
+  },
+  {
+    id: "p2",
+    url: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop",
+    caption: "Peak-time weekend crowd during midnight headliner set",
+  },
+  {
+    id: "p3",
+    url: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?q=80&w=1200&auto=format&fit=crop",
+    caption: "Artisan cocktail bar & craft mixology lounge deck",
+  },
+  {
+    id: "p4",
+    url: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1200&auto=format&fit=crop",
+    caption: "VIP mezzanine terrace with ambient neon illumination",
+  },
+  {
+    id: "p5",
+    url: "https://images.unsplash.com/photo-1545128485-c400e7702796?q=80&w=1200&auto=format&fit=crop",
+    caption: "Sub-woofer acoustic alcove for audiophiles",
+  },
+  {
+    id: "p6",
+    url: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=1200&auto=format&fit=crop",
+    caption: "Outdoor open-air pre-drinks terrace overlooking Bangalore skyline",
+  },
+];
+
+const defaultFollowersList: ClubFollower[] = [
+  {
+    id: "f1",
+    name: "Aarav Sharma",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=160&auto=format&fit=crop",
+    vibeScore: 92,
+  },
+  {
+    id: "f2",
+    name: "Maya Patel",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=160&auto=format&fit=crop",
+    vibeScore: 88,
+  },
+  {
+    id: "f3",
+    name: "Rohan Iyer",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=160&auto=format&fit=crop",
+    vibeScore: 95,
+  },
+  {
+    id: "f4",
+    name: "Ananya Roy",
+    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=160&auto=format&fit=crop",
+    vibeScore: 91,
+  },
+  {
+    id: "f5",
+    name: "Karan Verma",
+    avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=160&auto=format&fit=crop",
+    vibeScore: 86,
+  },
+  {
+    id: "f6",
+    name: "Sanya Kapoor",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=160&auto=format&fit=crop",
+    vibeScore: 89,
+  },
+];
+
+const sampleEventsPool: ClubEventItem[] = [
+  {
+    id: "friday-techno-night",
+    title: "FRIDAY TECHNO NIGHT",
+    date: "Fri, 02 Oct",
+    time: "9:00 PM – 2:00 AM",
+    venue: "XYZ Club",
+    area: "Koramangala",
+    price: "₹799",
+    goingCount: 284,
+    category: "TECHNO",
+    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop",
+    avatars: [
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=120&auto=format&fit=crop",
+    ],
+    timeframe: "this-week",
+  },
+  {
+    id: "saturday-house-session",
+    title: "SATURDAY HOUSE SESSION",
+    date: "Sat, 03 Oct",
+    time: "8:30 PM – 1:30 AM",
+    venue: "Main Stage",
+    area: "Bangalore",
+    price: "₹899",
+    goingCount: 362,
+    category: "HOUSE",
+    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop",
+    avatars: [
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=120&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120&auto=format&fit=crop",
+    ],
+    timeframe: "this-week",
+  },
+  {
+    id: "sunday-sunset-social",
+    title: "SUNDAY SUNSET SOCIAL",
+    date: "Sun, 04 Oct",
+    time: "5:00 PM – 11:30 PM",
+    venue: "Rooftop Deck",
+    area: "Bangalore",
+    price: "₹499",
+    goingCount: 195,
+    category: "ROOFTOP",
+    image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=800&auto=format&fit=crop",
+    avatars: [
+      "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=120&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop",
+    ],
+    timeframe: "this-week",
+  },
+  {
+    id: "bass-culture",
+    title: "BASS CULTURE: SUBTERRANEAN",
+    date: "Fri, 16 Oct",
+    time: "9:30 PM – 2:00 AM",
+    venue: "Basement Vault",
+    area: "Bangalore",
+    price: "₹999",
+    goingCount: 310,
+    category: "ELECTRONIC",
+    image: "https://images.unsplash.com/photo-1545128485-c400e7702796?q=80&w=800&auto=format&fit=crop",
+    avatars: [
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=120&auto=format&fit=crop",
+    ],
+    timeframe: "this-month",
+  },
+  {
+    id: "after-dark",
+    title: "AFTER DARK: RESIDENTS NIGHT",
+    date: "Sat, 24 Oct",
+    time: "10:00 PM – 2:30 AM",
+    venue: "Club Room",
+    area: "Bangalore",
+    price: "₹699",
+    goingCount: 420,
+    category: "TECHNO",
+    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop",
+    avatars: [
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=120&auto=format&fit=crop",
+    ],
+    timeframe: "this-month",
+  },
+];
+
+export function getDetailedClubById(clubId: string): Club {
+  const normalizedId = clubId.toLowerCase().trim();
+  const found = allClubsData.find(
+    (c) => c.id.toLowerCase() === normalizedId || c.id.replace(/-/g, "") === normalizedId.replace(/-/g, "")
+  );
+
+  const base: Club = found || {
+    id: clubId,
+    name: clubId
+      .split("-")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" "),
+    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop",
+    area: "Indiranagar",
+    location: "100ft Road, Indiranagar, Bangalore",
+    genres: ["House", "Techno", "Commercial", "Live Music"],
+    rating: 4.7,
+    followers: 12840,
+    followersDisplay: "12.8K",
+    upcomingEventsCount: 5,
+    isTrending: true,
+    openTonight: true,
+    socialSignal: "24 people you follow are interested",
+    description:
+      "One of Bangalore's most recognizable nightlife destinations, known for craft drinks, curated sound and high-energy weekend crowds.",
+    address: "100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038",
+    hours: "7:00 PM – 1:30 AM",
+    entryRule: "Couples & mixed groups preferred. Clubwear recommended.",
+    vibeTags: ["House", "Techno", "Dance Floor", "Late Night", "Cocktail Lab", "High Energy"],
+  };
+
+  // Club Type mapping
+  let derivedType = "BREWERY • LIVE MUSIC • NIGHTLIFE";
+  if (base.genres.includes("Techno") || base.genres.includes("Electronic")) {
+    derivedType = "UNDERGROUND CLUB • WAREHOUSE • NIGHTLIFE";
+  } else if (base.genres.includes("Rooftop") || base.genres.includes("Lounge")) {
+    derivedType = "ROOFTOP LOUNGE • COCKTAIL DECK • NIGHTLIFE";
+  } else if (base.genres.includes("Live Music")) {
+    derivedType = "LIVE MUSIC ARENA • CRAFT BREWERY • NIGHTLIFE";
+  }
+
+  // Curated detailed paragraph
+  const derivedAbout =
+    base.about ||
+    `${base.name} stands as an essential pillar of Bangalore's nocturnal landscape. Nestled in ${base.location || base.area}, the space balances world-class acoustic engineering with an electric social atmosphere. Whether you are stepping in for early twilight cocktails, catching an intimate resident DJ showcase, or heading straight for the pulsating front-row dance floor during a peak-time weekend set, the club delivers an uncompromising music-first experience. Strict curation ensures welcoming crowd etiquette, effortless community mingling, and nights that linger long after the lights come up.`;
+
+  // Specific events for this club
+  const clubEvents: ClubEventItem[] = sampleEventsPool.map((evt, idx) => ({
+    ...evt,
+    id: `${base.id}-evt-${idx + 1}`,
+    venue: base.name,
+    area: base.area,
+  }));
+
+  // Curated reviews
+  const reviews: ClubReview[] = [
+    {
+      id: "r1",
+      authorName: "Rohan Malhotra",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop",
+      rating: 5,
+      date: "Last Saturday",
+      comment:
+        "Great crowd on Saturday. Music was solid and the dance floor stayed packed straight until closing. Staff was super polite at the door.",
+      tag: "Verified Attendee",
+    },
+    {
+      id: "r2",
+      authorName: "Priyanka Nair",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop",
+      rating: 4.8,
+      date: "2 weeks ago",
+      comment:
+        "Sound system here is genuinely top-notch. Clean low-end without ear fatigue and very little casual talking on the center dancefloor.",
+      tag: "Regular Attendee",
+    },
+    {
+      id: "r3",
+      authorName: "Devansh Roy",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=120&auto=format&fit=crop",
+      rating: 4.5,
+      date: "3 weeks ago",
+      comment:
+        "Incredible cocktail curation and pre-drinks vibe. Gets quite packed past 10:30 PM so get in early if you want good table spots.",
+      tag: "VibeUp Member",
+    },
+    {
+      id: "r4",
+      authorName: "Ananya Sen",
+      avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=120&auto=format&fit=crop",
+      rating: 5,
+      date: "Last Month",
+      comment:
+        "The lighting visuals during the guest producer set were mesmerizing. One of the rare places in Bangalore taking club culture seriously.",
+      tag: "Music Explorer",
+    },
+  ];
+
+  // Associated Community
+  const community: ClubCommunity = {
+    id: `comm-${base.id}`,
+    name: `${base.name.toUpperCase()} NIGHT OWLS`,
+    description: `People who regularly discover, socialize, and attend music events at ${base.name}.`,
+    memberCount: 1480,
+    memberCountDisplay: "1.4K",
+    image: base.image,
+  };
+
+  return {
+    ...base,
+    clubType: base.clubType || derivedType,
+    about: derivedAbout,
+    upcomingEvents: clubEvents,
+    followersList: defaultFollowersList,
+    photos: defaultClubPhotos,
+    reviews: reviews,
+    community: community,
+  };
 }

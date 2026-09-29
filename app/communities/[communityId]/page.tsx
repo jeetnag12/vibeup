@@ -2,11 +2,12 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import EventCard from "@/components/EventCard";
+import CommunityCard from "@/components/community/CommunityCard";
 import {
-  ArrowLeft,
   Users,
   MapPin,
   Calendar,
@@ -14,52 +15,68 @@ import {
   Share2,
   Check,
   Plus,
+  Bookmark,
+  MessageSquare,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  X,
+  Flame,
+  Radio,
+  Clock,
   ShieldCheck,
+  Eye,
 } from "lucide-react";
-import { getCommunityById, allCommunitiesData, Community } from "@/lib/communities-data";
+import {
+  getDetailedCommunityById,
+  DetailedCommunity,
+} from "@/lib/communities-data";
 
 export default function CommunityDetailPage() {
   const params = useParams();
+  const router = useRouter();
   const rawId = (params?.communityId as string) || "bangalore-techno-society";
 
-  const community: Community = useMemo(() => {
-    const found = getCommunityById(rawId);
-    if (found) return found;
-
-    const formattedName = rawId
-      .split("-")
-      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(" ");
-
-    return {
-      id: rawId,
-      name: formattedName.toUpperCase(),
-      description:
-        "A vibrant nightlife community connecting music enthusiasts and partygoers across Bangalore.",
-      coverImage:
-        "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop",
-      location: "Bangalore",
-      area: "Bangalore",
-      category: "MUSIC",
-      genres: ["Techno", "House", "Electronic"],
-      memberCount: 1240,
-      memberCountDisplay: "1.2K",
-      activityCount: "ACTIVE TODAY",
-      tags: ["Nightlife", "Community", "Bangalore"],
-      members: allCommunitiesData[0].members,
-      interest: "TECHNO",
-      upcomingEventsCount: 3,
-    };
+  const community: DetailedCommunity = useMemo(() => {
+    return getDetailedCommunityById(rawId);
   }, [rawId]);
 
+  // Local state for actions
   const [isJoined, setIsJoined] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(
+    null
+  );
 
-  const handleShare = () => {
+  // Related communities join states
+  const [joinedRelated, setJoinedRelated] = useState<Record<string, boolean>>(
+    {}
+  );
+
+  const toggleRelatedJoin = (id: string) => {
+    setJoinedRelated((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const handleShare = async () => {
+    const url = typeof window !== "undefined" ? window.location.href : "";
+    if (typeof navigator !== "undefined" && navigator.share) {
+      try {
+        await navigator.share({
+          title: community.name,
+          text: community.description,
+          url: url,
+        });
+        return;
+      } catch {
+        // User cancelled or unsupported, fallback to clipboard
+      }
+    }
+
     if (typeof window !== "undefined") {
-      navigator.clipboard?.writeText(window.location.href);
+      navigator.clipboard?.writeText(url);
       setCopiedLink(true);
-      setTimeout(() => setCopiedLink(false), 2000);
+      setTimeout(() => setCopiedLink(false), 2500);
     }
   };
 
@@ -67,223 +84,813 @@ export default function CommunityDetailPage() {
     ? community.memberCount + 1
     : community.memberCount;
 
+  const displayedMemberCountString = isJoined
+    ? `${(displayedMemberCount / 1000).toFixed(1)}K`
+    : community.memberCountDisplay;
+
   return (
     <main className="min-h-screen bg-[#09090B] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
       <Navbar />
 
       <div className="w-full pt-[88px] sm:pt-[96px] pb-[80px]">
-        {/* Ambient Top Glow */}
+        {/* Ambient Top Glow Blob */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none z-0"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] pointer-events-none z-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(139,92,246,0.12) 0%, rgba(236,72,153,0.06) 45%, transparent 70%)",
+              "radial-gradient(ellipse at center, rgba(139,92,246,0.15) 0%, rgba(236,72,153,0.07) 45%, transparent 70%)",
           }}
           aria-hidden="true"
         />
 
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 relative z-10">
-          {/* Breadcrumb */}
-          <div className="flex items-center justify-between gap-3 mb-6">
-            <Link
-              href="/communities"
-              className="inline-flex items-center gap-2 text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>BACK TO COMMUNITIES</span>
-            </Link>
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 relative z-10 space-y-10">
+          {/* ==================================================
+              1. BREADCRUMB
+          ================================================== */}
+          <nav
+            aria-label="Breadcrumb"
+            className="flex items-center justify-between gap-3 text-xs font-mono text-[#A1A1AA]"
+          >
+            <div className="flex items-center gap-2 flex-wrap">
+              <Link
+                href="/discover"
+                className="hover:text-white transition-colors"
+              >
+                DISCOVER
+              </Link>
+              <span>/</span>
+              <Link
+                href="/communities"
+                className="hover:text-white transition-colors"
+              >
+                COMMUNITIES
+              </Link>
+              <span>/</span>
+              <span className="text-white font-bold truncate max-w-[200px] sm:max-w-none">
+                {community.name}
+              </span>
+            </div>
 
-            <button
-              type="button"
-              onClick={handleShare}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#141418] hover:bg-[#1A1A21] border border-[#2A2A35] text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors"
-            >
-              <Share2 className="w-3.5 h-3.5" />
-              <span>{copiedLink ? "COPIED LINK ✓" : "SHARE COMMUNITY"}</span>
-            </button>
-          </div>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={handleShare}
+                aria-label="Share community link"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#141418] hover:bg-[#1A1A21] border border-[#2A2A35] text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors"
+              >
+                <Share2 className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">
+                  {copiedLink ? "COPIED URL ✓" : "SHARE"}
+                </span>
+              </button>
+            </div>
+          </nav>
 
-          {/* Hero Banner Card */}
-          <div className="rounded-[24px] bg-[#141418] border border-[#2A2A35] overflow-hidden mb-10 shadow-2xl">
-            {/* Cover Image */}
-            <div className="relative w-full h-[240px] sm:h-[340px] bg-[#09090B] overflow-hidden">
+          {/* ==================================================
+              2. COMMUNITY HERO & ACTIONS
+          ================================================== */}
+          <section
+            aria-label="Community Hero"
+            className="rounded-[24px] bg-[#141418] border border-[#2A2A35] overflow-hidden shadow-2xl relative"
+          >
+            {/* Cover Image Container */}
+            <div className="relative w-full h-[260px] sm:h-[380px] lg:h-[440px] bg-[#09090B] overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={community.coverImage}
                 alt={community.name}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#141418] via-[#141418]/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#141418] via-[#141418]/60 to-black/30" />
 
-              <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                <span className="font-mono text-xs font-bold text-white bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 uppercase tracking-wider">
-                  {community.category} · {community.location.toUpperCase()}
-                </span>
-
-                {community.activityCount && (
-                  <span className="font-mono text-xs font-bold text-white bg-[#8B5CF6]/90 backdrop-blur-md px-3 py-1 rounded-full shadow-lg">
-                    {community.activityCount}
+              {/* Top Floating Badges */}
+              <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 pointer-events-none">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs font-bold text-white bg-black/75 backdrop-blur-md px-3.5 py-1 rounded-full border border-white/10 uppercase tracking-wider shadow-lg">
+                    {community.category} · {community.location.toUpperCase()}
                   </span>
-                )}
+                  {community.trending && (
+                    <span className="hidden sm:inline-flex items-center gap-1 font-mono text-xs font-bold text-[#EC4899] bg-[#EC4899]/15 border border-[#EC4899]/30 backdrop-blur-md px-3 py-1 rounded-full">
+                      <Flame className="w-3.5 h-3.5" />
+                      TRENDING
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-white bg-[#8B5CF6]/90 backdrop-blur-md px-3.5 py-1 rounded-full shadow-lg">
+                    <Radio className="w-3.5 h-3.5 animate-pulse" />
+                    {community.activityCount || "ACTIVE TODAY"}
+                  </span>
+                </div>
               </div>
             </div>
 
-            {/* Banner Header Info */}
-            <div className="p-6 sm:p-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div className="max-w-2xl">
-                <div className="flex flex-wrap items-center gap-2 mb-2.5">
+            {/* Hero Information & Action Bar */}
+            <div className="p-6 sm:p-8 lg:p-10 -mt-12 sm:-mt-16 relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+              <div className="max-w-3xl space-y-4">
+                {/* Genres */}
+                <div className="flex flex-wrap items-center gap-2">
                   {community.genres.map((g) => (
                     <span
                       key={g}
-                      className="font-mono text-[11px] text-[#8B5CF6] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 px-2.5 py-0.5 rounded-full"
+                      className="font-mono text-xs text-[#8B5CF6] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 px-3 py-1 rounded-full uppercase tracking-wider font-semibold"
                     >
                       {g}
                     </span>
                   ))}
                 </div>
 
-                <h1 className="text-3xl sm:text-5xl font-bold font-sans text-white tracking-tight mb-3">
+                {/* Community Title */}
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-sans text-white tracking-tight leading-[1.1]">
                   {community.name}
                 </h1>
 
-                <p className="text-sm sm:text-base text-[#D4D4D8] font-sans leading-relaxed mb-4">
+                {/* Short Description */}
+                <p className="text-sm sm:text-base lg:text-lg text-[#D4D4D8] font-sans leading-relaxed max-w-2xl">
                   {community.description}
                 </p>
 
-                <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[#A1A1AA]">
-                  <span className="inline-flex items-center gap-1 text-[#EC4899]">
-                    <MapPin className="w-3.5 h-3.5" />
-                    {community.location}
+                {/* Meta Signals */}
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-mono text-[#A1A1AA] pt-1">
+                  <span className="inline-flex items-center gap-1.5 text-[#EC4899]">
+                    <MapPin className="w-4 h-4" />
+                    {community.area || community.location}
                   </span>
-                  <span className="inline-flex items-center gap-1 text-[#22C55E] font-bold">
-                    <Users className="w-3.5 h-3.5" />
+                  <span className="inline-flex items-center gap-1.5 text-[#22C55E] font-bold">
+                    <Users className="w-4 h-4" />
                     {displayedMemberCount.toLocaleString()} Members
                   </span>
-                  {community.upcomingEventsCount ? (
-                    <span className="inline-flex items-center gap-1 text-white">
-                      <Calendar className="w-3.5 h-3.5 text-[#8B5CF6]" />
-                      {community.upcomingEventsCount} Events Supported
-                    </span>
-                  ) : null}
+                  <span className="inline-flex items-center gap-1.5 text-white">
+                    <Calendar className="w-4 h-4 text-[#8B5CF6]" />
+                    {community.eventsThisMonth} Events This Month
+                  </span>
                 </div>
               </div>
 
-              {/* Action Button */}
-              <div className="shrink-0 flex items-center gap-3">
+              {/* Action Buttons: Join, Save, Share */}
+              <div className="shrink-0 flex flex-wrap items-center gap-3">
                 <button
                   type="button"
                   onClick={() => setIsJoined(!isJoined)}
-                  className={`px-7 py-3 rounded-xl font-mono text-xs font-bold transition-all ${
+                  className={`px-7 py-3.5 rounded-xl font-mono text-xs font-bold transition-all flex items-center justify-center gap-2 ${
                     isJoined
-                      ? "bg-[#22C55E]/20 border border-[#22C55E] text-[#22C55E] shadow-[0_0_16px_rgba(34,197,94,0.3)]"
-                      : "bg-[#8B5CF6] hover:bg-[#7C3AED] text-white shadow-[0_0_20px_rgba(139,92,246,0.35)]"
+                      ? "bg-[#22C55E]/20 border border-[#22C55E] text-[#22C55E] shadow-[0_0_20px_rgba(34,197,94,0.3)]"
+                      : "bg-[#8B5CF6] hover:bg-[#7C3AED] text-white shadow-[0_0_24px_rgba(139,92,246,0.4)]"
                   }`}
                 >
                   {isJoined ? (
-                    <span className="inline-flex items-center gap-1.5">
+                    <>
                       <Check className="w-4 h-4" />
                       JOINED COMMUNITY
-                    </span>
+                    </>
                   ) : (
-                    <span className="inline-flex items-center gap-1.5">
+                    <>
                       <Plus className="w-4 h-4" />
                       JOIN COMMUNITY
-                    </span>
+                    </>
                   )}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setIsSaved(!isSaved)}
+                  aria-label="Save community"
+                  className={`px-4 py-3.5 rounded-xl border font-mono text-xs transition-all flex items-center justify-center gap-1.5 ${
+                    isSaved
+                      ? "bg-[#EC4899]/20 border-[#EC4899] text-[#EC4899]"
+                      : "bg-[#1A1A21] hover:bg-[#2A2A35] border-[#2A2A35] text-[#A1A1AA] hover:text-white"
+                  }`}
+                >
+                  <Bookmark
+                    className={`w-4 h-4 ${isSaved ? "fill-[#EC4899]" : ""}`}
+                  />
+                  <span>{isSaved ? "SAVED ✓" : "SAVE"}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleShare}
+                  aria-label="Share community"
+                  className="px-4 py-3.5 rounded-xl bg-[#1A1A21] hover:bg-[#2A2A35] border border-[#2A2A35] text-[#A1A1AA] hover:text-white font-mono text-xs transition-all flex items-center justify-center gap-1.5"
+                >
+                  <Share2 className="w-4 h-4" />
+                  <span>{copiedLink ? "LINK COPIED" : "SHARE"}</span>
                 </button>
               </div>
             </div>
-          </div>
+          </section>
 
-          {/* Community Info & Member Roster Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
-            {/* Left Column: Community Members (Cols 8) */}
-            <div className="lg:col-span-8 space-y-6">
-              <div className="p-6 sm:p-7 rounded-[20px] bg-[#141418] border border-[#2A2A35]">
-                <div className="flex items-center gap-2 mb-3">
-                  <Users className="w-4 h-4 text-[#8B5CF6]" />
-                  <h3 className="font-mono text-xs font-semibold text-[#8B5CF6] uppercase tracking-wider">
-                    COMMUNITY MEMBERS
-                  </h3>
+          {/* ==================================================
+              3. COMMUNITY STATS (Compact & Social)
+          ================================================== */}
+          <section
+            aria-label="Community Key Numbers"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4"
+          >
+            <div className="p-4 sm:p-5 rounded-[16px] bg-[#141418] border border-[#2A2A35] flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center text-[#8B5CF6] shrink-0">
+                <Users className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="font-mono text-xl sm:text-2xl font-bold text-white">
+                  {displayedMemberCountString}
                 </div>
-                <p className="text-xs sm:text-sm text-[#A1A1AA] font-sans mb-5">
-                  Partygoers and music enthusiasts active in {community.name}.
-                </p>
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  {community.members.map((m) => (
-                    <div
-                      key={m.id}
-                      className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] flex items-center gap-3"
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={m.avatar}
-                        alt={m.name}
-                        className="w-10 h-10 rounded-full object-cover border border-[#2A2A35]"
-                      />
-                      <div className="truncate">
-                        <span className="font-sans font-bold text-xs text-white block truncate">
-                          {m.name}
-                        </span>
-                        <span className="font-mono text-[10px] text-[#22C55E]">
-                          Active Member
-                        </span>
-                      </div>
-                    </div>
-                  ))}
+                <div className="font-mono text-xs text-[#A1A1AA] uppercase tracking-wider">
+                  MEMBERS
                 </div>
               </div>
+            </div>
 
-              {/* Tags & Descriptors */}
-              <div className="p-6 sm:p-7 rounded-[20px] bg-[#141418] border border-[#2A2A35]">
-                <div className="flex items-center gap-2 mb-3">
-                  <Sparkles className="w-4 h-4 text-[#EC4899]" />
-                  <h3 className="font-mono text-xs font-semibold text-[#EC4899] uppercase tracking-wider">
-                    COMMUNITY VIBE TAGS
-                  </h3>
+            <div className="p-4 sm:p-5 rounded-[16px] bg-[#141418] border border-[#2A2A35] flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#22C55E]/15 border border-[#22C55E]/30 flex items-center justify-center text-[#22C55E] shrink-0">
+                <Radio className="w-6 h-6 animate-pulse" />
+              </div>
+              <div>
+                <div className="font-mono text-xl sm:text-2xl font-bold text-white">
+                  {community.activeToday}
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="font-mono text-xs text-[#A1A1AA] uppercase tracking-wider">
+                  ACTIVE TODAY
+                </div>
+              </div>
+            </div>
+
+            <div className="p-4 sm:p-5 rounded-[16px] bg-[#141418] border border-[#2A2A35] flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#EC4899]/15 border border-[#EC4899]/30 flex items-center justify-center text-[#EC4899] shrink-0">
+                <Calendar className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="font-mono text-xl sm:text-2xl font-bold text-white">
+                  {community.eventsThisMonth}
+                </div>
+                <div className="font-mono text-xs text-[#A1A1AA] uppercase tracking-wider">
+                  EVENTS THIS MONTH
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ==================================================
+              MAIN TWO-COLUMN SECTION (Balanced Layout)
+              LEFT: About, Interests, Activity
+              RIGHT: The Crowd, Compatibility, Discussion
+          ================================================== */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* ----------------- LEFT COLUMN (7 Cols) ----------------- */}
+            <div className="lg:col-span-7 space-y-8">
+              {/* 5. About Community */}
+              <section className="p-6 sm:p-7 rounded-[20px] bg-[#141418] border border-[#2A2A35] space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
+                    <h2 className="font-mono text-xs font-semibold text-[#8B5CF6] uppercase tracking-wider">
+                      ABOUT THIS COMMUNITY
+                    </h2>
+                  </div>
+                  <span className="font-mono text-[11px] text-[#A1A1AA] bg-[#1A1A21] px-2.5 py-1 rounded-md border border-[#2A2A35] inline-flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#22C55E]" />
+                    <span>VERIFIED COMMUNITY</span>
+                  </span>
+                </div>
+
+                <p className="text-sm sm:text-base text-[#D4D4D8] font-sans leading-relaxed">
+                  {community.aboutText}
+                </p>
+
+                {/* Community Ethos Pills */}
+                <div className="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs font-sans text-[#A1A1AA]">
+                  <div className="p-3 rounded-xl bg-[#1A1A21] border border-[#2A2A35] flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#8B5CF6] shrink-0" />
+                    <span className="text-white text-xs font-medium">
+                      Music-first mentality
+                    </span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#1A1A21] border border-[#2A2A35] flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#EC4899] shrink-0" />
+                    <span className="text-white text-xs font-medium">
+                      Safe crew transits
+                    </span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#1A1A21] border border-[#2A2A35] flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#22C55E] shrink-0" />
+                    <span className="text-white text-xs font-medium">
+                      Zero harassment policy
+                    </span>
+                  </div>
+                </div>
+              </section>
+
+              {/* 6. Community Interests */}
+              <section className="p-6 sm:p-7 rounded-[20px] bg-[#141418] border border-[#2A2A35] space-y-4">
+                <div className="flex items-center gap-2">
+                  <Flame className="w-4 h-4 text-[#EC4899]" />
+                  <h2 className="font-mono text-xs font-semibold text-[#EC4899] uppercase tracking-wider">
+                    WHAT WE VIBE WITH
+                  </h2>
+                </div>
+                <p className="text-xs text-[#A1A1AA] font-sans">
+                  Identity signals and music frequencies curated by members of{" "}
+                  {community.name}.
+                </p>
+
+                <div className="flex flex-wrap gap-2 pt-1">
                   {community.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3.5 py-1.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] text-xs font-mono text-white"
+                      className="px-3.5 py-1.5 rounded-xl bg-[#1A1A21] hover:bg-[#252530] border border-[#2A2A35] text-xs font-mono text-white transition-colors cursor-default"
                     >
                       #{tag.toUpperCase()}
                     </span>
                   ))}
                 </div>
-              </div>
+              </section>
+
+              {/* 9. Recent Activity */}
+              <section className="p-6 sm:p-7 rounded-[20px] bg-[#141418] border border-[#2A2A35] space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-[#22C55E]" />
+                    <h2 className="font-mono text-xs font-semibold text-[#22C55E] uppercase tracking-wider">
+                      RECENT ACTIVITY
+                    </h2>
+                  </div>
+                  <span className="font-mono text-[10px] text-[#A1A1AA]">
+                    LIVE UPDATES
+                  </span>
+                </div>
+
+                <div className="space-y-3">
+                  {community.activities.map((act) => (
+                    <div
+                      key={act.id}
+                      className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] flex items-center justify-between gap-3 text-xs"
+                    >
+                      <div className="flex items-center gap-3 truncate">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={act.avatar}
+                          alt={act.userName}
+                          className="w-8 h-8 rounded-full object-cover border border-[#2A2A35] shrink-0"
+                        />
+                        <div className="truncate font-sans text-xs">
+                          <span className="font-bold text-white mr-1.5">
+                            {act.userName}
+                          </span>
+                          <span className="text-[#A1A1AA] mr-1.5">
+                            {act.action}
+                          </span>
+                          {act.target && (
+                            <span className="font-medium text-[#8B5CF6]">
+                              {act.target}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      <span className="font-mono text-[10px] text-[#71717A] shrink-0">
+                        {act.timeAgo}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </section>
             </div>
 
-            {/* Right Column: Guidelines (Cols 4) */}
-            <div className="lg:col-span-4 p-6 sm:p-7 rounded-[20px] bg-[#141418] border border-[#2A2A35] space-y-4">
-              <h3 className="font-mono text-xs font-semibold text-white uppercase tracking-wider">
-                COMMUNITY GUIDELINES
-              </h3>
-              <ul className="space-y-3 text-xs font-sans text-[#D4D4D8]">
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6] mt-1.5 shrink-0" />
-                  <span>Respect everyone on and off the dance floor. No uninvited touching or filming.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#EC4899] mt-1.5 shrink-0" />
-                  <span>Music-first mentality: share track IDs, DJ sets, and underground event tips.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] mt-1.5 shrink-0" />
-                  <span>Group safety: lookout for crew members during late night transit.</span>
-                </li>
-              </ul>
+            {/* ----------------- RIGHT COLUMN (5 Cols) ----------------- */}
+            <div className="lg:col-span-5 space-y-8">
+              {/* 7. Members ("THE CROWD") & Social Compatibility */}
+              <section className="p-6 sm:p-7 rounded-[20px] bg-[#141418] border border-[#2A2A35] space-y-5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Users className="w-4 h-4 text-[#8B5CF6]" />
+                    <h2 className="font-mono text-xs font-semibold text-[#8B5CF6] uppercase tracking-wider">
+                      THE CROWD
+                    </h2>
+                  </div>
+                  <span className="font-mono text-xs text-[#22C55E] font-bold">
+                    +{displayedMemberCountString}
+                  </span>
+                </div>
 
-              <div className="pt-4 border-t border-[#2A2A35] flex items-center gap-2 text-[11px] font-mono text-[#71717A]">
-                <ShieldCheck className="w-4 h-4 text-[#8B5CF6]" />
-                <span>Verified VibeUp Community</span>
+                {/* Avatar Stack Header */}
+                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35]">
+                  <div className="flex -space-x-2.5 overflow-hidden">
+                    {community.detailedMembers.slice(0, 5).map((m) => (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        key={m.id}
+                        src={m.avatar}
+                        alt={m.name}
+                        className="inline-block h-8 w-8 rounded-full ring-2 ring-[#1A1A21] object-cover"
+                      />
+                    ))}
+                  </div>
+                  <div className="text-xs font-sans text-[#D4D4D8]">
+                    <span className="font-bold text-white">
+                      People in this community
+                    </span>
+                    <span className="block text-[11px] text-[#A1A1AA] font-mono">
+                      Connecting over sound & nightlife
+                    </span>
+                  </div>
+                </div>
+
+                {/* 12. Social Compatibility Sub-section */}
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-mono text-[11px] text-[#EC4899] uppercase tracking-wider font-semibold">
+                      PEOPLE YOU MAY VIBE WITH
+                    </span>
+                    <span className="font-mono text-[10px] text-[#A1A1AA]">
+                      AI MATCH
+                    </span>
+                  </div>
+
+                  <div className="space-y-3">
+                    {community.vibeMatchMembers.map((member) => (
+                      <Link
+                        key={member.id}
+                        href={`/people/${member.id}`}
+                        className="p-3.5 rounded-xl bg-[#1A1A21] hover:bg-[#252530] border border-[#2A2A35] hover:border-[#8B5CF6] transition-all duration-200 flex items-center justify-between gap-3 group block"
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={member.avatar}
+                            alt={member.name}
+                            className="w-10 h-10 rounded-full object-cover border border-[#2A2A35] group-hover:border-[#8B5CF6] transition-colors shrink-0"
+                          />
+                          <div className="min-w-0">
+                            <span className="font-sans font-bold text-xs text-white group-hover:text-[#8B5CF6] transition-colors block truncate">
+                              {member.name}
+                            </span>
+                            <span className="font-mono text-[10px] text-[#A1A1AA] block truncate">
+                              {member.interests.slice(0, 2).join(" · ")}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="text-right shrink-0">
+                          <span className="font-mono text-xs font-bold text-[#8B5CF6] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 px-2 py-0.5 rounded-md inline-block">
+                            {member.vibeMatch}% VIBE MATCH
+                          </span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* More Community Members Grid */}
+                <div className="pt-2">
+                  <span className="font-mono text-[11px] text-[#A1A1AA] uppercase tracking-wider block mb-3">
+                    MORE MEMBERS
+                  </span>
+                  <div className="grid grid-cols-2 gap-2.5">
+                    {community.detailedMembers.slice(3, 7).map((member) => (
+                      <Link
+                        key={member.id}
+                        href={`/people/${member.id}`}
+                        className="p-3 rounded-xl bg-[#1A1A21] hover:bg-[#252530] border border-[#2A2A35] hover:border-[#8B5CF6] transition-all flex items-center gap-2.5 group"
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={member.avatar}
+                          alt={member.name}
+                          className="w-8 h-8 rounded-full object-cover border border-[#2A2A35]"
+                        />
+                        <div className="truncate">
+                          <span className="font-sans font-bold text-xs text-white group-hover:text-[#8B5CF6] transition-colors block truncate">
+                            {member.name}
+                          </span>
+                          <span className="font-mono text-[9px] text-[#22C55E] block">
+                            {member.area || "Bangalore"}
+                          </span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              {/* 16. Community Discussion Preview */}
+              <section className="p-6 sm:p-7 rounded-[20px] bg-[#141418] border border-[#2A2A35] space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <MessageSquare className="w-4 h-4 text-[#8B5CF6]" />
+                    <h2 className="font-mono text-xs font-semibold text-[#8B5CF6] uppercase tracking-wider">
+                      COMMUNITY TALK
+                    </h2>
+                  </div>
+                  <Link
+                    href={`/communities/${community.id}/discussion`}
+                    className="font-mono text-[11px] text-[#8B5CF6] hover:text-[#A78BFA] transition-colors flex items-center gap-1"
+                  >
+                    <span>VIEW ALL</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+
+                <p className="text-xs text-[#A1A1AA] font-sans">
+                  Active topics, party tips, and crew calls in {community.name}.
+                </p>
+
+                <div className="space-y-3">
+                  {community.discussions.map((disc) => (
+                    <div
+                      key={disc.id}
+                      className="p-3.5 rounded-xl bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6]/50 transition-colors space-y-2"
+                    >
+                      <div className="flex items-center justify-between text-xs">
+                        <div className="flex items-center gap-2">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={disc.authorAvatar}
+                            alt={disc.authorName}
+                            className="w-5 h-5 rounded-full object-cover"
+                          />
+                          <span className="font-sans font-semibold text-white">
+                            {disc.authorName}
+                          </span>
+                        </div>
+                        <span className="font-mono text-[10px] text-[#71717A]">
+                          {disc.timeAgo}
+                        </span>
+                      </div>
+
+                      <h3 className="font-sans font-bold text-xs sm:text-sm text-white line-clamp-1">
+                        {disc.title}
+                      </h3>
+
+                      <p className="font-sans text-xs text-[#A1A1AA] line-clamp-2">
+                        {disc.preview}
+                      </p>
+
+                      <div className="pt-1 flex items-center justify-between text-[11px] font-mono text-[#A1A1AA]">
+                        <span className="text-[#8B5CF6]">
+                          💬 {disc.replyCount} replies
+                        </span>
+                        <Link
+                          href={`/communities/${community.id}/discussion`}
+                          className="hover:text-white transition-colors"
+                        >
+                          Join conversation →
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-2">
+                  <Link
+                    href={`/communities/${community.id}/discussion`}
+                    className="w-full py-2.5 rounded-xl bg-[#1A1A21] hover:bg-[#252530] border border-[#2A2A35] text-xs font-mono text-center text-white flex items-center justify-center gap-1.5 transition-colors"
+                  >
+                    <span>VIEW ALL DISCUSSIONS</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#8B5CF6]" />
+                  </Link>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          {/* ==================================================
+              8. UPCOMING EVENTS (COMMUNITY EVENTS)
+          ================================================== */}
+          <section aria-label="Community Events" className="space-y-6 pt-4">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#2A2A35] pb-4">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <Calendar className="w-4 h-4 text-[#8B5CF6]" />
+                  <h2 className="font-mono text-xs font-bold text-[#8B5CF6] uppercase tracking-wider">
+                    COMMUNITY EVENTS
+                  </h2>
+                </div>
+                <p className="text-sm text-[#A1A1AA] font-sans">
+                  Events people in this community are interested in.
+                </p>
               </div>
+
+              <Link
+                href="/discover"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors"
+              >
+                <span>EXPLORE ALL EVENTS</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            {/* EventCard Grid with Social Signals */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {community.upcomingEvents.map((evt) => (
+                <div key={evt.id} className="flex flex-col space-y-2">
+                  {/* Reused EventCard */}
+                  <EventCard
+                    image={evt.image}
+                    category={evt.category}
+                    title={evt.title}
+                    date={evt.date}
+                    time={evt.time}
+                    venue={evt.venue}
+                    area={evt.area}
+                    price={evt.price}
+                    goingCount={evt.goingCount}
+                    avatars={evt.avatars}
+                    onClick={() => router.push(`/events/${evt.id}`)}
+                  />
+
+                  {/* Social Signals Bar */}
+                  <div className="px-3.5 py-2 rounded-xl bg-[#141418] border border-[#2A2A35] flex items-center justify-between text-[10px] font-mono text-[#A1A1AA]">
+                    <span className="text-[#22C55E] font-bold">
+                      {evt.membersGoing} MEMBERS GOING
+                    </span>
+                    <span className="text-[#EC4899]">
+                      {evt.crewsForming} CREWS FORMING
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* ==================================================
+              18. COMMUNITY MOMENTS (Photo Grid + Lightbox)
+          ================================================== */}
+          <section aria-label="Community Moments" className="space-y-6 pt-4">
+            <div className="flex items-center justify-between border-b border-[#2A2A35] pb-4">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <Sparkles className="w-4 h-4 text-[#EC4899]" />
+                  <h2 className="font-mono text-xs font-bold text-[#EC4899] uppercase tracking-wider">
+                    COMMUNITY MOMENTS
+                  </h2>
+                </div>
+                <p className="text-sm text-[#A1A1AA] font-sans">
+                  Snapshots from recent nights, dance floors, and warehouse
+                  gatherings.
+                </p>
+              </div>
+
+              <span className="font-mono text-xs text-[#A1A1AA]">
+                {community.photos.length} PHOTOS
+              </span>
+            </div>
+
+            {/* 6-Photo Responsive Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+              {community.photos.map((photo, index) => (
+                <button
+                  key={photo.id}
+                  type="button"
+                  onClick={() => setSelectedPhotoIndex(index)}
+                  className="group relative h-40 sm:h-48 rounded-[16px] overflow-hidden bg-[#1A1A21] border border-[#2A2A35] hover:border-[#8B5CF6] transition-all focus:outline-none"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={photo.url}
+                    alt={photo.caption}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="p-2 rounded-full bg-black/70 text-white backdrop-blur-md">
+                      <Eye className="w-4 h-4" />
+                    </span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </section>
+
+          {/* ==================================================
+              17. RELATED COMMUNITIES ("YOU MAY ALSO VIBE WITH")
+          ================================================== */}
+          <section aria-label="Related Communities" className="space-y-6 pt-4">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#2A2A35] pb-4">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <Users className="w-4 h-4 text-[#8B5CF6]" />
+                  <h2 className="font-mono text-xs font-bold text-[#8B5CF6] uppercase tracking-wider">
+                    YOU MAY ALSO VIBE WITH
+                  </h2>
+                </div>
+                <p className="text-sm text-[#A1A1AA] font-sans">
+                  More nightlife groups that match your music frequency.
+                </p>
+              </div>
+
+              <Link
+                href="/communities"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#A1A1AA] hover:text-white transition-colors"
+              >
+                <span>ALL COMMUNITIES</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            {/* Reused CommunityCard Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {community.relatedCommunities.map((relComm) => (
+                <CommunityCard
+                  key={relComm.id}
+                  community={relComm}
+                  isJoined={Boolean(joinedRelated[relComm.id])}
+                  onToggleJoin={toggleRelatedJoin}
+                />
+              ))}
+            </div>
+          </section>
+        </div>
+      </div>
+
+      {/* ==================================================
+          PHOTO LIGHTBOX MODAL
+      ================================================== */}
+      {selectedPhotoIndex !== null && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Community photo preview"
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-in fade-in duration-200"
+          onClick={() => setSelectedPhotoIndex(null)}
+        >
+          <div
+            className="relative max-w-4xl w-full bg-[#141418] border border-[#2A2A35] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header with Caption & Close */}
+            <div className="p-4 sm:p-5 flex items-center justify-between border-b border-[#2A2A35]">
+              <span className="font-mono text-xs text-[#A1A1AA]">
+                MOMENT {selectedPhotoIndex + 1} OF{" "}
+                {community.photos.length}
+              </span>
+              <button
+                type="button"
+                onClick={() => setSelectedPhotoIndex(null)}
+                aria-label="Close modal"
+                className="p-1.5 rounded-lg bg-[#1A1A21] hover:bg-[#2A2A35] text-[#A1A1AA] hover:text-white transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Lightbox Image Preview with Navigation */}
+            <div className="relative w-full h-[320px] sm:h-[480px] bg-black flex items-center justify-center overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={community.photos[selectedPhotoIndex].url}
+                alt={community.photos[selectedPhotoIndex].caption}
+                className="max-h-full max-w-full object-contain"
+              />
+
+              {/* Prev / Next controls */}
+              <button
+                type="button"
+                aria-label="Previous photo"
+                onClick={() =>
+                  setSelectedPhotoIndex(
+                    (selectedPhotoIndex - 1 + community.photos.length) %
+                      community.photos.length
+                  )
+                }
+                className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/70 hover:bg-black text-white border border-white/10 transition-colors"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+
+              <button
+                type="button"
+                aria-label="Next photo"
+                onClick={() =>
+                  setSelectedPhotoIndex(
+                    (selectedPhotoIndex + 1) % community.photos.length
+                  )
+                }
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/70 hover:bg-black text-white border border-white/10 transition-colors"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Caption Footer */}
+            <div className="p-4 sm:p-5 bg-[#141418] border-t border-[#2A2A35]">
+              <p className="font-sans text-sm text-white font-medium">
+                {community.photos[selectedPhotoIndex].caption}
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      )}
+
+      {/* Share Toast Feedback */}
+      {copiedLink && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="fixed bottom-6 right-6 z-50 bg-[#1A1A21] border border-[#8B5CF6] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
+        >
+          <Check className="w-4 h-4 text-[#8B5CF6]" />
+          <span>Community link copied to clipboard!</span>
+        </div>
+      )}
 
       <Footer />
     </main>

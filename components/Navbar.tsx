@@ -9,7 +9,7 @@ const navLinks = [
   { label: "Discover", href: "/discover" },
   { label: "Clubs", href: "/clubs" },
   { label: "Communities", href: "/communities" },
-  { label: "Crews", href: "/crews/c1" },
+  { label: "Crews", href: "/crews" },
 ];
 
 export default function Navbar() {
