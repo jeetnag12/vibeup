@@ -119,29 +119,32 @@ export default function TrendingSection() {
             <div
               key={event.id}
               onClick={() => router.push(`/events/${event.id}`)}
-              className="group relative cursor-pointer select-none bg-[#FFFFFF]"
+              className="group relative cursor-pointer select-none bg-[#FFFFFF] w-full"
               style={{
                 aspectRatio: "3 / 4",
+                height: "auto",
                 borderRadius: "8px",
                 overflow: "hidden",
-                border: "2px solid #7C3AED",
-                transition: "transform 250ms ease, box-shadow 250ms ease",
+                border: "1.5px solid rgba(139, 92, 246, 0.4)",
+                transition: "transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-6px)";
-                e.currentTarget.style.boxShadow = "4px 4px 0px #7C3AED";
+                e.currentTarget.style.borderColor = "#8B5CF6";
+                e.currentTarget.style.boxShadow = "3px 3px 0px #8B5CF6";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translateY(0px)";
+                e.currentTarget.style.borderColor = "rgba(139, 92, 246, 0.4)";
                 e.currentTarget.style.boxShadow = "none";
               }}
             >
-              {/* Image: full card, object-fit cover */}
+              {/* Image inside: object-fit cover, position absolute, inset 0, full height */}
               <Image
                 src={event.image}
                 alt={event.title}
                 fill
-                className="z-0 transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+                className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-300 group-hover:scale-105 pointer-events-none"
                 style={{ objectFit: "cover" }}
               />
 
