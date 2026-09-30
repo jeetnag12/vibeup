@@ -2,134 +2,218 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowRight } from "lucide-react";
-import EventCard, { EventCardProps } from "@/components/EventCard";
 
-const trendingEvents: EventCardProps[] = [
+interface TrendingEventItem {
+  id: string;
+  image: string;
+  category: string;
+  title: string;
+  venue: string;
+  price: string;
+}
+
+const trendingEvents: TrendingEventItem[] = [
   {
+    id: "berghain-sessions-vol-12",
     image:
       "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop",
     category: "TECHNO",
     title: "Berghain Sessions Vol. 12",
-    date: "Sat, 19 Jul",
-    time: "10:00 PM",
-    venue: "Playboy Club",
-    area: "Indiranagar",
+    venue: "Playboy Club · Indiranagar",
     price: "₹999",
-    goingCount: 234,
-    saved: false,
-    avatars: [
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=120&auto=format&fit=crop",
-    ],
   },
   {
+    id: "desi-nights-saturday",
     image:
       "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop",
     category: "BOLLYWOOD",
     title: "Desi Nights — Saturday Edition",
-    date: "Sat, 19 Jul",
-    time: "9:00 PM",
-    venue: "Toit Brewpub",
-    area: "Koramangala",
+    venue: "Toit Brewpub · Koramangala",
     price: "₹599",
-    goingCount: 412,
-    saved: true,
-    avatars: [
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=120&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop",
-    ],
   },
   {
+    id: "parvaaz-live-bangalore",
     image:
       "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=800&auto=format&fit=crop",
     category: "LIVE MUSIC",
     title: "Parvaaz Live in Bangalore",
-    date: "Sun, 20 Jul",
-    time: "7:30 PM",
-    venue: "Phoenix Marketcity",
-    area: "Whitefield",
+    venue: "Phoenix Marketcity · Whitefield",
     price: "₹1,299",
-    goingCount: 891,
-    saved: false,
-    avatars: [
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=120&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=120&auto=format&fit=crop",
-    ],
   },
   {
+    id: "sundowner-sessions",
     image:
       "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?q=80&w=800&auto=format&fit=crop",
     category: "ROOFTOP",
     title: "Sundowner Sessions",
-    date: "Sun, 20 Jul",
-    time: "5:00 PM",
-    venue: "The Skyye",
-    area: "UB City",
+    venue: "The Skyye · UB City",
     price: "₹799",
-    goingCount: 167,
-    saved: false,
-    avatars: [
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=120&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=120&auto=format&fit=crop",
-    ],
+  },
+  {
+    id: "underground-vault-rave",
+    image:
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop",
+    category: "HOUSE",
+    title: "Underground Vault Rave",
+    venue: "Basement Vault · CBD",
+    price: "₹899",
   },
 ];
 
 export default function TrendingSection() {
   const router = useRouter();
-  return (
-    <section className="w-full py-[120px] bg-[#000000]">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        {/* Section Header Row */}
-        <div className="flex items-end justify-between mb-8 sm:mb-10">
-          {/* Left: Label + Main Heading */}
-          <div>
-            <p
-              className="font-mono text-[#8B5CF6] uppercase mb-2 font-medium"
-              style={{
-                fontSize: "11px",
-                letterSpacing: "0.1em",
-              }}
-            >
-              THIS WEEKEND IN BLR
-            </p>
-            <h2
-              className="font-sans font-extrabold tracking-[-0.03em] text-white text-[32px] tracking-tight leading-tight"
-              style={{ fontWeight: 800, letterSpacing: "-0.03em" }}
-            >
-              Trending Events
-            </h2>
-          </div>
 
-          {/* Right: View all link */}
-          <Link
-            href="/events"
-            className="group inline-flex items-center gap-1.5 text-[#8B5CF6] hover:underline font-medium text-sm transition-colors"
+  return (
+    <section
+      id="trending"
+      className="w-full relative z-10"
+      style={{
+        backgroundColor: "#F2F0EB",
+        padding: "100px 0",
+      }}
+    >
+      {/* SECTION HEADER */}
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-8 mb-12 flex flex-row items-end justify-between gap-4">
+        {/* Left Side */}
+        <div>
+          <span
+            className="block font-mono text-[#8B5CF6] uppercase mb-1.5"
+            style={{
+              fontSize: "10px",
+              letterSpacing: "0.15em",
+              fontWeight: 700,
+            }}
           >
-            <span>View all</span>
-            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-          </Link>
+            THIS WEEKEND
+          </span>
+          <h2
+            className="font-sans text-[#000000] m-0 leading-[0.95]"
+            style={{
+              fontWeight: 900,
+              fontSize: "clamp(40px, 6vw, 72px)",
+              letterSpacing: "-0.03em",
+            }}
+          >
+            TRENDING IN BLR
+          </h2>
         </div>
 
-        {/* Event Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[20px]">
+        {/* Right Side */}
+        <Link
+          href="/discover"
+          className="inline-flex items-center text-[#8B5CF6] hover:text-[#7C3AED] transition-colors duration-150 font-mono shrink-0 mb-1"
+          style={{
+            fontSize: "12px",
+            letterSpacing: "0.02em",
+          }}
+        >
+          View all →
+        </Link>
+      </div>
+
+      {/* CARDS GRID: 5 columns desktop, 3 tablet, 2 mobile */}
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
           {trendingEvents.map((event) => (
-            <EventCard
-              key={event.title}
-              {...event}
-              onClick={() => {
-                const slug = event.title
-                  .toLowerCase()
-                  .replace(/[^a-z0-9]+/g, "-")
-                  .replace(/(^-|-$)/g, "");
-                router.push(`/events/${slug}`);
+            <div
+              key={event.id}
+              onClick={() => router.push(`/events/${event.id}`)}
+              className="group relative cursor-pointer select-none bg-[#FFFFFF]"
+              style={{
+                aspectRatio: "3 / 4",
+                borderRadius: "8px",
+                overflow: "hidden",
+                border: "2px solid #7C3AED",
+                transition: "transform 250ms ease, box-shadow 250ms ease",
               }}
-            />
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-6px)";
+                e.currentTarget.style.boxShadow = "4px 4px 0px #7C3AED";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0px)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              {/* Image: full card, object-fit cover, absolute inset-0 z-0 */}
+              <img
+                src={event.image}
+                alt={event.title}
+                className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+                loading="lazy"
+              />
+
+              {/* Gradient Overlay (z-1) */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  zIndex: 1,
+                  background:
+                    "linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.95) 100%)",
+                }}
+              />
+
+              {/* TOP RIGHT price (absolute top-10 right-10 z-10) */}
+              <div
+                className="absolute z-10 font-mono"
+                style={{
+                  top: "10px",
+                  right: "10px",
+                  backgroundColor: "#FFFFFF",
+                  color: "#000000",
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  padding: "4px 10px",
+                  borderRadius: "2px",
+                  border: "1px solid #000000",
+                  lineHeight: 1,
+                }}
+              >
+                {event.price}
+              </div>
+
+              {/* BOTTOM (absolute bottom-0 z-10, p-4) */}
+              <div className="absolute bottom-0 left-0 right-0 z-10 p-4 flex flex-col items-start text-left pointer-events-none">
+                {/* Category */}
+                <span
+                  className="font-mono text-white inline-block mb-2 uppercase"
+                  style={{
+                    backgroundColor: "#8B5CF6",
+                    fontSize: "9px",
+                    fontWeight: 700,
+                    padding: "2px 8px",
+                    borderRadius: "2px",
+                    letterSpacing: "0.05em",
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {event.category}
+                </span>
+
+                {/* Title */}
+                <h3
+                  className="font-sans text-white m-0 line-clamp-1 leading-snug"
+                  style={{
+                    fontWeight: 700,
+                    fontSize: "15px",
+                    letterSpacing: "-0.01em",
+                  }}
+                >
+                  {event.title}
+                </h3>
+
+                {/* Venue */}
+                <p
+                  className="font-mono m-0 mt-1 line-clamp-1"
+                  style={{
+                    fontSize: "10px",
+                    color: "rgba(255, 255, 255, 0.6)",
+                  }}
+                >
+                  {event.venue}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
       </div>

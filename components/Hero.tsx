@@ -3,103 +3,262 @@
 import Link from "next/link";
 
 export default function Hero() {
+  const topTextSingle = "VIBEUP · FIND YOUR CROWD · BANGALORE · NIGHTLIFE · DISCOVER · ";
+  const topTextRepeated = topTextSingle.repeat(20);
+
+  const middleRow1Single = "FIND YOUR CROWD · EVENTS · CLUBS · CREWS · ";
+  const middleRow1Repeated = middleRow1Single.repeat(16);
+
+  const middleRow2Single = "▲ △ ▽ ▼ · · · ━━ ┅ ▲ △ ▽ · · · ";
+  const middleRow2Repeated = middleRow2Single.repeat(20);
+
+  const bottomTextSingle = "BANGALORE NIGHTLIFE · @VIBEUP.BANGALORE · APP COMING SOON · ";
+  const bottomTextRepeated = bottomTextSingle.repeat(20);
+
   return (
-    <section className="relative w-full h-screen min-h-[640px] bg-[#000000] overflow-hidden flex items-center">
+    <section className="relative w-full h-screen min-h-[640px] bg-[#000000] overflow-hidden select-none">
       {/* ================================================== */}
-      {/* BACKGROUND LAYER: Giant Decorative Text */}
+      {/* LAYER 1: Background photo (z-index: 0)            */}
       {/* ================================================== */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none flex flex-col justify-center items-end leading-[0.82] text-right font-sans pr-2 sm:pr-4 md:pr-8"
-        style={{
-          fontWeight: 900,
-          fontSize: "clamp(100px, 18vw, 260px)",
-          color: "rgba(255, 255, 255, 0.02)",
-          letterSpacing: "-0.04em",
-        }}
-      >
-        <span>FIND</span>
-        <span>YOUR</span>
-        <span>CROWD</span>
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <img
+          src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=1600"
+          alt="Bangalore nightlife rave crowd and concert stage"
+          className="w-full h-full object-cover"
+          style={{
+            filter: "grayscale(100%) contrast(1.1) brightness(0.85)",
+          }}
+          loading="eager"
+          decoding="async"
+        />
       </div>
 
       {/* ================================================== */}
-      {/* CONTENT LAYER: Left Column Content */}
+      {/* LAYER 2: Top ticker band (z-index: 10, top: 28%)   */}
       {/* ================================================== */}
-      <div className="relative z-10 w-full h-full flex flex-col justify-center px-6 lg:px-0 lg:pl-[8vw]">
-        <div className="w-full max-w-[560px] lg:max-w-[620px] flex flex-col items-start text-left">
-          {/* 1. Section label row */}
-          <div className="flex items-center gap-2 mb-4">
-            <span
-              className="w-2 h-2 rounded-full bg-[#7C3AED] shrink-0"
-              aria-hidden="true"
-            />
-            <span
-              className="font-mono text-[11px] text-[#7C3AED] uppercase font-medium"
-              style={{ letterSpacing: "0.15em" }}
-            >
-              BANGALORE NIGHTLIFE
-            </span>
-          </div>
-
-          {/* 2. Headline */}
-          <h1
-            className="font-sans font-black text-left leading-[0.95] my-0 tracking-[-0.03em]"
+      <div
+        className="absolute left-0 w-full z-10 overflow-hidden flex items-center bg-[#8B5CF6]"
+        style={{
+          top: "28%",
+          height: "52px",
+        }}
+      >
+        <div className="marquee-left w-max">
+          <div
+            className="font-sans whitespace-nowrap text-[#000000] px-4"
             style={{
-              fontWeight: 900,
-              fontSize: "clamp(56px, 8vw, 96px)",
-              letterSpacing: "-0.03em",
+              fontWeight: 700,
+              fontSize: "18px",
+              letterSpacing: "0.05em",
             }}
           >
-            <span className="block text-white">FIND YOUR</span>
-            <span className="block text-[#7C3AED]">CROWD.</span>
-          </h1>
-
-          {/* 3. Sub text */}
-          <p
-            className="font-sans text-[18px] text-[#666666] max-w-[400px] leading-relaxed mt-5 mb-0"
-            style={{ fontWeight: 400 }}
+            {topTextRepeated}
+          </div>
+          <div
+            className="font-sans whitespace-nowrap text-[#000000] px-4"
+            style={{
+              fontWeight: 700,
+              fontSize: "18px",
+              letterSpacing: "0.05em",
+            }}
+            aria-hidden="true"
           >
-            Discover events. Meet people. Build your crew.
-          </p>
-
-          {/* 4. Two buttons */}
-          <div className="flex flex-row flex-wrap items-center gap-3 mt-12">
-            <Link
-              href="/discover"
-              className="inline-flex items-center justify-center bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-sans text-[15px] transition-colors duration-200"
-              style={{
-                padding: "14px 32px",
-                borderRadius: "4px",
-                fontWeight: 600,
-              }}
-            >
-              Discover events
-            </Link>
-
-            <a
-              href="#how-it-works"
-              className="inline-flex items-center justify-center bg-transparent border border-[#1A1A1A] hover:border-[#7C3AED] text-[#666666] hover:text-white font-sans text-[15px] transition-colors duration-200"
-              style={{
-                padding: "14px 32px",
-                borderRadius: "4px",
-                fontWeight: 600,
-              }}
-            >
-              How it works →
-            </a>
+            {topTextRepeated}
           </div>
         </div>
       </div>
 
       {/* ================================================== */}
-      {/* 5. Bottom Scroll Indicator */}
+      {/* LAYER 3: Middle ticker band (z-index: 10, top: 38%)*/}
       {/* ================================================== */}
       <div
-        className="absolute bottom-10 left-6 lg:left-[8vw] z-10 pointer-events-none select-none font-mono text-[10px] text-[#444444]"
-        style={{ letterSpacing: "0.15em" }}
+        className="absolute left-0 w-full z-10 overflow-hidden flex flex-col justify-center bg-[#7C3AED]"
+        style={{
+          top: "38%",
+          height: "80px",
+        }}
       >
-        ↓ SCROLL
+        {/* Row 1 — scrolling RIGHT */}
+        <div className="overflow-hidden flex items-center">
+          <div className="marquee-right w-max">
+            <div
+              className="font-sans whitespace-nowrap text-[#FFFFFF] px-4 leading-none"
+              style={{
+                fontWeight: 900,
+                fontSize: "32px",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              {middleRow1Repeated}
+            </div>
+            <div
+              className="font-sans whitespace-nowrap text-[#FFFFFF] px-4 leading-none"
+              style={{
+                fontWeight: 900,
+                fontSize: "32px",
+                letterSpacing: "-0.02em",
+              }}
+              aria-hidden="true"
+            >
+              {middleRow1Repeated}
+            </div>
+          </div>
+        </div>
+
+        {/* Row 2 — small graphic elements row scrolling LEFT */}
+        <div className="overflow-hidden flex items-center mt-1">
+          <div className="marquee-left w-max">
+            <div
+              className="font-mono whitespace-nowrap px-4 leading-none"
+              style={{
+                fontSize: "12px",
+                color: "rgba(255, 255, 255, 0.4)",
+              }}
+            >
+              {middleRow2Repeated}
+            </div>
+            <div
+              className="font-mono whitespace-nowrap px-4 leading-none"
+              style={{
+                fontSize: "12px",
+                color: "rgba(255, 255, 255, 0.4)",
+              }}
+              aria-hidden="true"
+            >
+              {middleRow2Repeated}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ================================================== */}
+      {/* LAYER 4: Bottom ticker band (z-index: 10, top: 53%)*/}
+      {/* ================================================== */}
+      <div
+        className="absolute left-0 w-full z-10 overflow-hidden flex items-center bg-[#8B5CF6]"
+        style={{
+          top: "53%",
+          height: "52px",
+        }}
+      >
+        <div className="marquee-right w-max">
+          <div
+            className="font-sans whitespace-nowrap text-[#000000] px-4"
+            style={{
+              fontWeight: 700,
+              fontSize: "18px",
+              letterSpacing: "0.05em",
+            }}
+          >
+            {bottomTextRepeated}
+          </div>
+          <div
+            className="font-sans whitespace-nowrap text-[#000000] px-4"
+            style={{
+              fontWeight: 700,
+              fontSize: "18px",
+              letterSpacing: "0.05em",
+            }}
+            aria-hidden="true"
+          >
+            {bottomTextRepeated}
+          </div>
+        </div>
+      </div>
+
+      {/* ================================================== */}
+      {/* LAYER 5: Content overlay (z-index: 20)             */}
+      {/* ================================================== */}
+      <div
+        className="absolute z-20"
+        style={{
+          bottom: 0,
+          left: 0,
+          padding: "48px",
+        }}
+      >
+        {/* Small label */}
+        <div
+          className="font-mono text-[#8B5CF6] mb-3 select-none"
+          style={{
+            fontSize: "10px",
+            letterSpacing: "0.15em",
+          }}
+        >
+          ↓ SCROLL TO DISCOVER
+        </div>
+
+        {/* Two buttons side by side */}
+        <div className="flex flex-row items-center gap-3">
+          <Link
+            href="/discover"
+            className="inline-flex items-center justify-center text-[#000000] bg-[#8B5CF6] hover:bg-[#9d74f7] active:scale-[0.98] transition-all duration-150 font-sans"
+            style={{
+              fontWeight: 800,
+              fontSize: "14px",
+              padding: "12px 28px",
+              borderRadius: "2px",
+            }}
+          >
+            Discover Events
+          </Link>
+
+          <Link
+            href="/signup"
+            className="inline-flex items-center justify-center text-[#000000] bg-[#FFFFFF] hover:bg-[#F3F4F6] active:scale-[0.98] transition-all duration-150 font-sans"
+            style={{
+              fontWeight: 800,
+              fontSize: "14px",
+              padding: "12px 28px",
+              borderRadius: "2px",
+            }}
+          >
+            Join VibeUp
+          </Link>
+        </div>
+      </div>
+
+      {/* ================================================== */}
+      {/* LAYER 6: Top left logo area & Top right info (z-30)*/}
+      {/* ================================================== */}
+      {/* Top left logo */}
+      <div
+        className="absolute z-30 select-none pointer-events-none"
+        style={{
+          top: "80px",
+          left: "48px",
+        }}
+      >
+        <span
+          className="font-sans text-[#FFFFFF]"
+          style={{
+            fontWeight: 900,
+            fontSize: "14px",
+            letterSpacing: "0.1em",
+          }}
+        >
+          VIBEUP
+        </span>
+      </div>
+
+      {/* Top right location / year */}
+      <div
+        className="absolute z-30 select-none pointer-events-none"
+        style={{
+          top: "80px",
+          right: "48px",
+        }}
+      >
+        <span
+          className="font-mono"
+          style={{
+            fontSize: "10px",
+            color: "rgba(255, 255, 255, 0.4)",
+            letterSpacing: "0.1em",
+          }}
+        >
+          BANGALORE, IN · 2026
+        </span>
       </div>
     </section>
   );

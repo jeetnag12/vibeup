@@ -43,3 +43,75 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 0; }
+
+/* Marquee Animations */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-left {
+  animation: marquee-left 20s linear infinite;
+  display: flex;
+  white-space: nowrap;
+}
+
+.marquee-right {
+  animation: marquee-right 25s linear infinite;
+  display: flex;
+  white-space: nowrap;
+}
+
+.marquee-left:hover,
+.marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* Decorative Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dot-pulse {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes float-subtle {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+.anim-spin-8s {
+  animation: spin-slow 8s linear infinite;
+}
+
+.anim-dot-pulse {
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+.anim-float {
+  animation: float-subtle 3s ease-in-out infinite alternate;
+}
+
+
