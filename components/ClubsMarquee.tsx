@@ -177,16 +177,26 @@ export default function ClubsMarquee() {
                 transition: "all 400ms ease",
               }}
               onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-6px)";
                 e.currentTarget.style.borderColor = "#8B5CF6";
                 e.currentTarget.style.boxShadow =
-                  "-2px 0 20px rgba(139, 92, 246, 0.2), 2px 0 20px rgba(236, 72, 153, 0.15)";
+                  "-3px 0 20px rgba(139, 92, 246, 0.3), 3px 0 20px rgba(236, 72, 153, 0.2)";
+                const img = e.currentTarget.querySelector("img");
+                if (img) {
+                  img.style.filter = "grayscale(0%) brightness(1)";
+                }
               }}
               onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0px)";
                 e.currentTarget.style.borderColor = "#1A1A1A";
                 e.currentTarget.style.boxShadow = "none";
+                const img = e.currentTarget.querySelector("img");
+                if (img) {
+                  img.style.filter = "grayscale(80%) brightness(0.7)";
+                }
               }}
             >
-              {/* Image: full bleed, object-fit cover, grayscale(20%) default, grayscale(0%) hover */}
+              {/* Image: full bleed, object-fit cover, grayscale(80%) brightness(0.7) default, grayscale(0%) brightness(1) hover */}
               <Image
                 src={club.image}
                 alt={club.name}
@@ -194,8 +204,8 @@ export default function ClubsMarquee() {
                 className="z-0 transition-all duration-400 group-hover:scale-105 pointer-events-none"
                 style={{
                   objectFit: "cover",
-                  filter: "grayscale(20%)",
-                  transition: "filter 400ms ease, transform 400ms ease",
+                  filter: "grayscale(80%) brightness(0.7)",
+                  transition: "all 400ms ease",
                 }}
               />
 
