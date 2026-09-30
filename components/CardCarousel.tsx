@@ -172,7 +172,7 @@ export default function CardCarousel({
 
   return (
     <section
-      className={`relative w-full h-[420px] md:h-[580px] bg-[#000000] overflow-hidden select-none flex items-center justify-center ${className}`}
+      className={`relative w-full h-[450px] md:h-[600px] bg-[#000000] overflow-hidden select-none flex items-center justify-center ${className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleMouseDown}
@@ -187,12 +187,12 @@ export default function CardCarousel({
         style={{
           top: "50%",
           left: "50%",
-          width: "400px",
-          height: "400px",
+          width: "500px",
+          height: "500px",
           borderRadius: "50%",
           transform: "translate(-50%, -50%)",
           background:
-            "radial-gradient(circle, rgba(139,92,246,0.25) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(139,92,246,0.35) 0%, transparent 65%)",
           transition: "all 500ms ease",
         }}
       />
@@ -216,19 +216,19 @@ export default function CardCarousel({
 
           // Determine 3D card layout & styles based on diff
           let zIndex = 1;
-          let opacity = 0.25;
-          let filter = "brightness(0.3) blur(2px)";
+          let opacity = 0.2;
+          let filter = "brightness(0.25) blur(3px)";
           let transformDesktop = "";
           let transformMobile = "";
           let border = "1px solid rgba(139,92,246,0.1)";
           let boxShadow = "none";
-          let widthClass = "w-[160px]";
-          let heightClass = "h-[240px]";
+          let widthClass = "w-[180px]";
+          let heightClass = "h-[270px]";
 
           if (diff === 0) {
-            // Active card (center)
-            widthClass = "w-[200px] md:w-[280px]";
-            heightClass = "h-[300px] md:h-[420px]";
+            // Active card (center, much bigger)
+            widthClass = "w-[220px] md:w-[320px]";
+            heightClass = "h-[330px] md:h-[480px]";
             zIndex = 10;
             opacity = 1;
             filter = "brightness(1) blur(0px)";
@@ -236,34 +236,34 @@ export default function CardCarousel({
             boxShadow =
               "0 0 60px rgba(139,92,246,0.4), 0 0 120px rgba(139,92,246,0.15)";
             transformDesktop =
-              "translate3d(-50%, -50%, 0) scale(1) translateY(0) rotateY(0deg)";
+              "translate3d(-50%, -50%, 0) scale(1.0) translateY(0) rotateY(0deg)";
             transformMobile =
-              "translate3d(-50%, -50%, 0) scale(1) translateY(0) rotateY(0deg)";
+              "translate3d(-50%, -50%, 0) scale(1.0) translateY(0) rotateY(0deg)";
           } else if (Math.abs(diff) === 1) {
             // Adjacent cards (±1)
-            widthClass = "w-[160px] md:w-[220px]";
-            heightClass = "h-[240px] md:h-[340px]";
+            widthClass = "w-[170px] md:w-[240px]";
+            heightClass = "h-[255px] md:h-[360px]";
             zIndex = 5;
-            opacity = 0.6;
-            filter = "brightness(0.5) blur(1px)";
+            opacity = 0.5;
+            filter = "brightness(0.4) blur(1.5px)";
             border = "1px solid rgba(139,92,246,0.2)";
-            const rotateY = diff === -1 ? 8 : -8; // Left: +8deg, Right: -8deg
-            const xOffsetDesktop = diff * 250;
-            const xOffsetMobile = diff * 150;
-            transformDesktop = `translate3d(calc(-50% + ${xOffsetDesktop}px), -50%, 0) scale(0.85) translateY(20px) rotateY(${rotateY}deg)`;
-            transformMobile = `translate3d(calc(-50% + ${xOffsetMobile}px), -50%, 0) scale(0.85) translateY(14px) rotateY(${rotateY}deg)`;
+            const rotateY = diff === 1 ? 10 : -10; // Right: +10deg, Left: -10deg
+            const xOffsetDesktop = diff * 290;
+            const xOffsetMobile = diff * 170;
+            transformDesktop = `translate3d(calc(-50% + ${xOffsetDesktop}px), -50%, 0) scale(0.82) translateY(24px) rotateY(${rotateY}deg)`;
+            transformMobile = `translate3d(calc(-50% + ${xOffsetMobile}px), -50%, 0) scale(0.82) translateY(18px) rotateY(${rotateY}deg)`;
           } else if (Math.abs(diff) === 2) {
             // Far cards (±2)
-            widthClass = "w-[130px] md:w-[160px]";
-            heightClass = "h-[195px] md:h-[240px]";
+            widthClass = "w-[130px] md:w-[180px]";
+            heightClass = "h-[195px] md:h-[270px]";
             zIndex = 1;
-            opacity = 0.25;
-            filter = "brightness(0.3) blur(2px)";
-            const rotateY = diff === -2 ? 15 : -15;
-            const xOffsetDesktop = diff * 220;
-            const xOffsetMobile = diff * 135;
-            transformDesktop = `translate3d(calc(-50% + ${xOffsetDesktop}px), -50%, 0) scale(0.7) translateY(40px) rotateY(${rotateY}deg)`;
-            transformMobile = `translate3d(calc(-50% + ${xOffsetMobile}px), -50%, 0) scale(0.7) translateY(24px) rotateY(${rotateY}deg)`;
+            opacity = 0.2;
+            filter = "brightness(0.25) blur(3px)";
+            const rotateY = diff === 2 ? 16 : -16;
+            const xOffsetDesktop = diff * 260;
+            const xOffsetMobile = diff * 150;
+            transformDesktop = `translate3d(calc(-50% + ${xOffsetDesktop}px), -50%, 0) scale(0.65) translateY(48px) rotateY(${rotateY}deg)`;
+            transformMobile = `translate3d(calc(-50% + ${xOffsetMobile}px), -50%, 0) scale(0.65) translateY(32px) rotateY(${rotateY}deg)`;
           }
 
           return (
