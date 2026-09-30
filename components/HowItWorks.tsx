@@ -1,126 +1,62 @@
 "use client";
 
-import { Search, Users, Zap, Star, ChevronRight } from "lucide-react";
-
-const steps = [
-  {
-    num: "01",
-    icon: Search,
-    title: "Discover",
-    description:
-      "Find events by genre, area, vibe, and price. No more missing out.",
-  },
-  {
-    num: "02",
-    icon: Users,
-    title: "Find Your Crowd",
-    description:
-      "See who's going. Match with people who share your taste.",
-  },
-  {
-    num: "03",
-    icon: Zap,
-    title: "Build Your Crew",
-    description:
-      "Create or join a crew. Plan together before the night begins.",
-  },
-  {
-    num: "04",
-    icon: Star,
-    title: "Build Your Vibe Score",
-    description:
-      "Rate, review, and earn your nightlife reputation after every event.",
-  },
-];
-
 export default function HowItWorks() {
   return (
-    <section className="w-full py-[120px] bg-[#000000] text-center">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="flex flex-col items-center mb-12 sm:mb-16">
-          <p
-            className="font-mono text-[#8B5CF6] uppercase mb-2 font-medium"
-            style={{
-              fontSize: "11px",
-              letterSpacing: "0.1em",
-            }}
-          >
-            THE VIBEUP WAY
-          </p>
+    <section
+      className="relative w-full bg-[#000000] text-left select-none overflow-hidden"
+      style={{
+        padding: "140px 8vw",
+      }}
+    >
+      <div className="flex flex-col items-start text-left">
+        <span
+          className="font-sans block leading-[0.9]"
+          style={{
+            fontWeight: 900,
+            fontSize: "clamp(64px, 10vw, 140px)",
+            letterSpacing: "-0.04em",
+            color: "rgba(255, 255, 255, 0.06)",
+          }}
+        >
+          DISCOVER.
+        </span>
+        <span
+          className="font-sans block leading-[0.9]"
+          style={{
+            fontWeight: 900,
+            fontSize: "clamp(64px, 10vw, 140px)",
+            letterSpacing: "-0.04em",
+            color: "rgba(255, 255, 255, 0.06)",
+          }}
+        >
+          CONNECT.
+        </span>
+        <span
+          className="font-sans block leading-[0.9]"
+          style={{
+            fontWeight: 900,
+            fontSize: "clamp(64px, 10vw, 140px)",
+            letterSpacing: "-0.04em",
+            color: "#8B5CF6",
+          }}
+        >
+          VIBE.
+        </span>
 
-          <h2
-            className="font-sans font-extrabold tracking-[-0.03em] text-white text-[32px] sm:text-[36px] tracking-tight leading-tight mb-3"
-            style={{ fontWeight: 800, letterSpacing: "-0.03em" }}
-          >
-            From discovery to memory
-          </h2>
-
-          <p
-            className="text-[#666666] text-[16px] max-w-[500px] mx-auto font-sans leading-relaxed font-normal"
-            style={{ fontWeight: 400 }}
-          >
-            Every night out starts with discovery and ends with a story worth sharing.
-          </p>
-        </div>
-
-        {/* Steps Grid: 4 columns desktop, 2x2 tablet, 1 column mobile */}
-        <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
-          {steps.map((step, index) => {
-            const Icon = step.icon;
-            const isLast = index === steps.length - 1;
-
-            return (
-              <div key={step.num} className="relative flex flex-col items-center text-center">
-                {/* Step Card Content */}
-                <div className="w-full h-full flex flex-col items-center p-6 rounded-[12px] bg-[#111111]/60 border border-[#1A1A1A] hover:border-[#8B5CF6]/50 transition-all duration-200 group">
-                  {/* Large Number */}
-                  <span
-                    className="font-mono font-bold leading-none mb-3 transition-colors duration-200 group-hover:text-[rgba(139,92,246,0.35)]"
-                    style={{
-                      fontSize: "48px",
-                      fontWeight: 700,
-                      color: "rgba(139, 92, 246, 0.2)",
-                    }}
-                  >
-                    {step.num}
-                  </span>
-
-                  {/* Icon below number */}
-                  <div className="mb-4 text-[#8B5CF6] p-2.5 rounded-xl bg-[#8B5CF6]/10 flex items-center justify-center">
-                    <Icon className="w-8 h-8" />
-                  </div>
-
-                  {/* Title */}
-                  <h3
-                    className="font-sans text-white text-[18px] mb-2 tracking-tight"
-                    style={{ fontWeight: 600 }}
-                  >
-                    {step.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p
-                    className="font-sans text-[#666666] text-[14px] leading-relaxed max-w-[240px]"
-                    style={{ fontWeight: 400 }}
-                  >
-                    {step.description}
-                  </p>
-                </div>
-
-                {/* Between each step on desktop: Arrow icon (ChevronRight) in #1A1A1A */}
-                {!isLast && (
-                  <div
-                    className="hidden lg:flex absolute top-1/2 -right-3 -translate-y-1/2 z-10 text-[#1A1A1A] pointer-events-none"
-                    aria-hidden="true"
-                  >
-                    <ChevronRight className="w-6 h-6 stroke-[2.5]" />
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+        {/* Below (margin-top 48px) */}
+        <p
+          className="font-sans m-0"
+          style={{
+            marginTop: "48px",
+            fontWeight: 400,
+            fontSize: "16px",
+            color: "#444444",
+            maxWidth: "360px",
+            lineHeight: 1.6,
+          }}
+        >
+          From discovery to crew to memories — VibeUp is the social layer Bangalore nightlife was missing.
+        </p>
       </div>
     </section>
   );
