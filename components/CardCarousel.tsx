@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export interface CarouselItem {
@@ -126,7 +127,7 @@ export default function CardCarousel({
     dragStartX.current = e.clientX;
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleMouseMove = () => {
     if (!isDragging || dragStartX.current === null) return;
   };
 
@@ -287,11 +288,12 @@ export default function CardCarousel({
               {/* CARD INNER CONTENT */}
               <div className="relative w-full h-full overflow-hidden rounded-[inherit]">
                 {/* Background Image */}
-                <img
+                <Image
                   src={item.image}
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
-                  loading="lazy"
+                  fill
+                  className="z-0 pointer-events-none"
+                  style={{ objectFit: "cover" }}
                 />
 
                 {/* Gradient overlay */}

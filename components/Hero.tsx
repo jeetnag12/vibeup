@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
@@ -21,16 +22,19 @@ export default function Hero() {
       {/* LAYER 1: Background photo (z-index: 0)            */}
       {/* ================================================== */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <img
-          src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=1600"
-          alt="Bangalore nightlife rave crowd and concert stage"
-          className="w-full h-full object-cover"
-          style={{
-            filter: "grayscale(100%) contrast(1.1) brightness(0.85)",
-          }}
-          loading="eager"
-          decoding="async"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=1600"
+            alt="Bangalore nightlife rave crowd and concert stage"
+            fill
+            priority
+            className="pointer-events-none"
+            style={{
+              objectFit: "cover",
+              filter: "grayscale(100%) contrast(1.1) brightness(0.85)",
+            }}
+          />
+        </div>
       </div>
 
       {/* ================================================== */}

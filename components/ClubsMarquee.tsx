@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 interface ClubItem {
@@ -10,7 +11,7 @@ interface ClubItem {
   image: string;
 }
 
-const marqueeClubs = [
+const marqueeClubs: ClubItem[] = [
   {
     id: "playboy-club",
     name: "Playboy Club",
@@ -186,21 +187,16 @@ export default function ClubsMarquee() {
               }}
             >
               {/* Image: full bleed, object-fit cover, grayscale(20%) default, grayscale(0%) hover */}
-              <img
+              <Image
                 src={club.image}
                 alt={club.name}
-                className="absolute inset-0 w-full h-full object-cover z-0 transition-all duration-400 group-hover:scale-105 pointer-events-none"
+                fill
+                className="z-0 transition-all duration-400 group-hover:scale-105 pointer-events-none"
                 style={{
+                  objectFit: "cover",
                   filter: "grayscale(20%)",
                   transition: "filter 400ms ease, transform 400ms ease",
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.filter = "grayscale(0%)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.filter = "grayscale(20%)";
-                }}
-                loading="lazy"
               />
 
               {/* Overlay: gradient bottom dark */}

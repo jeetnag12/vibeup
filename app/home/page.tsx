@@ -10,7 +10,6 @@ import TrendingSection from "@/components/TrendingSection";
 import ClubsMarquee from "@/components/ClubsMarquee";
 import {
   StarShape,
-  ArrowDown,
   DotGrid,
   CrossHair,
   TriangleSet,
@@ -255,94 +254,7 @@ const personalizedEvents: HomeEvent[] = [
   },
 ];
 
-// 3. TRENDING THIS WEEKEND (4 Events)
-const trendingEvents: HomeEvent[] = [
-  {
-    id: "desi-nights-club-edition",
-    image:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop",
-    category: "BOLLYWOOD",
-    title: "Desi Nights — Saturday Edition",
-    date: "Sat, 24 Oct",
-    time: "9:00 PM",
-    venue: "Loft 38",
-    area: "Indiranagar",
-    price: "₹599",
-    goingCount: 412,
-    avatars: [
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=120&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "saturday-house-session",
-    image:
-      "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop",
-    category: "HOUSE",
-    title: "Saturday House Session",
-    date: "Sat, 24 Oct",
-    time: "10:00 PM",
-    venue: "Toit Brewpub",
-    area: "Indiranagar",
-    price: "₹499",
-    goingCount: 340,
-    avatars: [
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=120&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "after-dark-residents-night",
-    image:
-      "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=800&auto=format&fit=crop",
-    category: "LIVE MUSIC",
-    title: "Subterranean Sessions Live",
-    date: "Sun, 25 Oct",
-    time: "7:30 PM",
-    venue: "The Gypsy Warehouse",
-    area: "MG Road",
-    price: "₹899",
-    goingCount: 290,
-    avatars: [
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=120&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "cyberpunk-neon-warehouse",
-    image:
-      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop",
-    category: "TECHNO",
-    title: "Underground Vault Rave",
-    date: "Sun, 25 Oct",
-    time: "9:00 PM",
-    venue: "Basement Vault",
-    area: "CBD",
-    price: "₹999",
-    goingCount: 460,
-    avatars: [
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=120&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=120&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: "deep-house-odyssey-vol-4",
-    image:
-      "https://images.unsplash.com/photo-1545128485-c400e7702796?q=80&w=800&auto=format&fit=crop",
-    category: "TECHNO",
-    title: "Midnight Frequency Vol. 4",
-    date: "Sun, 25 Oct",
-    time: "10:00 PM",
-    venue: "The Sound Garden",
-    area: "HSR Layout",
-    price: "₹799",
-    goingCount: 310,
-    avatars: [
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=120&auto=format&fit=crop",
-    ],
-  },
-];
+
 
 const DISCOVERY_FILTERS = [
   "TONIGHT",

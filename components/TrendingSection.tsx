@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -135,12 +136,13 @@ export default function TrendingSection() {
                 e.currentTarget.style.boxShadow = "none";
               }}
             >
-              {/* Image: full card, object-fit cover, absolute inset-0 z-0 */}
-              <img
+              {/* Image: full card, object-fit cover */}
+              <Image
                 src={event.image}
                 alt={event.title}
-                className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-300 group-hover:scale-105 pointer-events-none"
-                loading="lazy"
+                fill
+                className="z-0 transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+                style={{ objectFit: "cover" }}
               />
 
               {/* Gradient Overlay (z-1) */}
