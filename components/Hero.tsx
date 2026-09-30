@@ -19,23 +19,20 @@ export default function Hero() {
   return (
     <section className="relative w-full h-screen min-h-[640px] bg-[#000000] overflow-hidden select-none">
       {/* ================================================== */}
-      {/* LAYER 1: Background photo (z-index: 0)            */}
+      {/* LAYER 1: Full-bleed Background Photo (First Child) */}
       {/* ================================================== */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="relative w-full h-full">
-          <Image
-            src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=1600"
-            alt="Bangalore nightlife rave crowd and concert stage"
-            fill
-            priority
-            className="pointer-events-none"
-            style={{
-              objectFit: "cover",
-              filter: "grayscale(100%) contrast(1.1) brightness(0.85)",
-            }}
-          />
-        </div>
-      </div>
+      <Image
+        src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=1600&q=80"
+        alt="Bangalore nightlife"
+        fill
+        priority
+        style={{
+          objectFit: "cover",
+          objectPosition: "center",
+          filter: "grayscale(100%) contrast(1.15) brightness(0.7)",
+          zIndex: 0,
+        }}
+      />
 
       {/* ================================================== */}
       {/* LAYER 2: Top ticker band (z-index: 10, top: 28%)   */}
@@ -45,6 +42,7 @@ export default function Hero() {
         style={{
           top: "28%",
           height: "52px",
+          zIndex: 10,
         }}
       >
         <div className="marquee-left w-max">
@@ -80,6 +78,7 @@ export default function Hero() {
         style={{
           top: "38%",
           height: "80px",
+          zIndex: 10,
         }}
       >
         {/* Row 1 — scrolling RIGHT */}
@@ -143,6 +142,7 @@ export default function Hero() {
         style={{
           top: "53%",
           height: "52px",
+          zIndex: 10,
         }}
       >
         <div className="marquee-right w-max">
@@ -179,6 +179,7 @@ export default function Hero() {
           bottom: 0,
           left: 0,
           padding: "48px",
+          zIndex: 20,
         }}
       >
         {/* Small label */}
@@ -231,6 +232,7 @@ export default function Hero() {
         style={{
           top: "80px",
           left: "48px",
+          zIndex: 30,
         }}
       >
         <span
@@ -251,6 +253,7 @@ export default function Hero() {
         style={{
           top: "80px",
           right: "48px",
+          zIndex: 30,
         }}
       >
         <span
