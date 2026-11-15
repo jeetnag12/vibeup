@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Search, Menu, X } from "@/components/icons";
+import SearchOverlay from "@/components/SearchOverlay";
 
 const navLinks = [
   { label: "Events", href: "/discover" },
@@ -28,9 +29,26 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  const [searchOpen, setSearchOpen] = useState(false);
+
   useEffect(() => {
     setMobileMenuOpen(false);
+    setSearchOpen(false);
   }, [pathname]);
+
+  // "/" or Ctrl/Cmd+K opens search from anywhere (not while typing in a field).
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const el = e.target as HTMLElement | null;
+      const typing = !!el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA" || el.isContentEditable);
+      if ((e.key === "k" && (e.ctrlKey || e.metaKey)) || (e.key === "/" && !typing)) {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   const isActive = (href: string) =>
     pathname === href || (href !== "/" && pathname?.startsWith(href + "/"));
@@ -57,13 +75,15 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3 ml-auto md:ml-0">
-          <Link
-            href="/discover"
-            aria-label="Search events"
+          <button
+            type="button"
+            onClick={() => setSearchOpen(true)}
+            aria-label="Search events, clubs, crews and people"
+            aria-haspopup="dialog"
             className="w-9 h-9 rounded-full grid place-items-center text-muted hover:text-white hover:bg-tile transition-colors"
           >
             <Search className="w-[18px] h-[18px]" />
-          </Link>
+          </button>
 
           <Link
             href="/login"
@@ -118,6 +138,8 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
+      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   );
 }

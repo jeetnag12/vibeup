@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -325,6 +325,12 @@ export default function DiscoverPage() {
   const [selectedDate, setSelectedDate] = useState("all");
   const [sortBy, setSortBy] = useState("popular");
   const [events, setEvents] = useState<DiscoverEvent[]>(allEventsData);
+
+  // Pick up a search typed in the navbar search (/discover?q=techno).
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("q");
+    if (q) setSearchQuery(q);
+  }, []);
 
   const handleSaveToggle = (id: string, isSaved: boolean) => {
     setEvents((prev) =>
