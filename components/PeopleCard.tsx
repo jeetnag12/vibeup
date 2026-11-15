@@ -9,7 +9,7 @@ import {
   Sparkles,
   Users,
   Compass,
-} from "lucide-react";
+} from "@/components/icons";
 import { Person } from "@/lib/people-data";
 
 export interface PeopleCardProps {
@@ -52,7 +52,7 @@ export default function PeopleCard({
   return (
     <article
       aria-label={`${person.name} profile card`}
-      className={`group relative bg-[#111111] rounded-[12px] border border-[#1A1A1A] hover:border-[#8B5CF6] hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] transition-all duration-200 flex flex-col justify-between h-full ${
+      className={`group relative bg-[#15151C] rounded-[12px] border border-[#25252F] hover:border-[#FFE14D] hover:shadow-[0_0_24px_rgba(255,225,77,0.18)] transition-all duration-200 flex flex-col justify-between h-full ${
         variant === "compact" ? "p-3 sm:p-4" : "p-4 sm:p-5"
       }`}
     >
@@ -68,30 +68,30 @@ export default function PeopleCard({
             <img
               src={person.avatar}
               alt={person.name}
-              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-[#1A1A1A] group-hover:border-[#8B5CF6]/60 transition-colors"
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-[#25252F] group-hover:border-[#FFE14D]/60 transition-colors"
             />
             {/* Status dot */}
             <span
               title={person.activeStatus}
-              className={`absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full border-2 border-[#111111] ${
+              className={`absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full border-2 border-[#15151C] ${
                 isGoingOutTonight
-                  ? "bg-[#EC4899] ring-2 ring-[#EC4899]/30"
+                  ? "bg-[#FF4FA3] ring-2 ring-[#FF4FA3]/30"
                   : isOnline
                   ? "bg-[#22C55E]"
-                  : "bg-[#8B5CF6]"
+                  : "bg-[#FFE14D]"
               }`}
             />
           </Link>
 
           {/* Vibe Match Badge */}
           <div className="flex flex-col items-end">
-            <span className="font-mono text-xs font-bold text-[#8B5CF6] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
-              <Sparkles className="w-3 h-3 text-[#8B5CF6]" />
+            <span className="font-mono text-xs font-bold text-[#FFE14D] bg-[#FFE14D]/15 border border-[#FFE14D]/30 px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+              <Sparkles className="w-3 h-3 text-[#FFE14D]" />
               <span>{person.vibeMatch}% VIBE MATCH</span>
             </span>
 
-            <span className="font-mono text-[10px] text-[#666666] mt-1 flex items-center gap-1">
-              <MapPin className="w-2.5 h-2.5 text-[#EC4899]" />
+            <span className="font-mono text-[10px] text-[#8E8C9C] mt-1 flex items-center gap-1">
+              <MapPin className="w-2.5 h-2.5 text-[#FF4FA3]" />
               <span>{person.area}</span>
             </span>
           </div>
@@ -101,17 +101,17 @@ export default function PeopleCard({
         <div className="mb-2.5">
           <Link
             href={`/people/${person.id}`}
-            className="font-sans font-bold text-sm sm:text-base text-white hover:text-[#8B5CF6] transition-colors truncate block"
+            className="font-sans font-bold text-sm sm:text-base text-white hover:text-[#FFE14D] transition-colors truncate block"
           >
             {person.name}
           </Link>
-          <span className="font-mono text-xs text-[#666666] block truncate">
+          <span className="font-mono text-xs text-[#8E8C9C] block truncate">
             {person.username}
           </span>
         </div>
 
         {/* Bio snippet */}
-        <p className="text-xs text-[#666666] font-sans line-clamp-2 leading-relaxed mb-3">
+        <p className="text-xs text-[#8E8C9C] font-sans line-clamp-2 leading-relaxed mb-3">
           {person.bio}
         </p>
 
@@ -120,7 +120,7 @@ export default function PeopleCard({
           {person.genres.slice(0, 3).map((g) => (
             <span
               key={g}
-              className="font-mono text-[10px] text-[#8B5CF6] bg-[#8B5CF6]/10 border border-[#8B5CF6]/25 rounded-md px-2 py-0.5"
+              className="font-mono text-[10px] text-[#FFE14D] bg-[#FFE14D]/10 border border-[#FFE14D]/25 rounded-md px-2 py-0.5"
             >
               {g}
             </span>
@@ -128,15 +128,15 @@ export default function PeopleCard({
         </div>
 
         {/* Connections / Social Graph Context Signals */}
-        <div className="space-y-1.5 pt-2 border-t border-[#1A1A1A]/60 mb-4 text-[11px] font-mono">
+        <div className="space-y-1.5 pt-2 border-t border-[#25252F]/60 mb-4 text-[11px] font-mono">
           {/* Mutual Event Context */}
           {displayContext && (
             <div className="flex items-center gap-1.5 text-[#D4D4D8] truncate">
-              <Calendar className="w-3 h-3 text-[#8B5CF6] shrink-0" />
-              <span className="text-[#666666] shrink-0">GOING TO:</span>
+              <Calendar className="w-3 h-3 text-[#FFE14D] shrink-0" />
+              <span className="text-[#8E8C9C] shrink-0">GOING TO:</span>
               <Link
                 href={`/events/${displayContext.id}`}
-                className="text-white hover:text-[#8B5CF6] transition-colors truncate underline-offset-2 hover:underline"
+                className="text-white hover:text-[#FFE14D] transition-colors truncate underline-offset-2 hover:underline"
               >
                 {displayContext.name}
               </Link>
@@ -146,11 +146,11 @@ export default function PeopleCard({
           {/* Mutual Community Context */}
           {displayCommunity && (
             <div className="flex items-center gap-1.5 text-[#D4D4D8] truncate">
-              <Users className="w-3 h-3 text-[#EC4899] shrink-0" />
-              <span className="text-[#666666] shrink-0">COMMUNITY:</span>
+              <Users className="w-3 h-3 text-[#FF4FA3] shrink-0" />
+              <span className="text-[#8E8C9C] shrink-0">COMMUNITY:</span>
               <Link
                 href={`/communities/${displayCommunity.id}`}
-                className="text-white hover:text-[#EC4899] transition-colors truncate underline-offset-2 hover:underline"
+                className="text-white hover:text-[#FF4FA3] transition-colors truncate underline-offset-2 hover:underline"
               >
                 {displayCommunity.name}
               </Link>
@@ -161,7 +161,7 @@ export default function PeopleCard({
           {displayClub && (
             <div className="flex items-center gap-1.5 text-[#D4D4D8] truncate">
               <Compass className="w-3 h-3 text-[#22C55E] shrink-0" />
-              <span className="text-[#666666] shrink-0">REGULAR AT:</span>
+              <span className="text-[#8E8C9C] shrink-0">REGULAR AT:</span>
               <Link
                 href={`/clubs/${displayClub.id}`}
                 className="text-white hover:text-[#22C55E] transition-colors truncate underline-offset-2 hover:underline"
@@ -174,10 +174,10 @@ export default function PeopleCard({
       </div>
 
       {/* Bottom Footer: Follow Button & Profile Link */}
-      <div className="pt-2 border-t border-[#1A1A1A] flex items-center justify-between gap-3">
+      <div className="pt-2 border-t border-[#25252F] flex items-center justify-between gap-3">
         <Link
           href={`/people/${person.id}`}
-          className="text-xs font-mono text-[#666666] hover:text-white transition-colors"
+          className="text-xs font-mono text-[#8E8C9C] hover:text-white transition-colors"
         >
           VIEW PROFILE →
         </Link>
@@ -189,7 +189,7 @@ export default function PeopleCard({
           className={`px-3.5 py-1.5 rounded-[4px] text-xs font-mono font-bold transition-all flex items-center gap-1.5 ${
             isFollowing
               ? "bg-[#22C55E]/15 border border-[#22C55E]/40 text-[#22C55E] hover:bg-[#22C55E]/25"
-              : "bg-[#8B5CF6] hover:bg-[#7C3AED] text-white "
+              : "bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] "
           }`}
         >
           {isFollowing ? (

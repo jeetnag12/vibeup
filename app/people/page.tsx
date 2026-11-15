@@ -16,7 +16,7 @@ import {
   Clock,
   ArrowRight,
   RotateCcw,
-} from "lucide-react";
+} from "@/components/icons";
 import {
   mockPeopleData,
   peopleFilterCategories,
@@ -181,7 +181,7 @@ export default function PeopleDiscoveryPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#0B0B10] text-white flex flex-col justify-between selection:bg-[#FFE14D] selection:text-white relative overflow-x-hidden">
       <Navbar />
 
       <div className="w-full pt-[88px] sm:pt-[96px] pb-[80px]">
@@ -190,7 +190,7 @@ export default function PeopleDiscoveryPage() {
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[400px] pointer-events-none z-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(139,92,246,0.12) 0%, rgba(236,72,153,0.06) 45%, transparent 70%)",
+              "radial-gradient(ellipse at center, rgba(255,225,77,0.12) 0%, rgba(255,79,163,0.06) 45%, transparent 70%)",
           }}
           aria-hidden="true"
         />
@@ -200,8 +200,8 @@ export default function PeopleDiscoveryPage() {
               1. PAGE HEADER
           ================================================== */}
           <section className="text-center max-w-2xl mx-auto space-y-3 pt-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 text-xs font-mono text-[#8B5CF6]">
-              <Sparkles className="w-3.5 h-3.5 text-[#8B5CF6]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFE14D]/15 border border-[#FFE14D]/30 text-xs font-mono text-[#FFE14D]">
+              <Sparkles className="w-3.5 h-3.5 text-[#FFE14D]" />
               <span>NIGHTLIFE SOCIAL GRAPH</span>
             </div>
 
@@ -209,7 +209,7 @@ export default function PeopleDiscoveryPage() {
               FIND YOUR CROWD
             </h1>
 
-            <p className="text-sm sm:text-base text-[#666666] font-sans leading-relaxed">
+            <p className="text-sm sm:text-base text-[#8E8C9C] font-sans leading-relaxed">
               Discover people who share your music, nightlife and weekend energy.
             </p>
           </section>
@@ -220,19 +220,19 @@ export default function PeopleDiscoveryPage() {
           <section className="max-w-4xl mx-auto space-y-4">
             {/* Search Input */}
             <div className="relative w-full">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#666666]" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#8E8C9C]" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="SEARCH PEOPLE BY NAME, GENRE, AREA, CLUB OR COMMUNITY..."
-                className="w-full h-12 sm:h-14 pl-12 pr-4 rounded-[12px] bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs sm:text-sm font-mono text-white placeholder-[#666666] transition-colors shadow-lg"
+                className="w-full h-12 sm:h-14 pl-12 pr-4 rounded-[12px] bg-[#15151C] border border-[#25252F] focus:border-[#FFE14D] focus:outline-none text-xs sm:text-sm font-mono text-white placeholder-[#8E8C9C] transition-colors shadow-lg"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 font-mono text-xs text-[#666666] hover:text-white"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 font-mono text-xs text-[#8E8C9C] hover:text-white"
                 >
                   CLEAR
                 </button>
@@ -250,8 +250,8 @@ export default function PeopleDiscoveryPage() {
                     onClick={() => setActiveFilter(category)}
                     className={`px-4 py-2 rounded-xl text-xs font-mono font-medium whitespace-nowrap transition-all duration-200 border ${
                       isActive
-                        ? "bg-[#8B5CF6] text-white border-[#8B5CF6] shadow-[0_0_16px_rgba(139,92,246,0.3)]"
-                        : "bg-[#111111] hover:bg-[#111111] text-[#666666] hover:text-white border-[#1A1A1A]"
+                        ? "bg-[#FFE14D] text-[#0B0B10] border-[#FFE14D] shadow-[0_0_16px_rgba(255,225,77,0.3)]"
+                        : "bg-[#15151C] hover:bg-[#15151C] text-[#8E8C9C] hover:text-white border-[#25252F]"
                     }`}
                   >
                     {category}
@@ -266,12 +266,12 @@ export default function PeopleDiscoveryPage() {
           ================================================== */}
           {isFilteringOrSearching ? (
             <section className="space-y-6">
-              <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-4">
+              <div className="flex items-center justify-between border-b border-[#25252F] pb-4">
                 <div>
-                  <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#8B5CF6] uppercase tracking-wider">
+                  <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FFE14D] uppercase tracking-wider">
                     DISCOVERY RESULTS
                   </h2>
-                  <p className="text-xs text-[#666666] font-sans mt-0.5">
+                  <p className="text-xs text-[#8E8C9C] font-sans mt-0.5">
                     Showing {filteredPeople.length} people matching your criteria.
                   </p>
                 </div>
@@ -279,7 +279,7 @@ export default function PeopleDiscoveryPage() {
                 <button
                   type="button"
                   onClick={clearFilters}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono text-[#EC4899] hover:text-white transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono text-[#FF4FA3] hover:text-white transition-colors"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                   <span>RESET FILTERS</span>
@@ -301,22 +301,22 @@ export default function PeopleDiscoveryPage() {
                 /* ==================================================
                     10. EMPTY STATE
                 ================================================== */
-                <div className="py-16 text-center rounded-[12px] bg-[#111111] border border-[#1A1A1A] space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center mx-auto text-[#8B5CF6]">
+                <div className="py-16 text-center rounded-[12px] bg-[#15151C] border border-[#25252F] space-y-4">
+                  <div className="w-12 h-12 rounded-full bg-[#FFE14D]/15 border border-[#FFE14D]/30 flex items-center justify-center mx-auto text-[#FFE14D]">
                     <Users className="w-6 h-6" />
                   </div>
                   <div className="space-y-1">
                     <h3 className="font-sans font-bold text-lg text-white">
                       NO PEOPLE FOUND
                     </h3>
-                    <p className="text-xs text-[#666666] font-sans max-w-sm mx-auto">
+                    <p className="text-xs text-[#8E8C9C] font-sans max-w-sm mx-auto">
                       Try searching another genre, location, or reset active filters to explore more of Bangalore’s nightlife crowd.
                     </p>
                   </div>
                   <button
                     type="button"
                     onClick={clearFilters}
-                    className="px-5 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-xs font-mono font-bold text-white transition-colors"
+                    className="px-5 py-2.5 rounded-[4px] bg-[#FFE14D] hover:bg-[#F2CF2E] text-xs font-mono font-bold text-[#0B0B10] transition-colors"
                   >
                     CLEAR FILTERS
                   </button>
@@ -332,15 +332,15 @@ export default function PeopleDiscoveryPage() {
                   4. PEOPLE YOU MAY VIBE WITH (Primary Section)
               ================================================== */}
               <section aria-label="People You May Vibe With" className="space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[#1A1A1A] pb-4">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[#25252F] pb-4">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
-                      <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#8B5CF6] uppercase tracking-wider">
+                      <Sparkles className="w-4 h-4 text-[#FFE14D]" />
+                      <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FFE14D] uppercase tracking-wider">
                         PEOPLE YOU MAY VIBE WITH
                       </h2>
                     </div>
-                    <p className="text-sm text-[#666666] font-sans">
+                    <p className="text-sm text-[#8E8C9C] font-sans">
                       People with interests and nightlife energy similar to yours.
                     </p>
                   </div>
@@ -366,23 +366,23 @@ export default function PeopleDiscoveryPage() {
                   5. PEOPLE GOING TO EVENTS (Section 12)
               ================================================== */}
               <section aria-label="People Going to Events" className="space-y-6">
-                <div className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#1A1A1A] pb-4">
+                <div className="p-6 rounded-[12px] bg-[#15151C] border border-[#25252F] space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#25252F] pb-4">
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-[#EC4899]" />
-                        <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#EC4899] uppercase tracking-wider">
+                        <Calendar className="w-4 h-4 text-[#FF4FA3]" />
+                        <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FF4FA3] uppercase tracking-wider">
                           PEOPLE GOING TO EVENTS
                         </h2>
                       </div>
                       <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base font-bold text-white font-sans">
                         <Link
                           href={`/events/${eventContextData.event.id}`}
-                          className="hover:text-[#8B5CF6] transition-colors underline-offset-4 hover:underline"
+                          className="hover:text-[#FFE14D] transition-colors underline-offset-4 hover:underline"
                         >
                           {eventContextData.event.name}
                         </Link>
-                        <span className="text-[#666666] text-xs font-mono font-normal">
+                        <span className="text-[#8E8C9C] text-xs font-mono font-normal">
                           · {eventContextData.event.date}
                         </span>
                       </div>
@@ -394,7 +394,7 @@ export default function PeopleDiscoveryPage() {
                       </span>
                       <Link
                         href={`/events/${eventContextData.event.id}`}
-                        className="font-mono text-xs text-[#666666] hover:text-white transition-colors flex items-center gap-1"
+                        className="font-mono text-xs text-[#8E8C9C] hover:text-white transition-colors flex items-center gap-1"
                       >
                         <span>EVENT</span>
                         <ArrowRight className="w-3.5 h-3.5" />
@@ -420,7 +420,7 @@ export default function PeopleDiscoveryPage() {
                   6. POPULAR IN YOUR AREA (Section 13)
               ================================================== */}
               <section aria-label="Popular in Bangalore" className="space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#1A1A1A] pb-4">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#25252F] pb-4">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <MapPin className="w-4 h-4 text-[#22C55E]" />
@@ -428,7 +428,7 @@ export default function PeopleDiscoveryPage() {
                         POPULAR IN BANGALORE
                       </h2>
                     </div>
-                    <p className="text-sm text-[#666666] font-sans">
+                    <p className="text-sm text-[#8E8C9C] font-sans">
                       Active nightlife enthusiasts across Bangalore’s major party hubs.
                     </p>
                   </div>
@@ -443,7 +443,7 @@ export default function PeopleDiscoveryPage() {
                         className={`px-3 py-1.5 rounded-lg text-[11px] font-mono transition-colors ${
                           activeArea === area
                             ? "bg-[#22C55E]/20 text-[#22C55E] border border-[#22C55E]/50 font-bold"
-                            : "bg-[#111111] text-[#666666] hover:text-white border border-[#1A1A1A]"
+                            : "bg-[#15151C] text-[#8E8C9C] hover:text-white border border-[#25252F]"
                         }`}
                       >
                         {area}
@@ -468,15 +468,15 @@ export default function PeopleDiscoveryPage() {
                   7. SHARED INTERESTS (Section 14: People Who Like What You Like)
               ================================================== */}
               <section aria-label="Shared Interests" className="space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#1A1A1A] pb-4">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#25252F] pb-4">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <Flame className="w-4 h-4 text-[#EC4899]" />
-                      <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#EC4899] uppercase tracking-wider">
+                      <Flame className="w-4 h-4 text-[#FF4FA3]" />
+                      <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FF4FA3] uppercase tracking-wider">
                         PEOPLE WHO LIKE WHAT YOU LIKE
                       </h2>
                     </div>
-                    <p className="text-sm text-[#666666] font-sans">
+                    <p className="text-sm text-[#8E8C9C] font-sans">
                       Connect around specific music genres and sound subcultures.
                     </p>
                   </div>
@@ -490,8 +490,8 @@ export default function PeopleDiscoveryPage() {
                         onClick={() => setActiveInterestGenre(genre)}
                         className={`px-3 py-1.5 rounded-lg text-[11px] font-mono transition-colors ${
                           activeInterestGenre === genre
-                            ? "bg-[#EC4899]/20 text-[#EC4899] border border-[#EC4899]/50 font-bold"
-                            : "bg-[#111111] text-[#666666] hover:text-white border border-[#1A1A1A]"
+                            ? "bg-[#FF4FA3]/20 text-[#FF4FA3] border border-[#FF4FA3]/50 font-bold"
+                            : "bg-[#15151C] text-[#8E8C9C] hover:text-white border border-[#25252F]"
                         }`}
                       >
                         #{genre}
@@ -516,20 +516,20 @@ export default function PeopleDiscoveryPage() {
                   8. ACTIVE NIGHTLIFE PEOPLE (Section 15: Active Tonight)
               ================================================== */}
               <section aria-label="Active Tonight" className="space-y-6">
-                <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-4">
+                <div className="flex items-center justify-between border-b border-[#25252F] pb-4">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <Radio className="w-4 h-4 text-[#8B5CF6] animate-pulse" />
-                      <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#8B5CF6] uppercase tracking-wider">
+                      <Radio className="w-4 h-4 text-[#FFE14D] animate-pulse" />
+                      <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FFE14D] uppercase tracking-wider">
                         ACTIVE TONIGHT
                       </h2>
                     </div>
-                    <p className="text-sm text-[#666666] font-sans">
+                    <p className="text-sm text-[#8E8C9C] font-sans">
                       Partygoers and music lovers currently exploring events or heading out.
                     </p>
                   </div>
 
-                  <span className="font-mono text-xs text-[#8B5CF6] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 px-3 py-1 rounded-full">
+                  <span className="font-mono text-xs text-[#FFE14D] bg-[#FFE14D]/15 border border-[#FFE14D]/30 px-3 py-1 rounded-full">
                     LIVE DISCOVERY
                   </span>
                 </div>
@@ -550,7 +550,7 @@ export default function PeopleDiscoveryPage() {
                   9. FOLLOWED PEOPLE (Section 16: People You Follow)
               ================================================== */}
               <section aria-label="People You Follow" className="space-y-6">
-                <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-4">
+                <div className="flex items-center justify-between border-b border-[#25252F] pb-4">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <Users className="w-4 h-4 text-[#22C55E]" />
@@ -558,7 +558,7 @@ export default function PeopleDiscoveryPage() {
                         PEOPLE YOU FOLLOW
                       </h2>
                     </div>
-                    <p className="text-sm text-[#666666] font-sans">
+                    <p className="text-sm text-[#8E8C9C] font-sans">
                       Keep up with your crew’s weekend plans and community activity.
                     </p>
                   </div>
@@ -573,7 +573,7 @@ export default function PeopleDiscoveryPage() {
                     {followedPeople.map((person) => (
                       <div
                         key={person.id}
-                        className="p-4 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] transition-colors flex items-center justify-between gap-3"
+                        className="p-4 rounded-[12px] bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D] transition-colors flex items-center justify-between gap-3"
                       >
                         <Link
                           href={`/people/${person.id}`}
@@ -583,16 +583,16 @@ export default function PeopleDiscoveryPage() {
                           <img
                             src={person.avatar}
                             alt={person.name}
-                            className="w-11 h-11 rounded-full object-cover border border-[#1A1A1A] shrink-0"
+                            className="w-11 h-11 rounded-full object-cover border border-[#25252F] shrink-0"
                           />
                           <div className="truncate">
-                            <span className="font-sans font-bold text-xs sm:text-sm text-white group-hover:text-[#8B5CF6] transition-colors block truncate">
+                            <span className="font-sans font-bold text-xs sm:text-sm text-white group-hover:text-[#FFE14D] transition-colors block truncate">
                               {person.name}
                             </span>
-                            <span className="font-mono text-[11px] text-[#666666] block truncate">
+                            <span className="font-mono text-[11px] text-[#8E8C9C] block truncate">
                               {person.recentActivity.text}
                             </span>
-                            <span className="font-mono text-[9px] text-[#666666] flex items-center gap-1 mt-0.5">
+                            <span className="font-mono text-[9px] text-[#8E8C9C] flex items-center gap-1 mt-0.5">
                               <Clock className="w-2.5 h-2.5" />
                               <span>{person.recentActivity.time}</span>
                             </span>
@@ -610,7 +610,7 @@ export default function PeopleDiscoveryPage() {
                     ))}
                   </div>
                 ) : (
-                  <div className="p-8 text-center rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-xs font-mono text-[#666666]">
+                  <div className="p-8 text-center rounded-[12px] bg-[#15151C] border border-[#25252F] text-xs font-mono text-[#8E8C9C]">
                     You haven’t followed anyone yet. Click FOLLOW on any profile above to build your nightlife network.
                   </div>
                 )}

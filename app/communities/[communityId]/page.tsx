@@ -26,7 +26,7 @@ import {
   Clock,
   ShieldCheck,
   Eye,
-} from "lucide-react";
+} from "@/components/icons";
 import {
   getDetailedCommunityById,
   DetailedCommunity,
@@ -89,7 +89,7 @@ export default function CommunityDetailPage() {
     : community.memberCountDisplay;
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#0B0B10] text-white flex flex-col justify-between selection:bg-[#FFE14D] selection:text-white relative overflow-x-hidden">
       <Navbar />
 
       <div className="w-full pt-[88px] sm:pt-[96px] pb-[80px]">
@@ -98,7 +98,7 @@ export default function CommunityDetailPage() {
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] pointer-events-none z-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(139,92,246,0.15) 0%, rgba(236,72,153,0.07) 45%, transparent 70%)",
+              "radial-gradient(ellipse at center, rgba(255,225,77,0.15) 0%, rgba(255,79,163,0.07) 45%, transparent 70%)",
           }}
           aria-hidden="true"
         />
@@ -109,7 +109,7 @@ export default function CommunityDetailPage() {
           ================================================== */}
           <nav
             aria-label="Breadcrumb"
-            className="flex items-center justify-between gap-3 text-xs font-mono text-[#666666]"
+            className="flex items-center justify-between gap-3 text-xs font-mono text-[#8E8C9C]"
           >
             <div className="flex items-center gap-2 flex-wrap">
               <Link
@@ -136,7 +136,7 @@ export default function CommunityDetailPage() {
                 type="button"
                 onClick={handleShare}
                 aria-label="Share community link"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[4px] bg-[#111111] hover:bg-[#111111] border border-[#1A1A1A] text-xs font-mono text-[#666666] hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[4px] bg-[#15151C] hover:bg-[#15151C] border border-[#25252F] text-xs font-mono text-[#8E8C9C] hover:text-white transition-colors"
               >
                 <Share2 className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">
@@ -151,17 +151,17 @@ export default function CommunityDetailPage() {
           ================================================== */}
           <section
             aria-label="Community Hero"
-            className="rounded-[12px] bg-[#111111] border border-[#1A1A1A] overflow-hidden shadow-2xl relative"
+            className="rounded-[12px] bg-[#15151C] border border-[#25252F] overflow-hidden shadow-2xl relative"
           >
             {/* Cover Image Container */}
-            <div className="relative w-full h-[260px] sm:h-[380px] lg:h-[440px] bg-[#000000] overflow-hidden">
+            <div className="relative w-full h-[260px] sm:h-[380px] lg:h-[440px] bg-[#0B0B10] overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={community.coverImage}
                 alt={community.name}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/60 to-black/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#15151C] via-[#15151C]/60 to-black/30" />
 
               {/* Top Floating Badges */}
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 pointer-events-none">
@@ -170,7 +170,7 @@ export default function CommunityDetailPage() {
                     {community.category} · {community.location.toUpperCase()}
                   </span>
                   {community.trending && (
-                    <span className="hidden sm:inline-flex items-center gap-1 font-mono text-xs font-bold text-[#EC4899] bg-[#EC4899]/15 border border-[#EC4899]/30 backdrop-blur-md px-3 py-1 rounded-full">
+                    <span className="hidden sm:inline-flex items-center gap-1 font-mono text-xs font-bold text-[#FF4FA3] bg-[#FF4FA3]/15 border border-[#FF4FA3]/30 backdrop-blur-md px-3 py-1 rounded-full">
                       <Flame className="w-3.5 h-3.5" />
                       TRENDING
                     </span>
@@ -178,7 +178,7 @@ export default function CommunityDetailPage() {
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-white bg-[#8B5CF6]/90 backdrop-blur-md px-3.5 py-1 rounded-full shadow-lg">
+                  <span className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-white bg-[#FFE14D]/90 backdrop-blur-md px-3.5 py-1 rounded-full shadow-lg">
                     <Radio className="w-3.5 h-3.5 animate-pulse" />
                     {community.activityCount || "ACTIVE TODAY"}
                   </span>
@@ -194,7 +194,7 @@ export default function CommunityDetailPage() {
                   {community.genres.map((g) => (
                     <span
                       key={g}
-                      className="font-mono text-xs text-[#8B5CF6] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 px-3 py-1 rounded-full uppercase tracking-wider font-semibold"
+                      className="font-mono text-xs text-[#FFE14D] bg-[#FFE14D]/15 border border-[#FFE14D]/30 px-3 py-1 rounded-full uppercase tracking-wider font-semibold"
                     >
                       {g}
                     </span>
@@ -212,8 +212,8 @@ export default function CommunityDetailPage() {
                 </p>
 
                 {/* Meta Signals */}
-                <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-mono text-[#666666] pt-1">
-                  <span className="inline-flex items-center gap-1.5 text-[#EC4899]">
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-mono text-[#8E8C9C] pt-1">
+                  <span className="inline-flex items-center gap-1.5 text-[#FF4FA3]">
                     <MapPin className="w-4 h-4" />
                     {community.area || community.location}
                   </span>
@@ -222,7 +222,7 @@ export default function CommunityDetailPage() {
                     {displayedMemberCount.toLocaleString()} Members
                   </span>
                   <span className="inline-flex items-center gap-1.5 text-white">
-                    <Calendar className="w-4 h-4 text-[#8B5CF6]" />
+                    <Calendar className="w-4 h-4 text-[#FFE14D]" />
                     {community.eventsThisMonth} Events This Month
                   </span>
                 </div>
@@ -236,7 +236,7 @@ export default function CommunityDetailPage() {
                   className={`px-7 py-3.5 rounded-xl font-mono text-xs font-bold transition-all flex items-center justify-center gap-2 ${
                     isJoined
                       ? "bg-[#22C55E]/20 border border-[#22C55E] text-[#22C55E] shadow-[0_0_20px_rgba(34,197,94,0.3)]"
-                      : "bg-[#8B5CF6] hover:bg-[#7C3AED] text-white "
+                      : "bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] "
                   }`}
                 >
                   {isJoined ? (
@@ -258,13 +258,13 @@ export default function CommunityDetailPage() {
                   aria-label="Save community"
                   className={`px-4 py-3.5 rounded-xl border font-mono text-xs transition-all flex items-center justify-center gap-1.5 ${
                     isSaved
-                      ? "bg-[#EC4899]/20 border-[#EC4899] text-[#EC4899]"
-                      : "bg-[#111111] hover:bg-[#1A1A1A] border-[#1A1A1A] text-[#666666] hover:text-white"
+                      ? "bg-[#FF4FA3]/20 border-[#FF4FA3] text-[#FF4FA3]"
+                      : "bg-[#15151C] hover:bg-[#25252F] border-[#25252F] text-[#8E8C9C] hover:text-white"
                   }`}
                 >
-                  <Bookmark
-                    className={`w-4 h-4 ${isSaved ? "fill-[#EC4899]" : ""}`}
-                  />
+                  <Bookmark weight={isSaved ? "fill" : "bold"}
+ className={`w-4 h-4 ${isSaved ? "text-[#FF4FA3]" : ""}`}
+ />
                   <span>{isSaved ? "SAVED ✓" : "SAVE"}</span>
                 </button>
 
@@ -272,7 +272,7 @@ export default function CommunityDetailPage() {
                   type="button"
                   onClick={handleShare}
                   aria-label="Share community"
-                  className="px-4 py-3.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-[#666666] hover:text-white font-mono text-xs transition-all flex items-center justify-center gap-1.5"
+                  className="px-4 py-3.5 rounded-[4px] bg-[#15151C] hover:bg-[#25252F] border border-[#25252F] text-[#8E8C9C] hover:text-white font-mono text-xs transition-all flex items-center justify-center gap-1.5"
                 >
                   <Share2 className="w-4 h-4" />
                   <span>{copiedLink ? "LINK COPIED" : "SHARE"}</span>
@@ -288,21 +288,21 @@ export default function CommunityDetailPage() {
             aria-label="Community Key Numbers"
             className="grid grid-cols-1 sm:grid-cols-3 gap-4"
           >
-            <div className="p-4 sm:p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center text-[#8B5CF6] shrink-0">
+            <div className="p-4 sm:p-5 rounded-[12px] bg-[#15151C] border border-[#25252F] flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#FFE14D]/15 border border-[#FFE14D]/30 flex items-center justify-center text-[#FFE14D] shrink-0">
                 <Users className="w-6 h-6" />
               </div>
               <div>
                 <div className="font-mono text-xl sm:text-2xl font-bold text-white">
                   {displayedMemberCountString}
                 </div>
-                <div className="font-mono text-xs text-[#666666] uppercase tracking-wider">
+                <div className="font-mono text-xs text-[#8E8C9C] uppercase tracking-wider">
                   MEMBERS
                 </div>
               </div>
             </div>
 
-            <div className="p-4 sm:p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex items-center gap-4">
+            <div className="p-4 sm:p-5 rounded-[12px] bg-[#15151C] border border-[#25252F] flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl bg-[#22C55E]/15 border border-[#22C55E]/30 flex items-center justify-center text-[#22C55E] shrink-0">
                 <Radio className="w-6 h-6 animate-pulse" />
               </div>
@@ -310,21 +310,21 @@ export default function CommunityDetailPage() {
                 <div className="font-mono text-xl sm:text-2xl font-bold text-white">
                   {community.activeToday}
                 </div>
-                <div className="font-mono text-xs text-[#666666] uppercase tracking-wider">
+                <div className="font-mono text-xs text-[#8E8C9C] uppercase tracking-wider">
                   ACTIVE TODAY
                 </div>
               </div>
             </div>
 
-            <div className="p-4 sm:p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-[#EC4899]/15 border border-[#EC4899]/30 flex items-center justify-center text-[#EC4899] shrink-0">
+            <div className="p-4 sm:p-5 rounded-[12px] bg-[#15151C] border border-[#25252F] flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#FF4FA3]/15 border border-[#FF4FA3]/30 flex items-center justify-center text-[#FF4FA3] shrink-0">
                 <Calendar className="w-6 h-6" />
               </div>
               <div>
                 <div className="font-mono text-xl sm:text-2xl font-bold text-white">
                   {community.eventsThisMonth}
                 </div>
-                <div className="font-mono text-xs text-[#666666] uppercase tracking-wider">
+                <div className="font-mono text-xs text-[#8E8C9C] uppercase tracking-wider">
                   EVENTS THIS MONTH
                 </div>
               </div>
@@ -340,15 +340,15 @@ export default function CommunityDetailPage() {
             {/* ----------------- LEFT COLUMN (7 Cols) ----------------- */}
             <div className="lg:col-span-7 space-y-8">
               {/* 5. About Community */}
-              <section className="p-6 sm:p-7 rounded-[12px] bg-[#111111] border border-[#1A1A1A] space-y-4">
+              <section className="p-6 sm:p-7 rounded-[12px] bg-[#15151C] border border-[#25252F] space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
-                    <h2 className="font-mono text-xs font-extrabold text-[#8B5CF6] uppercase tracking-wider tracking-[-0.03em]">
+                    <Sparkles className="w-4 h-4 text-[#FFE14D]" />
+                    <h2 className="font-mono text-xs font-extrabold text-[#FFE14D] uppercase tracking-wider tracking-[-0.03em]">
                       ABOUT THIS COMMUNITY
                     </h2>
                   </div>
-                  <span className="font-mono text-[11px] text-[#666666] bg-[#111111] px-2.5 py-1 rounded-md border border-[#1A1A1A] inline-flex items-center gap-1.5">
+                  <span className="font-mono text-[11px] text-[#8E8C9C] bg-[#15151C] px-2.5 py-1 rounded-md border border-[#25252F] inline-flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-[#22C55E]" />
                     <span>VERIFIED COMMUNITY</span>
                   </span>
@@ -359,20 +359,20 @@ export default function CommunityDetailPage() {
                 </p>
 
                 {/* Community Ethos Pills */}
-                <div className="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs font-sans text-[#666666]">
-                  <div className="p-3 rounded-xl bg-[#111111] border border-[#1A1A1A] flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#8B5CF6] shrink-0" />
+                <div className="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs font-sans text-[#8E8C9C]">
+                  <div className="p-3 rounded-xl bg-[#15151C] border border-[#25252F] flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#FFE14D] shrink-0" />
                     <span className="text-white text-xs font-medium">
                       Music-first mentality
                     </span>
                   </div>
-                  <div className="p-3 rounded-xl bg-[#111111] border border-[#1A1A1A] flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#EC4899] shrink-0" />
+                  <div className="p-3 rounded-xl bg-[#15151C] border border-[#25252F] flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#FF4FA3] shrink-0" />
                     <span className="text-white text-xs font-medium">
                       Safe crew transits
                     </span>
                   </div>
-                  <div className="p-3 rounded-xl bg-[#111111] border border-[#1A1A1A] flex items-center gap-2">
+                  <div className="p-3 rounded-xl bg-[#15151C] border border-[#25252F] flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#22C55E] shrink-0" />
                     <span className="text-white text-xs font-medium">
                       Zero harassment policy
@@ -382,14 +382,14 @@ export default function CommunityDetailPage() {
               </section>
 
               {/* 6. Community Interests */}
-              <section className="p-6 sm:p-7 rounded-[12px] bg-[#111111] border border-[#1A1A1A] space-y-4">
+              <section className="p-6 sm:p-7 rounded-[12px] bg-[#15151C] border border-[#25252F] space-y-4">
                 <div className="flex items-center gap-2">
-                  <Flame className="w-4 h-4 text-[#EC4899]" />
-                  <h2 className="font-mono text-xs font-extrabold text-[#EC4899] uppercase tracking-wider tracking-[-0.03em]">
+                  <Flame className="w-4 h-4 text-[#FF4FA3]" />
+                  <h2 className="font-mono text-xs font-extrabold text-[#FF4FA3] uppercase tracking-wider tracking-[-0.03em]">
                     WHAT WE VIBE WITH
                   </h2>
                 </div>
-                <p className="text-xs text-[#666666] font-sans">
+                <p className="text-xs text-[#8E8C9C] font-sans">
                   Identity signals and music frequencies curated by members of{" "}
                   {community.name}.
                 </p>
@@ -398,7 +398,7 @@ export default function CommunityDetailPage() {
                   {community.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3.5 py-1.5 rounded-xl bg-[#111111] hover:bg-[#252530] border border-[#1A1A1A] text-xs font-mono text-white transition-colors cursor-default"
+                      className="px-3.5 py-1.5 rounded-xl bg-[#15151C] hover:bg-[#252530] border border-[#25252F] text-xs font-mono text-white transition-colors cursor-default"
                     >
                       #{tag.toUpperCase()}
                     </span>
@@ -407,7 +407,7 @@ export default function CommunityDetailPage() {
               </section>
 
               {/* 9. Recent Activity */}
-              <section className="p-6 sm:p-7 rounded-[12px] bg-[#111111] border border-[#1A1A1A] space-y-4">
+              <section className="p-6 sm:p-7 rounded-[12px] bg-[#15151C] border border-[#25252F] space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4 text-[#22C55E]" />
@@ -415,7 +415,7 @@ export default function CommunityDetailPage() {
                       RECENT ACTIVITY
                     </h2>
                   </div>
-                  <span className="font-mono text-[10px] text-[#666666]">
+                  <span className="font-mono text-[10px] text-[#8E8C9C]">
                     LIVE UPDATES
                   </span>
                 </div>
@@ -424,30 +424,30 @@ export default function CommunityDetailPage() {
                   {community.activities.map((act) => (
                     <div
                       key={act.id}
-                      className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] flex items-center justify-between gap-3 text-xs"
+                      className="p-3.5 rounded-xl bg-[#15151C] border border-[#25252F] flex items-center justify-between gap-3 text-xs"
                     >
                       <div className="flex items-center gap-3 truncate">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={act.avatar}
                           alt={act.userName}
-                          className="w-8 h-8 rounded-full object-cover border border-[#1A1A1A] shrink-0"
+                          className="w-8 h-8 rounded-full object-cover border border-[#25252F] shrink-0"
                         />
                         <div className="truncate font-sans text-xs">
                           <span className="font-bold text-white mr-1.5">
                             {act.userName}
                           </span>
-                          <span className="text-[#666666] mr-1.5">
+                          <span className="text-[#8E8C9C] mr-1.5">
                             {act.action}
                           </span>
                           {act.target && (
-                            <span className="font-medium text-[#8B5CF6]">
+                            <span className="font-medium text-[#FFE14D]">
                               {act.target}
                             </span>
                           )}
                         </div>
                       </div>
-                      <span className="font-mono text-[10px] text-[#666666] shrink-0">
+                      <span className="font-mono text-[10px] text-[#8E8C9C] shrink-0">
                         {act.timeAgo}
                       </span>
                     </div>
@@ -459,11 +459,11 @@ export default function CommunityDetailPage() {
             {/* ----------------- RIGHT COLUMN (5 Cols) ----------------- */}
             <div className="lg:col-span-5 space-y-8">
               {/* 7. Members ("THE CROWD") & Social Compatibility */}
-              <section className="p-6 sm:p-7 rounded-[12px] bg-[#111111] border border-[#1A1A1A] space-y-5">
+              <section className="p-6 sm:p-7 rounded-[12px] bg-[#15151C] border border-[#25252F] space-y-5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4 text-[#8B5CF6]" />
-                    <h2 className="font-mono text-xs font-extrabold text-[#8B5CF6] uppercase tracking-wider tracking-[-0.03em]">
+                    <Users className="w-4 h-4 text-[#FFE14D]" />
+                    <h2 className="font-mono text-xs font-extrabold text-[#FFE14D] uppercase tracking-wider tracking-[-0.03em]">
                       THE CROWD
                     </h2>
                   </div>
@@ -473,7 +473,7 @@ export default function CommunityDetailPage() {
                 </div>
 
                 {/* Avatar Stack Header */}
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]">
+                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#15151C] border border-[#25252F]">
                   <div className="flex -space-x-2.5 overflow-hidden">
                     {community.detailedMembers.slice(0, 5).map((m) => (
                       // eslint-disable-next-line @next/next/no-img-element
@@ -481,7 +481,7 @@ export default function CommunityDetailPage() {
                         key={m.id}
                         src={m.avatar}
                         alt={m.name}
-                        className="inline-block h-8 w-8 rounded-full ring-2 ring-[#111111] object-cover"
+                        className="inline-block h-8 w-8 rounded-full ring-2 ring-[#15151C] object-cover"
                       />
                     ))}
                   </div>
@@ -489,7 +489,7 @@ export default function CommunityDetailPage() {
                     <span className="font-bold text-white">
                       People in this community
                     </span>
-                    <span className="block text-[11px] text-[#666666] font-mono">
+                    <span className="block text-[11px] text-[#8E8C9C] font-mono">
                       Connecting over sound & nightlife
                     </span>
                   </div>
@@ -498,10 +498,10 @@ export default function CommunityDetailPage() {
                 {/* 12. Social Compatibility Sub-section */}
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-[11px] text-[#EC4899] uppercase tracking-wider font-semibold">
+                    <span className="font-mono text-[11px] text-[#FF4FA3] uppercase tracking-wider font-semibold">
                       PEOPLE YOU MAY VIBE WITH
                     </span>
-                    <span className="font-mono text-[10px] text-[#666666]">
+                    <span className="font-mono text-[10px] text-[#8E8C9C]">
                       AI MATCH
                     </span>
                   </div>
@@ -511,27 +511,27 @@ export default function CommunityDetailPage() {
                       <Link
                         key={member.id}
                         href={`/people/${member.id}`}
-                        className="p-3.5 rounded-[4px] bg-[#111111] hover:bg-[#252530] border border-[#1A1A1A] hover:border-[#8B5CF6] transition-all duration-200 flex items-center justify-between gap-3 group block"
+                        className="p-3.5 rounded-[4px] bg-[#15151C] hover:bg-[#252530] border border-[#25252F] hover:border-[#FFE14D] transition-all duration-200 flex items-center justify-between gap-3 group block"
                       >
                         <div className="flex items-center gap-3 min-w-0">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={member.avatar}
                             alt={member.name}
-                            className="w-10 h-10 rounded-full object-cover border border-[#1A1A1A] group-hover:border-[#8B5CF6] transition-colors shrink-0"
+                            className="w-10 h-10 rounded-full object-cover border border-[#25252F] group-hover:border-[#FFE14D] transition-colors shrink-0"
                           />
                           <div className="min-w-0">
-                            <span className="font-sans font-bold text-xs text-white group-hover:text-[#8B5CF6] transition-colors block truncate">
+                            <span className="font-sans font-bold text-xs text-white group-hover:text-[#FFE14D] transition-colors block truncate">
                               {member.name}
                             </span>
-                            <span className="font-mono text-[10px] text-[#666666] block truncate">
+                            <span className="font-mono text-[10px] text-[#8E8C9C] block truncate">
                               {member.interests.slice(0, 2).join(" · ")}
                             </span>
                           </div>
                         </div>
 
                         <div className="text-right shrink-0">
-                          <span className="font-mono text-xs font-bold text-[#8B5CF6] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 px-2 py-0.5 rounded-md inline-block">
+                          <span className="font-mono text-xs font-bold text-[#FFE14D] bg-[#FFE14D]/15 border border-[#FFE14D]/30 px-2 py-0.5 rounded-md inline-block">
                             {member.vibeMatch}% VIBE MATCH
                           </span>
                         </div>
@@ -542,7 +542,7 @@ export default function CommunityDetailPage() {
 
                 {/* More Community Members Grid */}
                 <div className="pt-2">
-                  <span className="font-mono text-[11px] text-[#666666] uppercase tracking-wider block mb-3">
+                  <span className="font-mono text-[11px] text-[#8E8C9C] uppercase tracking-wider block mb-3">
                     MORE MEMBERS
                   </span>
                   <div className="grid grid-cols-2 gap-2.5">
@@ -550,16 +550,16 @@ export default function CommunityDetailPage() {
                       <Link
                         key={member.id}
                         href={`/people/${member.id}`}
-                        className="p-3 rounded-[4px] bg-[#111111] hover:bg-[#252530] border border-[#1A1A1A] hover:border-[#8B5CF6] transition-all flex items-center gap-2.5 group"
+                        className="p-3 rounded-[4px] bg-[#15151C] hover:bg-[#252530] border border-[#25252F] hover:border-[#FFE14D] transition-all flex items-center gap-2.5 group"
                       >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={member.avatar}
                           alt={member.name}
-                          className="w-8 h-8 rounded-full object-cover border border-[#1A1A1A]"
+                          className="w-8 h-8 rounded-full object-cover border border-[#25252F]"
                         />
                         <div className="truncate">
-                          <span className="font-sans font-bold text-xs text-white group-hover:text-[#8B5CF6] transition-colors block truncate">
+                          <span className="font-sans font-bold text-xs text-white group-hover:text-[#FFE14D] transition-colors block truncate">
                             {member.name}
                           </span>
                           <span className="font-mono text-[9px] text-[#22C55E] block">
@@ -573,24 +573,24 @@ export default function CommunityDetailPage() {
               </section>
 
               {/* 16. Community Discussion Preview */}
-              <section className="p-6 sm:p-7 rounded-[12px] bg-[#111111] border border-[#1A1A1A] space-y-4">
+              <section className="p-6 sm:p-7 rounded-[12px] bg-[#15151C] border border-[#25252F] space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <MessageSquare className="w-4 h-4 text-[#8B5CF6]" />
-                    <h2 className="font-mono text-xs font-extrabold text-[#8B5CF6] uppercase tracking-wider tracking-[-0.03em]">
+                    <MessageSquare className="w-4 h-4 text-[#FFE14D]" />
+                    <h2 className="font-mono text-xs font-extrabold text-[#FFE14D] uppercase tracking-wider tracking-[-0.03em]">
                       COMMUNITY TALK
                     </h2>
                   </div>
                   <Link
                     href={`/communities/${community.id}/discussion`}
-                    className="font-mono text-[11px] text-[#8B5CF6] hover:text-[#A78BFA] transition-colors flex items-center gap-1"
+                    className="font-mono text-[11px] text-[#FFE14D] hover:text-[#FFEA80] transition-colors flex items-center gap-1"
                   >
                     <span>VIEW ALL</span>
                     <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
 
-                <p className="text-xs text-[#666666] font-sans">
+                <p className="text-xs text-[#8E8C9C] font-sans">
                   Active topics, party tips, and crew calls in {community.name}.
                 </p>
 
@@ -598,7 +598,7 @@ export default function CommunityDetailPage() {
                   {community.discussions.map((disc) => (
                     <div
                       key={disc.id}
-                      className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/50 transition-colors space-y-2"
+                      className="p-3.5 rounded-xl bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D]/50 transition-colors space-y-2"
                     >
                       <div className="flex items-center justify-between text-xs">
                         <div className="flex items-center gap-2">
@@ -612,7 +612,7 @@ export default function CommunityDetailPage() {
                             {disc.authorName}
                           </span>
                         </div>
-                        <span className="font-mono text-[10px] text-[#666666]">
+                        <span className="font-mono text-[10px] text-[#8E8C9C]">
                           {disc.timeAgo}
                         </span>
                       </div>
@@ -621,12 +621,12 @@ export default function CommunityDetailPage() {
                         {disc.title}
                       </h3>
 
-                      <p className="font-sans text-xs text-[#666666] line-clamp-2">
+                      <p className="font-sans text-xs text-[#8E8C9C] line-clamp-2">
                         {disc.preview}
                       </p>
 
-                      <div className="pt-1 flex items-center justify-between text-[11px] font-mono text-[#666666]">
-                        <span className="text-[#8B5CF6]">
+                      <div className="pt-1 flex items-center justify-between text-[11px] font-mono text-[#8E8C9C]">
+                        <span className="text-[#FFE14D]">
                           💬 {disc.replyCount} replies
                         </span>
                         <Link
@@ -643,10 +643,10 @@ export default function CommunityDetailPage() {
                 <div className="pt-2">
                   <Link
                     href={`/communities/${community.id}/discussion`}
-                    className="w-full py-2.5 rounded-[4px] bg-[#111111] hover:bg-[#252530] border border-[#1A1A1A] text-xs font-mono text-center text-white flex items-center justify-center gap-1.5 transition-colors"
+                    className="w-full py-2.5 rounded-[4px] bg-[#15151C] hover:bg-[#252530] border border-[#25252F] text-xs font-mono text-center text-white flex items-center justify-center gap-1.5 transition-colors"
                   >
                     <span>VIEW ALL DISCUSSIONS</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#8B5CF6]" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#FFE14D]" />
                   </Link>
                 </div>
               </section>
@@ -657,22 +657,22 @@ export default function CommunityDetailPage() {
               8. UPCOMING EVENTS (COMMUNITY EVENTS)
           ================================================== */}
           <section aria-label="Community Events" className="space-y-6 pt-4">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#1A1A1A] pb-4">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#25252F] pb-4">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <Calendar className="w-4 h-4 text-[#8B5CF6]" />
-                  <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#8B5CF6] uppercase tracking-wider">
+                  <Calendar className="w-4 h-4 text-[#FFE14D]" />
+                  <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FFE14D] uppercase tracking-wider">
                     COMMUNITY EVENTS
                   </h2>
                 </div>
-                <p className="text-sm text-[#666666] font-sans">
+                <p className="text-sm text-[#8E8C9C] font-sans">
                   Events people in this community are interested in.
                 </p>
               </div>
 
               <Link
                 href="/discover"
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#666666] hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#8E8C9C] hover:text-white transition-colors"
               >
                 <span>EXPLORE ALL EVENTS</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -699,11 +699,11 @@ export default function CommunityDetailPage() {
                   />
 
                   {/* Social Signals Bar */}
-                  <div className="px-3.5 py-2 rounded-xl bg-[#111111] border border-[#1A1A1A] flex items-center justify-between text-[10px] font-mono text-[#666666]">
+                  <div className="px-3.5 py-2 rounded-xl bg-[#15151C] border border-[#25252F] flex items-center justify-between text-[10px] font-mono text-[#8E8C9C]">
                     <span className="text-[#22C55E] font-bold">
                       {evt.membersGoing} MEMBERS GOING
                     </span>
-                    <span className="text-[#EC4899]">
+                    <span className="text-[#FF4FA3]">
                       {evt.crewsForming} CREWS FORMING
                     </span>
                   </div>
@@ -716,21 +716,21 @@ export default function CommunityDetailPage() {
               18. COMMUNITY MOMENTS (Photo Grid + Lightbox)
           ================================================== */}
           <section aria-label="Community Moments" className="space-y-6 pt-4">
-            <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-4">
+            <div className="flex items-center justify-between border-b border-[#25252F] pb-4">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <Sparkles className="w-4 h-4 text-[#EC4899]" />
-                  <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#EC4899] uppercase tracking-wider">
+                  <Sparkles className="w-4 h-4 text-[#FF4FA3]" />
+                  <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FF4FA3] uppercase tracking-wider">
                     COMMUNITY MOMENTS
                   </h2>
                 </div>
-                <p className="text-sm text-[#666666] font-sans">
+                <p className="text-sm text-[#8E8C9C] font-sans">
                   Snapshots from recent nights, dance floors, and warehouse
                   gatherings.
                 </p>
               </div>
 
-              <span className="font-mono text-xs text-[#666666]">
+              <span className="font-mono text-xs text-[#8E8C9C]">
                 {community.photos.length} PHOTOS
               </span>
             </div>
@@ -742,7 +742,7 @@ export default function CommunityDetailPage() {
                   key={photo.id}
                   type="button"
                   onClick={() => setSelectedPhotoIndex(index)}
-                  className="group relative h-40 sm:h-48 rounded-[12px] overflow-hidden bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] transition-all focus:outline-none"
+                  className="group relative h-40 sm:h-48 rounded-[12px] overflow-hidden bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D] transition-all focus:outline-none"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -764,22 +764,22 @@ export default function CommunityDetailPage() {
               17. RELATED COMMUNITIES ("YOU MAY ALSO VIBE WITH")
           ================================================== */}
           <section aria-label="Related Communities" className="space-y-6 pt-4">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#1A1A1A] pb-4">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#25252F] pb-4">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <Users className="w-4 h-4 text-[#8B5CF6]" />
-                  <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#8B5CF6] uppercase tracking-wider">
+                  <Users className="w-4 h-4 text-[#FFE14D]" />
+                  <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FFE14D] uppercase tracking-wider">
                     YOU MAY ALSO VIBE WITH
                   </h2>
                 </div>
-                <p className="text-sm text-[#666666] font-sans">
+                <p className="text-sm text-[#8E8C9C] font-sans">
                   More nightlife groups that match your music frequency.
                 </p>
               </div>
 
               <Link
                 href="/communities"
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#666666] hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-[#8E8C9C] hover:text-white transition-colors"
               >
                 <span>ALL COMMUNITIES</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -813,12 +813,12 @@ export default function CommunityDetailPage() {
           onClick={() => setSelectedPhotoIndex(null)}
         >
           <div
-            className="relative max-w-4xl w-full bg-[#111111] border border-[#1A1A1A] rounded-[12px] overflow-hidden shadow-2xl flex flex-col"
+            className="relative max-w-4xl w-full bg-[#15151C] border border-[#25252F] rounded-[12px] overflow-hidden shadow-2xl flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header with Caption & Close */}
-            <div className="p-4 sm:p-5 flex items-center justify-between border-b border-[#1A1A1A]">
-              <span className="font-mono text-xs text-[#666666]">
+            <div className="p-4 sm:p-5 flex items-center justify-between border-b border-[#25252F]">
+              <span className="font-mono text-xs text-[#8E8C9C]">
                 MOMENT {selectedPhotoIndex + 1} OF{" "}
                 {community.photos.length}
               </span>
@@ -826,7 +826,7 @@ export default function CommunityDetailPage() {
                 type="button"
                 onClick={() => setSelectedPhotoIndex(null)}
                 aria-label="Close modal"
-                className="p-1.5 rounded-lg bg-[#111111] hover:bg-[#1A1A1A] text-[#666666] hover:text-white transition-colors"
+                className="p-1.5 rounded-lg bg-[#15151C] hover:bg-[#25252F] text-[#8E8C9C] hover:text-white transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -871,7 +871,7 @@ export default function CommunityDetailPage() {
             </div>
 
             {/* Caption Footer */}
-            <div className="p-4 sm:p-5 bg-[#111111] border-t border-[#1A1A1A]">
+            <div className="p-4 sm:p-5 bg-[#15151C] border-t border-[#25252F]">
               <p className="font-sans text-sm text-white font-medium">
                 {community.photos[selectedPhotoIndex].caption}
               </p>
@@ -885,9 +885,9 @@ export default function CommunityDetailPage() {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-6 right-6 z-50 bg-[#111111] border border-[#8B5CF6] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
+          className="fixed bottom-6 right-6 z-50 bg-[#15151C] border border-[#FFE14D] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
         >
-          <Check className="w-4 h-4 text-[#8B5CF6]" />
+          <Check className="w-4 h-4 text-[#FFE14D]" />
           <span>Community link copied to clipboard!</span>
         </div>
       )}

@@ -26,7 +26,7 @@ import {
   Users,
   ArrowRight,
   RotateCcw,
-} from "lucide-react";
+} from "@/components/icons";
 
 export default function SavedPage() {
   const router = useRouter();
@@ -145,7 +145,7 @@ export default function SavedPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white flex flex-col selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#0B0B10] text-white flex flex-col selection:bg-[#FFE14D] selection:text-white relative overflow-x-hidden">
       {/* 1. Global Navbar */}
       <Navbar />
 
@@ -154,7 +154,7 @@ export default function SavedPage() {
         className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] pointer-events-none z-0"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(139,92,246,0.12) 0%, rgba(236,72,153,0.05) 50%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(255,225,77,0.12) 0%, rgba(255,79,163,0.05) 50%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -168,9 +168,9 @@ export default function SavedPage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111111] border border-[#1A1A1A] mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6] shadow-[0_0_8px_#8B5CF6]" />
-                <span className="font-mono text-[11px] text-[#666666] uppercase tracking-wider font-semibold">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#15151C] border border-[#25252F] mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFE14D] shadow-[0_0_8px_#FFE14D]" />
+                <span className="font-mono text-[11px] text-[#8E8C9C] uppercase tracking-wider font-semibold">
                   EVERYTHING YOU WANT TO COME BACK TO
                 </span>
               </div>
@@ -181,17 +181,17 @@ export default function SavedPage() {
               </h1>
 
               {/* Secondary Supporting Text */}
-              <p className="text-sm sm:text-base text-[#666666] font-sans mt-2 max-w-xl leading-relaxed">
+              <p className="text-sm sm:text-base text-[#8E8C9C] font-sans mt-2 max-w-xl leading-relaxed">
                 Keep your favorite events, clubs, and communities in one place.
               </p>
             </div>
 
             {/* Quick Stats Pill */}
             {totalSavedCount > 0 && (
-              <div className="inline-flex items-center gap-2 self-start sm:self-auto px-3.5 py-1.5 rounded-xl bg-[#111111] border border-[#1A1A1A] font-mono text-xs text-[#E4E4E7]">
-                <Bookmark className="w-3.5 h-3.5 text-[#8B5CF6]" />
+              <div className="inline-flex items-center gap-2 self-start sm:self-auto px-3.5 py-1.5 rounded-xl bg-[#15151C] border border-[#25252F] font-mono text-xs text-[#E4E4E7]">
+                <Bookmark className="w-3.5 h-3.5 text-[#FFE14D]" />
                 <span className="font-bold text-white">{totalSavedCount}</span>
-                <span className="text-[#666666]">ITEMS SAVED</span>
+                <span className="text-[#8E8C9C]">ITEMS SAVED</span>
               </div>
             )}
           </div>
@@ -199,7 +199,7 @@ export default function SavedPage() {
           {/* ================================================== */}
           {/* 4. TABS & SEARCH BAR CONTROLS */}
           {/* ================================================== */}
-          <div className="mt-8 pt-6 border-t border-[#1A1A1A] flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="mt-8 pt-6 border-t border-[#25252F] flex flex-col md:flex-row md:items-center justify-between gap-4">
             {/* Category Tabs */}
             <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar select-none">
               {tabs.map((tab) => {
@@ -211,8 +211,8 @@ export default function SavedPage() {
                     onClick={() => setActiveTab(tab.key)}
                     className={`px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase transition-all duration-200 shrink-0 flex items-center gap-2 border ${
                       isActive
-                        ? "bg-[#8B5CF6] text-white border-[#8B5CF6] shadow-[0_0_16px_rgba(139,92,246,0.35)]"
-                        : "bg-[#111111] text-[#666666] hover:text-white border-[#1A1A1A] hover:border-[#8B5CF6]/40"
+                        ? "bg-[#FFE14D] text-[#0B0B10] border-[#FFE14D] shadow-[0_0_16px_rgba(255,225,77,0.35)]"
+                        : "bg-[#15151C] text-[#8E8C9C] hover:text-white border-[#25252F] hover:border-[#FFE14D]/40"
                     }`}
                   >
                     <span>{tab.label}</span>
@@ -220,7 +220,7 @@ export default function SavedPage() {
                       className={`text-[10px] px-1.5 py-0.2 rounded-full ${
                         isActive
                           ? "bg-white/20 text-white"
-                          : "bg-[#111111] text-[#666666]"
+                          : "bg-[#15151C] text-[#8E8C9C]"
                       }`}
                     >
                       {tab.count}
@@ -233,21 +233,21 @@ export default function SavedPage() {
             {/* Lightweight Local Search Field */}
             {totalSavedCount > 0 && (
               <div className="relative w-full md:w-72 shrink-0">
-                <Search className="w-4 h-4 text-[#666666] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Search className="w-4 h-4 text-[#8E8C9C] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search saved items..."
                   aria-label="Search saved items"
-                  className="w-full bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] rounded-xl pl-9 pr-8 py-2 text-xs font-sans text-white placeholder-[#666666] focus:outline-none transition-colors"
+                  className="w-full bg-[#15151C] border border-[#25252F] focus:border-[#FFE14D] rounded-xl pl-9 pr-8 py-2 text-xs font-sans text-white placeholder-[#8E8C9C] focus:outline-none transition-colors"
                 />
                 {searchQuery && (
                   <button
                     type="button"
                     onClick={() => setSearchQuery("")}
                     aria-label="Clear search"
-                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#666666] hover:text-white"
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#8E8C9C] hover:text-white"
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
@@ -261,7 +261,7 @@ export default function SavedPage() {
         {/* 5. SEARCH RESULTS COUNT BANNER (When searching) */}
         {/* ================================================== */}
         {searchQuery.trim() && (
-          <div className="mb-6 flex items-center justify-between text-xs font-mono text-[#666666]">
+          <div className="mb-6 flex items-center justify-between text-xs font-mono text-[#8E8C9C]">
             <span>
               SHOWING {filteredTotalCount} RESULT
               {filteredTotalCount === 1 ? "" : "S"} FOR &quot;{searchQuery}&quot;
@@ -269,7 +269,7 @@ export default function SavedPage() {
             <button
               type="button"
               onClick={() => setSearchQuery("")}
-              className="text-[#8B5CF6] hover:underline flex items-center gap-1"
+              className="text-[#FFE14D] hover:underline flex items-center gap-1"
             >
               <RotateCcw className="w-3 h-3" />
               <span>CLEAR SEARCH</span>
@@ -283,19 +283,19 @@ export default function SavedPage() {
 
         {/* Global Empty State: No items saved at all */}
         {totalSavedCount === 0 && (
-          <div className="py-[120px] px-4 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex flex-col items-center justify-center text-center shadow-2xl">
-            <div className="w-16 h-16 rounded-[12px] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center text-[#8B5CF6] mb-5 ">
+          <div className="py-[120px] px-4 rounded-[12px] bg-[#15151C] border border-[#25252F] flex flex-col items-center justify-center text-center shadow-2xl">
+            <div className="w-16 h-16 rounded-[12px] bg-[#FFE14D]/15 border border-[#FFE14D]/30 flex items-center justify-center text-[#FFE14D] mb-5 ">
               <Bookmark className="w-8 h-8" />
             </div>
             <h2 className="text-2xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
               NOTHING SAVED YET
             </h2>
-            <p className="text-sm text-[#666666] font-sans mt-2 max-w-md mx-auto leading-relaxed">
+            <p className="text-sm text-[#8E8C9C] font-sans mt-2 max-w-md mx-auto leading-relaxed">
               Your saved events, clubs, and communities will appear here so you can easily plan your next night.
             </p>
             <Link
               href="/discover"
-              className="mt-6 inline-flex items-center gap-2 px-6 py-3.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:scale-[1.02] active:scale-[0.98]"
+              className="mt-6 inline-flex items-center gap-2 px-6 py-3.5 rounded-[4px] bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(255,225,77,0.3)] hover:scale-[1.02] active:scale-[0.98]"
             >
               <span>EXPLORE VIBEUP</span>
               <ArrowRight className="w-4 h-4" />
@@ -305,20 +305,20 @@ export default function SavedPage() {
 
         {/* Search Yields 0 Results */}
         {totalSavedCount > 0 && searchQuery.trim() && filteredTotalCount === 0 && (
-          <div className="py-16 px-4 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center space-y-3">
-            <div className="w-12 h-12 rounded-xl bg-[#111111] border border-[#1A1A1A] flex items-center justify-center mx-auto text-[#666666]">
+          <div className="py-16 px-4 rounded-[12px] bg-[#15151C] border border-[#25252F] text-center space-y-3">
+            <div className="w-12 h-12 rounded-xl bg-[#15151C] border border-[#25252F] flex items-center justify-center mx-auto text-[#8E8C9C]">
               <Search className="w-5 h-5" />
             </div>
             <h2 className="font-mono text-sm font-extrabold tracking-[-0.03em] text-white uppercase tracking-wider">
               NO SAVED ITEMS MATCH YOUR SEARCH
             </h2>
-            <p className="text-xs text-[#666666] max-w-sm mx-auto">
+            <p className="text-xs text-[#8E8C9C] max-w-sm mx-auto">
               We couldn&apos;t find any saved events, clubs, or communities matching &quot;{searchQuery}&quot;.
             </p>
             <button
               type="button"
               onClick={() => setSearchQuery("")}
-              className="mt-2 px-4 py-2 rounded-xl bg-[#111111] border border-[#1A1A1A] text-xs font-mono text-[#8B5CF6] hover:border-[#8B5CF6] transition-colors"
+              className="mt-2 px-4 py-2 rounded-xl bg-[#15151C] border border-[#25252F] text-xs font-mono text-[#FFE14D] hover:border-[#FFE14D] transition-colors"
             >
               RESET SEARCH
             </button>
@@ -335,11 +335,11 @@ export default function SavedPage() {
               <section>
                 <div className="flex items-center justify-between mb-5">
                   <div className="flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-[#8B5CF6]" />
+                    <span className="w-2 h-2 rounded-full bg-[#FFE14D]" />
                     <h2 className="font-mono text-sm sm:text-base font-extrabold tracking-[-0.03em] text-white tracking-wider uppercase">
                       SAVED EVENTS
                     </h2>
-                    <span className="text-xs font-mono text-[#666666]">
+                    <span className="text-xs font-mono text-[#8E8C9C]">
                       ({filteredEvents.length})
                     </span>
                   </div>
@@ -347,7 +347,7 @@ export default function SavedPage() {
                   <button
                     type="button"
                     onClick={() => setActiveTab("EVENTS")}
-                    className="text-xs font-mono text-[#8B5CF6] hover:text-white transition-colors inline-flex items-center gap-1 font-semibold group"
+                    className="text-xs font-mono text-[#FFE14D] hover:text-white transition-colors inline-flex items-center gap-1 font-semibold group"
                   >
                     <span>VIEW ALL</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -375,11 +375,11 @@ export default function SavedPage() {
               <section>
                 <div className="flex items-center justify-between mb-5">
                   <div className="flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-[#EC4899]" />
+                    <span className="w-2 h-2 rounded-full bg-[#FF4FA3]" />
                     <h2 className="font-mono text-sm sm:text-base font-extrabold tracking-[-0.03em] text-white tracking-wider uppercase">
                       SAVED CLUBS
                     </h2>
-                    <span className="text-xs font-mono text-[#666666]">
+                    <span className="text-xs font-mono text-[#8E8C9C]">
                       ({filteredClubs.length})
                     </span>
                   </div>
@@ -387,7 +387,7 @@ export default function SavedPage() {
                   <button
                     type="button"
                     onClick={() => setActiveTab("CLUBS")}
-                    className="text-xs font-mono text-[#8B5CF6] hover:text-white transition-colors inline-flex items-center gap-1 font-semibold group"
+                    className="text-xs font-mono text-[#FFE14D] hover:text-white transition-colors inline-flex items-center gap-1 font-semibold group"
                   >
                     <span>VIEW ALL</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -420,7 +420,7 @@ export default function SavedPage() {
                     <h2 className="font-mono text-sm sm:text-base font-extrabold tracking-[-0.03em] text-white tracking-wider uppercase">
                       SAVED COMMUNITIES
                     </h2>
-                    <span className="text-xs font-mono text-[#666666]">
+                    <span className="text-xs font-mono text-[#8E8C9C]">
                       ({filteredCommunities.length})
                     </span>
                   </div>
@@ -428,7 +428,7 @@ export default function SavedPage() {
                   <button
                     type="button"
                     onClick={() => setActiveTab("COMMUNITIES")}
-                    className="text-xs font-mono text-[#8B5CF6] hover:text-white transition-colors inline-flex items-center gap-1 font-semibold group"
+                    className="text-xs font-mono text-[#FFE14D] hover:text-white transition-colors inline-flex items-center gap-1 font-semibold group"
                   >
                     <span>VIEW ALL</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -474,19 +474,19 @@ export default function SavedPage() {
                 ))}
               </div>
             ) : (
-              <div className="py-16 px-4 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex flex-col items-center justify-center text-center shadow-xl">
-                <div className="w-14 h-14 rounded-[12px] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center text-[#8B5CF6] mb-4">
+              <div className="py-16 px-4 rounded-[12px] bg-[#15151C] border border-[#25252F] flex flex-col items-center justify-center text-center shadow-xl">
+                <div className="w-14 h-14 rounded-[12px] bg-[#FFE14D]/15 border border-[#FFE14D]/30 flex items-center justify-center text-[#FFE14D] mb-4">
                   <Calendar className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold font-sans text-white">
                   No saved events yet.
                 </h3>
-                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1.5 max-w-sm">
+                <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-1.5 max-w-sm">
                   Discover upcoming parties, warehouse raves, and live concerts to save for later.
                 </p>
                 <Link
                   href="/discover"
-                  className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold uppercase transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
+                  className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-[4px] bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-mono text-xs font-bold uppercase transition-all shadow-[0_0_16px_rgba(255,225,77,0.3)]"
                 >
                   <span>Discover Events</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -517,19 +517,19 @@ export default function SavedPage() {
                 ))}
               </div>
             ) : (
-              <div className="py-16 px-4 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex flex-col items-center justify-center text-center shadow-xl">
-                <div className="w-14 h-14 rounded-[12px] bg-[#EC4899]/15 border border-[#EC4899]/30 flex items-center justify-center text-[#EC4899] mb-4">
+              <div className="py-16 px-4 rounded-[12px] bg-[#15151C] border border-[#25252F] flex flex-col items-center justify-center text-center shadow-xl">
+                <div className="w-14 h-14 rounded-[12px] bg-[#FF4FA3]/15 border border-[#FF4FA3]/30 flex items-center justify-center text-[#FF4FA3] mb-4">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold font-sans text-white">
                   No saved clubs yet.
                 </h3>
-                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1.5 max-w-sm">
+                <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-1.5 max-w-sm">
                   Explore Bangalore&apos;s best underground electronic spaces, cocktail lounges, and rooftop terraces.
                 </p>
                 <Link
                   href="/clubs"
-                  className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold uppercase transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
+                  className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-[4px] bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-mono text-xs font-bold uppercase transition-all shadow-[0_0_16px_rgba(255,225,77,0.3)]"
                 >
                   <span>Explore Clubs</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -560,19 +560,19 @@ export default function SavedPage() {
                 ))}
               </div>
             ) : (
-              <div className="py-16 px-4 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex flex-col items-center justify-center text-center shadow-xl">
+              <div className="py-16 px-4 rounded-[12px] bg-[#15151C] border border-[#25252F] flex flex-col items-center justify-center text-center shadow-xl">
                 <div className="w-14 h-14 rounded-[12px] bg-[#22C55E]/15 border border-[#22C55E]/30 flex items-center justify-center text-[#22C55E] mb-4">
                   <Users className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold font-sans text-white">
                   No saved communities yet.
                 </h3>
-                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1.5 max-w-sm">
+                <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-1.5 max-w-sm">
                   Join music societies, neighborhood night owls, and pre-drinks crews across the city.
                 </p>
                 <Link
                   href="/communities"
-                  className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold uppercase transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
+                  className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-[4px] bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-mono text-xs font-bold uppercase transition-all shadow-[0_0_16px_rgba(255,225,77,0.3)]"
                 >
                   <span>Explore Communities</span>
                   <ArrowRight className="w-3.5 h-3.5" />

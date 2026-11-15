@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, AlertCircle, CheckCircle2, RotateCw, Sparkles, ShieldCheck } from "lucide-react";
+import { ArrowLeft, AlertCircle, CheckCircle2, RotateCw, Sparkles, ShieldCheck } from "@/components/icons";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function OTPVerificationPage() {
@@ -167,13 +167,13 @@ export default function OTPVerificationPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#0B0B10] text-white flex flex-col justify-between selection:bg-[#FFE14D] selection:text-white relative overflow-x-hidden">
       {/* Ambient Radial Glow */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[450px] pointer-events-none z-0"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(139,92,246,0.12) 0%, rgba(236,72,153,0.06) 50%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(255,225,77,0.12) 0%, rgba(255,79,163,0.06) 50%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -181,26 +181,20 @@ export default function OTPVerificationPage() {
       {/* ================================================== */}
       {/* MINIMAL AUTHENTICATION HEADER */}
       {/* ================================================== */}
-      <header className="w-full h-[64px] border-b border-[#1A1A1A]/60 bg-[rgba(9,9,11,0.8)] backdrop-blur-md relative z-20">
+      <header className="w-full h-[64px] border-b border-[#25252F]/60 bg-[rgba(9,9,11,0.8)] backdrop-blur-md relative z-20">
         <div className="max-w-[1240px] h-full mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* VibeUp Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-[#8B5CF6] rounded-[4px] p-1"
+            className="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-[#FFE14D] rounded-[4px] p-1"
           >
-            <span
-              className="w-2 h-2 rounded-full bg-[#8B5CF6] shrink-0 shadow-[0_0_10px_#8B5CF6]"
-              aria-hidden="true"
-            />
-            <span className="text-white font-bold text-lg tracking-tight font-sans">
-              VIBEUP
-            </span>
+            <span className="font-display font-black text-[22px] tracking-[-0.03em] text-white" style={{ fontStretch: "140%" }}>vibeup<span className="text-pink">.</span></span>
           </Link>
 
           {/* Back to Previous Auth Step */}
           <Link
             href={originFlow === "signup" ? "/signup" : "/login"}
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#666666] hover:text-white transition-colors p-1.5 rounded-[4px] hover:bg-white/5"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#8E8C9C] hover:text-white transition-colors p-1.5 rounded-[4px] hover:bg-white/5"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>CHANGE NUMBER</span>
@@ -223,16 +217,16 @@ export default function OTPVerificationPage() {
             className="hidden lg:flex lg:col-span-6 flex-col justify-center pr-8 space-y-6"
           >
             {/* Brand Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111111] border border-[#1A1A1A] w-fit">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#15151C] border border-[#25252F] w-fit">
               <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse" />
-              <span className="font-mono text-xs text-[#666666] uppercase tracking-wider">
+              <span className="font-mono text-xs text-[#8E8C9C] uppercase tracking-wider">
                 PHONE VERIFICATION
               </span>
             </div>
 
             {/* Brand Title */}
             <div>
-              <span className="font-mono text-xs text-[#8B5CF6] font-bold tracking-widest uppercase block mb-1">
+              <span className="font-mono text-xs text-[#FFE14D] font-bold tracking-widest uppercase block mb-1">
                 VIBEUP
               </span>
               <h1 className="text-4xl xl:text-5xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight leading-tight">
@@ -241,27 +235,27 @@ export default function OTPVerificationPage() {
             </div>
 
             {/* Supporting Text */}
-            <p className="text-base text-[#666666] font-sans leading-relaxed max-w-md">
+            <p className="text-base text-[#8E8C9C] font-sans leading-relaxed max-w-md">
               Passwordless security for your nightlife profile. Enter your 6-digit one-time code to proceed.
             </p>
 
             {/* Nightlife Safety Badge */}
             <div className="space-y-3 pt-2">
-              <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]/80 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-lg bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-4 h-4 text-[#8B5CF6]" />
+              <div className="p-3.5 rounded-xl bg-[#15151C] border border-[#25252F]/80 flex items-center gap-3">
+                <span className="w-8 h-8 rounded-lg bg-[#FFE14D]/15 border border-[#FFE14D]/30 flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-4 h-4 text-[#FFE14D]" />
                 </span>
                 <div>
                   <span className="font-sans font-bold text-xs text-white block">
                     Verified Nightlife Identity
                   </span>
-                  <span className="font-mono text-[11px] text-[#666666]">
+                  <span className="font-mono text-[11px] text-[#8E8C9C]">
                     Ensuring real Bangalore event-goers and authentic crews
                   </span>
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]/80 flex items-center gap-3">
+              <div className="p-3.5 rounded-xl bg-[#15151C] border border-[#25252F]/80 flex items-center gap-3">
                 <span className="w-8 h-8 rounded-lg bg-[#22C55E]/15 border border-[#22C55E]/30 flex items-center justify-center shrink-0">
                   <Sparkles className="w-4 h-4 text-[#22C55E]" />
                 </span>
@@ -269,7 +263,7 @@ export default function OTPVerificationPage() {
                   <span className="font-sans font-bold text-xs text-white block">
                     Zero Passwords to Remember
                   </span>
-                  <span className="font-mono text-[11px] text-[#666666]">
+                  <span className="font-mono text-[11px] text-[#8E8C9C]">
                     Instant seamless login with one-time verification
                   </span>
                 </div>
@@ -286,11 +280,11 @@ export default function OTPVerificationPage() {
             transition={{ duration: 0.35 }}
             className="lg:col-span-6 w-full max-w-[460px] mx-auto"
           >
-            <div className="rounded-[12px] bg-[#111111] border border-[#1A1A1A] p-6 sm:p-8 shadow-2xl relative">
+            <div className="rounded-[12px] bg-[#15151C] border border-[#25252F] p-6 sm:p-8 shadow-2xl relative">
               {/* Mobile-Only Compact Brand Badge */}
               <div className="lg:hidden flex items-center gap-2 mb-4">
-                <span className="w-2 h-2 rounded-full bg-[#8B5CF6] shrink-0" />
-                <span className="font-mono text-[11px] text-[#8B5CF6] font-bold uppercase tracking-widest">
+                <span className="w-2 h-2 rounded-full bg-[#FFE14D] shrink-0" />
+                <span className="font-mono text-[11px] text-[#FFE14D] font-bold uppercase tracking-widest">
                   VIBEUP · OTP VERIFICATION
                 </span>
               </div>
@@ -300,7 +294,7 @@ export default function OTPVerificationPage() {
                 <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   VERIFY YOUR NUMBER
                 </h2>
-                <div className="mt-2 text-xs sm:text-sm text-[#666666] font-sans leading-relaxed">
+                <div className="mt-2 text-xs sm:text-sm text-[#8E8C9C] font-sans leading-relaxed">
                   <span>We sent a verification code to </span>
                   <strong className="text-white font-mono tracking-wider">
                     {displayPhone}
@@ -314,7 +308,7 @@ export default function OTPVerificationPage() {
                 <div>
                   <label
                     htmlFor="otp-digit-0"
-                    className="block text-xs font-mono text-[#666666] uppercase tracking-wider mb-3 font-medium"
+                    className="block text-xs font-mono text-[#8E8C9C] uppercase tracking-wider mb-3 font-medium"
                   >
                     ENTER 6-DIGIT CODE
                   </label>
@@ -338,21 +332,21 @@ export default function OTPVerificationPage() {
                         onKeyDown={(e) => handleKeyDown(idx, e)}
                         onPaste={handlePaste}
                         aria-label={`Digit ${idx + 1} of verification code`}
-                        className={`w-11 sm:w-13 h-13 sm:h-14 rounded-xl bg-[#111111] border text-center text-xl sm:text-2xl font-mono font-bold text-white transition-all duration-150 focus:outline-none disabled:opacity-50 ${
+                        className={`w-11 sm:w-13 h-13 sm:h-14 rounded-xl bg-[#15151C] border text-center text-xl sm:text-2xl font-mono font-bold text-white transition-all duration-150 focus:outline-none disabled:opacity-50 ${
                           error
                             ? "border-[#EF4444] focus:border-[#EF4444]"
                             : digit
-                            ? "border-[#8B5CF6] "
-                            : "border-[#1A1A1A] focus:border-[#8B5CF6]"
+                            ? "border-[#FFE14D] "
+                            : "border-[#25252F] focus:border-[#FFE14D]"
                         }`}
                       />
                     ))}
                   </div>
 
                   {/* Dev Helper Hint */}
-                  <div className="mt-2.5 flex items-center justify-between text-[11px] font-mono text-[#666666]">
+                  <div className="mt-2.5 flex items-center justify-between text-[11px] font-mono text-[#8E8C9C]">
                     <span>Standard numeric code</span>
-                    <span className="text-[#8B5CF6]/90">Dev Code: 123456</span>
+                    <span className="text-[#FFE14D]/90">Dev Code: 123456</span>
                   </div>
 
                   {/* Error State */}
@@ -378,7 +372,7 @@ export default function OTPVerificationPage() {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full py-3.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.3)] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 active:scale-[0.99]"
+                      className="w-full py-3.5 rounded-[4px] bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(255,225,77,0.3)] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 active:scale-[0.99]"
                     >
                       {isLoading ? (
                         <>
@@ -394,8 +388,8 @@ export default function OTPVerificationPage() {
               </form>
 
               {/* Resend Code Section */}
-              <div className="mt-6 pt-5 border-t border-[#1A1A1A]/60 text-center">
-                <span className="font-mono text-xs text-[#666666] block mb-2">
+              <div className="mt-6 pt-5 border-t border-[#25252F]/60 text-center">
+                <span className="font-mono text-xs text-[#8E8C9C] block mb-2">
                   DIDN&apos;T RECEIVE THE CODE?
                 </span>
 
@@ -403,13 +397,13 @@ export default function OTPVerificationPage() {
                   <button
                     type="button"
                     onClick={handleResend}
-                    className="inline-flex items-center gap-1.5 font-mono text-xs text-[#8B5CF6] hover:text-[#A78BFA] font-bold hover:underline transition-colors"
+                    className="inline-flex items-center gap-1.5 font-mono text-xs text-[#FFE14D] hover:text-[#FFEA80] font-bold hover:underline transition-colors"
                   >
                     <RotateCw className="w-3.5 h-3.5" />
                     <span>RESEND CODE</span>
                   </button>
                 ) : (
-                  <span className="font-mono text-xs text-[#666666]">
+                  <span className="font-mono text-xs text-[#8E8C9C]">
                     RESEND CODE IN <strong className="text-white">{resendSeconds}s</strong>
                   </span>
                 )}
@@ -432,12 +426,12 @@ export default function OTPVerificationPage() {
 
               {/* Change Number Option */}
               <div className="mt-5 text-center">
-                <span className="font-mono text-xs text-[#666666]">
+                <span className="font-mono text-xs text-[#8E8C9C]">
                   WRONG NUMBER?{" "}
                 </span>
                 <Link
                   href={originFlow === "signup" ? "/signup" : "/login"}
-                  className="font-mono text-xs text-[#8B5CF6] hover:text-[#A78BFA] font-bold hover:underline transition-colors ml-1"
+                  className="font-mono text-xs text-[#FFE14D] hover:text-[#FFEA80] font-bold hover:underline transition-colors ml-1"
                 >
                   CHANGE NUMBER
                 </Link>
@@ -448,7 +442,7 @@ export default function OTPVerificationPage() {
       </div>
 
       {/* Subtle Bottom Accent */}
-      <footer className="w-full py-4 text-center border-t border-[#1A1A1A]/40 text-[11px] font-mono text-[#666666]">
+      <footer className="w-full py-4 text-center border-t border-[#25252F]/40 text-[11px] font-mono text-[#8E8C9C]">
         VIBEUP · BANGALORE NIGHTLIFE PLATFORM
       </footer>
     </main>

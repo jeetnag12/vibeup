@@ -1,6 +1,6 @@
 "use client";
 
-import { Activity, Check } from "lucide-react";
+import { Activity, Check } from "@/components/icons";
 import { EventInsight } from "@/lib/reviews-data";
 
 interface EventInsightsProps {
@@ -9,7 +9,7 @@ interface EventInsightsProps {
 
 export default function EventInsights({ insights }: EventInsightsProps) {
   return (
-    <div className="w-full rounded-[12px] bg-[#111111] border border-[#1A1A1A] p-6 sm:p-7">
+    <div className="w-full rounded-[12px] bg-[#15151C] border border-[#25252F] p-6 sm:p-7">
       <div className="flex items-center gap-2 mb-2">
         <Activity className="w-4 h-4 text-[#22C55E]" />
         <h3 className="font-mono text-xs font-semibold text-[#22C55E] uppercase tracking-wider">
@@ -20,7 +20,7 @@ export default function EventInsights({ insights }: EventInsightsProps) {
       <h4 className="text-xl font-bold font-sans text-white tracking-tight mb-1">
         THE VIBE AT A GLANCE
       </h4>
-      <p className="text-xs text-[#666666] font-sans mb-5">
+      <p className="text-xs text-[#8E8C9C] font-sans mb-5">
         Dominant descriptors derived directly from verified attendee reviews.
       </p>
 
@@ -29,10 +29,10 @@ export default function EventInsights({ insights }: EventInsightsProps) {
         {insights.map((item) => (
           <div
             key={item.tag}
-            className="p-3 rounded-xl bg-[#111111] border border-[#1A1A1A] flex items-center justify-between gap-3 hover:border-[#8B5CF6]/40 transition-colors"
+            className="p-3 rounded-xl bg-[#15151C] border border-[#25252F] flex items-center justify-between gap-3 hover:border-[#FFE14D]/40 transition-colors"
           >
             <div className="flex items-center gap-2 min-w-0">
-              <span className="w-2 h-2 rounded-full bg-[#8B5CF6] shrink-0" />
+              <span className="w-2 h-2 rounded-full bg-[#FFE14D] shrink-0" />
               <span className="font-mono text-xs font-bold text-white uppercase tracking-wider truncate">
                 {item.tag}
               </span>
@@ -47,7 +47,7 @@ export default function EventInsights({ insights }: EventInsightsProps) {
         ))}
       </div>
 
-      <div className="mt-5 pt-4 border-t border-[#1A1A1A] flex items-center gap-1.5 text-[11px] font-mono text-[#666666]">
+      <div className="mt-5 pt-4 border-t border-[#25252F] flex items-center gap-1.5 text-[11px] font-mono text-[#8E8C9C]">
         <Check className="w-3.5 h-3.5 text-[#22C55E]" />
         <span>Aggregated from verified ticket check-ins</span>
       </div>

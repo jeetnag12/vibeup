@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { X, AlertTriangle, Check } from "lucide-react";
+import { X, AlertTriangle, Check } from "@/components/icons";
 import { DiscussionPost } from "@/lib/events-data";
 
 interface ReportPostModalProps {
@@ -47,13 +47,13 @@ export default function ReportPostModal({ post, onClose }: ReportPostModalProps)
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in"
     >
       <div
-        className="relative w-full max-w-md rounded-[12px] bg-[#111111] border border-[#1A1A1A] p-6 shadow-2xl"
+        className="relative w-full max-w-md rounded-[12px] bg-[#15151C] border border-[#25252F] p-6 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-5 right-5 p-1.5 rounded-[4px] text-[#666666] hover:text-white hover:bg-[#1A1A1A] transition-colors"
+          className="absolute top-5 right-5 p-1.5 rounded-[4px] text-[#8E8C9C] hover:text-white hover:bg-[#25252F] transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
@@ -69,7 +69,7 @@ export default function ReportPostModal({ post, onClose }: ReportPostModalProps)
         >
           REPORT POST
         </h3>
-        <p className="text-xs text-[#666666] font-sans mb-4">
+        <p className="text-xs text-[#8E8C9C] font-sans mb-4">
           Why are you reporting this post by{" "}
           <span className="text-white font-semibold">{post.authorName}</span>?
         </p>
@@ -86,8 +86,8 @@ export default function ReportPostModal({ post, onClose }: ReportPostModalProps)
                 key={reason}
                 className={`p-3 rounded-xl border text-xs font-sans flex items-center gap-3 cursor-pointer transition-colors ${
                   selectedReason === reason
-                    ? "bg-[#8B5CF6]/15 border-[#8B5CF6] text-white"
-                    : "bg-[#111111] border-[#1A1A1A] text-[#666666] hover:text-white"
+                    ? "bg-[#FFE14D]/15 border-[#FFE14D] text-white"
+                    : "bg-[#15151C] border-[#25252F] text-[#8E8C9C] hover:text-white"
                 }`}
               >
                 <input
@@ -95,17 +95,17 @@ export default function ReportPostModal({ post, onClose }: ReportPostModalProps)
                   name="reportReason"
                   checked={selectedReason === reason}
                   onChange={() => setSelectedReason(reason)}
-                  className="accent-[#8B5CF6]"
+                  className="accent-[#FFE14D]"
                 />
                 <span>{reason}</span>
               </label>
             ))}
 
-            <div className="flex items-center gap-2 justify-end pt-4 border-t border-[#1A1A1A] mt-2">
+            <div className="flex items-center gap-2 justify-end pt-4 border-t border-[#25252F] mt-2">
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2 rounded-[4px] border border-[#1A1A1A] text-xs font-mono text-[#666666] hover:text-white transition-colors"
+                className="px-4 py-2 rounded-[4px] border border-[#25252F] text-xs font-mono text-[#8E8C9C] hover:text-white transition-colors"
               >
                 CANCEL
               </button>

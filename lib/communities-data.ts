@@ -160,7 +160,7 @@ export const allCommunitiesData: Community[] = [
   {
     id: "koramangala-party-people",
     name: "KORAMANGALA PARTY PEOPLE",
-    description: "From 4th Block dive bars to heavy weekend bass stages at Fandom & XYZ. Your gateway to Koramangala's bustling tech and nightlife crowd.",
+    description: "From 4th Block dive bars to heavy weekend bass stages at Fandom & Basement Vault. Your gateway to Koramangala's bustling tech and nightlife crowd.",
     coverImage: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop",
     location: "Koramangala, Bangalore",
     area: "Koramangala",
@@ -216,7 +216,7 @@ export const allCommunitiesData: Community[] = [
     id: "whitefield-weekend-crew",
     name: "WHITEFIELD WEEKEND CREW",
     description: "East Bangalore crew meeting up for rooftop sessions, ITPL sundowners, and weekend club carpools across the city.",
-    coverImage: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800&auto=format&fit=crop",
     location: "Whitefield, Bangalore",
     area: "Whitefield",
     category: "CITY",

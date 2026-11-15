@@ -459,7 +459,7 @@ export const mockPeopleData: Person[] = [
     name: "Aditya Rao",
     username: "@aditya.pulse",
     avatar:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=240&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=240&auto=format&fit=crop",
     location: "Bangalore",
     area: "Koramangala",
     bio: "Bollywood anthems, Punjabi dance floors & high energy weekend clubbing. VIP tables & late night shawarma.",

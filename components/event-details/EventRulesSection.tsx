@@ -1,4 +1,4 @@
-import { ShieldAlert, Shirt, Clock, MapPin, AlertTriangle } from "lucide-react";
+import { ShieldAlert, Shirt, Clock, MapPin, AlertTriangle } from "@/components/icons";
 import { DetailedEvent } from "@/lib/events-data";
 
 interface EventRulesSectionProps {
@@ -17,7 +17,7 @@ export default function EventRulesSection({ event }: EventRulesSectionProps) {
       title: "DRESS CODE",
       desc: event.dressCode || "Smart casual. No flip-flops or slippers.",
       icon: Shirt,
-      color: "text-[#8B5CF6]",
+      color: "text-[#FFE14D]",
     },
     {
       title: "TIMINGS",
@@ -29,7 +29,7 @@ export default function EventRulesSection({ event }: EventRulesSectionProps) {
       title: "VENUE",
       desc: `${event.venue}, ${event.area}, Bengaluru. Valet parking available on first-come basis.`,
       icon: MapPin,
-      color: "text-[#EC4899]",
+      color: "text-[#FF4FA3]",
     },
     {
       title: "IMPORTANT",
@@ -41,7 +41,7 @@ export default function EventRulesSection({ event }: EventRulesSectionProps) {
 
   return (
     <section className="w-full my-12">
-      <span className="font-mono text-[11px] text-[#8B5CF6] uppercase tracking-wider block mb-1">
+      <span className="font-mono text-[11px] text-[#FFE14D] uppercase tracking-wider block mb-1">
         HOUSE POLICY
       </span>
       <h2
@@ -51,20 +51,20 @@ export default function EventRulesSection({ event }: EventRulesSectionProps) {
         EVENT DETAILS &amp; RULES
       </h2>
 
-      <div className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A]">
+      <div className="p-6 rounded-[12px] bg-[#15151C] border border-[#25252F]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {rules.map((rule) => {
             const Icon = rule.icon;
             return (
               <div key={rule.title} className="flex items-start gap-3.5">
-                <div className="w-9 h-9 rounded-xl bg-[#111111] border border-[#1A1A1A] flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-[#15151C] border border-[#25252F] flex items-center justify-center shrink-0">
                   <Icon className={`w-4 h-4 ${rule.color}`} />
                 </div>
                 <div>
                   <h4 className="font-mono text-xs font-bold text-white tracking-wider mb-1">
                     {rule.title}
                   </h4>
-                  <p className="font-sans text-xs sm:text-sm text-[#666666] leading-relaxed">
+                  <p className="font-sans text-xs sm:text-sm text-[#8E8C9C] leading-relaxed">
                     {rule.desc}
                   </p>
                 </div>

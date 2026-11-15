@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { X, Flag, CheckCircle2 } from "lucide-react";
+import { X, Flag, CheckCircle2 } from "@/components/icons";
 import { EventReview } from "@/lib/reviews-data";
 
 interface ReportReviewModalProps {
@@ -58,12 +58,12 @@ export default function ReportReviewModal({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="w-full max-w-md bg-[#111111] border border-[#1A1A1A] rounded-[12px] p-6 sm:p-7 shadow-2xl relative">
+      <div className="w-full max-w-md bg-[#15151C] border border-[#25252F] rounded-[12px] p-6 sm:p-7 shadow-2xl relative">
         <button
           type="button"
           onClick={onClose}
           aria-label="Close report modal"
-          className="absolute top-5 right-5 p-2 rounded-[4px] text-[#666666] hover:text-white hover:bg-white/5 transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-[4px] text-[#8E8C9C] hover:text-white hover:bg-white/5 transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
@@ -76,7 +76,7 @@ export default function ReportReviewModal({
             <h3 className="text-xl font-bold font-sans text-white">
               REPORT RECEIVED
             </h3>
-            <p className="text-xs text-[#666666] max-w-xs mx-auto">
+            <p className="text-xs text-[#8E8C9C] max-w-xs mx-auto">
               Thank you for keeping VibeUp verified and respectful. Our community team will review this report.
             </p>
           </div>
@@ -90,13 +90,13 @@ export default function ReportReviewModal({
             <h3 id="report-modal-title" className="text-xl font-bold font-sans text-white mb-1">
               REPORT REVIEW
             </h3>
-            <p className="text-xs text-[#666666] mb-4">
+            <p className="text-xs text-[#8E8C9C] mb-4">
               Report review by <strong className="text-white">{review.author.name}</strong>
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono text-[#666666] uppercase mb-2">
+                <label className="block text-xs font-mono text-[#8E8C9C] uppercase mb-2">
                   REASON
                 </label>
                 <div className="space-y-2">
@@ -105,8 +105,8 @@ export default function ReportReviewModal({
                       key={r}
                       className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-colors ${
                         selectedReason === r
-                          ? "bg-[#8B5CF6]/15 border-[#8B5CF6] text-white"
-                          : "bg-[#111111] border-[#1A1A1A] text-[#666666] hover:text-white"
+                          ? "bg-[#FFE14D]/15 border-[#FFE14D] text-white"
+                          : "bg-[#15151C] border-[#25252F] text-[#8E8C9C] hover:text-white"
                       }`}
                     >
                       <span className="text-xs font-mono font-medium">{r}</span>
@@ -124,7 +124,7 @@ export default function ReportReviewModal({
               </div>
 
               <div>
-                <label htmlFor="report-details" className="block text-xs font-mono text-[#666666] uppercase mb-1.5">
+                <label htmlFor="report-details" className="block text-xs font-mono text-[#8E8C9C] uppercase mb-1.5">
                   ADDITIONAL DETAILS (OPTIONAL)
                 </label>
                 <textarea
@@ -133,7 +133,7 @@ export default function ReportReviewModal({
                   placeholder="Explain why this review violates guidelines..."
                   value={additionalDetails}
                   onChange={(e) => setAdditionalDetails(e.target.value)}
-                  className="w-full bg-[#111111] border border-[#1A1A1A] rounded-xl px-3.5 py-2 text-xs text-white placeholder-[#666666] focus:outline-none focus:border-[#8B5CF6] font-sans resize-none"
+                  className="w-full bg-[#15151C] border border-[#25252F] rounded-xl px-3.5 py-2 text-xs text-white placeholder-[#8E8C9C] focus:outline-none focus:border-[#FFE14D] font-sans resize-none"
                 />
               </div>
 
@@ -141,7 +141,7 @@ export default function ReportReviewModal({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] text-xs font-mono text-[#666666] hover:text-white border border-[#1A1A1A] transition-colors"
+                  className="px-4 py-2 rounded-[4px] bg-[#15151C] hover:bg-[#25252F] text-xs font-mono text-[#8E8C9C] hover:text-white border border-[#25252F] transition-colors"
                 >
                   CANCEL
                 </button>

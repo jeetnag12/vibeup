@@ -1,6 +1,6 @@
 "use client";
 
-import { Users, ShieldCheck, Sparkles } from "lucide-react";
+import { Users, ShieldCheck, Sparkles } from "@/components/icons";
 
 interface CrewStatsProps {
   crewsCount?: number;
@@ -19,14 +19,14 @@ export default function CrewStats({
       label: "CREWS GOING",
       sublabel: "Attending this event",
       icon: ShieldCheck,
-      color: "#8B5CF6",
+      color: "#FFE14D",
     },
     {
       value: peopleCount,
       label: "PEOPLE IN CREWS",
       sublabel: "Coordinating together",
       icon: Users,
-      color: "#EC4899",
+      color: "#FF4FA3",
     },
     {
       value: openSpotsCount,
@@ -40,10 +40,10 @@ export default function CrewStats({
   return (
     <div className="w-full mb-12">
       <div className="flex items-center justify-between gap-2 mb-3">
-        <span className="font-mono text-xs text-[#666666] uppercase tracking-wider">
+        <span className="font-mono text-xs text-[#8E8C9C] uppercase tracking-wider">
           EVENT SOCIAL ACTIVITY
         </span>
-        <span className="font-mono text-[11px] text-[#8B5CF6]">
+        <span className="font-mono text-[11px] text-[#FFE14D]">
           Live Event Numbers
         </span>
       </div>
@@ -54,22 +54,22 @@ export default function CrewStats({
           return (
             <div
               key={stat.label}
-              className="p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex items-center justify-between gap-4 hover:border-[#8B5CF6]/40 transition-colors"
+              className="p-5 rounded-[12px] bg-[#15151C] border border-[#25252F] flex items-center justify-between gap-4 hover:border-[#FFE14D]/40 transition-colors"
             >
               <div>
                 <div className="font-sans text-3xl sm:text-4xl font-bold text-white tracking-tight leading-none mb-1.5">
                   {stat.value}
                 </div>
-                <div className="font-mono text-xs font-semibold text-[#666666] tracking-wider uppercase">
+                <div className="font-mono text-xs font-semibold text-[#8E8C9C] tracking-wider uppercase">
                   {stat.label}
                 </div>
-                <div className="font-sans text-[11px] text-[#666666] mt-0.5">
+                <div className="font-sans text-[11px] text-[#8E8C9C] mt-0.5">
                   {stat.sublabel}
                 </div>
               </div>
 
               <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border border-[#1A1A1A]"
+                className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border border-[#25252F]"
                 style={{ backgroundColor: `${stat.color}15` }}
               >
                 <Icon className="w-5 h-5" style={{ color: stat.color }} />

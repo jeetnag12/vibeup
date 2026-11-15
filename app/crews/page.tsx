@@ -18,7 +18,7 @@ import {
   ArrowRight,
   RotateCcw,
   Zap,
-} from "lucide-react";
+} from "@/components/icons";
 import {
   allCrewsData,
   crewFilterCategories,
@@ -234,7 +234,7 @@ export default function CrewsDiscoveryPage() {
   const areasList = ["INDIRANAGAR", "KORAMANGALA", "CBD", "HSR", "WHITEFIELD"];
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#0B0B10] text-white flex flex-col justify-between selection:bg-[#FFE14D] selection:text-white relative overflow-x-hidden">
       <Navbar />
 
       <div className="w-full pt-[88px] sm:pt-[96px] pb-[80px]">
@@ -243,7 +243,7 @@ export default function CrewsDiscoveryPage() {
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[400px] pointer-events-none z-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(139,92,246,0.12) 0%, rgba(236,72,153,0.06) 45%, transparent 70%)",
+              "radial-gradient(ellipse at center, rgba(255,225,77,0.12) 0%, rgba(255,79,163,0.06) 45%, transparent 70%)",
           }}
           aria-hidden="true"
         />
@@ -253,8 +253,8 @@ export default function CrewsDiscoveryPage() {
               1. PAGE HEADER
           ================================================== */}
           <section className="text-center max-w-2xl mx-auto space-y-3 pt-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 text-xs font-mono text-[#8B5CF6]">
-              <Zap className="w-3.5 h-3.5 text-[#8B5CF6]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFE14D]/15 border border-[#FFE14D]/30 text-xs font-mono text-[#FFE14D]">
+              <Zap className="w-3.5 h-3.5 text-[#FFE14D]" />
               <span>NIGHTLIFE PLANS & CREWS</span>
             </div>
 
@@ -262,7 +262,7 @@ export default function CrewsDiscoveryPage() {
               FIND YOUR CREW
             </h1>
 
-            <p className="text-sm sm:text-base text-[#666666] font-sans leading-relaxed">
+            <p className="text-sm sm:text-base text-[#8E8C9C] font-sans leading-relaxed">
               Don&apos;t go out alone. Find people heading to the same night.
             </p>
           </section>
@@ -273,19 +273,19 @@ export default function CrewsDiscoveryPage() {
           <section className="max-w-4xl mx-auto space-y-4">
             {/* Search Input */}
             <div className="relative w-full">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#666666]" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#8E8C9C]" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="SEARCH CREWS BY NAME, EVENT, VENUE, AREA OR GENRE..."
-                className="w-full h-12 sm:h-14 pl-12 pr-4 rounded-[12px] bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs sm:text-sm font-mono text-white placeholder-[#666666] transition-colors shadow-lg"
+                className="w-full h-12 sm:h-14 pl-12 pr-4 rounded-[12px] bg-[#15151C] border border-[#25252F] focus:border-[#FFE14D] focus:outline-none text-xs sm:text-sm font-mono text-white placeholder-[#8E8C9C] transition-colors shadow-lg"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 font-mono text-xs text-[#666666] hover:text-white"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 font-mono text-xs text-[#8E8C9C] hover:text-white"
                 >
                   CLEAR
                 </button>
@@ -303,8 +303,8 @@ export default function CrewsDiscoveryPage() {
                     onClick={() => setActiveFilter(category)}
                     className={`px-4 py-2 rounded-xl text-xs font-mono font-medium whitespace-nowrap transition-all duration-200 border ${
                       isActive
-                        ? "bg-[#8B5CF6] text-white border-[#8B5CF6] shadow-[0_0_16px_rgba(139,92,246,0.3)]"
-                        : "bg-[#111111] hover:bg-[#111111] text-[#666666] hover:text-white border-[#1A1A1A]"
+                        ? "bg-[#FFE14D] text-[#0B0B10] border-[#FFE14D] shadow-[0_0_16px_rgba(255,225,77,0.3)]"
+                        : "bg-[#15151C] hover:bg-[#15151C] text-[#8E8C9C] hover:text-white border-[#25252F]"
                     }`}
                   >
                     {category}
@@ -319,12 +319,12 @@ export default function CrewsDiscoveryPage() {
           ================================================== */}
           {isFilteringOrSearching ? (
             <section className="space-y-6">
-              <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-4">
+              <div className="flex items-center justify-between border-b border-[#25252F] pb-4">
                 <div>
-                  <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#8B5CF6] uppercase tracking-wider">
+                  <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FFE14D] uppercase tracking-wider">
                     DISCOVERED CREWS
                   </h2>
-                  <p className="text-xs text-[#666666] font-sans mt-0.5">
+                  <p className="text-xs text-[#8E8C9C] font-sans mt-0.5">
                     Showing {filteredCrews.length} crews matching your criteria.
                   </p>
                 </div>
@@ -332,7 +332,7 @@ export default function CrewsDiscoveryPage() {
                 <button
                   type="button"
                   onClick={clearFilters}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono text-[#EC4899] hover:text-white transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono text-[#FF4FA3] hover:text-white transition-colors"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                   <span>RESET FILTERS</span>
@@ -354,15 +354,15 @@ export default function CrewsDiscoveryPage() {
                 /* ==================================================
                     22. EMPTY STATE
                 ================================================== */
-                <div className="py-16 text-center rounded-[12px] bg-[#111111] border border-[#1A1A1A] space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center mx-auto text-[#8B5CF6]">
+                <div className="py-16 text-center rounded-[12px] bg-[#15151C] border border-[#25252F] space-y-4">
+                  <div className="w-12 h-12 rounded-full bg-[#FFE14D]/15 border border-[#FFE14D]/30 flex items-center justify-center mx-auto text-[#FFE14D]">
                     <Users className="w-6 h-6" />
                   </div>
                   <div className="space-y-1">
                     <h3 className="font-sans font-bold text-lg text-white">
                       NO CREWS FOUND
                     </h3>
-                    <p className="text-xs text-[#666666] font-sans max-w-sm mx-auto">
+                    <p className="text-xs text-[#8E8C9C] font-sans max-w-sm mx-auto">
                       Try searching another event, genre or area, or start your own crew to rally partygoers.
                     </p>
                   </div>
@@ -370,14 +370,14 @@ export default function CrewsDiscoveryPage() {
                     <button
                       type="button"
                       onClick={clearFilters}
-                      className="px-5 py-2.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-xs font-mono text-white transition-colors"
+                      className="px-5 py-2.5 rounded-[4px] bg-[#15151C] hover:bg-[#25252F] border border-[#25252F] text-xs font-mono text-white transition-colors"
                     >
                       CLEAR FILTERS
                     </button>
                     <button
                       type="button"
                       onClick={() => setIsModalOpen(true)}
-                      className="px-5 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-xs font-mono font-bold text-white transition-colors"
+                      className="px-5 py-2.5 rounded-xl bg-[#FFE14D] hover:bg-[#F2CF2E] text-xs font-mono font-bold text-[#0B0B10] transition-colors"
                     >
                       CREATE A CREW
                     </button>
@@ -394,15 +394,15 @@ export default function CrewsDiscoveryPage() {
                   4. CREWS YOU MAY JOIN (Section 10)
               ================================================== */}
               <section aria-label="Crews You May Join" className="space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[#1A1A1A] pb-4">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[#25252F] pb-4">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
-                      <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#8B5CF6] uppercase tracking-wider">
+                      <Sparkles className="w-4 h-4 text-[#FFE14D]" />
+                      <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FFE14D] uppercase tracking-wider">
                         CREWS YOU MAY JOIN
                       </h2>
                     </div>
-                    <p className="text-sm text-[#666666] font-sans">
+                    <p className="text-sm text-[#8E8C9C] font-sans">
                       People planning nights that match your vibe.
                     </p>
                   </div>
@@ -428,20 +428,20 @@ export default function CrewsDiscoveryPage() {
                   5. GOING OUT TONIGHT (Section 11) - Grouped by Event
               ================================================== */}
               <section aria-label="Going Out Tonight" className="space-y-6">
-                <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-4">
+                <div className="flex items-center justify-between border-b border-[#25252F] pb-4">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <Radio className="w-4 h-4 text-[#EC4899] animate-pulse" />
-                      <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#EC4899] uppercase tracking-wider">
+                      <Radio className="w-4 h-4 text-[#FF4FA3] animate-pulse" />
+                      <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FF4FA3] uppercase tracking-wider">
                         GOING OUT TONIGHT
                       </h2>
                     </div>
-                    <p className="text-sm text-[#666666] font-sans">
+                    <p className="text-sm text-[#8E8C9C] font-sans">
                       Actionable plans for tonight: find a squad before doors open.
                     </p>
                   </div>
 
-                  <span className="font-mono text-xs text-[#EC4899] bg-[#EC4899]/15 border border-[#EC4899]/30 px-3 py-1 rounded-full">
+                  <span className="font-mono text-xs text-[#FF4FA3] bg-[#FF4FA3]/15 border border-[#FF4FA3]/30 px-3 py-1 rounded-full">
                     LIVE TODAY
                   </span>
                 </div>
@@ -450,30 +450,30 @@ export default function CrewsDiscoveryPage() {
                   {tonightGroups.map((group) => (
                     <div
                       key={group.eventId}
-                      className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] space-y-6"
+                      className="p-6 rounded-[12px] bg-[#15151C] border border-[#25252F] space-y-6"
                     >
                       {/* Event Banner */}
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#1A1A1A] pb-4">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#25252F] pb-4">
                         <div className="space-y-1">
-                          <span className="font-mono text-[10px] text-[#666666] uppercase block">
+                          <span className="font-mono text-[10px] text-[#8E8C9C] uppercase block">
                             EVENT DESTINATION
                           </span>
                           <h3 className="font-sans font-bold text-lg sm:text-xl text-white">
                             {group.eventName}
                           </h3>
-                          <div className="flex items-center gap-3 text-xs font-mono text-[#666666]">
+                          <div className="flex items-center gap-3 text-xs font-mono text-[#8E8C9C]">
                             <span>{group.venue}</span>
                             <span>·</span>
-                            <span className="text-[#EC4899]">{group.area}</span>
+                            <span className="text-[#FF4FA3]">{group.area}</span>
                           </div>
                         </div>
 
                         <Link
                           href={`/events/${group.eventId}`}
-                          className="px-4 py-2 rounded-[4px] bg-[#111111] hover:bg-[#252530] border border-[#1A1A1A] text-xs font-mono text-white flex items-center justify-center gap-1.5 transition-colors self-start sm:self-auto"
+                          className="px-4 py-2 rounded-[4px] bg-[#15151C] hover:bg-[#252530] border border-[#25252F] text-xs font-mono text-white flex items-center justify-center gap-1.5 transition-colors self-start sm:self-auto"
                         >
                           <span>VIEW EVENT</span>
-                          <ArrowRight className="w-3.5 h-3.5 text-[#8B5CF6]" />
+                          <ArrowRight className="w-3.5 h-3.5 text-[#FFE14D]" />
                         </Link>
                       </div>
 
@@ -497,7 +497,7 @@ export default function CrewsDiscoveryPage() {
                   6. POPULAR CREWS (Section 12)
               ================================================== */}
               <section aria-label="Popular Crews" className="space-y-6">
-                <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-4">
+                <div className="flex items-center justify-between border-b border-[#25252F] pb-4">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <Flame className="w-4 h-4 text-amber-400" />
@@ -505,7 +505,7 @@ export default function CrewsDiscoveryPage() {
                         POPULAR CREWS
                       </h2>
                     </div>
-                    <p className="text-sm text-[#666666] font-sans">
+                    <p className="text-sm text-[#8E8C9C] font-sans">
                       Trending squads seeing high community interest and fast signups.
                     </p>
                   </div>
@@ -531,7 +531,7 @@ export default function CrewsDiscoveryPage() {
                   7. CREWS NEAR YOU (Section 13: Around Bangalore)
               ================================================== */}
               <section aria-label="Crews Around Bangalore" className="space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#1A1A1A] pb-4">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#25252F] pb-4">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <MapPin className="w-4 h-4 text-[#22C55E]" />
@@ -539,7 +539,7 @@ export default function CrewsDiscoveryPage() {
                         CREWS AROUND BANGALORE
                       </h2>
                     </div>
-                    <p className="text-sm text-[#666666] font-sans">
+                    <p className="text-sm text-[#8E8C9C] font-sans">
                       Neighborhood pre-drinks and ride shares organizing near your zone.
                     </p>
                   </div>
@@ -554,7 +554,7 @@ export default function CrewsDiscoveryPage() {
                         className={`px-3 py-1.5 rounded-lg text-[11px] font-mono transition-colors ${
                           activeArea === area
                             ? "bg-[#22C55E]/20 text-[#22C55E] border border-[#22C55E]/50 font-bold"
-                            : "bg-[#111111] text-[#666666] hover:text-white border border-[#1A1A1A]"
+                            : "bg-[#15151C] text-[#8E8C9C] hover:text-white border border-[#25252F]"
                         }`}
                       >
                         {area}
@@ -580,21 +580,21 @@ export default function CrewsDiscoveryPage() {
               ================================================== */}
               <section
                 aria-label="Create a Crew CTA"
-                className="p-8 sm:p-12 rounded-[12px] bg-gradient-to-r from-[#111111] via-[#111111] to-[#111111] border border-[#1A1A1A] relative overflow-hidden shadow-2xl text-center max-w-3xl mx-auto"
+                className="p-8 sm:p-12 rounded-[12px] bg-gradient-to-r from-[#15151C] via-[#15151C] to-[#15151C] border border-[#25252F] relative overflow-hidden shadow-2xl text-center max-w-3xl mx-auto"
               >
                 {/* Ambient glow accent */}
                 <div
                   className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-80 pointer-events-none rounded-full"
                   style={{
                     background:
-                      "radial-gradient(circle, rgba(139,92,246,0.18) 0%, transparent 70%)",
+                      "radial-gradient(circle, rgba(255,225,77,0.18) 0%, transparent 70%)",
                   }}
                   aria-hidden="true"
                 />
 
                 <div className="relative z-10 space-y-4">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 text-xs font-mono text-[#8B5CF6]">
-                    <Plus className="w-3.5 h-3.5 text-[#8B5CF6]" />
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFE14D]/15 border border-[#FFE14D]/30 text-xs font-mono text-[#FFE14D]">
+                    <Plus className="w-3.5 h-3.5 text-[#FFE14D]" />
                     <span>START A NEW NIGHT</span>
                   </div>
 
@@ -610,7 +610,7 @@ export default function CrewsDiscoveryPage() {
                     <button
                       type="button"
                       onClick={() => setIsModalOpen(true)}
-                      className="px-8 py-3.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold transition-all  inline-flex items-center gap-2"
+                      className="px-8 py-3.5 rounded-xl bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-mono text-xs font-bold transition-all  inline-flex items-center gap-2"
                     >
                       <Plus className="w-4 h-4" />
                       <span>CREATE A CREW</span>
@@ -635,13 +635,13 @@ export default function CrewsDiscoveryPage() {
           onClick={() => setIsModalOpen(false)}
         >
           <div
-            className="relative max-w-xl w-full bg-[#111111] border border-[#1A1A1A] rounded-[12px] p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto"
+            className="relative max-w-xl w-full bg-[#15151C] border border-[#25252F] rounded-[12px] p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between pb-4 border-b border-[#1A1A1A] mb-5">
+            <div className="flex items-center justify-between pb-4 border-b border-[#25252F] mb-5">
               <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-[#8B5CF6]" />
+                <Users className="w-5 h-5 text-[#FFE14D]" />
                 <h3
                   id="create-crew-modal-title"
                   className="font-sans font-bold text-lg sm:text-xl text-white tracking-tight"
@@ -654,7 +654,7 @@ export default function CrewsDiscoveryPage() {
                 type="button"
                 onClick={() => setIsModalOpen(false)}
                 aria-label="Close modal"
-                className="w-8 h-8 rounded-full bg-[#111111] hover:bg-[#1A1A1A] text-white flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-full bg-[#15151C] hover:bg-[#25252F] text-white flex items-center justify-center transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -665,7 +665,7 @@ export default function CrewsDiscoveryPage() {
               <div>
                 <label
                   htmlFor="crew-name-input"
-                  className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
+                  className="block text-xs font-mono text-[#8E8C9C] uppercase mb-1.5"
                 >
                   CREW NAME *
                 </label>
@@ -676,7 +676,7 @@ export default function CrewsDiscoveryPage() {
                   placeholder="e.g. Front-Row Techno Squad"
                   value={formName}
                   onChange={(e) => setFormName(e.target.value)}
-                  className="w-full h-11 px-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white placeholder-[#666666]"
+                  className="w-full h-11 px-3.5 rounded-xl bg-[#15151C] border border-[#25252F] focus:border-[#FFE14D] focus:outline-none text-xs font-sans text-white placeholder-[#8E8C9C]"
                 />
               </div>
 
@@ -684,7 +684,7 @@ export default function CrewsDiscoveryPage() {
               <div>
                 <label
                   htmlFor="crew-event-select"
-                  className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
+                  className="block text-xs font-mono text-[#8E8C9C] uppercase mb-1.5"
                 >
                   EVENT *
                 </label>
@@ -692,7 +692,7 @@ export default function CrewsDiscoveryPage() {
                   id="crew-event-select"
                   value={formEvent}
                   onChange={(e) => setFormEvent(e.target.value)}
-                  className="w-full h-11 px-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-mono text-white"
+                  className="w-full h-11 px-3.5 rounded-xl bg-[#15151C] border border-[#25252F] focus:border-[#FFE14D] focus:outline-none text-xs font-mono text-white"
                 >
                   <option value="Cyberpunk Neon Warehouse">
                     Cyberpunk Neon Warehouse · Tonight
@@ -717,7 +717,7 @@ export default function CrewsDiscoveryPage() {
                 <div>
                   <label
                     htmlFor="crew-date-select"
-                    className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
+                    className="block text-xs font-mono text-[#8E8C9C] uppercase mb-1.5"
                   >
                     DATE *
                   </label>
@@ -725,7 +725,7 @@ export default function CrewsDiscoveryPage() {
                     id="crew-date-select"
                     value={formDate}
                     onChange={(e) => setFormDate(e.target.value)}
-                    className="w-full h-11 px-3 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-mono text-white"
+                    className="w-full h-11 px-3 rounded-xl bg-[#15151C] border border-[#25252F] focus:border-[#FFE14D] focus:outline-none text-xs font-mono text-white"
                   >
                     <option value="Tonight">Tonight</option>
                     <option value="Tomorrow">Tomorrow</option>
@@ -738,7 +738,7 @@ export default function CrewsDiscoveryPage() {
                 <div>
                   <label
                     htmlFor="crew-time-input"
-                    className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
+                    className="block text-xs font-mono text-[#8E8C9C] uppercase mb-1.5"
                   >
                     TIME *
                   </label>
@@ -748,14 +748,14 @@ export default function CrewsDiscoveryPage() {
                     value={formTime}
                     onChange={(e) => setFormTime(e.target.value)}
                     placeholder="e.g. 10:00 PM"
-                    className="w-full h-11 px-3 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-mono text-white"
+                    className="w-full h-11 px-3 rounded-xl bg-[#15151C] border border-[#25252F] focus:border-[#FFE14D] focus:outline-none text-xs font-mono text-white"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="crew-max-members"
-                    className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
+                    className="block text-xs font-mono text-[#8E8C9C] uppercase mb-1.5"
                   >
                     MAX MEMBERS *
                   </label>
@@ -766,7 +766,7 @@ export default function CrewsDiscoveryPage() {
                     max="20"
                     value={formMaxMembers}
                     onChange={(e) => setFormMaxMembers(Number(e.target.value))}
-                    className="w-full h-11 px-3 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-mono text-white"
+                    className="w-full h-11 px-3 rounded-xl bg-[#15151C] border border-[#25252F] focus:border-[#FFE14D] focus:outline-none text-xs font-mono text-white"
                   />
                 </div>
               </div>
@@ -776,7 +776,7 @@ export default function CrewsDiscoveryPage() {
                 <div>
                   <label
                     htmlFor="crew-genre-select"
-                    className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
+                    className="block text-xs font-mono text-[#8E8C9C] uppercase mb-1.5"
                   >
                     PRIMARY GENRE *
                   </label>
@@ -784,7 +784,7 @@ export default function CrewsDiscoveryPage() {
                     id="crew-genre-select"
                     value={formGenre}
                     onChange={(e) => setFormGenre(e.target.value)}
-                    className="w-full h-11 px-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-mono text-white"
+                    className="w-full h-11 px-3.5 rounded-xl bg-[#15151C] border border-[#25252F] focus:border-[#FFE14D] focus:outline-none text-xs font-mono text-white"
                   >
                     <option value="TECHNO">Techno</option>
                     <option value="HOUSE">House</option>
@@ -799,7 +799,7 @@ export default function CrewsDiscoveryPage() {
                 <div>
                   <label
                     htmlFor="crew-area-select"
-                    className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
+                    className="block text-xs font-mono text-[#8E8C9C] uppercase mb-1.5"
                   >
                     MEETUP AREA *
                   </label>
@@ -807,7 +807,7 @@ export default function CrewsDiscoveryPage() {
                     id="crew-area-select"
                     value={formArea}
                     onChange={(e) => setFormArea(e.target.value)}
-                    className="w-full h-11 px-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-mono text-white"
+                    className="w-full h-11 px-3.5 rounded-xl bg-[#15151C] border border-[#25252F] focus:border-[#FFE14D] focus:outline-none text-xs font-mono text-white"
                   >
                     <option value="Indiranagar">Indiranagar</option>
                     <option value="Koramangala">Koramangala</option>
@@ -823,7 +823,7 @@ export default function CrewsDiscoveryPage() {
               <div>
                 <label
                   htmlFor="crew-desc-input"
-                  className="block text-xs font-mono text-[#666666] uppercase mb-1.5"
+                  className="block text-xs font-mono text-[#8E8C9C] uppercase mb-1.5"
                 >
                   CREW DESCRIPTION
                 </label>
@@ -833,7 +833,7 @@ export default function CrewsDiscoveryPage() {
                   placeholder="Where are you meeting? What's the schedule (pre-drinks, rides, venue entry)?"
                   value={formDescription}
                   onChange={(e) => setFormDescription(e.target.value)}
-                  className="w-full p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-sans text-white placeholder-[#666666] resize-none"
+                  className="w-full p-3.5 rounded-xl bg-[#15151C] border border-[#25252F] focus:border-[#FFE14D] focus:outline-none text-xs font-sans text-white placeholder-[#8E8C9C] resize-none"
                 />
               </div>
 
@@ -842,14 +842,14 @@ export default function CrewsDiscoveryPage() {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2.5 rounded-xl bg-[#111111] hover:bg-[#1A1A1A] text-xs font-mono text-[#666666] hover:text-white transition-colors"
+                  className="px-4 py-2.5 rounded-xl bg-[#15151C] hover:bg-[#25252F] text-xs font-mono text-[#8E8C9C] hover:text-white transition-colors"
                 >
                   CANCEL
                 </button>
 
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-xs font-mono font-bold text-white transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
+                  className="px-6 py-2.5 rounded-[4px] bg-[#FFE14D] hover:bg-[#F2CF2E] text-xs font-mono font-bold text-[#0B0B10] transition-all shadow-[0_0_16px_rgba(255,225,77,0.3)]"
                 >
                   CREATE CREW
                 </button>
@@ -864,7 +864,7 @@ export default function CrewsDiscoveryPage() {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-6 right-6 z-50 bg-[#111111] border border-[#22C55E] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
+          className="fixed bottom-6 right-6 z-50 bg-[#15151C] border border-[#22C55E] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
         >
           <Check className="w-4 h-4 text-[#22C55E]" />
           <span>Crew created! Added to discovery feed.</span>

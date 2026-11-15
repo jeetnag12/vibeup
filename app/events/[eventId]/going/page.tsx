@@ -17,7 +17,7 @@ import CrewDiscoverySection from "@/components/event-going/CrewDiscoverySection"
 import InviteCrewModal from "@/components/event-going/InviteCrewModal";
 import AttendeeCardSkeleton from "@/components/event-going/AttendeeCardSkeleton";
 import { getEventById, Attendee } from "@/lib/events-data";
-import { Users, SearchX, ArrowRight } from "lucide-react";
+import { Users, SearchX, ArrowRight } from "@/components/icons";
 
 interface GoingPageProps {
   params?: {
@@ -120,7 +120,7 @@ export default function WhosGoingPage({ params }: GoingPageProps) {
   }, [event.attendees, searchQuery, activeFilter, activeSort, followingState]);
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#0B0B10] text-white flex flex-col justify-between selection:bg-[#FFE14D] selection:text-white relative overflow-x-hidden">
       {/* 1. Navbar */}
       <Navbar />
 
@@ -131,7 +131,7 @@ export default function WhosGoingPage({ params }: GoingPageProps) {
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] pointer-events-none z-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(139,92,246,0.12) 0%, rgba(236,72,153,0.06) 45%, transparent 70%)",
+              "radial-gradient(ellipse at center, rgba(255,225,77,0.12) 0%, rgba(255,79,163,0.06) 45%, transparent 70%)",
           }}
           aria-hidden="true"
         />
@@ -158,10 +158,10 @@ export default function WhosGoingPage({ params }: GoingPageProps) {
           />
 
           {/* 6. Filter & Search Bar */}
-          <div className="pt-6 border-t border-[#1A1A1A]/80">
+          <div className="pt-6 border-t border-[#25252F]/80">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
               <div>
-                <span className="font-mono text-[11px] text-[#8B5CF6] uppercase tracking-wider block mb-1">
+                <span className="font-mono text-[11px] text-[#FFE14D] uppercase tracking-wider block mb-1">
                   FULL ATTENDEE DIRECTORY
                 </span>
                 <h2
@@ -170,7 +170,7 @@ export default function WhosGoingPage({ params }: GoingPageProps) {
                 >
                   EVERYONE GOING
                 </h2>
-                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1">
+                <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-1">
                   Discover the crowd before you arrive. Find shared interests and mutual connections.
                 </p>
               </div>
@@ -196,14 +196,14 @@ export default function WhosGoingPage({ params }: GoingPageProps) {
             ) : filteredAndSortedAttendees.length === 0 ? (
               /* Empty States */
               searchQuery ? (
-                <div className="w-full py-16 px-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center flex flex-col items-center justify-center">
-                  <div className="w-14 h-14 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex items-center justify-center mb-4 text-[#666666]">
-                    <SearchX className="w-6 h-6 text-[#EC4899]" />
+                <div className="w-full py-16 px-6 rounded-[12px] bg-[#15151C] border border-[#25252F] text-center flex flex-col items-center justify-center">
+                  <div className="w-14 h-14 rounded-[12px] bg-[#15151C] border border-[#25252F] flex items-center justify-center mb-4 text-[#8E8C9C]">
+                    <SearchX className="w-6 h-6 text-[#FF4FA3]" />
                   </div>
                   <h3 className="font-sans font-bold text-lg text-white mb-1">
                     NO MATCHES FOUND
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#666666] font-sans max-w-sm mb-6">
+                  <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans max-w-sm mb-6">
                     Try another name, area, or music genre, or reset filters to explore the full crowd.
                   </p>
                   <button
@@ -212,25 +212,25 @@ export default function WhosGoingPage({ params }: GoingPageProps) {
                       setSearchQuery("");
                       setActiveFilter("ALL");
                     }}
-                    className="px-5 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold transition-colors"
+                    className="px-5 py-2.5 rounded-xl bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-mono text-xs font-bold transition-colors"
                   >
                     RESET SEARCH &amp; FILTERS
                   </button>
                 </div>
               ) : (
-                <div className="w-full py-16 px-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center flex flex-col items-center justify-center">
-                  <div className="w-14 h-14 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex items-center justify-center mb-4 text-[#8B5CF6]">
+                <div className="w-full py-16 px-6 rounded-[12px] bg-[#15151C] border border-[#25252F] text-center flex flex-col items-center justify-center">
+                  <div className="w-14 h-14 rounded-[12px] bg-[#15151C] border border-[#25252F] flex items-center justify-center mb-4 text-[#FFE14D]">
                     <Users className="w-6 h-6" />
                   </div>
                   <h3 className="font-sans font-bold text-lg text-white mb-1">
                     BE THE FIRST IN
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#666666] font-sans max-w-sm mb-6">
+                  <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans max-w-sm mb-6">
                     No one has joined this view yet. Grab your ticket and be the first to start the vibe.
                   </p>
                   <Link
                     href={`/events/${event.id}`}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold transition-colors"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[4px] bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-mono text-xs font-bold transition-colors"
                   >
                     <span>VIEW EVENT</span>
                     <ArrowRight className="w-4 h-4" />

@@ -18,7 +18,7 @@ import {
   Users,
   Compass,
   Radio,
-} from "lucide-react";
+} from "@/components/icons";
 
 export default function MessagesPage() {
   // Master conversations state in local React state
@@ -137,7 +137,7 @@ export default function MessagesPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white flex flex-col selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#0B0B10] text-white flex flex-col selection:bg-[#FFE14D] selection:text-white relative overflow-x-hidden">
       {/* 1. Global VibeUp Navbar */}
       <Navbar />
 
@@ -146,7 +146,7 @@ export default function MessagesPage() {
         className="fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[500px] pointer-events-none z-0"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(139,92,246,0.08) 0%, rgba(236,72,153,0.04) 50%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(255,225,77,0.08) 0%, rgba(255,79,163,0.04) 50%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -154,23 +154,23 @@ export default function MessagesPage() {
       {/* 2. Main Page Layout Container */}
       <div className="flex-1 w-full max-w-[1240px] mx-auto px-2 sm:px-4 md:px-6 pt-[64px] flex flex-col relative z-10">
         {/* Application Surface Card: Responsive calc height */}
-        <div className="flex-1 my-3 sm:my-4 md:my-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[calc(100dvh-88px)] sm:h-[calc(100dvh-96px)] md:h-[calc(100dvh-104px)]">
+        <div className="flex-1 my-3 sm:my-4 md:my-5 rounded-[12px] bg-[#15151C] border border-[#25252F] shadow-2xl overflow-hidden flex flex-col md:flex-row h-[calc(100dvh-88px)] sm:h-[calc(100dvh-96px)] md:h-[calc(100dvh-104px)]">
           {/* ================================================== */}
           {/* LEFT COLUMN: CONVERSATION LIST */}
           {/* (Visible on desktop; on mobile hidden if mobileChatOpen) */}
           {/* ================================================== */}
           <div
-            className={`w-full md:w-[360px] lg:w-[400px] shrink-0 border-r border-[#1A1A1A] flex flex-col bg-[#111111] h-full ${
+            className={`w-full md:w-[360px] lg:w-[400px] shrink-0 border-r border-[#25252F] flex flex-col bg-[#15151C] h-full ${
               mobileChatOpen ? "hidden md:flex" : "flex"
             }`}
           >
             {/* Page Header Area */}
-            <div className="p-4 sm:p-5 border-b border-[#1A1A1A] shrink-0 space-y-3">
+            <div className="p-4 sm:p-5 border-b border-[#25252F] shrink-0 space-y-3">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]" />
-                    <span className="font-mono text-[10px] text-[#666666] uppercase tracking-wider font-semibold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFE14D]" />
+                    <span className="font-mono text-[10px] text-[#8E8C9C] uppercase tracking-wider font-semibold">
                       YOUR CONVERSATIONS
                     </span>
                   </div>
@@ -182,7 +182,7 @@ export default function MessagesPage() {
                 {/* Total Unread Badge */}
                 {totalUnreadCount > 0 && (
                   <span
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 text-xs font-mono text-[#8B5CF6] font-bold"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FFE14D]/15 border border-[#FFE14D]/30 text-xs font-mono text-[#FFE14D] font-bold"
                     aria-label={`${totalUnreadCount} total unread messages`}
                   >
                     <span>{totalUnreadCount}</span>
@@ -191,27 +191,27 @@ export default function MessagesPage() {
                 )}
               </div>
 
-              <p className="text-xs text-[#666666] font-sans">
+              <p className="text-xs text-[#8E8C9C] font-sans">
                 Talk to your people, crews and plans.
               </p>
 
               {/* Local Search Input */}
               <div className="relative">
-                <Search className="w-4 h-4 text-[#666666] absolute left-3 top-1/2 -translate-y-1/2" />
+                <Search className="w-4 h-4 text-[#8E8C9C] absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search conversations..."
                   aria-label="Search conversations"
-                  className="w-full bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] rounded-xl pl-9 pr-8 py-2 text-xs font-sans text-white placeholder-[#666666] focus:outline-none transition-colors"
+                  className="w-full bg-[#15151C] border border-[#25252F] focus:border-[#FFE14D] rounded-xl pl-9 pr-8 py-2 text-xs font-sans text-white placeholder-[#8E8C9C] focus:outline-none transition-colors"
                 />
                 {searchQuery && (
                   <button
                     type="button"
                     onClick={() => setSearchQuery("")}
                     aria-label="Clear search"
-                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#666666] hover:text-white"
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#8E8C9C] hover:text-white"
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
@@ -229,8 +229,8 @@ export default function MessagesPage() {
                       onClick={() => setActiveFilter(tab)}
                       className={`px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold uppercase transition-all duration-150 shrink-0 border ${
                         isActive
-                          ? "bg-[#8B5CF6] text-white border-[#8B5CF6] shadow-[0_0_10px_rgba(139,92,246,0.3)]"
-                          : "bg-[#111111] text-[#666666] hover:text-white border-[#1A1A1A] hover:border-[#8B5CF6]/40"
+                          ? "bg-[#FFE14D] text-[#0B0B10] border-[#FFE14D] shadow-[0_0_10px_rgba(255,225,77,0.3)]"
+                          : "bg-[#15151C] text-[#8E8C9C] hover:text-white border-[#25252F] hover:border-[#FFE14D]/40"
                       }`}
                     >
                       {tab}
@@ -254,13 +254,13 @@ export default function MessagesPage() {
               ) : searchQuery.trim() ? (
                 /* Search Empty State */
                 <div className="py-12 px-4 text-center space-y-2">
-                  <div className="w-10 h-10 rounded-full bg-[#111111] border border-[#1A1A1A] flex items-center justify-center mx-auto text-[#666666]">
+                  <div className="w-10 h-10 rounded-full bg-[#15151C] border border-[#25252F] flex items-center justify-center mx-auto text-[#8E8C9C]">
                     <Search className="w-4 h-4" />
                   </div>
                   <h3 className="font-mono text-xs font-bold text-white uppercase tracking-wider">
                     NO CONVERSATIONS FOUND
                   </h3>
-                  <p className="text-xs text-[#666666] max-w-xs mx-auto">
+                  <p className="text-xs text-[#8E8C9C] max-w-xs mx-auto">
                     Try another name or conversation.
                   </p>
                   <button
@@ -269,7 +269,7 @@ export default function MessagesPage() {
                       setSearchQuery("");
                       setActiveFilter("ALL");
                     }}
-                    className="mt-3 px-3 py-1.5 rounded-lg bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] text-xs font-mono text-[#8B5CF6] transition-colors"
+                    className="mt-3 px-3 py-1.5 rounded-lg bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D] text-xs font-mono text-[#FFE14D] transition-colors"
                   >
                     RESET SEARCH
                   </button>
@@ -277,35 +277,35 @@ export default function MessagesPage() {
               ) : (
                 /* Zero Conversations Empty State (Future-Safe) */
                 <div className="py-10 px-4 text-center space-y-3">
-                  <div className="w-12 h-12 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center mx-auto text-[#8B5CF6]">
+                  <div className="w-12 h-12 rounded-full bg-[#FFE14D]/15 border border-[#FFE14D]/30 flex items-center justify-center mx-auto text-[#FFE14D]">
                     <MessageSquare className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="font-mono text-xs font-bold text-white uppercase tracking-wider">
                       START A CONVERSATION
                     </h3>
-                    <p className="text-xs text-[#666666] max-w-xs mx-auto mt-1 leading-relaxed">
+                    <p className="text-xs text-[#8E8C9C] max-w-xs mx-auto mt-1 leading-relaxed">
                       Find people, join a crew or open an event conversation to start connecting.
                     </p>
                   </div>
                   <div className="pt-2 flex flex-col gap-2 max-w-xs mx-auto">
                     <Link
                       href="/people"
-                      className="w-full py-2 px-3 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-[11px] font-bold uppercase transition-colors flex items-center justify-center gap-1.5"
+                      className="w-full py-2 px-3 rounded-[4px] bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-mono text-[11px] font-bold uppercase transition-colors flex items-center justify-center gap-1.5"
                     >
                       <Users className="w-3.5 h-3.5" />
                       <span>FIND PEOPLE</span>
                     </Link>
                     <Link
                       href="/crews"
-                      className="w-full py-2 px-3 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-white font-mono text-[11px] font-bold uppercase transition-colors flex items-center justify-center gap-1.5"
+                      className="w-full py-2 px-3 rounded-[4px] bg-[#15151C] hover:bg-[#25252F] border border-[#25252F] text-white font-mono text-[11px] font-bold uppercase transition-colors flex items-center justify-center gap-1.5"
                     >
                       <Compass className="w-3.5 h-3.5" />
                       <span>FIND CREWS</span>
                     </Link>
                     <Link
                       href="/discover"
-                      className="w-full py-2 px-3 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-white font-mono text-[11px] font-bold uppercase transition-colors flex items-center justify-center gap-1.5"
+                      className="w-full py-2 px-3 rounded-[4px] bg-[#15151C] hover:bg-[#25252F] border border-[#25252F] text-white font-mono text-[11px] font-bold uppercase transition-colors flex items-center justify-center gap-1.5"
                     >
                       <Radio className="w-3.5 h-3.5" />
                       <span>DISCOVER EVENTS</span>
@@ -321,7 +321,7 @@ export default function MessagesPage() {
           {/* (Visible on desktop; on mobile visible only when mobileChatOpen) */}
           {/* ================================================== */}
           <div
-            className={`flex-1 flex flex-col h-full bg-[#111111] ${
+            className={`flex-1 flex flex-col h-full bg-[#15151C] ${
               mobileChatOpen ? "flex" : "hidden md:flex"
             }`}
           >
@@ -334,14 +334,14 @@ export default function MessagesPage() {
               />
             ) : (
               /* No Active Selection Placeholder */
-              <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-3 bg-[#111111]">
-                <div className="w-14 h-14 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex items-center justify-center text-[#8B5CF6] shadow-xl">
+              <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-3 bg-[#15151C]">
+                <div className="w-14 h-14 rounded-[12px] bg-[#15151C] border border-[#25252F] flex items-center justify-center text-[#FFE14D] shadow-xl">
                   <MessageSquare className="w-6 h-6" />
                 </div>
                 <h2 className="text-lg font-extrabold tracking-[-0.03em] font-sans text-white">
                   SELECT A CONVERSATION
                 </h2>
-                <p className="text-xs text-[#666666] max-w-sm">
+                <p className="text-xs text-[#8E8C9C] max-w-sm">
                   Choose a chat from the left column to view messages, coordinate plans, or catch up with your crew.
                 </p>
               </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Users, Sparkles, ShieldCheck } from "lucide-react";
+import { Users, Sparkles, ShieldCheck } from "@/components/icons";
 import { DetailedEvent } from "@/lib/events-data";
 
 interface SocialStatsRowProps {
@@ -17,23 +17,23 @@ export default function SocialStatsRow({ event }: SocialStatsRowProps) {
       subtext: "Verified ticket holders & RSVPs",
       icon: Users,
       color: "text-white",
-      iconBg: "bg-[#8B5CF6]/15 text-[#8B5CF6] border-[#8B5CF6]/30",
+      iconBg: "bg-[#FFE14D]/15 text-[#FFE14D] border-[#FFE14D]/30",
     },
     {
       value: event.vibeCount || 23,
       label: "PEOPLE YOU MAY VIBE WITH",
       subtext: "High music & interest match",
       icon: Sparkles,
-      color: "text-[#8B5CF6]",
-      iconBg: "bg-[#8B5CF6]/20 text-[#8B5CF6] border-[#8B5CF6]/50 shadow-[0_0_16px_rgba(139,92,246,0.2)]",
+      color: "text-[#FFE14D]",
+      iconBg: "bg-[#FFE14D]/20 text-[#FFE14D] border-[#FFE14D]/50 shadow-[0_0_16px_rgba(255,225,77,0.2)]",
     },
     {
       value: activeCrewsCount,
       label: "ACTIVE CREWS",
       subtext: "Groups gathering for this night",
       icon: ShieldCheck,
-      color: "text-[#EC4899]",
-      iconBg: "bg-[#EC4899]/15 text-[#EC4899] border-[#EC4899]/30",
+      color: "text-[#FF4FA3]",
+      iconBg: "bg-[#FF4FA3]/15 text-[#FF4FA3] border-[#FF4FA3]/30",
     },
   ];
 
@@ -44,7 +44,7 @@ export default function SocialStatsRow({ event }: SocialStatsRowProps) {
         return (
           <div
             key={stat.label}
-            className="p-5 sm:p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/50 transition-all duration-200 flex items-center justify-between gap-4"
+            className="p-5 sm:p-6 rounded-[12px] bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D]/50 transition-all duration-200 flex items-center justify-between gap-4"
           >
             <div>
               <div
@@ -56,7 +56,7 @@ export default function SocialStatsRow({ event }: SocialStatsRowProps) {
               <div className="font-mono text-xs font-semibold text-white tracking-wider mb-0.5">
                 {stat.label}
               </div>
-              <div className="text-xs text-[#666666] font-sans">
+              <div className="text-xs text-[#8E8C9C] font-sans">
                 {stat.subtext}
               </div>
             </div>

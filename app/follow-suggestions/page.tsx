@@ -13,7 +13,7 @@ import {
   Sparkles,
   ArrowRight,
   Compass,
-} from "lucide-react";
+} from "@/components/icons";
 import { motion } from "framer-motion";
 
 // ==================================================
@@ -209,13 +209,13 @@ export default function FollowSuggestionsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#0B0B10] text-white flex flex-col justify-between selection:bg-[#FFE14D] selection:text-white relative overflow-x-hidden">
       {/* Ambient Radial Glow */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[550px] pointer-events-none z-0"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(139,92,246,0.12) 0%, rgba(236,72,153,0.06) 50%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(255,225,77,0.12) 0%, rgba(255,79,163,0.06) 50%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -223,11 +223,11 @@ export default function FollowSuggestionsPage() {
       {/* ================================================== */}
       {/* ONBOARDING MINIMAL TOP HEADER */}
       {/* ================================================== */}
-      <header className="w-full h-[64px] border-b border-[#1A1A1A]/60 bg-[rgba(9,9,11,0.8)] backdrop-blur-md relative z-20">
+      <header className="w-full h-[64px] border-b border-[#25252F]/60 bg-[rgba(9,9,11,0.8)] backdrop-blur-md relative z-20">
         <div className="max-w-[1140px] h-full mx-auto px-4 sm:px-6 flex items-center justify-between">
           <Link
             href="/choose-areas"
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#666666] hover:text-white transition-colors p-1.5 rounded-[4px] hover:bg-white/5"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#8E8C9C] hover:text-white transition-colors p-1.5 rounded-[4px] hover:bg-white/5"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>BACK</span>
@@ -235,17 +235,11 @@ export default function FollowSuggestionsPage() {
 
           {/* VibeUp Logo */}
           <div className="flex items-center gap-2">
-            <span
-              className="w-2 h-2 rounded-full bg-[#8B5CF6] shrink-0 shadow-[0_0_10px_#8B5CF6]"
-              aria-hidden="true"
-            />
-            <span className="text-white font-bold text-base tracking-tight font-sans">
-              VIBEUP
-            </span>
+            <span className="font-display font-black text-[22px] tracking-[-0.03em] text-white" style={{ fontStretch: "140%" }}>vibeup<span className="text-pink">.</span></span>
           </div>
 
           {/* Step Indicator */}
-          <span className="font-mono text-xs font-bold text-[#8B5CF6] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 px-2.5 py-0.5 rounded-full">
+          <span className="font-mono text-xs font-bold text-[#FFE14D] bg-[#FFE14D]/15 border border-[#FFE14D]/30 px-2.5 py-0.5 rounded-full">
             STEP 5 OF 5 · FINAL
           </span>
         </div>
@@ -263,15 +257,15 @@ export default function FollowSuggestionsPage() {
         >
           {/* Progress Bar (100%) */}
           <div className="max-w-[700px] mx-auto">
-            <div className="flex items-center justify-between text-[11px] font-mono text-[#666666] mb-2 uppercase">
+            <div className="flex items-center justify-between text-[11px] font-mono text-[#8E8C9C] mb-2 uppercase">
               <span className="text-[#22C55E]">✓ 1. PROFILE</span>
               <span className="text-[#22C55E]">✓ 2. INTERESTS</span>
               <span className="text-[#22C55E]">✓ 3. GENRES</span>
               <span className="text-[#22C55E]">✓ 4. AREAS</span>
-              <span className="text-[#8B5CF6] font-bold">5. PEOPLE</span>
+              <span className="text-[#FFE14D] font-bold">5. PEOPLE</span>
             </div>
-            <div className="w-full h-1.5 rounded-full bg-[#111111] border border-[#1A1A1A] overflow-hidden flex">
-              <div className="w-full h-full bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] rounded-full transition-all duration-300" />
+            <div className="w-full h-1.5 rounded-full bg-[#15151C] border border-[#25252F] overflow-hidden flex">
+              <div className="w-full h-full bg-gradient-to-r from-[#FFE14D] to-[#FF4FA3] rounded-full transition-all duration-300" />
             </div>
           </div>
 
@@ -280,10 +274,10 @@ export default function FollowSuggestionsPage() {
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
               FIND YOUR PEOPLE
             </h1>
-            <p className="text-sm text-[#666666] font-sans mt-2 leading-relaxed">
+            <p className="text-sm text-[#8E8C9C] font-sans mt-2 leading-relaxed">
               Follow a few people, clubs, or communities to make VibeUp feel like yours from the start.
             </p>
-            <p className="text-[11px] font-mono text-[#666666] mt-1">
+            <p className="text-[11px] font-mono text-[#8E8C9C] mt-1">
               You can always discover and follow more later.
             </p>
           </div>
@@ -294,12 +288,12 @@ export default function FollowSuggestionsPage() {
           <section className="space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-[#8B5CF6]" />
+                <Users className="w-4 h-4 text-[#FFE14D]" />
                 <h2 className="text-base sm:text-lg font-extrabold tracking-[-0.03em] font-sans text-white tracking-wide">
                   PEOPLE YOU MAY VIBE WITH
                 </h2>
               </div>
-              <span className="text-xs font-mono text-[#666666] hidden sm:inline">
+              <span className="text-xs font-mono text-[#8E8C9C] hidden sm:inline">
                 Suggested nightlife connections
               </span>
             </div>
@@ -311,11 +305,11 @@ export default function FollowSuggestionsPage() {
                 return (
                   <div
                     key={person.id}
-                    className="p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/40 transition-all flex flex-col justify-between group shadow-sm"
+                    className="p-5 rounded-[12px] bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D]/40 transition-all flex flex-col justify-between group shadow-sm"
                   >
                     <div>
                       {/* Reason Pill */}
-                      <span className="font-mono text-[9px] text-[#8B5CF6] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 px-2 py-0.5 rounded-full uppercase tracking-wider block w-fit mb-3">
+                      <span className="font-mono text-[9px] text-[#FFE14D] bg-[#FFE14D]/15 border border-[#FFE14D]/30 px-2 py-0.5 rounded-full uppercase tracking-wider block w-fit mb-3">
                         {person.reason}
                       </span>
 
@@ -325,13 +319,13 @@ export default function FollowSuggestionsPage() {
                         <img
                           src={person.avatar}
                           alt={person.name}
-                          className="w-12 h-12 rounded-full object-cover border border-[#1A1A1A] shrink-0"
+                          className="w-12 h-12 rounded-full object-cover border border-[#25252F] shrink-0"
                         />
                         <div className="min-w-0">
                           <h3 className="font-sans font-bold text-sm text-white truncate">
                             {person.name}
                           </h3>
-                          <span className="font-mono text-xs text-[#666666] block truncate">
+                          <span className="font-mono text-xs text-[#8E8C9C] block truncate">
                             {person.username}
                           </span>
                         </div>
@@ -339,11 +333,11 @@ export default function FollowSuggestionsPage() {
 
                       {/* Secondary Meta */}
                       <div className="space-y-1 mb-4 text-xs font-mono">
-                        <div className="flex items-center gap-1.5 text-[#666666]">
-                          <MapPin className="w-3 h-3 text-[#EC4899] shrink-0" />
+                        <div className="flex items-center gap-1.5 text-[#8E8C9C]">
+                          <MapPin className="w-3 h-3 text-[#FF4FA3] shrink-0" />
                           <span className="truncate">{person.area}</span>
                         </div>
-                        <div className="text-[11px] text-[#666666] truncate">
+                        <div className="text-[11px] text-[#8E8C9C] truncate">
                           {person.interests.join(" · ")}
                         </div>
                         <div className="inline-flex items-center gap-1 text-[11px] text-[#22C55E]">
@@ -360,7 +354,7 @@ export default function FollowSuggestionsPage() {
                       className={`w-full py-2 rounded-xl font-mono text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
                         isFollowed
                           ? "bg-[#22C55E]/15 border border-[#22C55E] text-[#22C55E]"
-                          : "bg-[#111111] hover:bg-[#8B5CF6] text-white border border-[#1A1A1A] hover:border-transparent"
+                          : "bg-[#15151C] hover:bg-[#FFE14D] hover:text-[#0B0B10] text-white border border-[#25252F] hover:border-transparent"
                       }`}
                     >
                       {isFollowed ? (
@@ -387,12 +381,12 @@ export default function FollowSuggestionsPage() {
           <section className="space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-[#EC4899]" />
+                <Building2 className="w-4 h-4 text-[#FF4FA3]" />
                 <h2 className="text-base sm:text-lg font-extrabold tracking-[-0.03em] font-sans text-white tracking-wide">
                   CLUBS TO FOLLOW
                 </h2>
               </div>
-              <span className="text-xs font-mono text-[#666666] hidden sm:inline">
+              <span className="text-xs font-mono text-[#8E8C9C] hidden sm:inline">
                 Top venues for your sound
               </span>
             </div>
@@ -404,29 +398,29 @@ export default function FollowSuggestionsPage() {
                 return (
                   <div
                     key={club.id}
-                    className="p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#EC4899]/40 transition-all flex flex-col justify-between group shadow-sm"
+                    className="p-5 rounded-[12px] bg-[#15151C] border border-[#25252F] hover:border-[#FF4FA3]/40 transition-all flex flex-col justify-between group shadow-sm"
                   >
                     <div>
                       {/* Reason Pill */}
-                      <span className="font-mono text-[9px] text-[#EC4899] bg-[#EC4899]/15 border border-[#EC4899]/30 px-2 py-0.5 rounded-full uppercase tracking-wider block w-fit mb-3">
+                      <span className="font-mono text-[9px] text-[#FF4FA3] bg-[#FF4FA3]/15 border border-[#FF4FA3]/30 px-2 py-0.5 rounded-full uppercase tracking-wider block w-fit mb-3">
                         {club.reason}
                       </span>
 
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="w-11 h-11 rounded-xl bg-[#111111] border border-[#1A1A1A] flex items-center justify-center shrink-0">
-                          <Building2 className="w-5 h-5 text-[#EC4899]" />
+                        <div className="w-11 h-11 rounded-xl bg-[#15151C] border border-[#25252F] flex items-center justify-center shrink-0">
+                          <Building2 className="w-5 h-5 text-[#FF4FA3]" />
                         </div>
                         <div className="min-w-0">
                           <h3 className="font-sans font-bold text-sm text-white truncate">
                             {club.name}
                           </h3>
-                          <span className="font-mono text-xs text-[#666666] block truncate">
+                          <span className="font-mono text-xs text-[#8E8C9C] block truncate">
                             {club.area}
                           </span>
                         </div>
                       </div>
 
-                      <div className="text-xs font-mono text-[#666666] mb-4">
+                      <div className="text-xs font-mono text-[#8E8C9C] mb-4">
                         {club.genre}
                       </div>
                     </div>
@@ -437,7 +431,7 @@ export default function FollowSuggestionsPage() {
                       className={`w-full py-2 rounded-xl font-mono text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
                         isFollowed
                           ? "bg-[#22C55E]/15 border border-[#22C55E] text-[#22C55E]"
-                          : "bg-[#111111] hover:bg-[#EC4899] text-white border border-[#1A1A1A] hover:border-transparent"
+                          : "bg-[#15151C] hover:bg-[#FF4FA3] text-white border border-[#25252F] hover:border-transparent"
                       }`}
                     >
                       {isFollowed ? (
@@ -464,12 +458,12 @@ export default function FollowSuggestionsPage() {
           <section className="space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Compass className="w-4 h-4 text-[#8B5CF6]" />
+                <Compass className="w-4 h-4 text-[#FFE14D]" />
                 <h2 className="text-base sm:text-lg font-extrabold tracking-[-0.03em] font-sans text-white tracking-wide">
                   COMMUNITIES TO JOIN
                 </h2>
               </div>
-              <span className="text-xs font-mono text-[#666666] hidden sm:inline">
+              <span className="text-xs font-mono text-[#8E8C9C] hidden sm:inline">
                 Connect with shared nightlife crowds
               </span>
             </div>
@@ -481,29 +475,29 @@ export default function FollowSuggestionsPage() {
                 return (
                   <div
                     key={community.id}
-                    className="p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/40 transition-all flex flex-col justify-between group shadow-sm"
+                    className="p-5 rounded-[12px] bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D]/40 transition-all flex flex-col justify-between group shadow-sm"
                   >
                     <div>
                       {/* Reason Pill */}
-                      <span className="font-mono text-[9px] text-[#8B5CF6] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 px-2 py-0.5 rounded-full uppercase tracking-wider block w-fit mb-3">
+                      <span className="font-mono text-[9px] text-[#FFE14D] bg-[#FFE14D]/15 border border-[#FFE14D]/30 px-2 py-0.5 rounded-full uppercase tracking-wider block w-fit mb-3">
                         {community.reason}
                       </span>
 
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="w-11 h-11 rounded-xl bg-[#111111] border border-[#1A1A1A] flex items-center justify-center shrink-0">
-                          <Users className="w-5 h-5 text-[#8B5CF6]" />
+                        <div className="w-11 h-11 rounded-xl bg-[#15151C] border border-[#25252F] flex items-center justify-center shrink-0">
+                          <Users className="w-5 h-5 text-[#FFE14D]" />
                         </div>
                         <div className="min-w-0">
                           <h3 className="font-sans font-bold text-sm text-white truncate">
                             {community.name}
                           </h3>
-                          <span className="font-mono text-xs text-[#666666] block truncate">
+                          <span className="font-mono text-xs text-[#8E8C9C] block truncate">
                             {community.genre}
                           </span>
                         </div>
                       </div>
 
-                      <div className="text-xs font-mono text-[#666666] mb-4">
+                      <div className="text-xs font-mono text-[#8E8C9C] mb-4">
                         {community.membersCount}
                       </div>
                     </div>
@@ -514,7 +508,7 @@ export default function FollowSuggestionsPage() {
                       className={`w-full py-2 rounded-xl font-mono text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
                         isJoined
                           ? "bg-[#22C55E]/15 border border-[#22C55E] text-[#22C55E]"
-                          : "bg-[#111111] hover:bg-[#8B5CF6] text-white border border-[#1A1A1A] hover:border-transparent"
+                          : "bg-[#15151C] hover:bg-[#FFE14D] hover:text-[#0B0B10] text-white border border-[#25252F] hover:border-transparent"
                       }`}
                     >
                       {isJoined ? (
@@ -538,10 +532,10 @@ export default function FollowSuggestionsPage() {
           {/* ================================================== */}
           {/* COMPLETION ACTIONS */}
           {/* ================================================== */}
-          <div className="pt-6 border-t border-[#1A1A1A] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="pt-6 border-t border-[#25252F] flex flex-col sm:flex-row items-center justify-between gap-4">
             <Link
               href="/choose-areas"
-              className="w-full sm:w-auto px-5 py-3 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-xs font-mono text-[#666666] hover:text-white transition-colors text-center"
+              className="w-full sm:w-auto px-5 py-3 rounded-[4px] bg-[#15151C] hover:bg-[#25252F] border border-[#25252F] text-xs font-mono text-[#8E8C9C] hover:text-white transition-colors text-center"
             >
               ← BACK TO AREAS
             </Link>
@@ -550,7 +544,7 @@ export default function FollowSuggestionsPage() {
               <button
                 type="button"
                 onClick={handleFinish}
-                className="w-full sm:w-auto px-4 py-3 text-xs font-mono text-[#666666] hover:text-white transition-colors text-center"
+                className="w-full sm:w-auto px-4 py-3 text-xs font-mono text-[#8E8C9C] hover:text-white transition-colors text-center"
               >
                 SKIP FOR NOW
               </button>
@@ -558,7 +552,7 @@ export default function FollowSuggestionsPage() {
               <button
                 type="button"
                 onClick={handleFinish}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.3)] flex items-center justify-center gap-2 active:scale-[0.99] text-center"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-[4px] bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(255,225,77,0.3)] flex items-center justify-center gap-2 active:scale-[0.99] text-center"
               >
                 <span>ENTER VIBEUP</span>
                 <ArrowRight className="w-4 h-4" />
@@ -569,7 +563,7 @@ export default function FollowSuggestionsPage() {
       </div>
 
       {/* Subtle Bottom Accent */}
-      <footer className="w-full py-4 text-center border-t border-[#1A1A1A]/40 text-[11px] font-mono text-[#666666]">
+      <footer className="w-full py-4 text-center border-t border-[#25252F]/40 text-[11px] font-mono text-[#8E8C9C]">
         VIBEUP · ONBOARDING STEP 5 OF 5 (COMPLETE)
       </footer>
     </main>

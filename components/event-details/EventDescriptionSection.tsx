@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp } from "@/components/icons";
 import { DetailedEvent } from "@/lib/events-data";
 
 interface EventDescriptionSectionProps {
@@ -20,7 +20,7 @@ export default function EventDescriptionSection({
   return (
     <section className="w-full my-12 max-w-[760px]">
       {/* Header */}
-      <span className="font-mono text-[11px] text-[#8B5CF6] uppercase tracking-wider block mb-1">
+      <span className="font-mono text-[11px] text-[#FFE14D] uppercase tracking-wider block mb-1">
         THE EXPERIENCE
       </span>
       <h2
@@ -42,7 +42,7 @@ export default function EventDescriptionSection({
         <button
           type="button"
           onClick={() => setIsExpanded(!isExpanded)}
-          className="mt-4 inline-flex items-center gap-1.5 text-xs font-mono font-medium text-[#8B5CF6] hover:text-purple-300 py-1 transition-colors"
+          className="mt-4 inline-flex items-center gap-1.5 text-xs font-mono font-medium text-[#FFE14D] hover:text-purple-300 py-1 transition-colors"
         >
           <span>{isExpanded ? "READ LESS" : "READ MORE"}</span>
           {isExpanded ? (

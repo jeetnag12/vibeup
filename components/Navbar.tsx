@@ -1,149 +1,119 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Search, Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Search, Menu, X } from "@/components/icons";
 
 const navLinks = [
-  { label: "Discover", href: "/discover" },
+  { label: "Events", href: "/discover" },
   { label: "Clubs", href: "/clubs" },
   { label: "Communities", href: "/communities" },
   { label: "Crews", href: "/crews" },
+  { label: "People", href: "/people" },
 ];
+
+export function Logo({ className = "text-[22px]" }: { className?: string }) {
+  return (
+    <span
+      className={`font-display font-black tracking-[-0.03em] text-white select-none ${className}`}
+      style={{ fontStretch: "140%" }}
+    >
+      vibeup<span className="text-pink">.</span>
+    </span>
+  );
+}
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
+  const isActive = (href: string) =>
+    pathname === href || (href !== "/" && pathname?.startsWith(href + "/"));
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 w-full z-50 h-[56px] border-b border-[#111111]"
-      style={{
-        background: "rgba(0, 0, 0, 0.9)",
-        backdropFilter: "blur(24px)",
-        WebkitBackdropFilter: "blur(24px)",
-      }}
-    >
-      <div className="max-w-[1440px] h-full mx-auto px-6 sm:px-8 flex items-center justify-between">
-        {/* Left: VIBEUP brand link */}
-        <Link
-          href="/"
-          className="text-white font-sans text-[16px] tracking-[-0.02em] select-none"
-          style={{ fontWeight: 700 }}
-        >
-          VIBEUP
+    <header className="fixed top-0 left-0 right-0 w-full z-50 border-b border-line bg-night/85 backdrop-blur-xl">
+      <div className="max-w-[1280px] h-[64px] mx-auto px-5 sm:px-6 flex items-center gap-8">
+        <Link href="/" aria-label="VibeUp home">
+          <Logo />
         </Link>
 
-        {/* Center: Desktop Navigation Links (hidden on mobile) */}
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden md:flex items-center gap-6 mr-auto" aria-label="Main">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="font-sans text-[13px] text-[#555555] hover:text-white transition-colors duration-150 tracking-[0.02em]"
-              style={{ fontWeight: 400 }}
+              className={`text-[14px] font-medium transition-colors duration-150 ${
+                isActive(link.href) ? "text-white" : "text-muted hover:text-white"
+              }`}
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        {/* Right Section */}
-        <div className="flex items-center gap-4">
-          {/* Search Icon */}
+        <div className="flex items-center gap-3 ml-auto md:ml-0">
           <Link
             href="/discover"
-            aria-label="Search"
-            className="text-[#444444] hover:text-white transition-colors duration-150 p-1 flex items-center justify-center focus:outline-none"
+            aria-label="Search events"
+            className="w-9 h-9 rounded-full grid place-items-center text-muted hover:text-white hover:bg-tile transition-colors"
           >
             <Search className="w-[18px] h-[18px]" />
           </Link>
 
-          {/* Separator line (desktop only) */}
-          <span
-            className="hidden sm:block w-[1px] h-4 bg-[#1A1A1A]"
-            aria-hidden="true"
-          />
-
-          {/* Log in Link (desktop only) */}
           <Link
             href="/login"
-            className="hidden sm:inline-block font-sans text-[13px] text-[#666666] hover:text-white transition-colors duration-150"
-            style={{ fontWeight: 400 }}
+            className="hidden sm:inline-block text-[14px] font-medium text-muted hover:text-white transition-colors"
           >
             Log in
           </Link>
 
-          {/* Join Button */}
           <Link
             href="/signup"
-            className="inline-flex items-center justify-center text-white text-[13px] bg-[#7C3AED] hover:bg-[#6D28D9] transition-colors duration-150 rounded-[4px]"
-            style={{
-              fontWeight: 600,
-              padding: "7px 18px",
-            }}
+            className="inline-flex items-center justify-center text-night text-[14px] font-semibold bg-yellow hover:bg-[#FFEA80] transition-colors rounded-full px-4 py-2"
           >
-            Join
+            Join free
           </Link>
 
-          {/* Mobile Hamburger Icon */}
           <button
             type="button"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-[#444444] hover:text-white transition-colors duration-150 p-1 focus:outline-none"
+            className="md:hidden w-9 h-9 rounded-full grid place-items-center text-muted hover:text-white hover:bg-tile transition-colors"
           >
-            {mobileMenuOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div
-          className="md:hidden border-b border-[#111111] px-6 py-5 flex flex-col gap-4 animate-in fade-in duration-150"
-          style={{
-            background: "rgba(0, 0, 0, 0.95)",
-            backdropFilter: "blur(24px)",
-            WebkitBackdropFilter: "blur(24px)",
-          }}
-        >
-          <nav className="flex flex-col gap-3">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="font-sans text-[14px] text-[#555555] hover:text-white transition-colors duration-150 py-1"
-                style={{ fontWeight: 400 }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="pt-3 border-t border-[#1A1A1A] flex items-center justify-between gap-4">
+        <div className="md:hidden border-t border-line bg-night px-5 py-5 flex flex-col gap-1">
+          {navLinks.map((link) => (
             <Link
-              href="/login"
-              onClick={() => setMobileMenuOpen(false)}
-              className="font-sans text-[13px] text-[#666666] hover:text-white transition-colors duration-150"
-              style={{ fontWeight: 400 }}
+              key={link.label}
+              href={link.href}
+              className={`font-display font-extrabold uppercase text-[28px] leading-tight py-1 ${
+                isActive(link.href) ? "text-yellow" : "text-white"
+              }`}
+              style={{ fontStretch: "115%" }}
             >
+              {link.label}
+            </Link>
+          ))}
+          <div className="mt-4 pt-4 border-t border-line flex items-center gap-4">
+            <Link href="/login" className="text-[15px] font-medium text-muted hover:text-white">
               Log in
             </Link>
-            <Link
-              href="/signup"
-              onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center justify-center text-white text-[13px] bg-[#7C3AED] hover:bg-[#6D28D9] transition-colors duration-150 rounded-[4px]"
-              style={{
-                fontWeight: 600,
-                padding: "7px 18px",
-              }}
-            >
-              Join
+            <Link href="/messages" className="text-[15px] font-medium text-muted hover:text-white">
+              Messages
+            </Link>
+            <Link href="/saved" className="text-[15px] font-medium text-muted hover:text-white">
+              Saved
             </Link>
           </div>
         </div>

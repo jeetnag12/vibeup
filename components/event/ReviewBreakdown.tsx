@@ -15,19 +15,19 @@ export default function ReviewBreakdown({
   },
 }: ReviewBreakdownProps) {
   const items = [
-    { label: "MUSIC", score: dimensions.music, color: "#8B5CF6" },
-    { label: "CROWD", score: dimensions.crowd, color: "#EC4899" },
+    { label: "MUSIC", score: dimensions.music, color: "#FFE14D" },
+    { label: "CROWD", score: dimensions.crowd, color: "#FF4FA3" },
     { label: "VENUE", score: dimensions.venue, color: "#22C55E" },
     { label: "EXPERIENCE", score: dimensions.experience, color: "#EAB308" },
   ];
 
   return (
-    <div className="w-full rounded-[12px] bg-[#111111] border border-[#1A1A1A] p-6 sm:p-7">
+    <div className="w-full rounded-[12px] bg-[#15151C] border border-[#25252F] p-6 sm:p-7">
       <div className="flex items-center justify-between mb-5">
-        <h3 className="font-mono text-xs font-semibold text-[#666666] uppercase tracking-wider">
+        <h3 className="font-mono text-xs font-semibold text-[#8E8C9C] uppercase tracking-wider">
           DIMENSION BREAKDOWN
         </h3>
-        <span className="font-mono text-[11px] text-[#8B5CF6]">
+        <span className="font-mono text-[11px] text-[#FFE14D]">
           Scale of 5.0
         </span>
       </div>
@@ -54,7 +54,7 @@ export default function ReviewBreakdown({
                 aria-valuemin={0}
                 aria-valuemax={5}
                 aria-label={`${item.label} score ${item.score} out of 5`}
-                className="w-full h-2 rounded-full bg-[#111111] border border-[#1A1A1A] overflow-hidden"
+                className="w-full h-2 rounded-full bg-[#15151C] border border-[#25252F] overflow-hidden"
               >
                 <div
                   className="h-full rounded-full transition-all duration-500 ease-out"

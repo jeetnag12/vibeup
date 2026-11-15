@@ -3,19 +3,32 @@
 @tailwind utilities;
 
 :root {
-  --black: #000000;
-  --bg: #050505;
-  --surface: #0D0D0D;
-  --card: #111111;
-  --border: #1A1A1A;
-  --border-light: #222222;
-  --purple: #7C3AED;
-  --purple-light: #8B5CF6;
-  --pink: #EC4899;
+  /* ---- VibeUp brand tokens ---- */
+  --night: #0B0B10;      /* page background */
+  --tile: #15151C;       /* cards / bento tiles */
+  --line: #25252F;       /* borders, dividers */
+  --yellow: #FFE14D;     /* primary action */
+  --pink: #FF4FA3;       /* highlight words, energy */
+  --sky: #5CC8FF;        /* info, vibe score */
+  --lime: #B6F36B;       /* live / going / match */
+  --paper: #FFF6E0;      /* tickets, light surfaces */
+  --text: #F3F1F8;
+  --muted: #8E8C9C;
+
+  /* legacy names kept so older components still resolve */
+  --black: #0B0B10;
+  --bg: #0B0B10;
+  --surface: #121218;
+  --card: #15151C;
+  --border: #25252F;
+  --border-light: #2F2F3A;
+  --primary: #FFE14D;
+  --secondary: #FF4FA3;
+  --purple: #FFE14D;
+  --purple-light: #FFE14D;
   --white: #FFFFFF;
-  --off-white: #F5F5F5;
-  --muted: #666666;
-  --muted-light: #888888;
+  --off-white: #F3F1F8;
+  --muted-light: #A7A5B4;
   --success: #22C55E;
   --error: #EF4444;
 }
@@ -24,21 +37,38 @@ html {
   color-scheme: dark;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  background: #000000;
+  background: var(--night);
 }
 
 body {
-  background-color: #000000;
-  color: #FFFFFF;
-  font-family: var(--font-space-grotesk), sans-serif;
+  background-color: var(--night);
+  color: var(--text);
+  font-family: var(--font-sans), system-ui, sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
+/* Loud Type: every page headline uses the stretchy display face */
+h1, h2 {
+  font-family: var(--font-display), var(--font-sans), sans-serif !important;
+  font-stretch: 112%;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+}
+
 /* Selection */
 ::selection {
-  background: rgba(124,58,237,0.4);
+  background: rgba(255, 79, 163, 0.45);
   color: white;
+}
+
+:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
 }
 
 /* Scrollbar */
@@ -115,3 +145,24 @@ body {
 }
 
 
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Loud Type + bento motion ---- */
+@keyframes loudUp { from { transform: translateY(105%); } }
+@keyframes bandScroll { to { transform: translateX(-50%); } }
+@keyframes livePulse {
+  0% { box-shadow: 0 0 0 0 rgba(182, 243, 107, 0.6); }
+  100% { box-shadow: 0 0 0 9px rgba(182, 243, 107, 0); }
+}
+@keyframes popIn { from { transform: scale(0.6); opacity: 0; } }
+@keyframes typingDot { 50% { transform: translateY(-4px); opacity: 0.4; } }
+@keyframes qrScan { from { top: 4%; } to { top: 94%; } }
+@keyframes spinSlow { to { transform: rotate(360deg); } }

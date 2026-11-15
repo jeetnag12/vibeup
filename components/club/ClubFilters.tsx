@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, SlidersHorizontal, X, RotateCcw } from "lucide-react";
+import { Search, SlidersHorizontal, X, RotateCcw } from "@/components/icons";
 import { areaFilterOptions, genreFilterOptions } from "@/lib/clubs-data";
 
 export type ClubSortOption = "RECOMMENDED" | "POPULAR" | "NEW" | "MOST FOLLOWED";
@@ -48,21 +48,21 @@ export default function ClubFilters({
           <label htmlFor="club-search-input" className="sr-only">
             Search clubs, venues or areas
           </label>
-          <Search className="w-4 h-4 text-[#666666] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <Search className="w-4 h-4 text-[#8E8C9C] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           <input
             id="club-search-input"
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search clubs, venues, genres, or areas..."
-            className="w-full bg-[#111111] border border-[#1A1A1A] rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-[#666666] focus:outline-none focus:border-[#8B5CF6] focus:ring-1 focus:ring-[#8B5CF6] font-sans transition-all"
+            className="w-full bg-[#15151C] border border-[#25252F] rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-[#8E8C9C] focus:outline-none focus:border-[#FFE14D] focus:ring-1 focus:ring-[#FFE14D] font-sans transition-all"
           />
           {searchQuery && (
             <button
               type="button"
               onClick={() => onSearchChange("")}
               aria-label="Clear search"
-              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-mono text-[#666666] hover:text-white"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-mono text-[#8E8C9C] hover:text-white"
             >
               CLEAR
             </button>
@@ -71,13 +71,13 @@ export default function ClubFilters({
 
         {/* Sort Selector & Result Count */}
         <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
-          <div className="font-mono text-xs text-[#666666]">
+          <div className="font-mono text-xs text-[#8E8C9C]">
             <strong className="text-white text-sm font-sans">{totalFilteredCount}</strong> CLUBS
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1 text-xs font-mono text-[#666666]">
-              <SlidersHorizontal className="w-3.5 h-3.5 text-[#8B5CF6]" />
+            <div className="flex items-center gap-1 text-xs font-mono text-[#8E8C9C]">
+              <SlidersHorizontal className="w-3.5 h-3.5 text-[#FFE14D]" />
               <span className="hidden sm:inline">SORT:</span>
             </div>
             <label htmlFor="club-sort-select" className="sr-only">
@@ -87,10 +87,10 @@ export default function ClubFilters({
               id="club-sort-select"
               value={selectedSort}
               onChange={(e) => onSelectSort(e.target.value as ClubSortOption)}
-              className="bg-[#111111] border border-[#1A1A1A] rounded-xl px-3 py-2.5 text-xs font-mono text-white focus:outline-none focus:border-[#8B5CF6] cursor-pointer"
+              className="bg-[#15151C] border border-[#25252F] rounded-xl px-3 py-2.5 text-xs font-mono text-white focus:outline-none focus:border-[#FFE14D] cursor-pointer"
             >
               {sortOptions.map((opt) => (
-                <option key={opt} value={opt} className="bg-[#111111] text-white">
+                <option key={opt} value={opt} className="bg-[#15151C] text-white">
                   {opt}
                 </option>
               ))}
@@ -102,10 +102,10 @@ export default function ClubFilters({
       {/* Quick Area Filters Row */}
       <div>
         <div className="flex items-center justify-between mb-2">
-          <span className="font-mono text-[11px] text-[#666666] uppercase tracking-wider">
+          <span className="font-mono text-[11px] text-[#8E8C9C] uppercase tracking-wider">
             FILTER BY AREA
           </span>
-          <span className="font-mono text-[10px] text-[#666666]">
+          <span className="font-mono text-[10px] text-[#8E8C9C]">
             Bangalore Hubs
           </span>
         </div>
@@ -120,8 +120,8 @@ export default function ClubFilters({
                 onClick={() => onSelectArea(area)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium tracking-wider uppercase transition-all duration-150 shrink-0 border ${
                   isActive
-                    ? "bg-[#8B5CF6] border-[#8B5CF6] text-white "
-                    : "bg-[#111111] border-[#1A1A1A] text-[#666666] hover:text-white hover:border-[#8B5CF6]/40"
+                    ? "bg-[#FFE14D] border-[#FFE14D] text-[#0B0B10] "
+                    : "bg-[#15151C] border-[#25252F] text-[#8E8C9C] hover:text-white hover:border-[#FFE14D]/40"
                 }`}
               >
                 {area}
@@ -134,10 +134,10 @@ export default function ClubFilters({
       {/* Category / Genre Filters Row */}
       <div>
         <div className="flex items-center justify-between mb-2">
-          <span className="font-mono text-[11px] text-[#666666] uppercase tracking-wider">
+          <span className="font-mono text-[11px] text-[#8E8C9C] uppercase tracking-wider">
             FILTER BY GENRE &amp; MUSIC
           </span>
-          <span className="font-mono text-[10px] text-[#666666]">
+          <span className="font-mono text-[10px] text-[#8E8C9C]">
             Sound Profile
           </span>
         </div>
@@ -148,8 +148,8 @@ export default function ClubFilters({
             onClick={() => onSelectGenre("ALL")}
             className={`px-3 py-1 rounded-lg text-[11px] font-mono font-medium tracking-wider uppercase transition-all shrink-0 border ${
               selectedGenre === "ALL"
-                ? "bg-[#EC4899] border-[#EC4899] text-white shadow-[0_0_10px_rgba(236,72,153,0.35)]"
-                : "bg-[#111111] border-[#1A1A1A] text-[#666666] hover:text-white"
+                ? "bg-[#FF4FA3] border-[#FF4FA3] text-white shadow-[0_0_10px_rgba(255,79,163,0.35)]"
+                : "bg-[#15151C] border-[#25252F] text-[#8E8C9C] hover:text-white"
             }`}
           >
             ALL GENRES
@@ -163,8 +163,8 @@ export default function ClubFilters({
                 onClick={() => onSelectGenre(genre)}
                 className={`px-3 py-1 rounded-lg text-[11px] font-mono font-medium tracking-wider uppercase transition-all shrink-0 border ${
                   isActive
-                    ? "bg-[#EC4899] border-[#EC4899] text-white shadow-[0_0_10px_rgba(236,72,153,0.35)]"
-                    : "bg-[#111111] border-[#1A1A1A] text-[#666666] hover:text-white hover:border-[#EC4899]/40"
+                    ? "bg-[#FF4FA3] border-[#FF4FA3] text-white shadow-[0_0_10px_rgba(255,79,163,0.35)]"
+                    : "bg-[#15151C] border-[#25252F] text-[#8E8C9C] hover:text-white hover:border-[#FF4FA3]/40"
                 }`}
               >
                 {genre}
@@ -176,17 +176,17 @@ export default function ClubFilters({
 
       {/* Active Filter Chips & Clear Button */}
       {hasActiveFilters && (
-        <div className="pt-2 border-t border-[#1A1A1A] flex items-center gap-2 flex-wrap text-xs font-mono">
-          <span className="text-[#666666]">Active:</span>
+        <div className="pt-2 border-t border-[#25252F] flex items-center gap-2 flex-wrap text-xs font-mono">
+          <span className="text-[#8E8C9C]">Active:</span>
 
           {selectedArea !== "ALL" && (
-            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 text-white">
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FFE14D]/15 border border-[#FFE14D]/30 text-white">
               <span>Area: {selectedArea}</span>
               <button
                 type="button"
                 onClick={() => onSelectArea("ALL")}
                 aria-label="Remove area filter"
-                className="hover:text-[#EC4899]"
+                className="hover:text-[#FF4FA3]"
               >
                 <X className="w-3 h-3" />
               </button>
@@ -194,13 +194,13 @@ export default function ClubFilters({
           )}
 
           {selectedGenre !== "ALL" && (
-            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#EC4899]/15 border border-[#EC4899]/30 text-white">
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FF4FA3]/15 border border-[#FF4FA3]/30 text-white">
               <span>Genre: {selectedGenre}</span>
               <button
                 type="button"
                 onClick={() => onSelectGenre("ALL")}
                 aria-label="Remove genre filter"
-                className="hover:text-[#EC4899]"
+                className="hover:text-[#FF4FA3]"
               >
                 <X className="w-3 h-3" />
               </button>
@@ -214,7 +214,7 @@ export default function ClubFilters({
                 type="button"
                 onClick={() => onSearchChange("")}
                 aria-label="Remove search filter"
-                className="hover:text-[#EC4899]"
+                className="hover:text-[#FF4FA3]"
               >
                 <X className="w-3 h-3" />
               </button>
@@ -224,7 +224,7 @@ export default function ClubFilters({
           <button
             type="button"
             onClick={onClearFilters}
-            className="inline-flex items-center gap-1 text-[11px] text-[#EC4899] hover:text-pink-300 ml-auto transition-colors"
+            className="inline-flex items-center gap-1 text-[11px] text-[#FF4FA3] hover:text-pink-300 ml-auto transition-colors"
           >
             <RotateCcw className="w-3 h-3" />
             <span>CLEAR ALL FILTERS</span>

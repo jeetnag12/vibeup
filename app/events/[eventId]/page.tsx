@@ -41,7 +41,7 @@ export default function EventDetailsPage({ params }: EventPageProps) {
   };
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#0B0B10] text-white flex flex-col justify-between selection:bg-[#FFE14D] selection:text-white relative overflow-x-hidden">
       {/* 1. Navbar */}
       <Navbar />
 
@@ -52,7 +52,7 @@ export default function EventDetailsPage({ params }: EventPageProps) {
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none z-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(139,92,246,0.12) 0%, rgba(236,72,153,0.06) 45%, transparent 70%)",
+              "radial-gradient(ellipse at center, rgba(255,225,77,0.12) 0%, rgba(255,79,163,0.06) 45%, transparent 70%)",
           }}
           aria-hidden="true"
         />

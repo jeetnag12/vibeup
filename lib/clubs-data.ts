@@ -146,7 +146,7 @@ export const vibeCategories: VibeCategory[] = [
 export const allClubsData: Club[] = [
   {
     id: "xyz-club",
-    name: "XYZ CLUB",
+    name: "BASEMENT VAULT",
     image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?q=80&w=800&auto=format&fit=crop",
     area: "Koramangala",
     location: "Koramangala 4th Block",
@@ -403,7 +403,7 @@ export const allClubsData: Club[] = [
   {
     id: "neon-attic-whitefield",
     name: "NEON ATTIC",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=800&auto=format&fit=crop",
     area: "Whitefield",
     location: "ITPL Main Road, Whitefield",
     genres: ["Electronic", "Commercial", "Rooftop"],
@@ -587,7 +587,7 @@ const sampleEventsPool: ClubEventItem[] = [
     title: "FRIDAY TECHNO NIGHT",
     date: "Fri, 02 Oct",
     time: "9:00 PM – 2:00 AM",
-    venue: "XYZ Club",
+    venue: "Basement Vault",
     area: "Koramangala",
     price: "₹799",
     goingCount: 284,

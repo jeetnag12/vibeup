@@ -13,7 +13,7 @@ import {
   Sparkles,
   Compass,
   Check,
-} from "lucide-react";
+} from "@/components/icons";
 import {
   allCommunitiesData,
   Community,
@@ -114,7 +114,7 @@ export default function CommunitiesPage() {
   }, [communitiesList, selectedInterest]);
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#0B0B10] text-white flex flex-col justify-between selection:bg-[#FFE14D] selection:text-white relative overflow-x-hidden">
       <Navbar />
 
       <div className="w-full pt-[88px] sm:pt-[96px] pb-[80px]">
@@ -123,7 +123,7 @@ export default function CommunitiesPage() {
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] max-w-full h-[450px] pointer-events-none z-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(139,92,246,0.12) 0%, rgba(236,72,153,0.06) 45%, transparent 70%)",
+              "radial-gradient(ellipse at center, rgba(255,225,77,0.12) 0%, rgba(255,79,163,0.06) 45%, transparent 70%)",
           }}
           aria-hidden="true"
         />
@@ -136,7 +136,7 @@ export default function CommunitiesPage() {
             aria-label="Discover Communities Header"
             className="mb-8 pt-4 sm:pt-6 text-center max-w-2xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 text-xs font-mono text-[#8B5CF6] mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFE14D]/15 border border-[#FFE14D]/30 text-xs font-mono text-[#FFE14D] mb-3">
               <Sparkles className="w-3.5 h-3.5" />
               <span>NIGHTLIFE COLLECTIVES &amp; SQUADS</span>
             </div>
@@ -145,7 +145,7 @@ export default function CommunitiesPage() {
               FIND YOUR COMMUNITY
             </h1>
 
-            <p className="text-sm sm:text-base text-[#666666] font-sans leading-relaxed">
+            <p className="text-sm sm:text-base text-[#8E8C9C] font-sans leading-relaxed">
               Find people who share your music, nightlife and weekend energy. Connect, pre-game, and discover Bangalore together.
             </p>
           </section>
@@ -155,21 +155,21 @@ export default function CommunitiesPage() {
           ================================================== */}
           <section aria-label="Search Communities" className="mb-6 max-w-2xl mx-auto">
             <div className="relative w-full">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#666666]" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8E8C9C]" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="SEARCH COMMUNITIES"
                 aria-label="Search communities by name, genre, location or tag"
-                className="w-full h-12 pl-11 pr-10 rounded-xl bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] focus:outline-none text-xs font-mono text-white placeholder-[#666666] transition-all shadow-inner"
+                className="w-full h-12 pl-11 pr-10 rounded-xl bg-[#15151C] border border-[#25252F] focus:border-[#FFE14D] focus:outline-none text-xs font-mono text-white placeholder-[#8E8C9C] transition-all shadow-inner"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
                   aria-label="Clear search query"
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#666666] hover:text-white transition-colors"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#8E8C9C] hover:text-white transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -189,8 +189,8 @@ export default function CommunitiesPage() {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all shrink-0 ${
                     selectedCategory === cat
-                      ? "bg-[#8B5CF6] text-white "
-                      : "bg-[#111111] hover:bg-[#111111] border border-[#1A1A1A] text-[#666666] hover:text-white"
+                      ? "bg-[#FFE14D] text-[#0B0B10] "
+                      : "bg-[#15151C] hover:bg-[#15151C] border border-[#25252F] text-[#8E8C9C] hover:text-white"
                   }`}
                 >
                   {cat}
@@ -204,9 +204,9 @@ export default function CommunitiesPage() {
           ================================================== */}
           {isFilteringActive ? (
             <section aria-label="Search Results" className="mb-16">
-              <div className="flex items-center justify-between mb-6 pb-3 border-b border-[#1A1A1A]">
+              <div className="flex items-center justify-between mb-6 pb-3 border-b border-[#25252F]">
                 <div className="flex items-center gap-2">
-                  <Compass className="w-4 h-4 text-[#8B5CF6]" />
+                  <Compass className="w-4 h-4 text-[#FFE14D]" />
                   <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-white uppercase tracking-wider">
                     RESULTS ({searchFilteredCommunities.length} FOUND)
                   </h2>
@@ -217,7 +217,7 @@ export default function CommunitiesPage() {
                     setSearchQuery("");
                     setSelectedCategory("ALL");
                   }}
-                  className="text-xs font-mono text-[#8B5CF6] hover:underline"
+                  className="text-xs font-mono text-[#FFE14D] hover:underline"
                 >
                   CLEAR ALL FILTERS
                 </button>
@@ -236,12 +236,12 @@ export default function CommunitiesPage() {
                 </div>
               ) : (
                 /* Empty state */
-                <div className="p-12 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center max-w-lg mx-auto">
-                  <Users className="w-10 h-10 text-[#8B5CF6] mx-auto mb-3 opacity-60" />
+                <div className="p-12 rounded-[12px] bg-[#15151C] border border-[#25252F] text-center max-w-lg mx-auto">
+                  <Users className="w-10 h-10 text-[#FFE14D] mx-auto mb-3 opacity-60" />
                   <h3 className="text-xl font-bold font-sans text-white mb-2">
                     NO COMMUNITIES FOUND
                   </h3>
-                  <p className="text-xs text-[#666666] font-sans leading-relaxed mb-6">
+                  <p className="text-xs text-[#8E8C9C] font-sans leading-relaxed mb-6">
                     We couldn&apos;t find any communities matching &ldquo;
                     {searchQuery || selectedCategory}&rdquo;. Try another search, or create your own crowd!
                   </p>
@@ -252,14 +252,14 @@ export default function CommunitiesPage() {
                         setSearchQuery("");
                         setSelectedCategory("ALL");
                       }}
-                      className="px-4 py-2.5 rounded-xl bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-xs font-mono text-white transition-colors"
+                      className="px-4 py-2.5 rounded-xl bg-[#15151C] hover:bg-[#25252F] border border-[#25252F] text-xs font-mono text-white transition-colors"
                     >
                       RESET FILTERS
                     </button>
                     <button
                       type="button"
                       onClick={() => setIsModalOpen(true)}
-                      className="px-5 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-xs font-mono font-bold text-white transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
+                      className="px-5 py-2.5 rounded-xl bg-[#FFE14D] hover:bg-[#F2CF2E] text-xs font-mono font-bold text-[#0B0B10] transition-all shadow-[0_0_16px_rgba(255,225,77,0.3)]"
                     >
                       CREATE COMMUNITY
                     </button>
@@ -278,7 +278,7 @@ export default function CommunitiesPage() {
               <section aria-labelledby="featured-communities-heading" className="mb-16">
                 <div className="flex items-end justify-between gap-4 mb-6">
                   <div>
-                    <span className="font-mono text-xs font-semibold text-[#8B5CF6] uppercase tracking-wider block mb-1">
+                    <span className="font-mono text-xs font-semibold text-[#FFE14D] uppercase tracking-wider block mb-1">
                       TOP PICKS
                     </span>
                     <h2
@@ -287,7 +287,7 @@ export default function CommunitiesPage() {
                     >
                       FEATURED COMMUNITIES
                     </h2>
-                    <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
+                    <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-0.5">
                       Flagship nightlife groups with curated meetups and active weekly discussions.
                     </p>
                   </div>
@@ -312,7 +312,7 @@ export default function CommunitiesPage() {
               <section aria-labelledby="popular-communities-heading" className="mb-16">
                 <div className="flex items-end justify-between gap-4 mb-6">
                   <div>
-                    <span className="font-mono text-xs font-semibold text-[#EC4899] uppercase tracking-wider block mb-1">
+                    <span className="font-mono text-xs font-semibold text-[#FF4FA3] uppercase tracking-wider block mb-1">
                       HIGH ENERGY
                     </span>
                     <h2
@@ -321,7 +321,7 @@ export default function CommunitiesPage() {
                     >
                       POPULAR RIGHT NOW
                     </h2>
-                    <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
+                    <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-0.5">
                       Fast-growing groups with the most event interest and active members today.
                     </p>
                   </div>
@@ -354,7 +354,7 @@ export default function CommunitiesPage() {
                     >
                       AROUND BANGALORE
                     </h2>
-                    <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
+                    <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-0.5">
                       Neighborhood-based crowds across Indiranagar, Koramangala, Whitefield, and CBD.
                     </p>
                   </div>
@@ -378,7 +378,7 @@ export default function CommunitiesPage() {
               <section aria-labelledby="by-interest-heading" className="mb-16">
                 <div className="flex items-end justify-between gap-4 mb-6">
                   <div>
-                    <span className="font-mono text-xs font-semibold text-[#8B5CF6] uppercase tracking-wider block mb-1">
+                    <span className="font-mono text-xs font-semibold text-[#FFE14D] uppercase tracking-wider block mb-1">
                       GENRE &amp; SOUNDSCAPES
                     </span>
                     <h2
@@ -387,7 +387,7 @@ export default function CommunitiesPage() {
                     >
                       COMMUNITIES BY INTEREST
                     </h2>
-                    <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
+                    <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-0.5">
                       Explore crews organized strictly by music taste and event culture.
                     </p>
                   </div>
@@ -402,8 +402,8 @@ export default function CommunitiesPage() {
                       onClick={() => setSelectedInterest(interest)}
                       className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium transition-all shrink-0 ${
                         selectedInterest === interest
-                          ? "bg-[#8B5CF6] text-white shadow-sm"
-                          : "bg-[#111111] hover:bg-[#111111] border border-[#1A1A1A] text-[#666666] hover:text-white"
+                          ? "bg-[#FFE14D] text-[#0B0B10] shadow-sm"
+                          : "bg-[#15151C] hover:bg-[#15151C] border border-[#25252F] text-[#8E8C9C] hover:text-white"
                       }`}
                     >
                       {interest}
@@ -424,8 +424,8 @@ export default function CommunitiesPage() {
                     ))}
                   </div>
                 ) : (
-                  <div className="p-8 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center">
-                    <p className="text-xs font-mono text-[#666666]">
+                  <div className="p-8 rounded-[12px] bg-[#15151C] border border-[#25252F] text-center">
+                    <p className="text-xs font-mono text-[#8E8C9C]">
                       No communities currently listed under {selectedInterest}. Be the first to start one!
                     </p>
                   </div>
@@ -439,24 +439,24 @@ export default function CommunitiesPage() {
           ================================================== */}
           <section
             aria-label="Create Community Call to Action"
-            className="mb-12 p-8 sm:p-10 rounded-[12px] bg-gradient-to-r from-[#111111] via-[#111111] to-[#111111] border border-[#1A1A1A] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden"
+            className="mb-12 p-8 sm:p-10 rounded-[12px] bg-gradient-to-r from-[#15151C] via-[#15151C] to-[#15151C] border border-[#25252F] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden"
           >
             <div
-              className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-[#8B5CF6]/10 to-transparent pointer-events-none"
+              className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-[#FFE14D]/10 to-transparent pointer-events-none"
               aria-hidden="true"
             />
 
             <div className="relative z-10 max-w-xl">
               <div className="flex items-center gap-2 mb-2">
-                <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
-                <span className="font-mono text-xs font-bold text-[#8B5CF6] uppercase tracking-wider">
+                <Sparkles className="w-4 h-4 text-[#FFE14D]" />
+                <span className="font-mono text-xs font-bold text-[#FFE14D] uppercase tracking-wider">
                   FOUND A NEW MOVEMENT
                 </span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                 WANT TO BUILD YOUR OWN CROWD?
               </h2>
-              <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1.5 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-1.5 leading-relaxed">
                 Create a community around the music, places or nights you love. Gather like-minded partygoers, coordinate pre-drinks, and discover Bangalore nightlife together.
               </p>
             </div>
@@ -464,7 +464,7 @@ export default function CommunitiesPage() {
             <button
               type="button"
               onClick={() => setIsModalOpen(true)}
-              className="relative z-10 inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-mono font-bold transition-all  shrink-0 active:scale-95"
+              className="relative z-10 inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] text-xs font-mono font-bold transition-all  shrink-0 active:scale-95"
             >
               <Plus className="w-4 h-4" />
               <span>CREATE COMMUNITY</span>
@@ -487,7 +487,7 @@ export default function CommunitiesPage() {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-6 right-6 z-50 bg-[#111111] border border-[#22C55E] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
+          className="fixed bottom-6 right-6 z-50 bg-[#15151C] border border-[#22C55E] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
         >
           <Check className="w-4 h-4 text-[#22C55E]" />
           <span>{toastMessage}</span>

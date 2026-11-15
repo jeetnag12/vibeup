@@ -33,7 +33,7 @@ import {
   SearchX,
   Plus,
   CheckCircle2,
-} from "lucide-react";
+} from "@/components/icons";
 
 interface CrewsPageProps {
   params?: {
@@ -231,7 +231,7 @@ export default function EventCrewsPage({ params }: CrewsPageProps) {
   }, [crews, joinedCrewsMap]);
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#0B0B10] text-white flex flex-col justify-between selection:bg-[#FFE14D] selection:text-white relative overflow-x-hidden">
       {/* 1. Navbar */}
       <Navbar />
 
@@ -242,7 +242,7 @@ export default function EventCrewsPage({ params }: CrewsPageProps) {
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] pointer-events-none z-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(139,92,246,0.14) 0%, rgba(236,72,153,0.06) 45%, transparent 70%)",
+              "radial-gradient(ellipse at center, rgba(255,225,77,0.14) 0%, rgba(255,79,163,0.06) 45%, transparent 70%)",
           }}
           aria-hidden="true"
         />
@@ -250,7 +250,7 @@ export default function EventCrewsPage({ params }: CrewsPageProps) {
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 relative z-10">
           {/* Notification Banner / Toast */}
           {notification && (
-            <div className="mb-6 p-4 rounded-[12px] bg-[#111111] border border-[#8B5CF6]/50  flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-in fade-in slide-in-from-top-3 duration-200">
+            <div className="mb-6 p-4 rounded-[12px] bg-[#15151C] border border-[#FFE14D]/50  flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-in fade-in slide-in-from-top-3 duration-200">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-xl bg-[#22C55E]/15 border border-[#22C55E]/30 flex items-center justify-center text-[#22C55E] shrink-0">
                   <CheckCircle2 className="w-4 h-4" />
@@ -259,7 +259,7 @@ export default function EventCrewsPage({ params }: CrewsPageProps) {
                   <h4 className="font-mono text-xs font-bold text-white uppercase tracking-wider">
                     {notification.title}
                   </h4>
-                  <p className="text-xs text-[#666666] font-sans">
+                  <p className="text-xs text-[#8E8C9C] font-sans">
                     {notification.message}
                   </p>
                 </div>
@@ -271,13 +271,13 @@ export default function EventCrewsPage({ params }: CrewsPageProps) {
                     <button
                       type="button"
                       onClick={() => setShowInviteModal(true)}
-                      className="px-3.5 py-1.5 rounded-lg bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-mono font-semibold transition-colors"
+                      className="px-3.5 py-1.5 rounded-lg bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] text-xs font-mono font-semibold transition-colors"
                     >
                       INVITE PEOPLE
                     </button>
                     <Link
                       href={`/crews/${notification.actionCrewId}`}
-                      className="px-3.5 py-1.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] text-white text-xs font-mono font-medium border border-[#1A1A1A] transition-colors"
+                      className="px-3.5 py-1.5 rounded-[4px] bg-[#15151C] hover:bg-[#25252F] text-white text-xs font-mono font-medium border border-[#25252F] transition-colors"
                     >
                       VIEW CREW →
                     </Link>
@@ -286,7 +286,7 @@ export default function EventCrewsPage({ params }: CrewsPageProps) {
                 <button
                   type="button"
                   onClick={() => setNotification(null)}
-                  className="p-1.5 text-xs font-mono text-[#666666] hover:text-white"
+                  className="p-1.5 text-xs font-mono text-[#8E8C9C] hover:text-white"
                 >
                   ✕
                 </button>
@@ -349,14 +349,14 @@ export default function EventCrewsPage({ params }: CrewsPageProps) {
               </div>
             ) : (
               /* 16. Empty State */
-              <div className="p-10 sm:p-14 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center max-w-lg mx-auto">
-                <div className="w-14 h-14 mx-auto rounded-[12px] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center text-[#8B5CF6] mb-4">
+              <div className="p-10 sm:p-14 rounded-[12px] bg-[#15151C] border border-[#25252F] text-center max-w-lg mx-auto">
+                <div className="w-14 h-14 mx-auto rounded-[12px] bg-[#FFE14D]/15 border border-[#FFE14D]/30 flex items-center justify-center text-[#FFE14D] mb-4">
                   <SearchX className="w-7 h-7" />
                 </div>
                 <h4 className="text-xl font-bold font-sans text-white mb-2">
                   NO CREWS YET
                 </h4>
-                <p className="text-xs sm:text-sm text-[#666666] font-sans mb-6">
+                <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mb-6">
                   {searchQuery || activeFilter !== "ALL"
                     ? "No crews match your current search or filter criteria. Try clearing filters or create a new crew."
                     : "Be the first to create a crew for this event."}
@@ -366,7 +366,7 @@ export default function EventCrewsPage({ params }: CrewsPageProps) {
                   <button
                     type="button"
                     onClick={() => setShowCreateModal(true)}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-mono font-bold transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] text-xs font-mono font-bold transition-all shadow-[0_0_16px_rgba(255,225,77,0.3)]"
                   >
                     <Plus className="w-4 h-4" />
                     <span>CREATE A CREW</span>
@@ -379,16 +379,16 @@ export default function EventCrewsPage({ params }: CrewsPageProps) {
                         setSearchQuery("");
                         setActiveFilter("ALL");
                       }}
-                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#111111] hover:bg-[#1A1A1A] text-white text-xs font-mono font-medium border border-[#1A1A1A] transition-colors"
+                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#15151C] hover:bg-[#25252F] text-white text-xs font-mono font-medium border border-[#25252F] transition-colors"
                     >
                       RESET FILTERS
                     </button>
                   ) : (
                     <Link
                       href={`/events/${event.id}/going`}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] text-white text-xs font-mono font-medium border border-[#1A1A1A] transition-colors"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-[4px] bg-[#15151C] hover:bg-[#25252F] text-white text-xs font-mono font-medium border border-[#25252F] transition-colors"
                     >
-                      <Users className="w-3.5 h-3.5 text-[#EC4899]" />
+                      <Users className="w-3.5 h-3.5 text-[#FF4FA3]" />
                       <span>FIND PEOPLE</span>
                     </Link>
                   )}

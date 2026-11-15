@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Bookmark, Share2, MapPin, Calendar, Clock, Check } from "lucide-react";
+import { Bookmark, Share2, MapPin, Calendar, Clock, Check } from "@/components/icons";
 import { DetailedEvent } from "@/lib/events-data";
 
 interface EventHeroProps {
@@ -39,7 +39,7 @@ export default function EventHero({ event, onGetTicketsClick }: EventHeroProps) 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Column: Event Poster / Image */}
         <div className="lg:col-span-5 w-full">
-          <div className="relative w-full aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5] rounded-[12px] overflow-hidden border border-[#1A1A1A] bg-[#111111] shadow-2xl">
+          <div className="relative w-full aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5] rounded-[12px] overflow-hidden border border-[#25252F] bg-[#15151C] shadow-2xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={event.image}
@@ -49,15 +49,15 @@ export default function EventHero({ event, onGetTicketsClick }: EventHeroProps) 
             />
 
             {/* Category Overlay Tag */}
-            <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full bg-[#000000]/80 backdrop-blur-md border border-[#1A1A1A]">
-              <span className="font-mono text-[11px] text-[#8B5CF6] font-medium tracking-wider uppercase">
+            <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full bg-[#0B0B10]/80 backdrop-blur-md border border-[#25252F]">
+              <span className="font-mono text-[11px] text-[#FFE14D] font-medium tracking-wider uppercase">
                 {event.category}
               </span>
             </div>
 
             {/* Age Badge */}
-            <div className="absolute top-4 right-4 z-10 px-2.5 py-1 rounded-full bg-[#000000]/80 backdrop-blur-md border border-[#1A1A1A]">
-              <span className="font-mono text-[11px] text-[#666666] font-medium">
+            <div className="absolute top-4 right-4 z-10 px-2.5 py-1 rounded-full bg-[#0B0B10]/80 backdrop-blur-md border border-[#25252F]">
+              <span className="font-mono text-[11px] text-[#8E8C9C] font-medium">
                 {event.ageRestriction}
               </span>
             </div>
@@ -68,7 +68,7 @@ export default function EventHero({ event, onGetTicketsClick }: EventHeroProps) 
         <div className="lg:col-span-7 flex flex-col justify-between">
           <div>
             {/* Category / Genre Label */}
-            <p className="font-mono text-[#8B5CF6] text-xs uppercase tracking-[0.15em] font-medium mb-3">
+            <p className="font-mono text-[#FFE14D] text-xs uppercase tracking-[0.15em] font-medium mb-3">
               {event.category}
             </p>
 
@@ -83,31 +83,31 @@ export default function EventHero({ event, onGetTicketsClick }: EventHeroProps) 
             {/* Key Schedule & Venue Info */}
             <div className="space-y-3.5 mb-6 text-sm sm:text-base">
               <div className="flex items-center gap-3 text-white">
-                <div className="w-8 h-8 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center text-[#8B5CF6] shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-[#15151C] border border-[#25252F] flex items-center justify-center text-[#FFE14D] shrink-0">
                   <Calendar className="w-4 h-4" />
                 </div>
                 <div>
                   <span className="font-mono font-medium">{event.dateDisplay}</span>
-                  <span className="text-[#666666] font-mono text-sm ml-2">
+                  <span className="text-[#8E8C9C] font-mono text-sm ml-2">
                     · {event.timeDisplay}
                   </span>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 text-white">
-                <div className="w-8 h-8 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center text-[#EC4899] shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-[#15151C] border border-[#25252F] flex items-center justify-center text-[#FF4FA3] shrink-0">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
                   <span className="font-semibold">{event.venue}</span>
-                  <span className="text-[#666666] text-sm ml-2">
+                  <span className="text-[#8E8C9C] text-sm ml-2">
                     · {event.area}, {event.city}
                   </span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 text-[#666666]">
-                <div className="w-8 h-8 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center text-[#22C55E] shrink-0">
+              <div className="flex items-center gap-3 text-[#8E8C9C]">
+                <div className="w-8 h-8 rounded-lg bg-[#15151C] border border-[#25252F] flex items-center justify-center text-[#22C55E] shrink-0">
                   <Clock className="w-4 h-4" />
                 </div>
                 <div className="font-mono text-xs sm:text-sm">
@@ -119,22 +119,22 @@ export default function EventHero({ event, onGetTicketsClick }: EventHeroProps) 
             </div>
 
             {/* Price Highlight */}
-            <div className="mb-8 p-4 rounded-xl bg-[#111111] border border-[#1A1A1A] inline-flex items-baseline gap-2">
-              <span className="text-xs font-mono text-[#666666] uppercase">Tickets:</span>
+            <div className="mb-8 p-4 rounded-xl bg-[#15151C] border border-[#25252F] inline-flex items-baseline gap-2">
+              <span className="text-xs font-mono text-[#8E8C9C] uppercase">Tickets:</span>
               <span className="text-2xl font-bold font-sans text-white">
                 ₹{event.startingPrice}
               </span>
-              <span className="text-xs text-[#666666] font-mono">onwards</span>
+              <span className="text-xs text-[#8E8C9C] font-mono">onwards</span>
             </div>
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3.5 pt-4 border-t border-[#1A1A1A]">
+          <div className="flex flex-wrap items-center gap-3.5 pt-4 border-t border-[#25252F]">
             {/* Primary CTA: GET TICKETS */}
             <button
               type="button"
               onClick={onGetTicketsClick}
-              className="flex-1 sm:flex-initial px-8 py-3.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-sans text-sm font-semibold tracking-wide transition-all duration-200  hover:shadow-[0_0_24px_rgba(139,92,246,0.3)] active:scale-95"
+              className="flex-1 sm:flex-initial px-8 py-3.5 rounded-[4px] bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-sans text-sm font-semibold tracking-wide transition-all duration-200  hover:shadow-[0_0_24px_rgba(255,225,77,0.3)] active:scale-95"
             >
               GET TICKETS
             </button>
@@ -146,11 +146,11 @@ export default function EventHero({ event, onGetTicketsClick }: EventHeroProps) 
               aria-label={isSaved ? "Saved to your list" : "Save event"}
               className={`px-5 py-3.5 rounded-xl border font-sans text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
                 isSaved
-                  ? "bg-[#111111] border-[#EC4899] text-[#EC4899]"
-                  : "bg-[#111111] border-[#1A1A1A] text-white hover:border-[#8B5CF6]"
+                  ? "bg-[#15151C] border-[#FF4FA3] text-[#FF4FA3]"
+                  : "bg-[#15151C] border-[#25252F] text-white hover:border-[#FFE14D]"
               }`}
             >
-              <Bookmark className={`w-4 h-4 ${isSaved ? "fill-[#EC4899]" : ""}`} />
+              <Bookmark weight={isSaved ? "fill" : "bold"} className={`w-4 h-4 ${isSaved ? "text-[#FF4FA3]" : ""}`} />
               <span className="hidden sm:inline">{isSaved ? "SAVED" : "SAVE"}</span>
             </button>
 
@@ -159,7 +159,7 @@ export default function EventHero({ event, onGetTicketsClick }: EventHeroProps) 
               type="button"
               onClick={handleShare}
               aria-label="Share event"
-              className="px-5 py-3.5 rounded-[4px] bg-[#111111] border border-[#1A1A1A] text-white hover:border-[#8B5CF6] font-sans text-sm font-medium transition-all duration-200 flex items-center gap-2 relative"
+              className="px-5 py-3.5 rounded-[4px] bg-[#15151C] border border-[#25252F] text-white hover:border-[#FFE14D] font-sans text-sm font-medium transition-all duration-200 flex items-center gap-2 relative"
             >
               {copied ? (
                 <>
@@ -168,7 +168,7 @@ export default function EventHero({ event, onGetTicketsClick }: EventHeroProps) 
                 </>
               ) : (
                 <>
-                  <Share2 className="w-4 h-4 text-[#666666]" />
+                  <Share2 className="w-4 h-4 text-[#8E8C9C]" />
                   <span className="hidden sm:inline">SHARE</span>
                 </>
               )}

@@ -1,3 +1,4 @@
+import { findCatalogEvent, formatINR, unsplash } from "./event-catalog";
 export interface TicketTier {
   id: string;
   name: string;
@@ -147,7 +148,7 @@ export const defaultEvent: DetailedEvent = {
   dateDisplay: "SAT, 03 OCT 2026",
   timeDisplay: "9:00 PM onwards",
   timeRange: "9:00 PM – 2:00 AM",
-  venue: "XYZ CLUB",
+  venue: "BASEMENT VAULT",
   area: "Koramangala",
   city: "Bengaluru",
   ageRestriction: "18+",
@@ -163,7 +164,7 @@ export const defaultEvent: DetailedEvent = {
     "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=120&auto=format&fit=crop",
   ],
   descriptionParagraphs: [
-    "Saturday Techno Night returns to XYZ Club with an immersive audio-visual warehouse experience. Designed for electronic music purists and nocturnal souls who live for deep grooves, industrial baselines, and hypnotic synthesizers.",
+    "Saturday Techno Night returns to Basement Vault with an immersive audio-visual warehouse experience. Designed for electronic music purists and nocturnal souls who live for deep grooves, industrial baselines, and hypnotic synthesizers.",
     "Curated by Bangalore's underground tastemakers, this edition features an extended 4-hour headline set powered by custom Funktion-One sound engineering. Expect minimal distractions, dimly-lit red neon aesthetics, and an intimate dance floor dedicated entirely to the vibe.",
     "Whether you're rolling in with your regular weekend crew or flying solo looking to connect with genuine music lovers, the social atmosphere is warm, inclusive, and strictly zero-judgment.",
   ],
@@ -364,7 +365,7 @@ export const defaultEvent: DetailedEvent = {
       id: "a10",
       name: "Vikram Singhania",
       avatar:
-        "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=160&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=160&auto=format&fit=crop",
       bio: "Founder in Koramangala. Always unwinding to hypnotic beats.",
       interests: ["Startups", "Techno", "Billiards"],
       musicTaste: "Dub Techno · Ambient",
@@ -382,7 +383,7 @@ export const defaultEvent: DetailedEvent = {
       name: "Tara D'souza",
       avatar:
         "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=160&auto=format&fit=crop",
-      bio: "First time at XYZ Club! Excited for the sound system and friendly crowd.",
+      bio: "First time at Basement Vault! Excited for the sound system and friendly crowd.",
       interests: ["Live Gigs", "Travel", "Art"],
       musicTaste: "Tech House · Afro House",
       vibeScore: 90,
@@ -398,7 +399,7 @@ export const defaultEvent: DetailedEvent = {
       id: "a12",
       name: "Rohan Verma",
       avatar:
-        "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=160&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=160&auto=format&fit=crop",
       bio: "Craft beer & synth fanatic. Organizing regular Koramangala meetups.",
       interests: ["Tech House", "Synth", "Craft Beer"],
       musicTaste: "Tech House · Melodic",
@@ -559,7 +560,7 @@ export const defaultEvent: DetailedEvent = {
       id: "vm6",
       name: "Rohan Verma",
       avatar:
-        "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=160&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=160&auto=format&fit=crop",
       matchPercentage: 91,
       matchTags: ["Tech House", "Synth", "Koramangala"],
       reason: "Both active in Koramangala crews and similar weekend nightlife timings.",
@@ -636,7 +637,7 @@ export const defaultEvent: DetailedEvent = {
           avatar:
             "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop",
           vibeScore: 87,
-          text: "XYZ Club is very sneaker friendly for techno nights. Monochrome street / all-black is standard.",
+          text: "Basement Vault is very sneaker friendly for techno nights. Monochrome street / all-black is standard.",
           timestamp: "2 hours ago",
           likesCount: 8,
         },
@@ -659,7 +660,7 @@ export const defaultEvent: DetailedEvent = {
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop",
       badge: "Solo Explorer",
       vibeScore: 86,
-      text: "First time going solo to XYZ Club. How welcoming is the vibe near the front booth?",
+      text: "First time going solo to Basement Vault. How welcoming is the vibe near the front booth?",
       timestamp: "5 hours ago",
       topic: "solo",
       repliesCount: 3,
@@ -938,9 +939,42 @@ export const relatedEventsList = [
 ];
 
 export function getEventById(id: string): DetailedEvent {
-  // If the id matches default or any other id, return rich event data customized to that id
+  // Look the event up in the catalogue so every /events/<id> shows its own title, venue,
+  // date, price and photo. Social data (attendees, crews, reviews) is shared sample data.
+  const c = findCatalogEvent(id || defaultEvent.id);
+  const scale = c.price / defaultEvent.startingPrice;
+  const tickets = defaultEvent.tickets.map((t, i) => {
+    const price = i === 0 ? c.price : Math.max(c.price + 100, Math.round((t.price * scale) / 50) * 50 - 1);
+    return { ...t, price, formattedPrice: formatINR(price) };
+  });
+  const place = `${c.venue}, ${c.area}`;
   return {
     ...defaultEvent,
-    id: id || defaultEvent.id,
+    id: c.id,
+    title: c.title.toUpperCase(),
+    category: c.category,
+    genre: c.genre,
+    image: unsplash(c.img, 1600),
+    dateDisplay: c.date.toUpperCase(),
+    timeDisplay: `${c.time} onwards`,
+    timeRange: `${c.time} – late`,
+    venue: c.venue.toUpperCase(),
+    area: c.area,
+    ageRestriction: c.age ?? "18+",
+    startingPrice: tickets[0].price,
+    formattedStartingPrice: `${tickets[0].formattedPrice} onwards`,
+    goingCount: c.going,
+    tickets,
+    descriptionParagraphs: [
+      `${c.title} takes over ${place} for a night of ${c.genre.toLowerCase()}. Expect a packed floor, a proper sound system and a crowd that came for the music.`,
+      "Doors open early for people coming in crews, so you can meet up inside before the main set starts. Check the crews tab to find people going.",
+      "Going solo? The social atmosphere is warm, inclusive and zero-judgement. Say hi in the discussion before the night.",
+    ],
+    importantNotes: [
+      `Valid government-issued photo ID required at the door (${c.age ?? "18+"}).`,
+      "No outside food, beverages or contraband permitted.",
+      "Zero tolerance for harassment or aggression. Report anything to staff or in the app.",
+      "Re-entry is restricted after midnight.",
+    ],
   };
 }

@@ -23,7 +23,7 @@ import {
   DiscussionTopic,
   DiscussionReply,
 } from "@/lib/events-data";
-import { MessageSquare, Sparkles, Plus } from "lucide-react";
+import { MessageSquare, Sparkles, Plus } from "@/components/icons";
 
 interface DiscussionPageProps {
   params?: {
@@ -181,7 +181,7 @@ export default function EventDiscussionPage({ params }: DiscussionPageProps) {
   }, [posts, selectedTopic, searchQuery, sort]);
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#0B0B10] text-white flex flex-col justify-between selection:bg-[#FFE14D] selection:text-white relative overflow-x-hidden">
       {/* 1. Navbar */}
       <Navbar />
 
@@ -191,7 +191,7 @@ export default function EventDiscussionPage({ params }: DiscussionPageProps) {
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] pointer-events-none z-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(139,92,246,0.12) 0%, rgba(236,72,153,0.06) 45%, transparent 70%)",
+              "radial-gradient(ellipse at center, rgba(255,225,77,0.12) 0%, rgba(255,79,163,0.06) 45%, transparent 70%)",
           }}
           aria-hidden="true"
         />
@@ -207,8 +207,8 @@ export default function EventDiscussionPage({ params }: DiscussionPageProps) {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-1.5">
-                <MessageSquare className="w-4 h-4 text-[#8B5CF6]" />
-                <span className="font-mono text-[11px] text-[#8B5CF6] font-semibold uppercase tracking-wider">
+                <MessageSquare className="w-4 h-4 text-[#FFE14D]" />
+                <span className="font-mono text-[11px] text-[#FFE14D] font-semibold uppercase tracking-wider">
                   COMMUNITY BOARD
                 </span>
               </div>
@@ -218,15 +218,15 @@ export default function EventDiscussionPage({ params }: DiscussionPageProps) {
               >
                 EVENT DISCUSSION
               </h2>
-              <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1">
+              <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-1">
                 Talk before the night starts. Coordinate cabs, outfits, timing &amp; afters.
               </p>
             </div>
 
             {/* Activity Indicator */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#111111] border border-[#1A1A1A] shrink-0 self-start sm:self-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#15151C] border border-[#25252F] shrink-0 self-start sm:self-auto">
               <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
-              <span className="font-mono text-xs text-[#666666]">
+              <span className="font-mono text-xs text-[#8E8C9C]">
                 <strong className="text-white">126</strong> PEOPLE IN THIS EVENT
               </span>
             </div>
@@ -261,7 +261,7 @@ export default function EventDiscussionPage({ params }: DiscussionPageProps) {
                 <span className="font-mono text-xs font-bold text-white uppercase tracking-wider">
                   LATEST DISCUSSIONS
                 </span>
-                <span className="font-mono text-xs text-[#666666]">
+                <span className="font-mono text-xs text-[#8E8C9C]">
                   {filteredAndSortedPosts.length} {filteredAndSortedPosts.length === 1 ? "thread" : "threads"}
                 </span>
               </div>
@@ -275,14 +275,14 @@ export default function EventDiscussionPage({ params }: DiscussionPageProps) {
                 </div>
               ) : filteredAndSortedPosts.length === 0 ? (
                 /* Empty State */
-                <div className="p-8 sm:p-12 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center flex flex-col items-center justify-center">
-                  <div className="w-12 h-12 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex items-center justify-center mb-3 text-[#8B5CF6]">
+                <div className="p-8 sm:p-12 rounded-[12px] bg-[#15151C] border border-[#25252F] text-center flex flex-col items-center justify-center">
+                  <div className="w-12 h-12 rounded-[12px] bg-[#15151C] border border-[#25252F] flex items-center justify-center mb-3 text-[#FFE14D]">
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <h3 className="font-sans font-bold text-base sm:text-lg text-white mb-1">
                     START THE CONVERSATION
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#666666] font-sans max-w-sm mb-5 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans max-w-sm mb-5 leading-relaxed">
                     {searchQuery
                       ? "No discussions match your search. Reset or ask a new question."
                       : "No one has posted in this topic yet. Ask the first question!"}
@@ -296,7 +296,7 @@ export default function EventDiscussionPage({ params }: DiscussionPageProps) {
                       }
                       scrollToComposer();
                     }}
-                    className="px-5 py-2.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold transition-all shadow-[0_0_16px_rgba(139,92,246,0.3)]"
+                    className="px-5 py-2.5 rounded-xl bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-mono text-xs font-bold transition-all shadow-[0_0_16px_rgba(255,225,77,0.3)]"
                   >
                     START A DISCUSSION
                   </button>
@@ -357,7 +357,7 @@ export default function EventDiscussionPage({ params }: DiscussionPageProps) {
           type="button"
           onClick={scrollToComposer}
           aria-label="Start a discussion"
-          className="h-12 px-4 rounded-full bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold  border border-purple-400/40 flex items-center gap-2 active:scale-95 transition-all"
+          className="h-12 px-4 rounded-full bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-mono text-xs font-bold  border border-purple-400/40 flex items-center gap-2 active:scale-95 transition-all"
         >
           <Plus className="w-4 h-4" />
           <span>ASK QUESTION</span>

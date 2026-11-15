@@ -8,10 +8,10 @@ export default function RelatedEventsSection() {
   const router = useRouter();
 
   return (
-    <section className="w-full my-12 pt-8 border-t border-[#1A1A1A]">
+    <section className="w-full my-12 pt-8 border-t border-[#25252F]">
       {/* Header */}
       <div className="mb-6 sm:mb-8">
-        <span className="font-mono text-[11px] text-[#8B5CF6] uppercase tracking-wider block mb-1">
+        <span className="font-mono text-[11px] text-[#FFE14D] uppercase tracking-wider block mb-1">
           RECOMMENDED EXPERIENCES
         </span>
         <h2
@@ -20,7 +20,7 @@ export default function RelatedEventsSection() {
         >
           YOU MIGHT ALSO LIKE
         </h2>
-        <p className="text-sm sm:text-base text-[#666666] font-sans mt-1">
+        <p className="text-sm sm:text-base text-[#8E8C9C] font-sans mt-1">
           Similar vibrations, soundscapes, and crowds this coming weekend.
         </p>
       </div>

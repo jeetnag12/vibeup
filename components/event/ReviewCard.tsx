@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Star, CheckCircle2, ThumbsUp, Share2, MoreHorizontal, Flag } from "lucide-react";
+import { Star, CheckCircle2, ThumbsUp, Share2, MoreHorizontal, Flag } from "@/components/icons";
 import { EventReview } from "@/lib/reviews-data";
 
 interface ReviewCardProps {
@@ -26,7 +26,7 @@ export default function ReviewCard({
   return (
     <article
       aria-label={`Review by ${review.author.name}`}
-      className="p-5 sm:p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/50 transition-all duration-200 flex flex-col justify-between relative group"
+      className="p-5 sm:p-6 rounded-[12px] bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D]/50 transition-all duration-200 flex flex-col justify-between relative group"
     >
       <div>
         {/* Top Header: Author + Rating + Verified Badge */}
@@ -36,7 +36,7 @@ export default function ReviewCard({
             <img
               src={review.author.avatar}
               alt={review.author.name}
-              className="w-11 h-11 rounded-full object-cover border-2 border-[#1A1A1A] shrink-0"
+              className="w-11 h-11 rounded-full object-cover border-2 border-[#25252F] shrink-0"
             />
             <div className="min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
@@ -52,12 +52,12 @@ export default function ReviewCard({
                 )}
               </div>
 
-              <div className="flex items-center gap-2 font-mono text-xs text-[#666666] mt-0.5">
+              <div className="flex items-center gap-2 font-mono text-xs text-[#8E8C9C] mt-0.5">
                 <span>{review.createdAt}</span>
                 {review.recommend !== undefined && (
                   <>
                     <span>·</span>
-                    <span className="text-[#8B5CF6]">
+                    <span className="text-[#FFE14D]">
                       {review.recommend ? "Recommends this event" : "Mixed feelings"}
                     </span>
                   </>
@@ -67,8 +67,8 @@ export default function ReviewCard({
           </div>
 
           {/* Rating Display */}
-          <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#111111] border border-[#1A1A1A] shrink-0">
-            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#15151C] border border-[#25252F] shrink-0">
+            <Star className="w-3.5 h-3.5 text-[#FFE14D]" />
             <span className="font-mono text-xs sm:text-sm font-bold text-white">
               {review.overallRating.toFixed(1)}
             </span>
@@ -81,17 +81,17 @@ export default function ReviewCard({
         </p>
 
         {/* Dimension Scores: MUSIC, CROWD, VENUE */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 pt-3 border-t border-[#1A1A1A]/80 font-mono text-[11px]">
-          <div className="px-2.5 py-1 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center gap-1.5">
-            <span className="text-[#666666]">MUSIC</span>
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 pt-3 border-t border-[#25252F]/80 font-mono text-[11px]">
+          <div className="px-2.5 py-1 rounded-lg bg-[#15151C] border border-[#25252F] flex items-center gap-1.5">
+            <span className="text-[#8E8C9C]">MUSIC</span>
             <span className="text-white font-bold">{review.musicRating.toFixed(1)}</span>
           </div>
-          <div className="px-2.5 py-1 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center gap-1.5">
-            <span className="text-[#666666]">CROWD</span>
+          <div className="px-2.5 py-1 rounded-lg bg-[#15151C] border border-[#25252F] flex items-center gap-1.5">
+            <span className="text-[#8E8C9C]">CROWD</span>
             <span className="text-white font-bold">{review.crowdRating.toFixed(1)}</span>
           </div>
-          <div className="px-2.5 py-1 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center gap-1.5">
-            <span className="text-[#666666]">VENUE</span>
+          <div className="px-2.5 py-1 rounded-lg bg-[#15151C] border border-[#25252F] flex items-center gap-1.5">
+            <span className="text-[#8E8C9C]">VENUE</span>
             <span className="text-white font-bold">{review.venueRating.toFixed(1)}</span>
           </div>
           {review.tags && review.tags.length > 0 && (
@@ -99,7 +99,7 @@ export default function ReviewCard({
               {review.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2 py-0.5 rounded-md bg-[#8B5CF6]/10 text-[#8B5CF6] border border-[#8B5CF6]/20 text-[10px]"
+                  className="px-2 py-0.5 rounded-md bg-[#FFE14D]/10 text-[#FFE14D] border border-[#FFE14D]/20 text-[10px]"
                 >
                   {tag}
                 </span>
@@ -110,7 +110,7 @@ export default function ReviewCard({
       </div>
 
       {/* Card Footer: Helpful Count + Action Buttons */}
-      <div className="flex items-center justify-between gap-3 pt-3 border-t border-[#1A1A1A] text-xs font-mono text-[#666666]">
+      <div className="flex items-center justify-between gap-3 pt-3 border-t border-[#25252F] text-xs font-mono text-[#8E8C9C]">
         <span>
           {displayHelpfulCount} {displayHelpfulCount === 1 ? "PERSON" : "PEOPLE"} FOUND THIS HELPFUL
         </span>
@@ -122,11 +122,11 @@ export default function ReviewCard({
             onClick={() => onToggleHelpful(review.id)}
             className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all duration-150 ${
               isHelpful
-                ? "bg-[#8B5CF6]/20 border border-[#8B5CF6] text-white"
-                : "bg-[#111111] border border-[#1A1A1A] text-[#666666] hover:text-white hover:border-[#8B5CF6]/40"
+                ? "bg-[#FFE14D]/20 border border-[#FFE14D] text-white"
+                : "bg-[#15151C] border border-[#25252F] text-[#8E8C9C] hover:text-white hover:border-[#FFE14D]/40"
             }`}
           >
-            <ThumbsUp className={`w-3.5 h-3.5 ${isHelpful ? "text-[#8B5CF6] fill-[#8B5CF6]" : ""}`} />
+            <ThumbsUp weight={isHelpful ? "fill" : "bold"} className={`w-3.5 h-3.5 ${isHelpful ? "text-[#FFE14D]" : ""}`} />
             <span>{isHelpful ? "HELPFUL ✓" : "HELPFUL"}</span>
           </button>
 
@@ -135,7 +135,7 @@ export default function ReviewCard({
             type="button"
             onClick={() => onShare(review)}
             aria-label="Share review"
-            className="p-1.5 rounded-lg bg-[#111111] border border-[#1A1A1A] text-[#666666] hover:text-white hover:border-[#8B5CF6]/40 transition-colors"
+            className="p-1.5 rounded-lg bg-[#15151C] border border-[#25252F] text-[#8E8C9C] hover:text-white hover:border-[#FFE14D]/40 transition-colors"
           >
             <Share2 className="w-3.5 h-3.5" />
           </button>
@@ -146,13 +146,13 @@ export default function ReviewCard({
               type="button"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="More review options"
-              className="p-1.5 rounded-lg bg-[#111111] border border-[#1A1A1A] text-[#666666] hover:text-white hover:border-[#8B5CF6]/40 transition-colors"
+              className="p-1.5 rounded-lg bg-[#15151C] border border-[#25252F] text-[#8E8C9C] hover:text-white hover:border-[#FFE14D]/40 transition-colors"
             >
               <MoreHorizontal className="w-3.5 h-3.5" />
             </button>
 
             {menuOpen && (
-              <div className="absolute right-0 bottom-full mb-2 w-36 bg-[#111111] border border-[#1A1A1A] rounded-xl shadow-xl p-1 z-20 animate-in fade-in duration-100">
+              <div className="absolute right-0 bottom-full mb-2 w-36 bg-[#15151C] border border-[#25252F] rounded-xl shadow-xl p-1 z-20 animate-in fade-in duration-100">
                 <button
                   type="button"
                   onClick={() => {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Heart, Share2, MapPin } from "lucide-react";
+import { Heart, Share2, MapPin } from "@/components/icons";
 
 export interface EventCardProps {
   image: string;
@@ -92,7 +92,7 @@ export default function EventCard({
         }
       }}
       aria-label={`${title} at ${venue}, ${date}`}
-      className={`group relative w-full aspect-[3/4] rounded-[12px] overflow-hidden cursor-pointer border border-[#1A1A1A] transition-all duration-[250ms] select-none hover:-translate-y-[6px] hover:border-[rgba(124,58,237,0.5)] hover:shadow-[-2px_0_20px_rgba(124,58,237,0.3),2px_0_20px_rgba(236,72,153,0.2)] ${
+      className={`group relative w-full aspect-[3/4] rounded-[12px] overflow-hidden cursor-pointer border border-[#25252F] transition-all duration-[250ms] select-none hover:-translate-y-[6px] hover:border-[rgba(255,225,77,0.5)] hover:shadow-[-2px_0_20px_rgba(255,225,77,0.3),2px_0_20px_rgba(255,79,163,0.2)] ${
         className || ""
       }`}
       style={{
@@ -146,13 +146,13 @@ export default function EventCard({
             WebkitBackdropFilter: "blur(8px)",
           }}
         >
-          <Heart
-            className={`w-4 h-4 transition-colors duration-200 ${
-              isSaved
-                ? "fill-[#EC4899] stroke-[#EC4899]"
-                : "stroke-white hover:stroke-[#EC4899]"
-            }`}
-          />
+          <Heart weight={isSaved ? "fill" : "bold"}
+ className={`w-4 h-4 transition-colors duration-200 ${
+ isSaved
+ ? "text-[#FF4FA3] stroke-[#FF4FA3]"
+ : "stroke-white hover:stroke-[#FF4FA3]"
+ }`}
+ />
         </button>
 
         {/* Share Button */}
@@ -160,7 +160,7 @@ export default function EventCard({
           type="button"
           aria-label={copiedShare ? "Link copied" : "Share event"}
           onClick={handleShareClick}
-          className="w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-200 active:scale-90 text-white hover:text-[#7C3AED]"
+          className="w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-200 active:scale-90 text-white hover:text-[#F2CF2E]"
           style={{
             background: "rgba(0, 0, 0, 0.6)",
             backdropFilter: "blur(8px)",
@@ -178,7 +178,7 @@ export default function EventCard({
         <span
           className="inline-block self-start font-mono text-[10px] text-white font-bold uppercase rounded-[3px] mb-2 pointer-events-auto"
           style={{
-            background: "rgba(124, 58, 237, 0.85)",
+            background: "rgba(255,225,77, 0.85)",
             padding: "3px 10px",
           }}
         >
@@ -195,15 +195,15 @@ export default function EventCard({
         </h3>
 
         {/* Venue + Area Row */}
-        <div className="flex items-center gap-1 text-[11px] font-mono text-[#888888] truncate">
-          <MapPin className="w-3 h-3 text-[#7C3AED] shrink-0" />
+        <div className="flex items-center gap-1 text-[11px] font-mono text-[#A7A5B4] truncate">
+          <MapPin className="w-3 h-3 text-[#F2CF2E] shrink-0" />
           <span className="truncate">
             {venue} · {area}
           </span>
         </div>
 
         {/* Date + Time Row */}
-        <div className="font-mono text-[11px] text-[#666666] mt-0.5">
+        <div className="font-mono text-[11px] text-[#8E8C9C] mt-0.5">
           {date} · {time}
         </div>
 
@@ -225,7 +225,7 @@ export default function EventCard({
                 ))}
               </div>
             )}
-            <span className="font-mono text-[11px] text-[#888888]">
+            <span className="font-mono text-[11px] text-[#A7A5B4]">
               +{goingCount} going
             </span>
           </div>

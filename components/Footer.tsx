@@ -1,6 +1,5 @@
-"use client";
-
 import Link from "next/link";
+import { Logo } from "@/components/Navbar";
 
 function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
@@ -12,6 +11,7 @@ function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
@@ -20,135 +20,86 @@ function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
+const columns = [
+  {
+    title: "Explore",
+    links: [
+      { label: "Events", href: "/discover" },
+      { label: "Clubs", href: "/clubs" },
+      { label: "Communities", href: "/communities" },
+      { label: "Crews", href: "/crews" },
+      { label: "People", href: "/people" },
+    ],
+  },
+  {
+    title: "You",
+    links: [
+      { label: "Join VibeUp", href: "/signup" },
+      { label: "Log in", href: "/login" },
+      { label: "Messages", href: "/messages" },
+      { label: "Saved", href: "/saved" },
+    ],
+  },
+  {
+    title: "VibeUp",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Help & contact", href: "/help" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+    ],
+  },
+];
+
 export default function Footer() {
-  const discoverLinks = [
-    { label: "Events", href: "/events" },
-    { label: "Clubs", href: "/clubs" },
-    { label: "Communities", href: "/communities" },
-    { label: "Crews", href: "/crews" },
-  ];
-
-  const companyLinks = [
-    { label: "About", href: "/about" },
-    { label: "Blog", href: "/blog" },
-    { label: "Careers", href: "/careers" },
-    { label: "Press", href: "/press" },
-  ];
-
-  const supportLinks = [
-    { label: "Help", href: "/help" },
-    { label: "Contact", href: "/contact" },
-    { label: "Privacy", href: "/privacy" },
-    { label: "Terms", href: "/terms" },
-  ];
-
   return (
-    <footer className="w-full bg-[#000000] border-t border-[#1A1A1A] pt-[48px] pb-[32px]">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        {/* 4 columns desktop, 2 columns mobile */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
-          {/* Column 1: Brand & Social */}
-          <div className="col-span-2 sm:col-span-1 flex flex-col items-start gap-3">
-            <div className="flex items-center gap-2.5">
-              <span
-                className="w-2 h-2 rounded-full bg-[#8B5CF6] shrink-0"
-                aria-hidden="true"
-              />
-              <Link
-                href="/"
-                className="text-white font-bold text-lg tracking-tight font-sans"
-                style={{ fontWeight: 700 }}
-              >
-                VIBEUP
-              </Link>
-            </div>
-
-            <p className="text-[#666666] italic text-sm font-sans">
-              Find Your Crowd.
+    <footer className="w-full bg-night border-t border-line pt-14 pb-8">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-6">
+        <div className="grid grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 mb-12">
+          <div className="col-span-2 lg:col-span-1 flex flex-col items-start gap-4">
+            <Link href="/" aria-label="VibeUp home">
+              <Logo className="text-[28px]" />
+            </Link>
+            <p className="text-muted text-[15px] max-w-[34ch]">
+              Tickets, crews and people for Bangalore nights. Don&apos;t go solo.
             </p>
-
             <a
               href="https://instagram.com/vibeup.bangalore"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center gap-2 text-[#666666] hover:text-white transition-colors duration-200 group"
-              aria-label="Instagram @vibeup.bangalore"
+              className="inline-flex items-center gap-2 text-muted hover:text-white transition-colors"
             >
-              <div className="w-8 h-8 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center group-hover:border-[#8B5CF6] group-hover:text-[#EC4899] transition-colors">
-                <InstagramIcon className="w-4 h-4" />
-              </div>
-              <span className="font-mono text-xs text-[#666666] group-hover:text-white transition-colors">
-                @vibeup.bangalore
+              <span className="w-9 h-9 rounded-full bg-tile border border-line grid place-items-center">
+                <InstagramIcon />
               </span>
+              <span className="font-mono text-xs">@vibeup.bangalore</span>
             </a>
           </div>
 
-          {/* Column 2: Discover */}
-          <div className="flex flex-col gap-3">
-            <h4 className="text-white font-sans text-sm font-semibold tracking-wider uppercase">
-              Discover
-            </h4>
-            <ul className="flex flex-col gap-2.5">
-              {discoverLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-[#666666] hover:text-white text-sm font-sans transition-colors duration-200"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 3: Company */}
-          <div className="flex flex-col gap-3">
-            <h4 className="text-white font-sans text-sm font-semibold tracking-wider uppercase">
-              Company
-            </h4>
-            <ul className="flex flex-col gap-2.5">
-              {companyLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-[#666666] hover:text-white text-sm font-sans transition-colors duration-200"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4: Support */}
-          <div className="flex flex-col gap-3">
-            <h4 className="text-white font-sans text-sm font-semibold tracking-wider uppercase">
-              Support
-            </h4>
-            <ul className="flex flex-col gap-2.5">
-              {supportLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-[#666666] hover:text-white text-sm font-sans transition-colors duration-200"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {columns.map((col) => (
+            <div key={col.title} className="flex flex-col gap-3">
+              <h4 className="font-mono text-[11px] tracking-[0.1em] uppercase text-muted">
+                {col.title}
+              </h4>
+              <ul className="flex flex-col gap-2.5">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-[#C9C6D6] hover:text-white text-[15px] transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        {/* Bottom row */}
-        <div className="border-t border-[#1A1A1A] pt-[24px] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <p className="font-mono text-[12px] text-[#666666]">
-            © 2026 VibeUp. All rights reserved.
-          </p>
-          <p className="font-mono text-[12px] text-[#666666]">
-            Made for Bangalore 🔥
-          </p>
+        <div className="border-t border-line pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="font-mono text-[12px] text-muted">© 2026 VibeUp · Bangalore · 18+</p>
+          <p className="font-mono text-[12px] text-muted">App coming soon</p>
         </div>
       </div>
     </footer>

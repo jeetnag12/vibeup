@@ -1,18 +1,25 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Space_Mono } from "next/font/google";
+import { Anybody, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-space-grotesk",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const spaceMono = Space_Mono({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-space-mono",
+  weight: ["400", "500", "700"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
+// Loud display face: variable width (wdth 50–150) + weight, used for big headlines.
+const anybody = Anybody({
+  subsets: ["latin"],
+  axes: ["wdth"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -29,9 +36,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${spaceGrotesk.variable} ${spaceMono.variable} scroll-smooth`}
+      className={`dark ${inter.variable} ${jetbrainsMono.variable} ${anybody.variable} scroll-smooth`}
     >
-      <body className={`${spaceGrotesk.className} antialiased overflow-x-hidden`}>
+      <body className={`${inter.className} antialiased overflow-x-hidden`}>
         {children}
       </body>
     </html>

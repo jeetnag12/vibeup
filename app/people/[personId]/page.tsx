@@ -24,7 +24,7 @@ import {
   Star,
   Award,
   Layers,
-} from "lucide-react";
+} from "@/components/icons";
 import {
   getDetailedPersonProfile,
   DetailedPersonProfile,
@@ -100,7 +100,7 @@ export default function PersonProfilePage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#8B5CF6] selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#0B0B10] text-white flex flex-col justify-between selection:bg-[#FFE14D] selection:text-white relative overflow-x-hidden">
       <Navbar />
 
       <div className="w-full pt-[88px] sm:pt-[96px] pb-[80px]">
@@ -109,7 +109,7 @@ export default function PersonProfilePage() {
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[420px] pointer-events-none z-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(139,92,246,0.14) 0%, rgba(236,72,153,0.06) 45%, transparent 70%)",
+              "radial-gradient(ellipse at center, rgba(255,225,77,0.14) 0%, rgba(255,79,163,0.06) 45%, transparent 70%)",
           }}
           aria-hidden="true"
         />
@@ -120,7 +120,7 @@ export default function PersonProfilePage() {
           ================================================== */}
           <nav
             aria-label="Breadcrumb"
-            className="flex items-center justify-between gap-3 text-xs font-mono text-[#666666]"
+            className="flex items-center justify-between gap-3 text-xs font-mono text-[#8E8C9C]"
           >
             <div className="flex items-center gap-2 flex-wrap">
               <Link
@@ -143,7 +143,7 @@ export default function PersonProfilePage() {
               type="button"
               onClick={handleShare}
               aria-label="Share person profile"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[4px] bg-[#111111] hover:bg-[#111111] border border-[#1A1A1A] text-xs font-mono text-[#666666] hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[4px] bg-[#15151C] hover:bg-[#15151C] border border-[#25252F] text-xs font-mono text-[#8E8C9C] hover:text-white transition-colors"
             >
               <Share2 className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">
@@ -157,14 +157,14 @@ export default function PersonProfilePage() {
           ================================================== */}
           <section
             aria-label="Profile Header"
-            className="p-6 sm:p-8 lg:p-10 rounded-[12px] bg-[#111111] border border-[#1A1A1A] shadow-2xl relative overflow-hidden"
+            className="p-6 sm:p-8 lg:p-10 rounded-[12px] bg-[#15151C] border border-[#25252F] shadow-2xl relative overflow-hidden"
           >
             {/* Ambient Background Gradient Accent */}
             <div
               className="absolute -top-24 -right-24 w-96 h-96 pointer-events-none rounded-full"
               style={{
                 background:
-                  "radial-gradient(circle, rgba(139,92,246,0.18) 0%, rgba(236,72,153,0.08) 50%, transparent 70%)",
+                  "radial-gradient(circle, rgba(255,225,77,0.18) 0%, rgba(255,79,163,0.08) 50%, transparent 70%)",
               }}
               aria-hidden="true"
             />
@@ -178,17 +178,17 @@ export default function PersonProfilePage() {
                   <img
                     src={person.avatar}
                     alt={person.name}
-                    className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-[#1A1A1A] shadow-xl"
+                    className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-[#25252F] shadow-xl"
                   />
                   {/* Active Status Badge */}
                   <span
                     title={person.activeStatus}
-                    className={`absolute bottom-1 right-1 w-5 h-5 rounded-full border-2 border-[#111111] ${
+                    className={`absolute bottom-1 right-1 w-5 h-5 rounded-full border-2 border-[#15151C] ${
                       isGoingOutTonight
-                        ? "bg-[#EC4899] ring-4 ring-[#EC4899]/20"
+                        ? "bg-[#FF4FA3] ring-4 ring-[#FF4FA3]/20"
                         : isOnline
                         ? "bg-[#22C55E]"
-                        : "bg-[#8B5CF6]"
+                        : "bg-[#FFE14D]"
                     }`}
                   />
                 </div>
@@ -199,16 +199,16 @@ export default function PersonProfilePage() {
                     <h1 className="text-2xl sm:text-4xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                       {person.name}
                     </h1>
-                    <span className="font-mono text-sm text-[#666666]">
+                    <span className="font-mono text-sm text-[#8E8C9C]">
                       {person.username}
                     </span>
                     <span
                       className={`font-mono text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
                         isGoingOutTonight
-                          ? "bg-[#EC4899]/15 text-[#EC4899] border-[#EC4899]/30"
+                          ? "bg-[#FF4FA3]/15 text-[#FF4FA3] border-[#FF4FA3]/30"
                           : isOnline
                           ? "bg-[#22C55E]/15 text-[#22C55E] border-[#22C55E]/30"
-                          : "bg-[#8B5CF6]/15 text-[#8B5CF6] border-[#8B5CF6]/30"
+                          : "bg-[#FFE14D]/15 text-[#FFE14D] border-[#FFE14D]/30"
                       }`}
                     >
                       {person.activeStatus}
@@ -219,18 +219,18 @@ export default function PersonProfilePage() {
                     {person.bio}
                   </p>
 
-                  <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[#666666] pt-1">
-                    <span className="inline-flex items-center gap-1.5 text-[#EC4899]">
+                  <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[#8E8C9C] pt-1">
+                    <span className="inline-flex items-center gap-1.5 text-[#FF4FA3]">
                       <MapPin className="w-3.5 h-3.5" />
                       {person.area.toUpperCase()}, {person.location.toUpperCase()}
                     </span>
 
                     {/* Social Counts (Section 8) */}
                     <span className="inline-flex items-center gap-1 text-white font-bold">
-                      <Users className="w-3.5 h-3.5 text-[#8B5CF6]" />
+                      <Users className="w-3.5 h-3.5 text-[#FFE14D]" />
                       {displayedFollowers.toLocaleString()} FOLLOWERS
                     </span>
-                    <span className="text-[#666666]">
+                    <span className="text-[#8E8C9C]">
                       · {person.followingCount} FOLLOWING
                     </span>
                   </div>
@@ -245,7 +245,7 @@ export default function PersonProfilePage() {
                   className={`flex-1 sm:flex-initial px-6 py-3.5 rounded-xl font-mono text-xs font-bold transition-all flex items-center justify-center gap-2 ${
                     isFollowing
                       ? "bg-[#22C55E]/20 border border-[#22C55E] text-[#22C55E] shadow-[0_0_20px_rgba(34,197,94,0.3)]"
-                      : "bg-[#8B5CF6] hover:bg-[#7C3AED] text-white "
+                      : "bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] "
                   }`}
                 >
                   {isFollowing ? (
@@ -267,13 +267,13 @@ export default function PersonProfilePage() {
                   aria-label="Save profile"
                   className={`px-4 py-3.5 rounded-xl border font-mono text-xs transition-all flex items-center justify-center gap-1.5 ${
                     isSaved
-                      ? "bg-[#EC4899]/20 border-[#EC4899] text-[#EC4899]"
-                      : "bg-[#111111] hover:bg-[#1A1A1A] border-[#1A1A1A] text-[#666666] hover:text-white"
+                      ? "bg-[#FF4FA3]/20 border-[#FF4FA3] text-[#FF4FA3]"
+                      : "bg-[#15151C] hover:bg-[#25252F] border-[#25252F] text-[#8E8C9C] hover:text-white"
                   }`}
                 >
-                  <Bookmark
-                    className={`w-4 h-4 ${isSaved ? "fill-[#EC4899]" : ""}`}
-                  />
+                  <Bookmark weight={isSaved ? "fill" : "bold"}
+ className={`w-4 h-4 ${isSaved ? "text-[#FF4FA3]" : ""}`}
+ />
                   <span className="hidden sm:inline">
                     {isSaved ? "SAVED ✓" : "SAVE"}
                   </span>
@@ -283,7 +283,7 @@ export default function PersonProfilePage() {
                   type="button"
                   onClick={handleShare}
                   aria-label="Share person profile"
-                  className="px-4 py-3.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] border border-[#1A1A1A] text-[#666666] hover:text-white font-mono text-xs transition-all flex items-center justify-center gap-1.5"
+                  className="px-4 py-3.5 rounded-[4px] bg-[#15151C] hover:bg-[#25252F] border border-[#25252F] text-[#8E8C9C] hover:text-white font-mono text-xs transition-all flex items-center justify-center gap-1.5"
                 >
                   <Share2 className="w-4 h-4" />
                   <span className="hidden sm:inline">
@@ -305,24 +305,24 @@ export default function PersonProfilePage() {
               {/* 9. VIBE IDENTITY (THE VIBE) */}
               <section
                 aria-label="Vibe Identity"
-                className="p-6 sm:p-7 rounded-[12px] bg-[#111111] border border-[#1A1A1A] space-y-5"
+                className="p-6 sm:p-7 rounded-[12px] bg-[#15151C] border border-[#25252F] space-y-5"
               >
-                <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-3.5">
+                <div className="flex items-center justify-between border-b border-[#25252F] pb-3.5">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
-                    <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#8B5CF6] uppercase tracking-wider">
+                    <Sparkles className="w-4 h-4 text-[#FFE14D]" />
+                    <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FFE14D] uppercase tracking-wider">
                       THE VIBE
                     </h2>
                   </div>
-                  <span className="font-mono text-xs font-bold text-[#8B5CF6] bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 px-2.5 py-0.5 rounded-md">
+                  <span className="font-mono text-xs font-bold text-[#FFE14D] bg-[#FFE14D]/15 border border-[#FFE14D]/30 px-2.5 py-0.5 rounded-md">
                     {person.vibeMatch}% VIBE MATCH
                   </span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {/* Top Genres */}
-                  <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]">
-                    <span className="font-mono text-[10px] text-[#666666] uppercase tracking-wider block mb-1.5">
+                  <div className="p-3.5 rounded-xl bg-[#15151C] border border-[#25252F]">
+                    <span className="font-mono text-[10px] text-[#8E8C9C] uppercase tracking-wider block mb-1.5">
                       TOP GENRES
                     </span>
                     <div className="space-y-1">
@@ -338,8 +338,8 @@ export default function PersonProfilePage() {
                   </div>
 
                   {/* Favourite Nights */}
-                  <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]">
-                    <span className="font-mono text-[10px] text-[#666666] uppercase tracking-wider block mb-1.5">
+                  <div className="p-3.5 rounded-xl bg-[#15151C] border border-[#25252F]">
+                    <span className="font-mono text-[10px] text-[#8E8C9C] uppercase tracking-wider block mb-1.5">
                       FAVOURITE NIGHTS
                     </span>
                     <div className="space-y-1">
@@ -355,8 +355,8 @@ export default function PersonProfilePage() {
                   </div>
 
                   {/* Favourite Areas */}
-                  <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]">
-                    <span className="font-mono text-[10px] text-[#666666] uppercase tracking-wider block mb-1.5">
+                  <div className="p-3.5 rounded-xl bg-[#15151C] border border-[#25252F]">
+                    <span className="font-mono text-[10px] text-[#8E8C9C] uppercase tracking-wider block mb-1.5">
                       FAVOURITE AREAS
                     </span>
                     <div className="space-y-1">
@@ -374,14 +374,14 @@ export default function PersonProfilePage() {
 
                 {/* 10. VIBE TAGS */}
                 <div className="pt-2">
-                  <span className="font-mono text-[10px] text-[#666666] uppercase tracking-wider block mb-2.5">
+                  <span className="font-mono text-[10px] text-[#8E8C9C] uppercase tracking-wider block mb-2.5">
                     VIBE TAGS
                   </span>
                   <div className="flex flex-wrap gap-2">
                     {person.vibeTags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 rounded-xl bg-[#111111] hover:bg-[#252530] border border-[#1A1A1A] text-xs font-mono text-white transition-colors cursor-default"
+                        className="px-3 py-1 rounded-xl bg-[#15151C] hover:bg-[#252530] border border-[#25252F] text-xs font-mono text-white transition-colors cursor-default"
                       >
                         #{tag}
                       </span>
@@ -393,12 +393,12 @@ export default function PersonProfilePage() {
               {/* 11. INTERESTS & GENRES (MUSIC TASTE & INTERESTS) */}
               <section
                 aria-label="Music Taste & Interests"
-                className="p-6 sm:p-7 rounded-[12px] bg-[#111111] border border-[#1A1A1A] space-y-5"
+                className="p-6 sm:p-7 rounded-[12px] bg-[#15151C] border border-[#25252F] space-y-5"
               >
                 <div>
                   <div className="flex items-center gap-2 mb-2.5">
-                    <Flame className="w-4 h-4 text-[#EC4899]" />
-                    <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#EC4899] uppercase tracking-wider">
+                    <Flame className="w-4 h-4 text-[#FF4FA3]" />
+                    <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FF4FA3] uppercase tracking-wider">
                       MUSIC TASTE
                     </h2>
                   </div>
@@ -406,7 +406,7 @@ export default function PersonProfilePage() {
                     {person.musicTaste.map((genre) => (
                       <span
                         key={genre}
-                        className="px-3 py-1 rounded-lg bg-[#8B5CF6]/10 border border-[#8B5CF6]/30 text-xs font-mono text-white font-medium"
+                        className="px-3 py-1 rounded-lg bg-[#FFE14D]/10 border border-[#FFE14D]/30 text-xs font-mono text-white font-medium"
                       >
                         {genre}
                       </span>
@@ -414,15 +414,15 @@ export default function PersonProfilePage() {
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-[#1A1A1A]">
-                  <span className="font-mono text-[11px] text-[#666666] uppercase tracking-wider block mb-2.5">
+                <div className="pt-2 border-t border-[#25252F]">
+                  <span className="font-mono text-[11px] text-[#8E8C9C] uppercase tracking-wider block mb-2.5">
                     INTERESTS
                   </span>
                   <div className="flex flex-wrap gap-2">
                     {person.interests.map((interest) => (
                       <span
                         key={interest}
-                        className="px-3 py-1 rounded-lg bg-[#111111] border border-[#1A1A1A] text-xs font-sans text-[#D4D4D8]"
+                        className="px-3 py-1 rounded-lg bg-[#15151C] border border-[#25252F] text-xs font-sans text-[#D4D4D8]"
                       >
                         {interest}
                       </span>
@@ -433,14 +433,14 @@ export default function PersonProfilePage() {
 
               {/* 12. UPCOMING EVENTS */}
               <section aria-label="Upcoming Events" className="space-y-4">
-                <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-3">
+                <div className="flex items-center justify-between border-b border-[#25252F] pb-3">
                   <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-[#8B5CF6]" />
-                    <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#8B5CF6] uppercase tracking-wider">
+                    <Calendar className="w-4 h-4 text-[#FFE14D]" />
+                    <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FFE14D] uppercase tracking-wider">
                       UPCOMING EVENTS
                     </h2>
                   </div>
-                  <span className="font-mono text-xs text-[#666666]">
+                  <span className="font-mono text-xs text-[#8E8C9C]">
                     {person.upcomingEvents.length} GOING
                   </span>
                 </div>
@@ -468,7 +468,7 @@ export default function PersonProfilePage() {
                     ))}
                   </div>
                 ) : (
-                  <div className="p-6 text-center rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-xs font-mono text-[#666666]">
+                  <div className="p-6 text-center rounded-[12px] bg-[#15151C] border border-[#25252F] text-xs font-mono text-[#8E8C9C]">
                     No upcoming events on this schedule.
                   </div>
                 )}
@@ -476,14 +476,14 @@ export default function PersonProfilePage() {
 
               {/* 13. EVENT HISTORY (RECENTLY ATTENDED) */}
               <section aria-label="Event History" className="space-y-4">
-                <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-3">
+                <div className="flex items-center justify-between border-b border-[#25252F] pb-3">
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4 text-[#22C55E]" />
                     <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#22C55E] uppercase tracking-wider">
                       RECENTLY ATTENDED
                     </h2>
                   </div>
-                  <span className="font-mono text-xs text-[#666666]">
+                  <span className="font-mono text-xs text-[#8E8C9C]">
                     EVENT PASSPORT
                   </span>
                 </div>
@@ -493,22 +493,22 @@ export default function PersonProfilePage() {
                     <Link
                       key={item.id}
                       href={`/events/${item.id}`}
-                      className="p-3.5 rounded-[4px] bg-[#111111] hover:bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] transition-all flex items-center justify-between gap-4 group"
+                      className="p-3.5 rounded-[4px] bg-[#15151C] hover:bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D] transition-all flex items-center justify-between gap-4 group"
                     >
                       <div className="truncate">
-                        <span className="font-sans font-bold text-xs sm:text-sm text-white group-hover:text-[#8B5CF6] transition-colors block truncate">
+                        <span className="font-sans font-bold text-xs sm:text-sm text-white group-hover:text-[#FFE14D] transition-colors block truncate">
                           {item.name}
                         </span>
-                        <span className="font-mono text-[11px] text-[#666666] block truncate">
+                        <span className="font-mono text-[11px] text-[#8E8C9C] block truncate">
                           {item.venue}
                         </span>
                       </div>
 
                       <div className="text-right shrink-0 flex items-center gap-3">
-                        <span className="font-mono text-[10px] text-[#8B5CF6] bg-[#8B5CF6]/10 px-2 py-0.5 rounded">
+                        <span className="font-mono text-[10px] text-[#FFE14D] bg-[#FFE14D]/10 px-2 py-0.5 rounded">
                           {item.genre}
                         </span>
-                        <span className="font-mono text-xs text-[#666666]">
+                        <span className="font-mono text-xs text-[#8E8C9C]">
                           {item.date}
                         </span>
                       </div>
@@ -523,12 +523,12 @@ export default function PersonProfilePage() {
               {/* 18. VIBE STATS (NIGHTLIFE STATS) */}
               <section
                 aria-label="Nightlife Stats"
-                className="p-6 sm:p-7 rounded-[12px] bg-[#111111] border border-[#1A1A1A] space-y-4"
+                className="p-6 sm:p-7 rounded-[12px] bg-[#15151C] border border-[#25252F] space-y-4"
               >
-                <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-3">
+                <div className="flex items-center justify-between border-b border-[#25252F] pb-3">
                   <div className="flex items-center gap-2">
-                    <Radio className="w-4 h-4 text-[#8B5CF6]" />
-                    <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#8B5CF6] uppercase tracking-wider">
+                    <Radio className="w-4 h-4 text-[#FFE14D]" />
+                    <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FFE14D] uppercase tracking-wider">
                       NIGHTLIFE STATS
                     </h2>
                   </div>
@@ -538,38 +538,38 @@ export default function PersonProfilePage() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]">
+                  <div className="p-3.5 rounded-xl bg-[#15151C] border border-[#25252F]">
                     <div className="font-mono text-xl sm:text-2xl font-bold text-white">
                       {person.stats.eventsAttended}
                     </div>
-                    <div className="font-mono text-[10px] text-[#666666] uppercase tracking-wider">
+                    <div className="font-mono text-[10px] text-[#8E8C9C] uppercase tracking-wider">
                       EVENTS ATTENDED
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]">
+                  <div className="p-3.5 rounded-xl bg-[#15151C] border border-[#25252F]">
                     <div className="font-mono text-xl sm:text-2xl font-bold text-white">
                       {person.stats.clubsVisited}
                     </div>
-                    <div className="font-mono text-[10px] text-[#666666] uppercase tracking-wider">
+                    <div className="font-mono text-[10px] text-[#8E8C9C] uppercase tracking-wider">
                       CLUBS VISITED
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]">
+                  <div className="p-3.5 rounded-xl bg-[#15151C] border border-[#25252F]">
                     <div className="font-mono text-xl sm:text-2xl font-bold text-white">
                       {person.stats.communitiesCount}
                     </div>
-                    <div className="font-mono text-[10px] text-[#666666] uppercase tracking-wider">
+                    <div className="font-mono text-[10px] text-[#8E8C9C] uppercase tracking-wider">
                       COMMUNITIES
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-[#111111] border border-[#1A1A1A]">
+                  <div className="p-3.5 rounded-xl bg-[#15151C] border border-[#25252F]">
                     <div className="font-mono text-xl sm:text-2xl font-bold text-white">
                       {person.stats.crewsJoined}
                     </div>
-                    <div className="font-mono text-[10px] text-[#666666] uppercase tracking-wider">
+                    <div className="font-mono text-[10px] text-[#8E8C9C] uppercase tracking-wider">
                       CREWS JOINED
                     </div>
                   </div>
@@ -578,7 +578,7 @@ export default function PersonProfilePage() {
 
               {/* 14. FAVOURITE CLUBS */}
               <section aria-label="Favourite Clubs" className="space-y-4">
-                <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-3">
+                <div className="flex items-center justify-between border-b border-[#25252F] pb-3">
                   <div className="flex items-center gap-2">
                     <Compass className="w-4 h-4 text-[#22C55E]" />
                     <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#22C55E] uppercase tracking-wider">
@@ -587,7 +587,7 @@ export default function PersonProfilePage() {
                   </div>
                   <Link
                     href="/clubs"
-                    className="font-mono text-xs text-[#666666] hover:text-white transition-colors"
+                    className="font-mono text-xs text-[#8E8C9C] hover:text-white transition-colors"
                   >
                     EXPLORE CLUBS →
                   </Link>
@@ -598,27 +598,27 @@ export default function PersonProfilePage() {
                     <Link
                       key={club.id}
                       href={`/clubs/${club.id}`}
-                      className="p-3 rounded-[4px] bg-[#111111] hover:bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] transition-all flex items-center justify-between gap-3 group"
+                      className="p-3 rounded-[4px] bg-[#15151C] hover:bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D] transition-all flex items-center justify-between gap-3 group"
                     >
                       <div className="flex items-center gap-3 truncate">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={club.image}
                           alt={club.name}
-                          className="w-10 h-10 rounded-lg object-cover border border-[#1A1A1A] shrink-0"
+                          className="w-10 h-10 rounded-lg object-cover border border-[#25252F] shrink-0"
                         />
                         <div className="truncate">
-                          <span className="font-sans font-bold text-xs sm:text-sm text-white group-hover:text-[#8B5CF6] transition-colors block truncate">
+                          <span className="font-sans font-bold text-xs sm:text-sm text-white group-hover:text-[#FFE14D] transition-colors block truncate">
                             {club.name}
                           </span>
-                          <span className="font-mono text-[10px] text-[#666666] block truncate">
+                          <span className="font-mono text-[10px] text-[#8E8C9C] block truncate">
                             {club.area}
                           </span>
                         </div>
                       </div>
 
                       <div className="flex items-center gap-1 font-mono text-xs text-amber-400 shrink-0">
-                        <Star className="w-3.5 h-3.5 fill-amber-400" />
+                        <Star className="w-3.5 h-3.5 text-[#FFE14D]" />
                         <span>{club.rating}</span>
                       </div>
                     </Link>
@@ -628,16 +628,16 @@ export default function PersonProfilePage() {
 
               {/* 15. COMMUNITIES */}
               <section aria-label="Communities" className="space-y-4">
-                <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-3">
+                <div className="flex items-center justify-between border-b border-[#25252F] pb-3">
                   <div className="flex items-center gap-2">
-                    <Layers className="w-4 h-4 text-[#8B5CF6]" />
-                    <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#8B5CF6] uppercase tracking-wider">
+                    <Layers className="w-4 h-4 text-[#FFE14D]" />
+                    <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FFE14D] uppercase tracking-wider">
                       COMMUNITIES
                     </h2>
                   </div>
                   <Link
                     href="/communities"
-                    className="font-mono text-xs text-[#666666] hover:text-white transition-colors"
+                    className="font-mono text-xs text-[#8E8C9C] hover:text-white transition-colors"
                   >
                     ALL COMMUNITIES →
                   </Link>
@@ -648,17 +648,17 @@ export default function PersonProfilePage() {
                     <Link
                       key={comm.id}
                       href={`/communities/${comm.id}`}
-                      className="p-3 rounded-[4px] bg-[#111111] hover:bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] transition-all flex items-center justify-between gap-3 group"
+                      className="p-3 rounded-[4px] bg-[#15151C] hover:bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D] transition-all flex items-center justify-between gap-3 group"
                     >
                       <div className="flex items-center gap-3 truncate">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={comm.image}
                           alt={comm.name}
-                          className="w-10 h-10 rounded-lg object-cover border border-[#1A1A1A] shrink-0"
+                          className="w-10 h-10 rounded-lg object-cover border border-[#25252F] shrink-0"
                         />
                         <div className="truncate">
-                          <span className="font-sans font-bold text-xs sm:text-sm text-white group-hover:text-[#8B5CF6] transition-colors block truncate">
+                          <span className="font-sans font-bold text-xs sm:text-sm text-white group-hover:text-[#FFE14D] transition-colors block truncate">
                             {comm.name}
                           </span>
                           <span className="font-mono text-[10px] text-[#22C55E] block">
@@ -667,7 +667,7 @@ export default function PersonProfilePage() {
                         </div>
                       </div>
 
-                      <ArrowRight className="w-4 h-4 text-[#666666] group-hover:text-white group-hover:translate-x-0.5 transition-all shrink-0" />
+                      <ArrowRight className="w-4 h-4 text-[#8E8C9C] group-hover:text-white group-hover:translate-x-0.5 transition-all shrink-0" />
                     </Link>
                   ))}
                 </div>
@@ -676,16 +676,16 @@ export default function PersonProfilePage() {
               {/* 19. PROFILE BADGES */}
               <section
                 aria-label="Profile Badges"
-                className="p-6 sm:p-7 rounded-[12px] bg-[#111111] border border-[#1A1A1A] space-y-4"
+                className="p-6 sm:p-7 rounded-[12px] bg-[#15151C] border border-[#25252F] space-y-4"
               >
-                <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-3">
+                <div className="flex items-center justify-between border-b border-[#25252F] pb-3">
                   <div className="flex items-center gap-2">
                     <Award className="w-4 h-4 text-amber-400" />
                     <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-amber-400 uppercase tracking-wider">
                       BADGES
                     </h2>
                   </div>
-                  <span className="font-mono text-xs text-[#666666]">
+                  <span className="font-mono text-xs text-[#8E8C9C]">
                     {person.badges.length} EARNED
                   </span>
                 </div>
@@ -694,7 +694,7 @@ export default function PersonProfilePage() {
                   {person.badges.map((b) => (
                     <div
                       key={b.id}
-                      className="p-3 rounded-xl bg-[#111111] border border-[#1A1A1A] flex items-center gap-2.5"
+                      className="p-3 rounded-xl bg-[#15151C] border border-[#25252F] flex items-center gap-2.5"
                     >
                       <div className="p-2 rounded-lg bg-black/40 shrink-0">
                         {renderBadgeIcon(b.iconName, b.color)}
@@ -703,7 +703,7 @@ export default function PersonProfilePage() {
                         <span className="font-sans font-bold text-[11px] text-white block truncate">
                           {b.title}
                         </span>
-                        <span className="font-mono text-[9px] text-[#666666] block">
+                        <span className="font-mono text-[9px] text-[#8E8C9C] block">
                           {b.requirement}
                         </span>
                       </div>
@@ -718,28 +718,28 @@ export default function PersonProfilePage() {
               16. RECENT ACTIVITY (Full Width)
           ================================================== */}
           <section aria-label="Recent Activity" className="space-y-4 pt-4">
-            <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-3">
+            <div className="flex items-center justify-between border-b border-[#25252F] pb-3">
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-[#8B5CF6]" />
-                <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#8B5CF6] uppercase tracking-wider">
+                <Clock className="w-4 h-4 text-[#FFE14D]" />
+                <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FFE14D] uppercase tracking-wider">
                   RECENT ACTIVITY
                 </h2>
               </div>
-              <span className="font-mono text-xs text-[#666666]">TIMELINE</span>
+              <span className="font-mono text-xs text-[#8E8C9C]">TIMELINE</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {person.activityFeed.map((act) => (
                 <div
                   key={act.id}
-                  className="p-4 rounded-xl bg-[#111111] border border-[#1A1A1A] flex flex-col justify-between gap-2"
+                  className="p-4 rounded-xl bg-[#15151C] border border-[#25252F] flex flex-col justify-between gap-2"
                 >
                   <div className="font-sans text-xs">
-                    <span className="text-[#666666] mr-1.5">{act.text}</span>
+                    <span className="text-[#8E8C9C] mr-1.5">{act.text}</span>
                     {act.link ? (
                       <Link
                         href={act.link}
-                        className="font-bold text-white hover:text-[#8B5CF6] transition-colors underline-offset-2 hover:underline"
+                        className="font-bold text-white hover:text-[#FFE14D] transition-colors underline-offset-2 hover:underline"
                       >
                         {act.target}
                       </Link>
@@ -747,7 +747,7 @@ export default function PersonProfilePage() {
                       <span className="font-bold text-white">{act.target}</span>
                     )}
                   </div>
-                  <span className="font-mono text-[10px] text-[#666666]">
+                  <span className="font-mono text-[10px] text-[#8E8C9C]">
                     {act.time}
                   </span>
                 </div>
@@ -759,22 +759,22 @@ export default function PersonProfilePage() {
               17. SOCIAL CONNECTIONS ("PEOPLE YOU MAY KNOW")
           ================================================== */}
           <section aria-label="People You May Know" className="space-y-6 pt-4">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[#1A1A1A] pb-4">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[#25252F] pb-4">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <Users className="w-4 h-4 text-[#EC4899]" />
-                  <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#EC4899] uppercase tracking-wider">
+                  <Users className="w-4 h-4 text-[#FF4FA3]" />
+                  <h2 className="font-mono text-xs font-extrabold tracking-[-0.03em] text-[#FF4FA3] uppercase tracking-wider">
                     PEOPLE YOU MAY KNOW
                   </h2>
                 </div>
-                <p className="text-sm text-[#666666] font-sans">
+                <p className="text-sm text-[#8E8C9C] font-sans">
                   Partygoers and friends in common across Bangalore.
                 </p>
               </div>
 
               <Link
                 href="/people"
-                className="font-mono text-xs text-[#666666] hover:text-white transition-colors flex items-center gap-1"
+                className="font-mono text-xs text-[#8E8C9C] hover:text-white transition-colors flex items-center gap-1"
               >
                 <span>EXPLORE ALL PEOPLE</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -800,9 +800,9 @@ export default function PersonProfilePage() {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-6 right-6 z-50 bg-[#111111] border border-[#8B5CF6] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
+          className="fixed bottom-6 right-6 z-50 bg-[#15151C] border border-[#FFE14D] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 font-mono text-xs animate-in slide-in-from-bottom"
         >
-          <Check className="w-4 h-4 text-[#8B5CF6]" />
+          <Check className="w-4 h-4 text-[#FFE14D]" />
           <span>Profile link copied to clipboard!</span>
         </div>
       )}

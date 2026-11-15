@@ -10,7 +10,7 @@ import {
   ChevronDown,
   ChevronUp,
   Check,
-} from "lucide-react";
+} from "@/components/icons";
 import { DiscussionPost } from "@/lib/events-data";
 
 interface DiscussionPostCardProps {
@@ -66,7 +66,7 @@ export default function DiscussionPostCard({
   };
 
   return (
-    <article className="p-5 sm:p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/50 transition-all duration-200 flex flex-col justify-between group">
+    <article className="p-5 sm:p-6 rounded-[12px] bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D]/50 transition-all duration-200 flex flex-col justify-between group">
       <div>
         {/* Post Header: Avatar, Name, Metadata, 3-dot Menu */}
         <div className="flex items-start justify-between gap-3 mb-3.5">
@@ -75,7 +75,7 @@ export default function DiscussionPostCard({
             <img
               src={post.avatar}
               alt={post.authorName}
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover border border-[#1A1A1A] group-hover:border-[#8B5CF6]/50 transition-colors shrink-0"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover border border-[#25252F] group-hover:border-[#FFE14D]/50 transition-colors shrink-0"
             />
             <div>
               <div className="flex items-center gap-2 flex-wrap">
@@ -83,23 +83,23 @@ export default function DiscussionPostCard({
                   {post.authorName}
                 </span>
                 {post.vibeScore && (
-                  <span className="font-mono text-[10px] px-2 py-0.5 rounded bg-[#8B5CF6]/15 text-[#8B5CF6] font-semibold">
+                  <span className="font-mono text-[10px] px-2 py-0.5 rounded bg-[#FFE14D]/15 text-[#FFE14D] font-semibold">
                     VIBE SCORE {post.vibeScore}
                   </span>
                 )}
                 {post.badge && (
-                  <span className="font-mono text-[10px] text-[#666666] hidden sm:inline">
+                  <span className="font-mono text-[10px] text-[#8E8C9C] hidden sm:inline">
                     · {post.badge}
                   </span>
                 )}
               </div>
 
-              <div className="flex items-center gap-2 text-xs font-mono text-[#666666] mt-0.5">
+              <div className="flex items-center gap-2 text-xs font-mono text-[#8E8C9C] mt-0.5">
                 <span>{post.timestamp.toUpperCase()}</span>
                 {post.topic && (
                   <>
                     <span>·</span>
-                    <span className="text-[#8B5CF6] font-semibold uppercase">
+                    <span className="text-[#FFE14D] font-semibold uppercase">
                       #{post.topic.replace("-", " ")}
                     </span>
                   </>
@@ -114,34 +114,34 @@ export default function DiscussionPostCard({
               type="button"
               aria-label="Post options"
               onClick={() => setShowMenu(!showMenu)}
-              className="p-1.5 rounded-lg text-[#666666] hover:text-white hover:bg-[#1A1A1A] transition-colors"
+              className="p-1.5 rounded-lg text-[#8E8C9C] hover:text-white hover:bg-[#25252F] transition-colors"
             >
               <MoreVertical className="w-4 h-4" />
             </button>
 
             {showMenu && (
               <div
-                className="absolute right-0 top-8 z-30 w-36 rounded-xl bg-[#111111] border border-[#1A1A1A] shadow-xl py-1 animate-in fade-in"
+                className="absolute right-0 top-8 z-30 w-36 rounded-xl bg-[#15151C] border border-[#25252F] shadow-xl py-1 animate-in fade-in"
                 onClick={() => setShowMenu(false)}
               >
                 <button
                   type="button"
                   onClick={() => onOpenReportModal(post)}
-                  className="w-full text-left px-3.5 py-2 text-xs font-mono text-rose-400 hover:bg-[#1A1A1A] transition-colors"
+                  className="w-full text-left px-3.5 py-2 text-xs font-mono text-rose-400 hover:bg-[#25252F] transition-colors"
                 >
                   Report Post
                 </button>
                 <button
                   type="button"
                   onClick={() => alert(`Muted posts from ${post.authorName}`)}
-                  className="w-full text-left px-3.5 py-2 text-xs font-mono text-[#666666] hover:text-white hover:bg-[#1A1A1A] transition-colors"
+                  className="w-full text-left px-3.5 py-2 text-xs font-mono text-[#8E8C9C] hover:text-white hover:bg-[#25252F] transition-colors"
                 >
                   Mute Author
                 </button>
                 <button
                   type="button"
                   onClick={() => alert(`Blocked ${post.authorName}`)}
-                  className="w-full text-left px-3.5 py-2 text-xs font-mono text-[#666666] hover:text-white hover:bg-[#1A1A1A] transition-colors"
+                  className="w-full text-left px-3.5 py-2 text-xs font-mono text-[#8E8C9C] hover:text-white hover:bg-[#25252F] transition-colors"
                 >
                   Block
                 </button>
@@ -156,7 +156,7 @@ export default function DiscussionPostCard({
         </p>
 
         {/* Bottom Actions Row: Like, Reply, Share */}
-        <div className="flex items-center gap-4 sm:gap-6 pt-3 border-t border-[#1A1A1A]/60 text-xs font-mono text-[#666666]">
+        <div className="flex items-center gap-4 sm:gap-6 pt-3 border-t border-[#25252F]/60 text-xs font-mono text-[#8E8C9C]">
           {/* Like Action */}
           <button
             type="button"
@@ -165,11 +165,11 @@ export default function DiscussionPostCard({
               isLiked ? "text-rose-400 font-bold" : "hover:text-white"
             }`}
           >
-            <Heart
-              className={`w-4 h-4 ${
-                isLiked ? "fill-rose-400 text-rose-400" : ""
-              }`}
-            />
+            <Heart weight={isLiked ? "fill" : "bold"}
+ className={`w-4 h-4 ${
+ isLiked ? "fill-rose-400 text-rose-400" : ""
+ }`}
+ />
             <span>{likesCount}</span>
           </button>
 
@@ -178,7 +178,7 @@ export default function DiscussionPostCard({
             type="button"
             onClick={() => setShowReplies(!showReplies)}
             className={`flex items-center gap-1.5 transition-colors ${
-              showReplies ? "text-[#8B5CF6] font-bold" : "hover:text-white"
+              showReplies ? "text-[#FFE14D] font-bold" : "hover:text-white"
             }`}
           >
             <MessageSquare className="w-4 h-4" />
@@ -213,25 +213,25 @@ export default function DiscussionPostCard({
 
       {/* Expanded Nested Replies Section */}
       {showReplies && (
-        <div className="mt-4 pt-4 border-t border-[#1A1A1A]/60 flex flex-col gap-3">
+        <div className="mt-4 pt-4 border-t border-[#25252F]/60 flex flex-col gap-3">
           {/* Existing Replies List */}
           {visibleReplies.map((reply) => (
             <div
               key={reply.id}
-              className="ml-3 sm:ml-6 pl-3 sm:pl-4 border-l-2 border-[#8B5CF6]/40 flex items-start gap-3 py-1"
+              className="ml-3 sm:ml-6 pl-3 sm:pl-4 border-l-2 border-[#FFE14D]/40 flex items-start gap-3 py-1"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={reply.avatar}
                 alt={reply.authorName}
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover shrink-0 border border-[#1A1A1A]"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover shrink-0 border border-[#25252F]"
               />
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-xs sm:text-sm text-white">
                     {reply.authorName}
                   </span>
-                  <span className="font-mono text-[9px] text-[#666666]">
+                  <span className="font-mono text-[9px] text-[#8E8C9C]">
                     {reply.timestamp}
                   </span>
                 </div>
@@ -247,7 +247,7 @@ export default function DiscussionPostCard({
             <button
               type="button"
               onClick={() => setShowAllReplies(!showAllReplies)}
-              className="ml-3 sm:ml-6 text-left text-xs font-mono text-[#8B5CF6] hover:underline flex items-center gap-1 py-1"
+              className="ml-3 sm:ml-6 text-left text-xs font-mono text-[#FFE14D] hover:underline flex items-center gap-1 py-1"
             >
               {showAllReplies ? (
                 <>
@@ -274,12 +274,12 @@ export default function DiscussionPostCard({
               onChange={(e) => setReplyInput(e.target.value)}
               placeholder="Write a reply..."
               aria-label="Write a reply"
-              className="flex-1 bg-[#111111] border border-[#1A1A1A] focus:border-[#8B5CF6] rounded-xl px-3.5 py-2 text-xs text-white placeholder:text-[#666666] focus:outline-none font-sans"
+              className="flex-1 bg-[#15151C] border border-[#25252F] focus:border-[#FFE14D] rounded-xl px-3.5 py-2 text-xs text-white placeholder:text-[#8E8C9C] focus:outline-none font-sans"
             />
             <button
               type="submit"
               disabled={!replyInput.trim()}
-              className="px-4 py-2 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] disabled:opacity-40 text-white text-xs font-mono font-bold transition-colors shrink-0 flex items-center gap-1"
+              className="px-4 py-2 rounded-[4px] bg-[#FFE14D] hover:bg-[#F2CF2E] disabled:opacity-40 text-[#0B0B10] text-xs font-mono font-bold transition-colors shrink-0 flex items-center gap-1"
             >
               <Send className="w-3 h-3" />
               <span>REPLY</span>

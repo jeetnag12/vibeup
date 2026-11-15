@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Sparkles, MapPin, Users, UserPlus, Check } from "lucide-react";
+import { Sparkles, MapPin, Users, UserPlus, Check } from "@/components/icons";
 import { VibeMatchUser, Attendee } from "@/lib/events-data";
 
 interface FeaturedVibeMatchesProps {
@@ -19,12 +19,12 @@ export default function FeaturedVibeMatches({
 }: FeaturedVibeMatchesProps) {
   if (!vibeMatches || vibeMatches.length === 0) {
     return (
-      <div className="w-full mb-12 p-8 rounded-[12px] bg-[#111111] border border-[#1A1A1A] text-center">
-        <Sparkles className="w-6 h-6 text-[#8B5CF6] mx-auto mb-2 opacity-60" />
+      <div className="w-full mb-12 p-8 rounded-[12px] bg-[#15151C] border border-[#25252F] text-center">
+        <Sparkles className="w-6 h-6 text-[#FFE14D] mx-auto mb-2 opacity-60" />
         <h3 className="font-mono text-sm text-white font-bold tracking-wider mb-1">
           YOUR CROWD IS STILL GROWING
         </h3>
-        <p className="text-xs text-[#666666] font-sans">
+        <p className="text-xs text-[#8E8C9C] font-sans">
           More people will appear here as the event gets closer.
         </p>
       </div>
@@ -37,8 +37,8 @@ export default function FeaturedVibeMatches({
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
-            <span className="font-mono text-[11px] text-[#8B5CF6] uppercase tracking-wider font-semibold">
+            <Sparkles className="w-4 h-4 text-[#FFE14D]" />
+            <span className="font-mono text-[11px] text-[#FFE14D] uppercase tracking-wider font-semibold">
               CURATED RECOMMENDATIONS
             </span>
           </div>
@@ -48,7 +48,7 @@ export default function FeaturedVibeMatches({
           >
             PEOPLE YOU MAY VIBE WITH
           </h2>
-          <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1">
+          <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-1">
             People going to this event who share your interests, music taste or communities.
           </p>
         </div>
@@ -78,17 +78,17 @@ export default function FeaturedVibeMatches({
           return (
             <div
               key={person.id}
-              className="p-5 sm:p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] hover:shadow-[0_0_24px_rgba(139,92,246,0.14)] transition-all duration-200 flex flex-col justify-between group"
+              className="p-5 sm:p-6 rounded-[12px] bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D] hover:shadow-[0_0_24px_rgba(255,225,77,0.14)] transition-all duration-200 flex flex-col justify-between group"
             >
               <div>
                 {/* Top Row: Vibe Match Pill + Vibe Score */}
                 <div className="flex items-center justify-between gap-2 mb-4">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/40 text-[#8B5CF6] text-xs font-mono font-bold tracking-wider">
-                    <Sparkles className="w-3 h-3 text-[#8B5CF6]" />
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FFE14D]/15 border border-[#FFE14D]/40 text-[#FFE14D] text-xs font-mono font-bold tracking-wider">
+                    <Sparkles className="w-3 h-3 text-[#FFE14D]" />
                     <span>{person.matchPercentage}% VIBE MATCH</span>
                   </div>
 
-                  <div className="font-mono text-xs text-[#666666]">
+                  <div className="font-mono text-xs text-[#8E8C9C]">
                     Score <span className="text-white font-bold">{person.vibeScore}</span>
                   </div>
                 </div>
@@ -99,17 +99,17 @@ export default function FeaturedVibeMatches({
                   <img
                     src={person.avatar}
                     alt={person.name}
-                    className="w-14 h-14 rounded-full object-cover border-2 border-[#1A1A1A] group-hover:border-[#8B5CF6]/60 transition-colors shrink-0"
+                    className="w-14 h-14 rounded-full object-cover border-2 border-[#25252F] group-hover:border-[#FFE14D]/60 transition-colors shrink-0"
                   />
                   <div className="min-w-0">
                     <Link
                       href={`/people/${person.id}`}
-                      className="text-lg font-bold font-sans text-white hover:text-[#8B5CF6] transition-colors truncate block"
+                      className="text-lg font-bold font-sans text-white hover:text-[#FFE14D] transition-colors truncate block"
                     >
                       {person.name.toUpperCase()}
                     </Link>
-                    <div className="flex items-center gap-1 text-xs font-mono text-[#666666] mt-0.5 truncate">
-                      <MapPin className="w-3 h-3 text-[#EC4899] shrink-0" />
+                    <div className="flex items-center gap-1 text-xs font-mono text-[#8E8C9C] mt-0.5 truncate">
+                      <MapPin className="w-3 h-3 text-[#FF4FA3] shrink-0" />
                       <span>{person.area || "BANGALORE"}</span>
                     </div>
                   </div>
@@ -121,8 +121,8 @@ export default function FeaturedVibeMatches({
                 </div>
 
                 {/* Mutual Connection Badge */}
-                <div className="p-2.5 rounded-xl bg-[#111111] border border-[#1A1A1A]/80 text-xs font-sans text-[#666666] flex items-center gap-2 mb-4">
-                  <Users className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0" />
+                <div className="p-2.5 rounded-xl bg-[#15151C] border border-[#25252F]/80 text-xs font-sans text-[#8E8C9C] flex items-center gap-2 mb-4">
+                  <Users className="w-3.5 h-3.5 text-[#FFE14D] shrink-0" />
                   <span className="truncate">
                     {person.mutualDetails || `${person.mutualCount || 3} MUTUAL CONNECTIONS`}
                   </span>
@@ -130,7 +130,7 @@ export default function FeaturedVibeMatches({
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col gap-2 pt-3 border-t border-[#1A1A1A]/60">
+              <div className="flex flex-col gap-2 pt-3 border-t border-[#25252F]/60">
                 <div className="grid grid-cols-2 gap-2">
                   {/* Follow Button */}
                   <button
@@ -139,7 +139,7 @@ export default function FeaturedVibeMatches({
                     className={`h-[38px] px-3 rounded-xl text-xs font-mono font-medium transition-all duration-150 flex items-center justify-center gap-1.5 ${
                       isFollowing
                         ? "bg-[#22C55E]/15 border border-[#22C55E]/40 text-[#22C55E]"
-                        : "bg-[#111111] border border-[#1A1A1A] text-white hover:border-[#8B5CF6] hover:bg-[#8B5CF6]/10"
+                        : "bg-[#15151C] border border-[#25252F] text-white hover:border-[#FFE14D] hover:bg-[#FFE14D]/10"
                     }`}
                   >
                     {isFollowing ? (
@@ -158,7 +158,7 @@ export default function FeaturedVibeMatches({
                   {/* View Profile Button */}
                   <Link
                     href={`/people/${person.id}`}
-                    className="h-[38px] px-3 rounded-[4px] border border-[#1A1A1A] hover:border-[#8B5CF6] bg-[#111111] text-xs font-mono text-[#666666] hover:text-white transition-colors flex items-center justify-center"
+                    className="h-[38px] px-3 rounded-[4px] border border-[#25252F] hover:border-[#FFE14D] bg-[#15151C] text-xs font-mono text-[#8E8C9C] hover:text-white transition-colors flex items-center justify-center"
                   >
                     VIEW PROFILE
                   </Link>
@@ -168,7 +168,7 @@ export default function FeaturedVibeMatches({
                 <button
                   type="button"
                   onClick={() => onOpenInviteModal(asAttendee)}
-                  className="w-full h-[36px] rounded-xl bg-[#8B5CF6]/10 hover:bg-[#8B5CF6] text-[#8B5CF6] hover:text-white border border-[#8B5CF6]/30 hover:border-[#8B5CF6] text-xs font-mono font-medium transition-all duration-200 flex items-center justify-center gap-1.5"
+                  className="w-full h-[36px] rounded-xl bg-[#FFE14D]/10 hover:bg-[#FFE14D] text-[#FFE14D] hover:text-[#0B0B10] border border-[#FFE14D]/30 hover:border-[#FFE14D] text-xs font-mono font-medium transition-all duration-200 flex items-center justify-center gap-1.5"
                 >
                   <Users className="w-3.5 h-3.5" />
                   <span>INVITE TO CREW</span>

@@ -4,16 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import CardCarousel, { CarouselItem } from "@/components/CardCarousel";
-import TrendingSection from "@/components/TrendingSection";
-import ClubsMarquee from "@/components/ClubsMarquee";
-import {
-  StarShape,
-  DotGrid,
-  CrossHair,
-  TriangleSet,
-} from "@/components/Decoratives";
 import Footer from "@/components/Footer";
 import EventCard, { EventCardProps } from "@/components/EventCard";
 import PeopleCard from "@/components/PeopleCard";
@@ -31,7 +21,7 @@ import {
   Zap,
   Flame,
   Radio,
-} from "lucide-react";
+} from "@/components/icons";
 
 // ==================================================
 // STRUCTURED MOCK DATA FOR AUTHENTICATED HOME LOOP
@@ -48,84 +38,11 @@ const defaultCurrentUser = {
   areas: ["INDIRANAGAR", "KORAMANGALA"],
 };
 
-// 0. EVENTS THIS WEEKEND (7 Carousel Items with Parvaaz featured at index 2)
-const weekendCarouselItems: CarouselItem[] = [
-  {
-    id: "techno-night-playboy",
-    image:
-      "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop",
-    category: "TECHNO",
-    title: "Techno night",
-    subtitle: "Playboy Club · Indiranagar",
-    price: "₹999",
-    date: "Sat Jul 19",
-  },
-  {
-    id: "bollywood-saturdays-toit",
-    image:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop",
-    category: "BOLLYWOOD",
-    title: "Bollywood Saturdays",
-    subtitle: "Toit · Koramangala",
-    price: "₹599",
-    date: "Sat Jul 19",
-  },
-  {
-    id: "parvaaz-live-phoenix",
-    image:
-      "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=800&auto=format&fit=crop",
-    category: "LIVE MUSIC",
-    title: "Parvaaz Live",
-    subtitle: "Phoenix · Whitefield",
-    price: "₹1299",
-    date: "Sun Jul 20",
-  },
-  {
-    id: "sundowner-the-skyye",
-    image:
-      "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?q=80&w=800&auto=format&fit=crop",
-    category: "ROOFTOP",
-    title: "Sundowner",
-    subtitle: "The Skyye · UB City",
-    price: "₹799",
-    date: "Sun Jul 20",
-  },
-  {
-    id: "comedy-night-canvas",
-    image:
-      "https://images.unsplash.com/photo-1585699324551-f6c309eedeca?q=80&w=800&auto=format&fit=crop",
-    category: "COMEDY",
-    title: "Comedy Night",
-    subtitle: "Canvas Laugh · Indiranagar",
-    price: "₹699",
-    date: "Fri Jul 18",
-  },
-  {
-    id: "underground-rave-secret",
-    image:
-      "https://images.unsplash.com/photo-1545128485-c400e7702796?q=80&w=800&auto=format&fit=crop",
-    category: "ELECTRONIC",
-    title: "Underground Rave",
-    subtitle: "Secret Venue · Central BLR",
-    price: "₹1499",
-    date: "Sat Jul 19",
-  },
-  {
-    id: "jazz-evening-windmills",
-    image:
-      "https://images.unsplash.com/photo-1511192336575-5a79af67a629?q=80&w=800&auto=format&fit=crop",
-    category: "JAZZ",
-    title: "Jazz Evening",
-    subtitle: "Windmills · Whitefield",
-    price: "₹899",
-    date: "Sun Jul 20",
-  },
-];
 
 // 1. WHAT'S HAPPENING TONIGHT? (4 Featured Events)
 const tonightEvents: HomeEvent[] = [
   {
-    id: "cyberpunk-neon-warehouse",
+    id: "techno-after-dark",
     image:
       "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop",
     category: "TECHNO",
@@ -143,7 +60,7 @@ const tonightEvents: HomeEvent[] = [
     ],
   },
   {
-    id: "deep-house-odyssey-vol-4",
+    id: "neon-friday",
     image:
       "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop",
     category: "HOUSE",
@@ -161,7 +78,7 @@ const tonightEvents: HomeEvent[] = [
     ],
   },
   {
-    id: "after-dark-residents-night",
+    id: "afro-nights",
     image:
       "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=800&auto=format&fit=crop",
     category: "AFRO HOUSE",
@@ -179,9 +96,9 @@ const tonightEvents: HomeEvent[] = [
     ],
   },
   {
-    id: "saturday-techno-night",
+    id: "rooftop-sessions",
     image:
-      "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1758272133693-d2124dbe00de?q=80&w=800&auto=format&fit=crop",
     category: "HOUSE",
     title: "ROOFTOP SESSIONS",
     date: "Tonight",
@@ -220,9 +137,9 @@ const personalizedEvents: HomeEvent[] = [
   {
     id: "saturday-techno-night",
     image:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?q=80&w=800&auto=format&fit=crop",
     category: "TECHNO",
-    title: "Saturday Techno Odyssey",
+    title: "Saturday Techno Night",
     date: "Sat, 17 Oct",
     time: "9:30 PM",
     venue: "Pebble Lounge",
@@ -239,7 +156,7 @@ const personalizedEvents: HomeEvent[] = [
     image:
       "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop",
     category: "HOUSE",
-    title: "Deep House Sunset Sessions",
+    title: "Deep House Odyssey Vol. 4",
     date: "Sun, 18 Oct",
     time: "6:00 PM",
     venue: "Fandom",
@@ -332,7 +249,7 @@ export default function AuthenticatedHomePage() {
   const homeCommunities = allCommunitiesData.slice(0, 3);
 
   return (
-    <main className="min-h-screen bg-[#000000] text-white flex flex-col justify-between selection:bg-[#7C3AED]/40 selection:text-white relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#0B0B10] text-white flex flex-col justify-between selection:bg-[#F2CF2E]/40 selection:text-white relative overflow-x-hidden">
       {/* Full-page decorative background text system */}
       <div
         style={{
@@ -348,7 +265,7 @@ export default function AuthenticatedHomePage() {
             position: "absolute",
             top: "10vh",
             right: "-5vw",
-            fontFamily: "var(--font-space-grotesk)",
+            fontFamily: "var(--font-display)",
             fontWeight: 900,
             fontSize: "clamp(120px, 20vw, 280px)",
             letterSpacing: "-0.04em",
@@ -365,7 +282,7 @@ export default function AuthenticatedHomePage() {
             position: "absolute",
             top: "45vh",
             left: "-3vw",
-            fontFamily: "var(--font-space-grotesk)",
+            fontFamily: "var(--font-display)",
             fontWeight: 900,
             fontSize: "clamp(80px, 14vw, 200px)",
             letterSpacing: "-0.04em",
@@ -382,148 +299,14 @@ export default function AuthenticatedHomePage() {
       {/* 1. NAVBAR */}
       <Navbar />
 
-      {/* 2. HERO */}
-      <div className="relative w-full overflow-hidden">
-        <Hero />
 
-        {/* StarShape (60px) — top right of hero section, position absolute, top 20%, right 8%, rotation: 15deg, z-index 25 */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            top: "20%",
-            right: "8%",
-            zIndex: 25,
-            transform: "rotate(15deg)",
-          }}
-        >
-          <StarShape size={60} />
-        </div>
-
-        {/* TriangleSet — scattered in hero, 2-3 instances at different positions/sizes */}
-        {/* Instance 1: top-left area */}
-        <div
-          className="absolute pointer-events-none hidden sm:block"
-          style={{
-            top: "16%",
-            left: "8%",
-            zIndex: 25,
-            opacity: 0.7,
-            transform: "rotate(-10deg)",
-          }}
-        >
-          <TriangleSet size={44} />
-        </div>
-
-        {/* Instance 2: middle-right floating */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            top: "64%",
-            right: "10%",
-            zIndex: 25,
-            opacity: 0.65,
-            transform: "rotate(20deg)",
-          }}
-        >
-          <TriangleSet size={36} />
-        </div>
-
-        {/* Instance 3: bottom-center floating */}
-        <div
-          className="absolute pointer-events-none hidden md:block"
-          style={{
-            bottom: "12%",
-            left: "45%",
-            zIndex: 25,
-            opacity: 0.5,
-            transform: "rotate(180deg)",
-          }}
-        >
-          <TriangleSet size={30} />
-        </div>
-      </div>
-
-      {/* 2.5. FULL WIDTH 3D CARD CAROUSEL (BETWEEN HERO AND TRENDING) */}
-      <section
-        className="w-full relative z-10 select-none overflow-hidden"
-        style={{
-          backgroundColor: "#000000",
-          padding: "80px 0",
-        }}
-      >
-        {/* Section header (px-8 max-width 1440px mx-auto mb-12) */}
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-8 mb-12">
-          <span
-            className="block font-mono text-[#8B5CF6] uppercase mb-2 font-bold"
-            style={{
-              fontSize: "10px",
-              letterSpacing: "0.12em",
-            }}
-          >
-            ↗ EVENTS THIS WEEKEND
-          </span>
-          <h2
-            className="font-sans text-white m-0 leading-[0.95]"
-            style={{
-              fontWeight: 900,
-              fontSize: "clamp(36px, 5vw, 64px)",
-              letterSpacing: "-0.03em",
-            }}
-          >
-            DISCOVER WHAT&apos;S ON
-          </h2>
-        </div>
-
-        {/* Full-width CardCarousel */}
-        <CardCarousel
-          items={weekendCarouselItems}
-          initialIndex={2}
-          autoPlay={true}
-          interval={3000}
-        />
-      </section>
-
-      {/* 3. TRENDING SECTION (LIGHT BACKGROUND BELOW HERO) */}
-      <div className="relative w-full">
-        <TrendingSection />
-
-        {/* DotGrid — bottom left of trending section, position absolute, bottom 40px, left 40px */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            bottom: "40px",
-            left: "40px",
-            zIndex: 20,
-          }}
-        >
-          <DotGrid />
-        </div>
-      </div>
-
-      {/* 4. CLUBS MARQUEE */}
-      <div className="relative w-full overflow-hidden">
-        <ClubsMarquee />
-
-        {/* CrossHair (48px) — top right of clubs section */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            top: "40px",
-            right: "48px",
-            zIndex: 20,
-          }}
-        >
-          <CrossHair size={48} stroke="rgba(139, 92, 246, 0.4)" />
-        </div>
-      </div>
-
-      <div className="w-full pt-[84px] pb-[80px] relative z-10">
+      <div className="w-full pt-[120px] pb-[80px] relative z-10">
         {/* Subtle Ambient Radial Glow */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[550px] pointer-events-none z-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(139,92,246,0.12) 0%, rgba(236,72,153,0.06) 50%, transparent 70%)",
+              "radial-gradient(ellipse at center, rgba(255,225,77,0.12) 0%, rgba(255,79,163,0.06) 50%, transparent 70%)",
           }}
           aria-hidden="true"
         />
@@ -535,23 +318,23 @@ export default function AuthenticatedHomePage() {
           <section className="space-y-6 pt-4">
             {/* 2. Personalized Greeting */}
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111111] border border-[#1A1A1A] mb-2.5">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#15151C] border border-[#25252F] mb-2.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse" />
-                <span className="font-mono text-xs text-[#666666] uppercase tracking-wider">
+                <span className="font-mono text-xs text-[#8E8C9C] uppercase tracking-wider">
                   GOOD EVENING, {user.name}
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
-                WHAT&apos;S YOUR VIBE TONIGHT?
+              <h1 className="text-[clamp(44px,7vw,96px)] font-extrabold uppercase leading-[0.88] text-white">
+                What&apos;s your vibe <span className="text-yellow">tonight?</span>
               </h1>
-              <p className="text-sm sm:text-base text-[#666666] font-sans mt-2">
+              <p className="text-sm sm:text-base text-[#8E8C9C] font-sans mt-2">
                 Discover events, people and places around Bangalore.
               </p>
             </div>
 
             {/* 3. Search Bar */}
             <form onSubmit={handleSearchSubmit} className="relative max-w-2xl">
-              <span className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#666666]">
+              <span className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#8E8C9C]">
                 <Search className="w-5 h-5" />
               </span>
               <input
@@ -559,11 +342,11 @@ export default function AuthenticatedHomePage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="SEARCH EVENTS, CLUBS, PEOPLE..."
-                className="w-full bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6]/50 focus:border-[#8B5CF6] rounded-[12px] pl-12 pr-28 py-3.5 sm:py-4 text-xs sm:text-sm font-mono text-white placeholder-[#666666] focus:outline-none transition-all shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
+                className="w-full bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D]/50 focus:border-[#FFE14D] rounded-[12px] pl-12 pr-28 py-3.5 sm:py-4 text-xs sm:text-sm font-mono text-white placeholder-[#8E8C9C] focus:outline-none transition-all shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
               />
               <button
                 type="submit"
-                className="absolute inset-y-1.5 right-1.5 px-4 sm:px-5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5"
+                className="absolute inset-y-1.5 right-1.5 px-4 sm:px-5 rounded-[4px] bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5"
               >
                 <span>EXPLORE</span>
                 <ArrowRight className="w-3.5 h-3.5 hidden sm:inline" />
@@ -581,8 +364,8 @@ export default function AuthenticatedHomePage() {
                     onClick={() => handleFilterClick(filter)}
                     className={`px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all duration-150 whitespace-nowrap shrink-0 ${
                       isActive
-                        ? "bg-[#8B5CF6] text-white font-bold "
-                        : "bg-[#111111] text-[#666666] hover:text-white hover:bg-[#111111] border border-[#1A1A1A]"
+                        ? "bg-[#FFE14D] text-[#0B0B10] font-bold "
+                        : "bg-[#15151C] text-[#8E8C9C] hover:text-white hover:bg-[#15151C] border border-[#25252F]"
                     }`}
                   >
                     {filter}
@@ -599,22 +382,22 @@ export default function AuthenticatedHomePage() {
             <div className="flex items-end justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <Flame className="w-4 h-4 text-[#EC4899]" />
-                  <span className="font-mono text-xs text-[#EC4899] font-bold uppercase tracking-wider">
+                  <Flame className="w-4 h-4 text-[#FF4FA3]" />
+                  <span className="font-mono text-xs text-[#FF4FA3] font-bold uppercase tracking-wider">
                     FEATURED TONIGHT
                   </span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   WHAT&apos;S HAPPENING TONIGHT?
                 </h2>
-                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-0.5">
                   The city&apos;s plans start here.
                 </p>
               </div>
 
               <Link
                 href="/discover"
-                className="text-xs font-mono text-[#8B5CF6] hover:underline inline-flex items-center gap-1 shrink-0"
+                className="text-xs font-mono text-[#FFE14D] hover:underline inline-flex items-center gap-1 shrink-0"
               >
                 <span>VIEW ALL</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -639,22 +422,22 @@ export default function AuthenticatedHomePage() {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
-                  <span className="font-mono text-xs text-[#8B5CF6] font-bold uppercase tracking-wider">
+                  <Sparkles className="w-4 h-4 text-[#FFE14D]" />
+                  <span className="font-mono text-xs text-[#FFE14D] font-bold uppercase tracking-wider">
                     BECAUSE YOU LIKE TECHNO &amp; HOUSE IN INDIRANAGAR
                   </span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   MADE FOR YOUR VIBE
                 </h2>
-                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-0.5">
                   Based on the things you selected during setup.
                 </p>
               </div>
 
               <Link
                 href="/discover"
-                className="text-xs font-mono text-[#8B5CF6] hover:underline inline-flex items-center gap-1 shrink-0"
+                className="text-xs font-mono text-[#FFE14D] hover:underline inline-flex items-center gap-1 shrink-0"
               >
                 <span>EXPLORE MATCHES</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -687,14 +470,14 @@ export default function AuthenticatedHomePage() {
                 <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   WHO&apos;S GOING OUT?
                 </h2>
-                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-0.5">
                   See who&apos;s already planning their night.
                 </p>
               </div>
 
               <Link
                 href="/people"
-                className="text-xs font-mono text-[#8B5CF6] hover:underline inline-flex items-center gap-1 shrink-0"
+                className="text-xs font-mono text-[#FFE14D] hover:underline inline-flex items-center gap-1 shrink-0"
               >
                 <span>DISCOVER PEOPLE</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -717,15 +500,15 @@ export default function AuthenticatedHomePage() {
           {/* ================================================== */}
           {/* 9. FIND YOUR CROWD (Social Architecture Pillar) */}
           {/* ================================================== */}
-          <section className="p-6 sm:p-8 rounded-[12px] bg-[#111111] border border-[#1A1A1A] shadow-xl space-y-6 relative overflow-hidden">
+          <section className="p-6 sm:p-8 rounded-[12px] bg-[#15151C] border border-[#25252F] shadow-xl space-y-6 relative overflow-hidden">
             <div>
-              <span className="font-mono text-xs text-[#8B5CF6] font-bold uppercase tracking-widest block mb-1">
+              <span className="font-mono text-xs text-[#FFE14D] font-bold uppercase tracking-widest block mb-1">
                 SOCIAL NIGHTLIFE
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                 FIND YOUR CROWD
               </h2>
-              <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1 max-w-xl">
+              <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-1 max-w-xl">
                 Your next night out doesn&apos;t have to start with a group chat. Connect with people, communities, and crews directly.
               </p>
             </div>
@@ -734,20 +517,20 @@ export default function AuthenticatedHomePage() {
               {/* Card 1: PEOPLE */}
               <Link
                 href="/people"
-                className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] transition-all duration-200 group flex flex-col justify-between"
+                className="p-6 rounded-[12px] bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D] transition-all duration-200 group flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center mb-4 text-[#8B5CF6]">
+                  <div className="w-10 h-10 rounded-xl bg-[#FFE14D]/15 border border-[#FFE14D]/30 flex items-center justify-center mb-4 text-[#FFE14D]">
                     <Users className="w-5 h-5" />
                   </div>
-                  <h3 className="font-sans font-bold text-lg text-white group-hover:text-[#8B5CF6] transition-colors mb-1">
+                  <h3 className="font-sans font-bold text-lg text-white group-hover:text-[#FFE14D] transition-colors mb-1">
                     PEOPLE
                   </h3>
-                  <p className="text-xs text-[#666666] font-sans leading-relaxed">
+                  <p className="text-xs text-[#8E8C9C] font-sans leading-relaxed">
                     Find people with your vibe heading to the same events.
                   </p>
                 </div>
-                <span className="font-mono text-xs text-[#8B5CF6] font-bold mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                <span className="font-mono text-xs text-[#FFE14D] font-bold mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                   EXPLORE PEOPLE →
                 </span>
               </Link>
@@ -755,20 +538,20 @@ export default function AuthenticatedHomePage() {
               {/* Card 2: COMMUNITIES */}
               <Link
                 href="/communities"
-                className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] transition-all duration-200 group flex flex-col justify-between"
+                className="p-6 rounded-[12px] bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D] transition-all duration-200 group flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#EC4899]/15 border border-[#EC4899]/30 flex items-center justify-center mb-4 text-[#EC4899]">
+                  <div className="w-10 h-10 rounded-xl bg-[#FF4FA3]/15 border border-[#FF4FA3]/30 flex items-center justify-center mb-4 text-[#FF4FA3]">
                     <Compass className="w-5 h-5" />
                   </div>
-                  <h3 className="font-sans font-bold text-lg text-white group-hover:text-[#EC4899] transition-colors mb-1">
+                  <h3 className="font-sans font-bold text-lg text-white group-hover:text-[#FF4FA3] transition-colors mb-1">
                     COMMUNITIES
                   </h3>
-                  <p className="text-xs text-[#666666] font-sans leading-relaxed">
+                  <p className="text-xs text-[#8E8C9C] font-sans leading-relaxed">
                     Join ongoing conversations around the nightlife music you love.
                   </p>
                 </div>
-                <span className="font-mono text-xs text-[#EC4899] font-bold mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                <span className="font-mono text-xs text-[#FF4FA3] font-bold mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                   EXPLORE COMMUNITIES →
                 </span>
               </Link>
@@ -776,7 +559,7 @@ export default function AuthenticatedHomePage() {
               {/* Card 3: CREWS */}
               <Link
                 href="/crews"
-                className="p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A] hover:border-[#8B5CF6] transition-all duration-200 group flex flex-col justify-between"
+                className="p-6 rounded-[12px] bg-[#15151C] border border-[#25252F] hover:border-[#FFE14D] transition-all duration-200 group flex flex-col justify-between"
               >
                 <div>
                   <div className="w-10 h-10 rounded-xl bg-[#22C55E]/15 border border-[#22C55E]/30 flex items-center justify-center mb-4 text-[#22C55E]">
@@ -785,7 +568,7 @@ export default function AuthenticatedHomePage() {
                   <h3 className="font-sans font-bold text-lg text-white group-hover:text-[#22C55E] transition-colors mb-1">
                     CREWS
                   </h3>
-                  <p className="text-xs text-[#666666] font-sans leading-relaxed">
+                  <p className="text-xs text-[#8E8C9C] font-sans leading-relaxed">
                     Find or build a temporary squad for your next night out.
                   </p>
                 </div>
@@ -802,20 +585,20 @@ export default function AuthenticatedHomePage() {
           <section className="space-y-6">
             <div className="flex items-end justify-between">
               <div>
-                <span className="font-mono text-xs text-[#8B5CF6] font-bold uppercase tracking-wider block mb-1">
+                <span className="font-mono text-xs text-[#FFE14D] font-bold uppercase tracking-wider block mb-1">
                   BANGALORE VENUES
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   POPULAR CLUBS
                 </h2>
-                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-0.5">
                   Places the city is talking about.
                 </p>
               </div>
 
               <Link
                 href="/clubs"
-                className="text-xs font-mono text-[#8B5CF6] hover:underline inline-flex items-center gap-1 shrink-0"
+                className="text-xs font-mono text-[#FFE14D] hover:underline inline-flex items-center gap-1 shrink-0"
               >
                 <span>VIEW ALL</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -840,20 +623,20 @@ export default function AuthenticatedHomePage() {
           <section className="space-y-6">
             <div className="flex items-end justify-between">
               <div>
-                <span className="font-mono text-xs text-[#8B5CF6] font-bold uppercase tracking-wider block mb-1">
+                <span className="font-mono text-xs text-[#FFE14D] font-bold uppercase tracking-wider block mb-1">
                   SHARED PASSIONS
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                   ACTIVE COMMUNITIES
                 </h2>
-                <p className="text-xs sm:text-sm text-[#666666] font-sans mt-0.5">
+                <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-0.5">
                   Find people who are into the same things.
                 </p>
               </div>
 
               <Link
                 href="/communities"
-                className="text-xs font-mono text-[#8B5CF6] hover:underline inline-flex items-center gap-1 shrink-0"
+                className="text-xs font-mono text-[#FFE14D] hover:underline inline-flex items-center gap-1 shrink-0"
               >
                 <span>VIEW ALL</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -875,15 +658,15 @@ export default function AuthenticatedHomePage() {
           {/* ================================================== */}
           {/* 12. CREW CTA */}
           {/* ================================================== */}
-          <section className="p-8 sm:p-12 rounded-[12px] bg-gradient-to-r from-[#111111] via-[#111111] to-[#111111] border border-[#1A1A1A] shadow-2xl relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+          <section className="p-8 sm:p-12 rounded-[12px] bg-gradient-to-r from-[#15151C] via-[#15151C] to-[#15151C] border border-[#25252F] shadow-2xl relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="max-w-xl">
-              <span className="font-mono text-xs text-[#EC4899] font-bold uppercase tracking-widest block mb-1.5">
+              <span className="font-mono text-xs text-[#FF4FA3] font-bold uppercase tracking-widest block mb-1.5">
                 NEVER GO OUT ALONE
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                 NO CREW YET?
               </h2>
-              <p className="text-sm text-[#666666] font-sans mt-2 leading-relaxed">
+              <p className="text-sm text-[#8E8C9C] font-sans mt-2 leading-relaxed">
                 Find people for your next plan or start your own crew. Connect with verified attendees before doors open.
               </p>
             </div>
@@ -891,13 +674,13 @@ export default function AuthenticatedHomePage() {
             <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full sm:w-auto">
               <Link
                 href="/crews"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-[4px] bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.3)] text-center"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-[4px] bg-[#FFE14D] hover:bg-[#F2CF2E] text-[#0B0B10] font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(255,225,77,0.3)] text-center"
               >
                 FIND A CREW
               </Link>
               <Link
                 href="/crews"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-[4px] bg-[#111111] hover:bg-[#1A1A1A] text-white border border-[#1A1A1A] font-mono text-xs font-bold uppercase tracking-wider transition-colors text-center"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-[4px] bg-[#15151C] hover:bg-[#25252F] text-white border border-[#25252F] font-mono text-xs font-bold uppercase tracking-wider transition-colors text-center"
               >
                 CREATE A CREW
               </Link>
@@ -908,7 +691,7 @@ export default function AuthenticatedHomePage() {
           {/* 13. FULL-BLEED TEXT SECTION */}
           {/* ================================================== */}
           <section
-            className="relative w-screen left-1/2 -translate-x-1/2 bg-[#000000] text-left select-none"
+            className="relative w-screen left-1/2 -translate-x-1/2 bg-[#0B0B10] text-left select-none"
             style={{
               padding: "140px 8vw",
             }}
@@ -942,7 +725,7 @@ export default function AuthenticatedHomePage() {
                   fontWeight: 900,
                   fontSize: "clamp(64px, 10vw, 140px)",
                   letterSpacing: "-0.04em",
-                  color: "#8B5CF6",
+                  color: "#FFE14D",
                 }}
               >
                 VIBE.
@@ -955,7 +738,7 @@ export default function AuthenticatedHomePage() {
                   marginTop: "48px",
                   fontWeight: 400,
                   fontSize: "16px",
-                  color: "#444444",
+                  color: "#5E5C6B",
                   maxWidth: "360px",
                   lineHeight: 1.6,
                 }}
@@ -968,21 +751,21 @@ export default function AuthenticatedHomePage() {
           {/* ================================================== */}
           {/* 14. VIBES FEED TEASER (V2 Feature Preview) */}
           {/* ================================================== */}
-          <section className="p-6 sm:p-8 rounded-[12px] bg-[#111111] border border-[#1A1A1A]/80 text-center space-y-3">
-            <div className="w-10 h-10 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 flex items-center justify-center mx-auto text-[#8B5CF6]">
+          <section className="p-6 sm:p-8 rounded-[12px] bg-[#15151C] border border-[#25252F]/80 text-center space-y-3">
+            <div className="w-10 h-10 rounded-full bg-[#FFE14D]/15 border border-[#FFE14D]/30 flex items-center justify-center mx-auto text-[#FFE14D]">
               <Radio className="w-5 h-5" />
             </div>
             <div>
               <h2 className="text-xl sm:text-2xl font-extrabold tracking-[-0.03em] font-sans text-white tracking-tight">
                 YOUR NIGHT. YOUR VIBE.
               </h2>
-              <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1 max-w-md mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-1 max-w-md mx-auto leading-relaxed">
                 Soon you&apos;ll be able to share the moments, sounds, and visuals that make your night unforgettable.
               </p>
             </div>
             <div className="pt-2">
-              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#111111] border border-[#1A1A1A] font-mono text-[11px] text-[#666666] font-bold">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6] animate-pulse" />
+              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#15151C] border border-[#25252F] font-mono text-[11px] text-[#8E8C9C] font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFE14D] animate-pulse" />
                 <span>COMING SOON</span>
               </span>
             </div>

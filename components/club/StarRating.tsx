@@ -1,6 +1,6 @@
 "use client";
 
-import { Star } from "lucide-react";
+import { Star } from "@/components/icons";
 
 interface StarRatingProps {
   value: number;
@@ -46,12 +46,12 @@ export default function StarRating({
               aria-checked={starNumber === value}
               aria-label={`${starNumber} star${starNumber > 1 ? "s" : ""}`}
               onClick={() => onChange?.(starNumber)}
-              className="p-1 text-amber-400 hover:scale-110 active:scale-95 transition-transform focus:outline-none focus-visible:ring-1 focus-visible:ring-[#8B5CF6] rounded"
+              className="p-1 text-amber-400 hover:scale-110 active:scale-95 transition-transform focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FFE14D] rounded"
             >
               <Star
                 className={`${starClass} transition-colors ${
                   isFilled
-                    ? "fill-amber-400 text-amber-400"
+                    ? "text-[#FFE14D]"
                     : "text-zinc-600 hover:text-amber-300"
                 }`}
               />
@@ -63,7 +63,7 @@ export default function StarRating({
           <Star
             key={i}
             className={`${starClass} ${
-              isFilled ? "fill-amber-400 text-amber-400" : "text-zinc-600"
+              isFilled ? "text-[#FFE14D]" : "text-zinc-600"
             }`}
           />
         );

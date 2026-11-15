@@ -3,25 +3,25 @@
 import { useRouter } from "next/navigation";
 import EventCard from "@/components/EventCard";
 import { relatedEventsList } from "@/lib/events-data";
-import { Sparkles } from "lucide-react";
+import { Sparkles } from "@/components/icons";
 
 export default function RelatedEvents() {
   const router = useRouter();
 
   return (
-    <section className="w-full mt-14 pt-10 border-t border-[#1A1A1A]">
+    <section className="w-full mt-14 pt-10 border-t border-[#25252F]">
       {/* Header */}
       <div className="mb-6 sm:mb-8">
         <div className="flex items-center gap-2 mb-1.5">
-          <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
-          <span className="font-mono text-xs text-[#8B5CF6] uppercase tracking-wider font-semibold">
+          <Sparkles className="w-4 h-4 text-[#FFE14D]" />
+          <span className="font-mono text-xs text-[#FFE14D] uppercase tracking-wider font-semibold">
             CURATED NIGHTLIFE
           </span>
         </div>
         <h3 className="text-2xl sm:text-3xl font-bold font-sans text-white tracking-tight">
           MORE NIGHTS YOU MIGHT LIKE
         </h3>
-        <p className="text-xs sm:text-sm text-[#666666] font-sans mt-1">
+        <p className="text-xs sm:text-sm text-[#8E8C9C] font-sans mt-1">
           Explore upcoming techno, house, and electronic experiences across Bangalore.
         </p>
       </div>

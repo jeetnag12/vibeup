@@ -1,4 +1,4 @@
-import { Calendar, Clock, MapPin, Music, ShieldAlert } from "lucide-react";
+import { Calendar, Clock, MapPin, Music, ShieldAlert } from "@/components/icons";
 import { DetailedEvent } from "@/lib/events-data";
 
 interface EventInfoGridProps {
@@ -11,7 +11,7 @@ export default function EventInfoGrid({ event }: EventInfoGridProps) {
       label: "DATE",
       value: "Saturday, 03 October 2026",
       icon: Calendar,
-      color: "text-[#8B5CF6]",
+      color: "text-[#FFE14D]",
     },
     {
       label: "TIME",
@@ -23,19 +23,19 @@ export default function EventInfoGrid({ event }: EventInfoGridProps) {
       label: "VENUE",
       value: event.venue,
       icon: MapPin,
-      color: "text-[#EC4899]",
+      color: "text-[#FF4FA3]",
     },
     {
       label: "LOCATION",
       value: `${event.area}, ${event.city}`,
       icon: MapPin,
-      color: "text-[#666666]",
+      color: "text-[#8E8C9C]",
     },
     {
       label: "GENRE",
       value: event.genre,
       icon: Music,
-      color: "text-[#8B5CF6]",
+      color: "text-[#FFE14D]",
     },
     {
       label: "AGE",
@@ -46,7 +46,7 @@ export default function EventInfoGrid({ event }: EventInfoGridProps) {
   ];
 
   return (
-    <div className="w-full my-8 p-5 sm:p-6 rounded-[12px] bg-[#111111] border border-[#1A1A1A]">
+    <div className="w-full my-8 p-5 sm:p-6 rounded-[12px] bg-[#15151C] border border-[#25252F]">
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
         {infoItems.map((item) => {
           const Icon = item.icon;
@@ -54,7 +54,7 @@ export default function EventInfoGrid({ event }: EventInfoGridProps) {
             <div key={item.label} className="flex flex-col">
               <div className="flex items-center gap-1.5 mb-1.5">
                 <Icon className={`w-3.5 h-3.5 ${item.color} opacity-90`} />
-                <span className="font-mono text-[11px] text-[#666666] uppercase tracking-wider">
+                <span className="font-mono text-[11px] text-[#8E8C9C] uppercase tracking-wider">
                   {item.label}
                 </span>
               </div>

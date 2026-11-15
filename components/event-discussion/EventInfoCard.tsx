@@ -1,6 +1,6 @@
 "use client";
 
-import { Calendar, Clock, MapPin, ShieldAlert, Sparkles } from "lucide-react";
+import { Calendar, Clock, MapPin, ShieldAlert, Sparkles } from "@/components/icons";
 import { DetailedEvent } from "@/lib/events-data";
 
 interface EventInfoCardProps {
@@ -13,7 +13,7 @@ export default function EventInfoCard({ event }: EventInfoCardProps) {
       label: "DATE",
       value: event.dateDisplay,
       icon: Calendar,
-      color: "text-[#8B5CF6]",
+      color: "text-[#FFE14D]",
     },
     {
       label: "TIME",
@@ -25,7 +25,7 @@ export default function EventInfoCard({ event }: EventInfoCardProps) {
       label: "VENUE",
       value: event.venue,
       icon: MapPin,
-      color: "text-[#EC4899]",
+      color: "text-[#FF4FA3]",
     },
     {
       label: "LOCATION",
@@ -42,10 +42,10 @@ export default function EventInfoCard({ event }: EventInfoCardProps) {
   ];
 
   return (
-    <div className="p-5 rounded-[12px] bg-[#111111] border border-[#1A1A1A] flex flex-col gap-4">
-      <div className="flex items-center justify-between pb-3 border-b border-[#1A1A1A]">
+    <div className="p-5 rounded-[12px] bg-[#15151C] border border-[#25252F] flex flex-col gap-4">
+      <div className="flex items-center justify-between pb-3 border-b border-[#25252F]">
         <div className="flex items-center gap-2">
-          <Sparkles className="w-3.5 h-3.5 text-[#8B5CF6]" />
+          <Sparkles className="w-3.5 h-3.5 text-[#FFE14D]" />
           <span className="font-mono text-xs text-white font-bold tracking-wider uppercase">
             PINNED EVENT INFO
           </span>
@@ -60,11 +60,11 @@ export default function EventInfoCard({ event }: EventInfoCardProps) {
           const Icon = item.icon;
           return (
             <div key={item.label} className="flex items-start gap-3">
-              <div className="w-7 h-7 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-7 h-7 rounded-lg bg-[#15151C] border border-[#25252F] flex items-center justify-center shrink-0 mt-0.5">
                 <Icon className={`w-3.5 h-3.5 ${item.color}`} />
               </div>
               <div className="min-w-0">
-                <span className="font-mono text-[10px] text-[#666666] block uppercase tracking-wider">
+                <span className="font-mono text-[10px] text-[#8E8C9C] block uppercase tracking-wider">
                   {item.label}
                 </span>
                 <span className="font-sans text-xs font-semibold text-white truncate block">

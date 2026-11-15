@@ -1,7 +1,7 @@
 "use client";
 
 import { VibeCategory } from "@/lib/clubs-data";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@/components/icons";
 
 interface VibeCategoryCardProps {
   vibe: VibeCategory;
@@ -19,10 +19,10 @@ export default function VibeCategoryCard({
       type="button"
       onClick={() => onSelect(vibe)}
       aria-pressed={isSelected}
-      className={`group relative w-full h-[180px] sm:h-[200px] rounded-[12px] overflow-hidden border text-left transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#8B5CF6] ${
+      className={`group relative w-full h-[180px] sm:h-[200px] rounded-[12px] overflow-hidden border text-left transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#FFE14D] ${
         isSelected
-          ? "border-[#8B5CF6] ring-2 ring-[#8B5CF6]/50 "
-          : "border-[#1A1A1A] hover:border-[#8B5CF6]/60 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)]"
+          ? "border-[#FFE14D] ring-2 ring-[#FFE14D]/50 "
+          : "border-[#25252F] hover:border-[#FFE14D]/60 hover:shadow-[0_0_20px_rgba(255,225,77,0.2)]"
       }`}
     >
       {/* Background Image with Overlay */}
@@ -32,7 +32,7 @@ export default function VibeCategoryCard({
         alt={vibe.title}
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/60 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10] via-[#0B0B10]/60 to-black/20" />
 
       {/* Top Badge */}
       <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
@@ -40,7 +40,7 @@ export default function VibeCategoryCard({
           {vibe.badge}
         </span>
         {isSelected && (
-          <span className="font-mono text-[10px] font-bold text-white bg-[#8B5CF6] px-2 py-0.5 rounded-full shadow-sm">
+          <span className="font-mono text-[10px] font-bold text-[#0B0B10] bg-[#FFE14D] px-2 py-0.5 rounded-full shadow-sm">
             ACTIVE FILTER
           </span>
         )}
@@ -49,10 +49,10 @@ export default function VibeCategoryCard({
       {/* Card Content at bottom */}
       <div className="absolute bottom-3.5 left-3.5 right-3.5">
         <div className="flex items-center justify-between gap-2 mb-1">
-          <h4 className="font-sans font-bold text-lg text-white tracking-tight group-hover:text-[#8B5CF6] transition-colors">
+          <h4 className="font-sans font-bold text-lg text-white tracking-tight group-hover:text-[#FFE14D] transition-colors">
             {vibe.title}
           </h4>
-          <ArrowRight className="w-4 h-4 text-[#8B5CF6] opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all shrink-0" />
+          <ArrowRight className="w-4 h-4 text-[#FFE14D] opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all shrink-0" />
         </div>
         <p className="font-sans text-xs text-[#D4D4D8] line-clamp-1 leading-snug">
           {vibe.subtitle}

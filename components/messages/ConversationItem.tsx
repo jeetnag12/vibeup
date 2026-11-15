@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Users, Calendar, Radio, User } from "lucide-react";
+import { Users, Calendar, Radio, User } from "@/components/icons";
 import { Conversation } from "@/lib/messages-data";
 
 interface ConversationItemProps {
@@ -25,13 +25,13 @@ export default function ConversationItem({
         return {
           label: "PERSON",
           icon: <User className="w-2.5 h-2.5" />,
-          color: "text-[#A78BFA] bg-[#8B5CF6]/10 border-[#8B5CF6]/30",
+          color: "text-[#FFEA80] bg-[#FFE14D]/10 border-[#FFE14D]/30",
         };
       case "crew":
         return {
           label: "CREW",
           icon: <Users className="w-2.5 h-2.5" />,
-          color: "text-[#F472B6] bg-[#EC4899]/10 border-[#EC4899]/30",
+          color: "text-[#F472B6] bg-[#FF4FA3]/10 border-[#FF4FA3]/30",
         };
       case "event":
         return {
@@ -43,7 +43,7 @@ export default function ConversationItem({
         return {
           label: "COMMUNITY",
           icon: <Radio className="w-2.5 h-2.5" />,
-          color: "text-[#22D3EE] bg-[#06B6D4]/10 border-[#06B6D4]/30",
+          color: "text-[#22D3EE] bg-[#5CC8FF]/10 border-[#5CC8FF]/30",
         };
     }
   };
@@ -64,15 +64,15 @@ export default function ConversationItem({
       aria-label={`Conversation with ${conversation.name}, ${
         isUnread ? `${conversation.unreadCount} unread messages` : "all read"
       }`}
-      className={`group relative w-full p-3 sm:p-3.5 rounded-xl border transition-all duration-200 cursor-pointer flex items-center gap-3 select-none outline-none focus-visible:ring-2 focus-visible:ring-[#8B5CF6] ${
+      className={`group relative w-full p-3 sm:p-3.5 rounded-xl border transition-all duration-200 cursor-pointer flex items-center gap-3 select-none outline-none focus-visible:ring-2 focus-visible:ring-[#FFE14D] ${
         isSelected
-          ? "bg-[#8B5CF6]/15 border-[#8B5CF6]/60 shadow-[0_0_16px_rgba(139,92,246,0.18)]"
-          : "bg-transparent border-transparent hover:bg-[#111111]/80 hover:border-[#1A1A1A]"
+          ? "bg-[#FFE14D]/15 border-[#FFE14D]/60 shadow-[0_0_16px_rgba(255,225,77,0.18)]"
+          : "bg-transparent border-transparent hover:bg-[#15151C]/80 hover:border-[#25252F]"
       }`}
     >
       {/* Avatar Container with Indicators */}
       <div className="relative shrink-0 w-11 h-11 rounded-full overflow-visible">
-        <div className="w-full h-full rounded-full overflow-hidden border border-[#1A1A1A] bg-[#111111] relative">
+        <div className="w-full h-full rounded-full overflow-hidden border border-[#25252F] bg-[#15151C] relative">
           <Image
             src={conversation.avatar}
             alt={conversation.name}
@@ -85,7 +85,7 @@ export default function ConversationItem({
         {/* Online Indicator for Person */}
         {conversation.type === "person" && conversation.online && (
           <span
-            className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-[#22C55E] border-2 border-[#111111] shadow-[0_0_8px_#22C55E]"
+            className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-[#22C55E] border-2 border-[#15151C] shadow-[0_0_8px_#22C55E]"
             aria-label="Online"
             title="Online"
           />
@@ -94,12 +94,12 @@ export default function ConversationItem({
         {/* Type Icon Pill for Group Chats */}
         {conversation.type !== "person" && (
           <span
-            className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center border border-[#111111] text-[9px] ${
+            className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center border border-[#15151C] text-[9px] ${
               conversation.type === "crew"
-                ? "bg-[#EC4899] text-white"
+                ? "bg-[#FF4FA3] text-white"
                 : conversation.type === "event"
                 ? "bg-[#F59E0B] text-black"
-                : "bg-[#06B6D4] text-black"
+                : "bg-[#5CC8FF] text-black"
             }`}
           >
             {badge.icon}
@@ -130,7 +130,7 @@ export default function ConversationItem({
 
           <span
             className={`text-[10px] font-mono shrink-0 ${
-              isUnread ? "text-[#8B5CF6] font-bold" : "text-[#666666]"
+              isUnread ? "text-[#FFE14D] font-bold" : "text-[#8E8C9C]"
             }`}
           >
             {conversation.timestamp}
@@ -143,7 +143,7 @@ export default function ConversationItem({
             className={`text-xs truncate ${
               isUnread
                 ? "text-white font-medium"
-                : "text-[#666666] group-hover:text-[#D4D4D8]"
+                : "text-[#8E8C9C] group-hover:text-[#D4D4D8]"
             }`}
           >
             {conversation.lastMessage}
@@ -152,7 +152,7 @@ export default function ConversationItem({
           {/* Unread Count Pill */}
           {isUnread && (
             <span
-              className="shrink-0 min-w-[18px] h-[18px] px-1.5 rounded-full bg-[#8B5CF6] text-white text-[10px] font-mono font-bold flex items-center justify-center shadow-[0_0_10px_rgba(139,92,246,0.6)]"
+              className="shrink-0 min-w-[18px] h-[18px] px-1.5 rounded-full bg-[#FFE14D] text-[#0B0B10] text-[10px] font-mono font-bold flex items-center justify-center shadow-[0_0_10px_rgba(255,225,77,0.6)]"
               aria-label={`${conversation.unreadCount} unread`}
             >
               {conversation.unreadCount}
